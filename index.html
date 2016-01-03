@@ -65,7 +65,7 @@ function initMap() {
       });
 
       marker.addListener('click', function() {
-        infowindow.setContent('<div><b>' + stop.name + '</b><br>' + stop['name:zh'] + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
+        infowindow.setContent('<div><b>' + stop.name + '</b>' + (stop['name:zh'] ? '<br>' + stop['name:zh'] : '') + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
         infowindow.open(map, marker);
       });
 
