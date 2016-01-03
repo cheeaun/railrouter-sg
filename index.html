@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RailRouter SG</title>
+<style>
+html, body{ height: 100%; margin: 0; padding: 0; }
+#map{ height: 100%; }
+#toggle-transit { vertical-align: middle; padding: 10px; background-color: rgba(255,255,255,.7); line-height: 1; cursor: pointer; }
+#toggle-transit input { vertical-align: middle; margin: 0; }
+</style>
+<div id="map"></div>
+<label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Hide Google's transit layer</label>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
+<script>
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    disableDefaultUI: true,
+    keyboardShortcuts: true,
+  });
+
+  var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(1.25352193438281, 103.62192147229632), new google.maps.LatLng(1.50129709375363, 103.99983438993593));
+  map.fitBounds(bounds);
+
+  var transitLayer = new google.maps.TransitLayer();
+  var $transitCheckbox = document.getElementById('checkbox-transit');
+  transitLayer.setMap($transitCheckbox.checked ? null : map);
+  $transitCheckbox.addEventListener('change', function(){
+    transitLayer.setMap($transitCheckbox.checked ? null : map);
+  }, false);
+  var $transitToggle = document.getElementById('toggle-transit');
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push($transitToggle);
+
+  var infowindow = new google.maps.InfoWindow({
+    maxWidth: 200,
+  });
+
+  fetch('data/all.json').then(function(res){
+    return res.json();
+  }).then(function(data){
+    data.lines.forEach(function(line){
+      var l = new google.maps.Polyline({
+        path: google.maps.geometry.encoding.decodePath(line.coords),
+        strokeColor: line.colour || '#666',
+        strokeOpacity: .6,
+        strokeWeight: 6,
+        clickable: false,
+      });
+      l.setMap(map);
+    });
+
+    var markers = Object.keys(data.stops).map(function(key){
+      var stop = data.stops[key];
+      var visible = map.getZoom() >= 12;
+      var marker = new google.maps.Marker({
+        icon: {
+          url: 'assets/' + stop.network.split(';')[0].toLowerCase() + '.png',
+          scaledSize: new google.maps.Size(16, 16),
+          size: new google.maps.Size(16, 16),
+          anchor: new google.maps.Point(8, 8),
+        },
+        visible: visible,
+        position: {lat: stop.coord[0], lng: stop.coord[1]},
+        map: map,
+      });
+
+      marker.addListener('click', function() {
+        infowindow.setContent('<div><b>' + stop.name + '</b><br>' + stop['name:zh'] + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
+        infowindow.open(map, marker);
+      });
+
+      return marker;
+    });
+
+    google.maps.event.addListener(map, 'zoom_changed', function(){
+      var visible = map.getZoom() >= 12;
+      markers.forEach(function(marker){
+        marker.setOptions({
+          visible: visible,
+        })
+      });
+    });
+  });
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap"></script>
