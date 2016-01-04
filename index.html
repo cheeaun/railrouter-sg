@@ -5,10 +5,35 @@
 <link rel="icon" href="assets/mrt.png">
 <style>
 html, body{ height: 100%; margin: 0; padding: 0; }
+body, input, button { font-family: Roboto, sans-serif; }
+button { font-size: 1em; }
+* { box-sizing: border-box; }
+header { padding: 10px; opacity: .7; cursor: pointer; }
+header:hover { opacity: 1; }
+header h1 { margin: 0; padding: 0; }
+header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
+#about { background-color: rgba(255,255,255,.9); position: absolute; top: 0; left: 0; width: 100%; z-index: 2; padding: 20px 20px 10px; box-shadow: 0 1px 15px rgba(0,0,0,.3); transition: transform .3s; -webkit-transition: -webkit-transform .3s; transform: translateY(-150%); -webkit-transform: translateY(-150%); pointer-events: none; }
+#about.show { transform: translateY(0%); -webkit-transform: translateY(0%); pointer-events: auto; }
+@media screen and (min-width: 500px){
+  #about { width: 500px; left: 50%; margin-left: -250px; }
+}
+@media screen and (min-width: 500px) and (min-height: 300px){
+  #about { border-radius: 5px; margin-top: 20px; }
+}
+#about p { margin-top: 0; padding-top: 0; }
+#about button { width: 100%; }
 #map{ height: 100%; }
 #toggle-transit { vertical-align: middle; padding: 10px; background-color: rgba(255,255,255,.7); line-height: 1; cursor: pointer; }
 #toggle-transit input { vertical-align: middle; margin: 0; }
 </style>
+<header id="heading">
+  <h1><img src="assets/mrt.svg" width="32" height="32" alt="RailRouter SG"></h1>
+</header>
+<div id="about">
+  <p><b>RailRouter SG</b> is a web app to show the <strong>real</strong> MRT and LRT rail routes in Singapore.</p>
+  <p>Explore around and compare the rail route lines to Google's own lines. Zoom in to see the location of the trains stations or stops.</p>
+  <p><button id="about-okay">Okay</button></p>
+</div>
 <div id="map"></div>
 <label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Hide Google's transit layer</label>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
@@ -22,6 +47,21 @@ function initMap() {
 
   var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(1.25352193438281, 103.62192147229632), new google.maps.LatLng(1.50129709375363, 103.99983438993593));
   map.fitBounds(bounds);
+
+  var $about = document.getElementById('about');
+  var $aboutOkay = document.getElementById('about-okay');
+
+  var $header = document.getElementById('heading');
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push($header);
+  var toggleAbout = function(){
+    $about.classList.toggle('show');
+  };
+  $header.addEventListener('click', toggleAbout, false);
+  $aboutOkay.addEventListener('click', toggleAbout, false);
+  if (window.localStorage && !localStorage['railrouter-sg:about']){
+    $about.classList.add('show');
+    localStorage['railrouter-sg:about'] = 1;
+  }
 
   var transitLayer = new google.maps.TransitLayer();
   var $transitCheckbox = document.getElementById('checkbox-transit');
