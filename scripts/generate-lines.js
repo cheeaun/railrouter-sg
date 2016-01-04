@@ -1,6 +1,5 @@
 var got = require('got');
 var parseString = require('xml2js').parseString;
-var polyline = require('polyline');
 var fs = require('fs');
 
 var API = 'http://api.openstreetmap.org/api/0.6/';
