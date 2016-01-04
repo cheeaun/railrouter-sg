@@ -36,7 +36,6 @@ header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
 </div>
 <div id="map"></div>
 <label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Hide Google's transit layer</label>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
 <script>
 var map;
 function initMap() {
@@ -76,9 +75,11 @@ function initMap() {
     maxWidth: 200,
   });
 
-  fetch('data/all.json').then(function(res){
-    return res.json();
-  }).then(function(data){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'data/all.json', true);
+  xhr.onload = function(){
+    var data = JSON.parse(xhr.responseText);
+
     data.lines.forEach(function(line){
       var l = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(line.coords),
@@ -121,7 +122,8 @@ function initMap() {
         })
       });
     });
-  });
+  };
+  xhr.send();
 }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap"></script>
