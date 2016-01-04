@@ -4,11 +4,11 @@
 <title>RailRouter SG</title>
 <link rel="icon" href="assets/mrt.png">
 <style>
-html, body{ height: 100%; margin: 0; padding: 0; }
+html, body{ height: 100%; margin: 0; padding: 0; background-color: #B3D1FF; }
 body, input, button { font-family: Roboto, sans-serif; }
 button { font-size: 1em; }
 * { box-sizing: border-box; }
-header { padding: 10px; opacity: .7; cursor: pointer; }
+header { padding: 10px; opacity: .7; cursor: pointer; position: absolute; }
 header:hover { opacity: 1; }
 header h1 { margin: 0; padding: 0; }
 header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
@@ -40,8 +40,8 @@ header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
 var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
+    backgroundColor: '#B3D1FF',
     disableDefaultUI: true,
-    keyboardShortcuts: true,
   });
 
   var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(1.25352193438281, 103.62192147229632), new google.maps.LatLng(1.50129709375363, 103.99983438993593));
