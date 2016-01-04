@@ -37,8 +37,23 @@ header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
 <div id="map"></div>
 <label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Hide Google's transit layer</label>
 <script>
-var map;
-function initMap() {
+var map, data, loadCount = 0; // 2 means complete
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'data/all.json', true);
+xhr.onload = function(){
+  data = JSON.parse(xhr.responseText);
+  loadCount++;
+  if (loadCount >= 2) init();
+}
+xhr.send();
+
+function initMap(){
+  loadCount++;
+  if (loadCount >= 2) init();
+}
+
+function init(){
   map = new google.maps.Map(document.getElementById('map'), {
     backgroundColor: '#B3D1FF',
     disableDefaultUI: true,
@@ -75,55 +90,48 @@ function initMap() {
     maxWidth: 200,
   });
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'data/all.json', true);
-  xhr.onload = function(){
-    var data = JSON.parse(xhr.responseText);
+  data.lines.forEach(function(line){
+    var l = new google.maps.Polyline({
+      path: google.maps.geometry.encoding.decodePath(line.coords),
+      strokeColor: line.colour || '#666',
+      strokeOpacity: .6,
+      strokeWeight: 6,
+      clickable: false,
+    });
+    l.setMap(map);
+  });
 
-    data.lines.forEach(function(line){
-      var l = new google.maps.Polyline({
-        path: google.maps.geometry.encoding.decodePath(line.coords),
-        strokeColor: line.colour || '#666',
-        strokeOpacity: .6,
-        strokeWeight: 6,
-        clickable: false,
-      });
-      l.setMap(map);
+  var markers = Object.keys(data.stops).map(function(key){
+    var stop = data.stops[key];
+    var visible = map.getZoom() >= 12;
+    var marker = new google.maps.Marker({
+      icon: {
+        url: 'assets/' + stop.network.split(';')[0].toLowerCase() + '.png',
+        scaledSize: new google.maps.Size(16, 16),
+        size: new google.maps.Size(16, 16),
+        anchor: new google.maps.Point(8, 8),
+      },
+      visible: visible,
+      position: {lat: stop.coord[0], lng: stop.coord[1]},
+      map: map,
     });
 
-    var markers = Object.keys(data.stops).map(function(key){
-      var stop = data.stops[key];
-      var visible = map.getZoom() >= 12;
-      var marker = new google.maps.Marker({
-        icon: {
-          url: 'assets/' + stop.network.split(';')[0].toLowerCase() + '.png',
-          scaledSize: new google.maps.Size(16, 16),
-          size: new google.maps.Size(16, 16),
-          anchor: new google.maps.Point(8, 8),
-        },
+    marker.addListener('click', function() {
+      infowindow.setContent('<div><b>' + stop.name + '</b>' + (stop['name:zh'] ? '<br>' + stop['name:zh'] : '') + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
+      infowindow.open(map, marker);
+    });
+
+    return marker;
+  });
+
+  google.maps.event.addListener(map, 'zoom_changed', function(){
+    var visible = map.getZoom() >= 12;
+    markers.forEach(function(marker){
+      marker.setOptions({
         visible: visible,
-        position: {lat: stop.coord[0], lng: stop.coord[1]},
-        map: map,
-      });
-
-      marker.addListener('click', function() {
-        infowindow.setContent('<div><b>' + stop.name + '</b>' + (stop['name:zh'] ? '<br>' + stop['name:zh'] : '') + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
-        infowindow.open(map, marker);
-      });
-
-      return marker;
+      })
     });
-
-    google.maps.event.addListener(map, 'zoom_changed', function(){
-      var visible = map.getZoom() >= 12;
-      markers.forEach(function(marker){
-        marker.setOptions({
-          visible: visible,
-        })
-      });
-    });
-  };
-  xhr.send();
+  });
 }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap"></script>
