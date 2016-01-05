@@ -32,4 +32,6 @@ Here's a sprinkle of NPM magic:
 License
 ---
 
-http://cheeaun.mit-license.org/
+Data: [© OpenStreetMap contributors](http://www.openstreetmap.org/copyright).
+
+Everything else: [MIT](http://cheeaun.mit-license.org/)
