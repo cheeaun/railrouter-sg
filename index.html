@@ -6,9 +6,9 @@
 <style>
 html, body{ height: 100%; margin: 0; padding: 0; background-color: #B3D1FF; }
 body, input, button { font-family: Roboto, sans-serif; }
-button { font-size: 1em; }
+button { font-size: 1em; cursor: pointer; }
 * { box-sizing: border-box; }
-header { padding: 10px; opacity: .7; cursor: pointer; position: absolute; }
+header { padding: 10px; opacity: .7; cursor: pointer; position: absolute; transition: opacity .3s; -webkit-transform: opacity .3s; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 header:hover { opacity: 1; }
 header h1 { margin: 0; padding: 0; }
 header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
