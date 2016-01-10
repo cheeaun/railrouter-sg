@@ -16,7 +16,7 @@ var LINES = [ // Refer to http://wiki.openstreetmap.org/wiki/Mass_Rapid_Transit_
   {code: 'l-se', id: 2312985},
   {code: 'l-pw', id: 2312984},
   {code: 'l-pe', id: 1146942},
-  {code: 'l-as', id: 2313372},
+  {code: 'l-cg', id: 2313372},
 ];
 
 var get = function(url, callback){
@@ -70,8 +70,24 @@ LINES.forEach(function(line){
       }),
       stops: relation.member.filter(function(m){
         var ref = m.$.ref;
-        var node = nodes[ref];
-        return m.$.type == 'node' && m.$.role == 'stop' && node.tag && expandTag(node.tag).railway != 'construction'; // No need under-construction stops
+        var isStop = m.$.role == 'stop';
+        if (m.$.type == 'node' && isStop){
+          var node = nodes[ref];
+          var hasTag = node && node.tag;
+          var meta = hasTag ? expandTag(node.tag) : {};
+          return hasTag && meta.railway != 'construction' && !meta.construction; // No need under-construction stops
+        } else if (m.$.type == 'way' && isStop){
+          // Changi Group line has this. But let's leave this hanging for a while
+          // Reasons:
+          // - This is a "way", but it's a polygon, not a polyline
+          // - The "way" contains coordinates of the station/stop building perimeter itself, NOT the center position
+          // - There's no "ref" key
+          return;
+          var way = ways[ref];
+          var hasTag = way && way.tag;
+          return hasTag;
+        }
+        return;
       }).map(function(stop){
         var ref = stop.$.ref;
         var node = nodes[ref];
@@ -83,7 +99,7 @@ LINES.forEach(function(line){
     };
 
     var filePath = 'data/' + line.code + '.json';
-    fs.writeFile(filePath, JSON.stringify(data), function(e){
+    fs.writeFile(filePath, JSON.stringify(data, null, '\t'), function(e){
       if (e) throw e;
       console.log('JSON file generated: ' + filePath);
     });

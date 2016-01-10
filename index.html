@@ -3,29 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RailRouter SG</title>
 <link rel="icon" href="assets/mrt.png">
-<style>
-html, body{ height: 100%; margin: 0; padding: 0; background-color: #B3D1FF; }
-body, input, button { font-family: Roboto, sans-serif; }
-button { font-size: 1em; cursor: pointer; }
-* { box-sizing: border-box; }
-header { padding: 10px; opacity: .7; cursor: pointer; position: absolute; transition: opacity .3s; -webkit-transform: opacity .3s; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-header:hover { opacity: 1; }
-header h1 { margin: 0; padding: 0; }
-header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
-#about { background-color: rgba(255,255,255,.9); position: absolute; top: 0; left: 0; width: 100%; z-index: 2; padding: 20px 20px 10px; box-shadow: 0 1px 15px rgba(0,0,0,.3); transition: transform .3s; -webkit-transition: -webkit-transform .3s; transform: translateY(-150%); -webkit-transform: translateY(-150%); pointer-events: none; }
-#about.show { transform: translateY(0%); -webkit-transform: translateY(0%); pointer-events: auto; }
-@media screen and (min-width: 500px){
-  #about { width: 500px; left: 50%; margin-left: -250px; }
-}
-@media screen and (min-width: 500px) and (min-height: 300px){
-  #about { border-radius: 5px; margin-top: 20px; }
-}
-#about p { margin-top: 0; padding-top: 0; }
-#about button { width: 100%; }
-#map{ height: 100%; }
-#toggle-transit { vertical-align: middle; padding: 10px; background-color: rgba(255,255,255,.7); line-height: 1; cursor: pointer; }
-#toggle-transit input { vertical-align: middle; margin: 0; }
-</style>
+<link rel="stylesheet" href="assets/app.css">
 <header id="heading">
   <h1><img src="assets/mrt.svg" width="32" height="32" alt="RailRouter SG"></h1>
 </header>
@@ -36,103 +14,15 @@ header img { border: 3px solid rgba(255,255,255,.5); border-radius: 50%; }
   <p><button id="about-okay">Okay</button></p>
 </div>
 <div id="map"></div>
-<label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Hide Google's transit layer</label>
+<label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Show Google's transit layer</label>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&signed_in=true&callback=initMap"></script>
+<script src="assets/app.js"></script>
 <script>
-var map, data, loadCount = 0; // 2 means complete
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'data/all.json', true);
-xhr.onload = function(){
-  data = JSON.parse(xhr.responseText);
-  loadCount++;
-  if (loadCount >= 2) init();
-}
-xhr.send();
-
-function initMap(){
-  map = new google.maps.Map(document.getElementById('map'), {
-    backgroundColor: '#B3D1FF',
-    disableDefaultUI: true,
-  });
-
-  var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(1.25352193438281, 103.62192147229632), new google.maps.LatLng(1.50129709375363, 103.99983438993593));
-  map.fitBounds(bounds);
-
-  var transitLayer = new google.maps.TransitLayer();
-  var $transitCheckbox = document.getElementById('checkbox-transit');
-  transitLayer.setMap($transitCheckbox.checked ? null : map);
-  $transitCheckbox.addEventListener('change', function(){
-    transitLayer.setMap($transitCheckbox.checked ? null : map);
-  }, false);
-  var $transitToggle = document.getElementById('toggle-transit');
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push($transitToggle);
-
-  var $about = document.getElementById('about');
-  var $aboutOkay = document.getElementById('about-okay');
-
-  var $header = document.getElementById('heading');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push($header);
-  var toggleAbout = function(){
-    $about.classList.toggle('show');
-  };
-  $header.addEventListener('click', toggleAbout, false);
-  $aboutOkay.addEventListener('click', toggleAbout, false);
-  if (window.localStorage && !localStorage['railrouter-sg:about']){
-    $about.classList.add('show');
-    localStorage['railrouter-sg:about'] = 1;
-  }
-
-  loadCount++;
-  if (loadCount >= 2) init();
-}
-
-function init(){
-  var infowindow = new google.maps.InfoWindow({
-    maxWidth: 200,
-  });
-
-  data.lines.forEach(function(line){
-    var l = new google.maps.Polyline({
-      path: google.maps.geometry.encoding.decodePath(line.coords),
-      strokeColor: line.colour || '#666',
-      strokeOpacity: .6,
-      strokeWeight: 6,
-      clickable: false,
-    });
-    l.setMap(map);
-  });
-
-  var markers = Object.keys(data.stops).map(function(key){
-    var stop = data.stops[key];
-    var visible = map.getZoom() >= 12;
-    var marker = new google.maps.Marker({
-      icon: {
-        url: 'assets/' + stop.network.split(';')[0].toLowerCase() + '.png',
-        scaledSize: new google.maps.Size(16, 16),
-        size: new google.maps.Size(16, 16),
-        anchor: new google.maps.Point(8, 8),
-      },
-      visible: visible,
-      position: {lat: stop.coord[0], lng: stop.coord[1]},
-      map: map,
-    });
-
-    marker.addListener('click', function() {
-      infowindow.setContent('<div><b>' + stop.name + '</b>' + (stop['name:zh'] ? '<br>' + stop['name:zh'] : '') + (stop['name:hi'] ? '<br>' + stop['name:hi'] : '') + '</div>');
-      infowindow.open(map, marker);
-    });
-
-    return marker;
-  });
-
-  google.maps.event.addListener(map, 'zoom_changed', function(){
-    var visible = map.getZoom() >= 12;
-    markers.forEach(function(marker){
-      marker.setOptions({
-        visible: visible,
-      })
-    });
-  });
-}
+// if ('serviceWorker' in navigator){
+//   navigator.serviceWorker.register('service-worker.js').then(function(registration){
+//     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+//   }).catch(function(err){
+//     console.log('ServiceWorker registration failed: ', err);
+//   });
+// }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap"></script>

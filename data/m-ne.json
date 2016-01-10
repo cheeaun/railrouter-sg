@@ -1,1 +1,491 @@
-{"meta":{"colour":"purple","from":"Harbourfront","name":"MRT North East Line (NEL)","network":"Singapore Rail","operator":"SBS Transit","ref":"North-East Line","route":"subway","to":"Punggol","type":"route","wheelchair":"yes"},"ways":[{"id":"20164999","visible":"true","meta":{"gauge":"1435","layer":"-3","name":"North East Line (NE)","railway":"subway","ref":"NEL","tunnel":"yes"},"coords":[[1.2654512,103.8220241],[1.2655688,103.8238397],[1.2656547,103.8242382],[1.2661438,103.825453],[1.2674682,103.8269426],[1.2724055,103.831879],[1.27572,103.8348407],[1.2764544,103.8354781],[1.2797663,103.8394214],[1.2844399,103.8435718],[1.2889762,103.8468694],[1.2919113,103.8473031],[1.2963354,103.8444238],[1.2979649,103.8445689],[1.2991525,103.8451746],[1.307374,103.8497436],[1.3117147,103.853267],[1.31291,103.8542611],[1.3205418,103.8622947],[1.327224,103.8676293],[1.3280548,103.8681577],[1.3295655,103.8687022],[1.3305301,103.8689154],[1.3334261,103.869653],[1.3349792,103.8701922],[1.3387088,103.8706822],[1.3399021,103.8708313],[1.3434253,103.8706608],[1.344219,103.8707393],[1.3449165,103.8709148],[1.3479049,103.8723205],[1.3486255,103.8727754],[1.349945,103.8738724],[1.35981,103.8846753],[1.3658422,103.8909581],[1.3673094,103.8920052],[1.3683992,103.8924773],[1.3696262,103.892709],[1.3720803,103.8927262],[1.3830565,103.89305],[1.3831129,103.8930517],[1.3855057,103.8932933],[1.3896942,103.894631],[1.3953573,103.8968282],[1.4021985,103.9006903],[1.4036081,103.9014871],[1.4055178,103.9025046]]}],"stops":[{"meta":{"name":"HarbourFront","name:en":"HarbourFront","name:hi":"துறைமுகம்","name:ms":"HarbourFront","name:zh":"港湾","network":"MRT","public_transport":"station","railway":"station","ref":"NE1;CC29","station":"subway","wheelchair":"yes"},"coord":[1.2653951,103.8224032]},{"meta":{"name":"Outram Park","name:en":"Outram Park","name:zh":"欧南园","network":"MRT","public_transport":"station","railway":"station","ref":"NE3;EW16;TE17","station":"subway"},"coord":[1.2806848,103.8402413]},{"meta":{"name":"Chinatown","name:en":"Chinatown","name:zh":"牛车水","network":"MRT","public_transport":"station","railway":"station","ref":"NE4;DT19","station":"subway"},"coord":[1.2850195,103.8440033]},{"meta":{"name":"Clarke Quay","name:en":"Clarke Quay","name:zh":"克拉码头","network":"MRT","public_transport":"station","railway":"station","ref":"NE5","station":"subway"},"coord":[1.2889806,103.8468686]},{"meta":{"name":"Dhoby Ghaut","name:en":"Dhoby Ghaut","name:hi":"டோபி காட்","name:ms":"Dhoby Ghaut","name:zh":"多美歌","network":"MRT","public_transport":"station","railway":"station","ref":"NE6;NS24;CC1","station":"subway","wheelchair":"yes"},"coord":[1.2987856,103.8450197]},{"meta":{"name":"Little India","name:en":"Little India","name:zh":"小印度","network":"MRT","public_transport":"station","railway":"station","ref":"NE7;DT12","state":"proposed","station":"subway"},"coord":[1.3065714,103.8492986]},{"meta":{"name":"Farrer Park","name:en":"Farrer Park","name:zh":"花拉公园","network":"MRT","public_transport":"station","railway":"station","ref":"NE8","station":"subway","wheelchair":"yes"},"coord":[1.3128262,103.8541951]},{"meta":{"name":"Boon Keng","name:en":"Boon Keng","name:zh":"文庆","network":"MRT","public_transport":"station","railway":"station","ref":"NE9","station":"subway","wheelchair":"yes"},"coord":[1.3198244,103.8615207]},{"meta":{"name":"Potong Pasir","name:en":"Potong Pasir","name:zh":"波东巴西","network":"MRT","public_transport":"station","railway":"station","ref":"NE10","station":"subway","wheelchair":"yes"},"coord":[1.3312544,103.8690932]},{"meta":{"name":"Woodleigh","name:en":"Woodleigh","name:zh":"兀里","network":"MRT","public_transport":"station","railway":"station","ref":"NE11","station":"subway","wheelchair":"yes"},"coord":[1.3391966,103.8707535]},{"meta":{"name":"Serangoon","name:en":"Serangoon","name:hi":"சிராங்கூன்","name:ms":"Serangoon","name:zh":"实龙岗","network":"MRT","public_transport":"station","railway":"station","ref":"NE12;CC13","station":"subway","wheelchair":"yes"},"coord":[1.3498066,103.8737713]},{"meta":{"name":"Kovan","name:en":"Kovan","name:zh":"高文","network":"MRT","public_transport":"station","railway":"station","ref":"NE13","station":"subway"},"coord":[1.3599769,103.8848743]},{"meta":{"name":"Hougang","name:en":"Hougang","name:zh":"后港","network":"MRT","public_transport":"station","railway":"station","ref":"NE14","station":"subway"},"coord":[1.3719039,103.8927535]},{"meta":{"name":"Buangkok","name:en":"Buangkok","name:zh":"万国","network":"MRT","public_transport":"station","railway":"station","ref":"NE15","station":"subway"},"coord":[1.3830565,103.89305]},{"meta":{"name":"Sengkang","name:en":"Sengkang","name:zh":"盛港","network":"MRT;LRT","public_transport":"station","railway":"station","ref":"NE16;STC","station":"subway","wheelchair":"yes"},"coord":[1.3913304,103.8952941]},{"meta":{"name":"Punggol","name:en":"Punggol","name:zh":"榜鹅","network":"MRT;LRT","public_transport":"station","railway":"station","ref":"NE17;PTC","station":"subway"},"coord":[1.4052551,103.9023538]}]}
+{
+	"meta": {
+		"colour": "purple",
+		"from": "Harbourfront",
+		"name": "MRT North East Line (NEL)",
+		"network": "Singapore Rail",
+		"operator": "SBS Transit",
+		"ref": "North-East Line",
+		"route": "subway",
+		"to": "Punggol",
+		"type": "route",
+		"wheelchair": "yes"
+	},
+	"ways": [
+		{
+			"id": "20164999",
+			"visible": "true",
+			"meta": {
+				"gauge": "1435",
+				"layer": "-3",
+				"name": "North East Line (NE)",
+				"railway": "subway",
+				"ref": "NEL",
+				"tunnel": "yes"
+			},
+			"coords": [
+				[
+					1.2654512,
+					103.8220241
+				],
+				[
+					1.2655688,
+					103.8238397
+				],
+				[
+					1.2656547,
+					103.8242382
+				],
+				[
+					1.2661438,
+					103.825453
+				],
+				[
+					1.2674682,
+					103.8269426
+				],
+				[
+					1.2724055,
+					103.831879
+				],
+				[
+					1.27572,
+					103.8348407
+				],
+				[
+					1.2764544,
+					103.8354781
+				],
+				[
+					1.2797663,
+					103.8394214
+				],
+				[
+					1.2844399,
+					103.8435718
+				],
+				[
+					1.2889762,
+					103.8468694
+				],
+				[
+					1.2919113,
+					103.8473031
+				],
+				[
+					1.2963354,
+					103.8444238
+				],
+				[
+					1.2979649,
+					103.8445689
+				],
+				[
+					1.2991525,
+					103.8451746
+				],
+				[
+					1.307374,
+					103.8497436
+				],
+				[
+					1.3117147,
+					103.853267
+				],
+				[
+					1.31291,
+					103.8542611
+				],
+				[
+					1.3205418,
+					103.8622947
+				],
+				[
+					1.327224,
+					103.8676293
+				],
+				[
+					1.3280548,
+					103.8681577
+				],
+				[
+					1.3295655,
+					103.8687022
+				],
+				[
+					1.3305301,
+					103.8689154
+				],
+				[
+					1.3334261,
+					103.869653
+				],
+				[
+					1.3349792,
+					103.8701922
+				],
+				[
+					1.3387088,
+					103.8706822
+				],
+				[
+					1.3399021,
+					103.8708313
+				],
+				[
+					1.3434253,
+					103.8706608
+				],
+				[
+					1.344219,
+					103.8707393
+				],
+				[
+					1.3449165,
+					103.8709148
+				],
+				[
+					1.3479049,
+					103.8723205
+				],
+				[
+					1.3486255,
+					103.8727754
+				],
+				[
+					1.349945,
+					103.8738724
+				],
+				[
+					1.35981,
+					103.8846753
+				],
+				[
+					1.3658422,
+					103.8909581
+				],
+				[
+					1.3673094,
+					103.8920052
+				],
+				[
+					1.3683992,
+					103.8924773
+				],
+				[
+					1.3696262,
+					103.892709
+				],
+				[
+					1.3720803,
+					103.8927262
+				],
+				[
+					1.3830565,
+					103.89305
+				],
+				[
+					1.3831129,
+					103.8930517
+				],
+				[
+					1.3855057,
+					103.8932933
+				],
+				[
+					1.3896942,
+					103.894631
+				],
+				[
+					1.3953573,
+					103.8968282
+				],
+				[
+					1.4021985,
+					103.9006903
+				],
+				[
+					1.4036081,
+					103.9014871
+				],
+				[
+					1.4055178,
+					103.9025046
+				]
+			]
+		}
+	],
+	"stops": [
+		{
+			"meta": {
+				"name": "HarbourFront",
+				"name:en": "HarbourFront",
+				"name:hi": "துறைமுகம்",
+				"name:ms": "HarbourFront",
+				"name:zh": "港湾",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE1;CC29",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.2653951,
+				103.8224032
+			]
+		},
+		{
+			"meta": {
+				"name": "Outram Park",
+				"name:en": "Outram Park",
+				"name:zh": "欧南园",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE3;EW16;TE17",
+				"station": "subway"
+			},
+			"coord": [
+				1.2806848,
+				103.8402413
+			]
+		},
+		{
+			"meta": {
+				"name": "Chinatown",
+				"name:en": "Chinatown",
+				"name:zh": "牛车水",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE4;DT19",
+				"station": "subway"
+			},
+			"coord": [
+				1.2850195,
+				103.8440033
+			]
+		},
+		{
+			"meta": {
+				"name": "Clarke Quay",
+				"name:en": "Clarke Quay",
+				"name:zh": "克拉码头",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE5",
+				"station": "subway"
+			},
+			"coord": [
+				1.2889806,
+				103.8468686
+			]
+		},
+		{
+			"meta": {
+				"name": "Dhoby Ghaut",
+				"name:en": "Dhoby Ghaut",
+				"name:hi": "டோபி காட்",
+				"name:ms": "Dhoby Ghaut",
+				"name:zh": "多美歌",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE6;NS24;CC1",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.2987856,
+				103.8450197
+			]
+		},
+		{
+			"meta": {
+				"name": "Little India",
+				"name:en": "Little India",
+				"name:zh": "小印度",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE7;DT12",
+				"state": "proposed",
+				"station": "subway"
+			},
+			"coord": [
+				1.3065714,
+				103.8492986
+			]
+		},
+		{
+			"meta": {
+				"name": "Farrer Park",
+				"name:en": "Farrer Park",
+				"name:zh": "花拉公园",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE8",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3128262,
+				103.8541951
+			]
+		},
+		{
+			"meta": {
+				"name": "Boon Keng",
+				"name:en": "Boon Keng",
+				"name:zh": "文庆",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE9",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3198244,
+				103.8615207
+			]
+		},
+		{
+			"meta": {
+				"name": "Potong Pasir",
+				"name:en": "Potong Pasir",
+				"name:zh": "波东巴西",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE10",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3312544,
+				103.8690932
+			]
+		},
+		{
+			"meta": {
+				"name": "Woodleigh",
+				"name:en": "Woodleigh",
+				"name:zh": "兀里",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE11",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3391966,
+				103.8707535
+			]
+		},
+		{
+			"meta": {
+				"name": "Serangoon",
+				"name:en": "Serangoon",
+				"name:hi": "சிராங்கூன்",
+				"name:ms": "Serangoon",
+				"name:zh": "实龙岗",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE12;CC13",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3498066,
+				103.8737713
+			]
+		},
+		{
+			"meta": {
+				"name": "Kovan",
+				"name:en": "Kovan",
+				"name:zh": "高文",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE13",
+				"station": "subway"
+			},
+			"coord": [
+				1.3599769,
+				103.8848743
+			]
+		},
+		{
+			"meta": {
+				"name": "Hougang",
+				"name:en": "Hougang",
+				"name:zh": "后港",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE14",
+				"station": "subway"
+			},
+			"coord": [
+				1.3719039,
+				103.8927535
+			]
+		},
+		{
+			"meta": {
+				"name": "Buangkok",
+				"name:en": "Buangkok",
+				"name:zh": "万国",
+				"network": "MRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE15",
+				"station": "subway"
+			},
+			"coord": [
+				1.3830565,
+				103.89305
+			]
+		},
+		{
+			"meta": {
+				"name": "Sengkang",
+				"name:en": "Sengkang",
+				"name:zh": "盛港",
+				"network": "MRT;LRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE16;STC",
+				"station": "subway",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.3913304,
+				103.8952941
+			]
+		},
+		{
+			"meta": {
+				"name": "Punggol",
+				"name:en": "Punggol",
+				"name:zh": "榜鹅",
+				"network": "MRT;LRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NE17;PTC",
+				"station": "subway"
+			},
+			"coord": [
+				1.4052551,
+				103.9023538
+			]
+		}
+	]
+}

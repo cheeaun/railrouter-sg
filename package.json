@@ -8,11 +8,14 @@
     "map"
   ],
   "author": "Lim Chee Aun <cheeaun@gmail.com> (http://cheeaun.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
-    "serve": "http-server",
-    "lines": "node scripts/generate-lines.js",
-    "compile": "node scripts/compile-all.js"
+    "serve": "http-server -c-1",
+    "lines": "node scripts/fetch-lines.js",
+    "lines-all": "node scripts/from-lines-compile-all.js",
+    "exits-all": "node scripts/fetch-onemap-exits-recompile-all.js",
+    "wikipedia-all": "node scripts/fetch-wikipedia-recompile-all.js",
+    "smrt": "node scripts/fetch-smrt.js"
   },
   "devDependencies": {
     "got": "~5.3.0",
