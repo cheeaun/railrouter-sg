@@ -232,9 +232,10 @@ function init(){
   var visible = zoom >= 12;
   var markers = data.stops.map(function(stop){
     var codes = [];
-    if (stop.ref){
-      codes = stop.ref.split(';').map(function(k){
-        var code = k.match(/^[a-z]{2}/i)[0].toLowerCase();
+    var ref = stop.ref || stop.asset_ref;
+    if (ref){
+      codes = ref.split(';').map(function(k){
+        var code = k.match(/^[a-z]{1,2}/i)[0].toLowerCase();
         if (data.routeMaps[code]) code = data.routeMaps[code];
         var route = data.routes[code];
         if (route){

@@ -17,6 +17,8 @@ var LINES = [ // Refer to http://wiki.openstreetmap.org/wiki/Mass_Rapid_Transit_
   {code: 'l-pw', id: 2312984},
   {code: 'l-pe', id: 1146942},
   {code: 'l-cg', id: 2313372},
+  // Sentosa (assume it's LRT for now)
+  {code: 'l-s', id: 2353581},
 ];
 
 var get = function(url, callback){

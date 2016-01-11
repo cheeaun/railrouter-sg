@@ -27,6 +27,11 @@ var stopPromises = Object.keys(allData.stops).map(function(key){
           return;
         }
         var url = body[3][0];
+        if (!url){
+          resolve();
+          return;
+        }
+
         console.log(stopName + ': ' + url);
         stop.wikipedia_url = url;
 
