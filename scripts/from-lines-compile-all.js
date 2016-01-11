@@ -4,7 +4,7 @@ var polyline = require('polyline');
 fs.readdir('data', function(e, files){
   var allData = {
     lines: [],
-    stops: {},
+    stops: [],
     routes: {},
     // For some weird stations that have different code than the rest. OMGWHY
     // Here I just manually map them to the "correct" code
@@ -14,6 +14,8 @@ fs.readdir('data', function(e, files){
       st: 'se',
     },
   };
+
+  var stopsMap = {};
 
   files.filter(function(file){
     return /^[lm]\-/.test(file);
@@ -38,7 +40,8 @@ fs.readdir('data', function(e, files){
 
     var network = /^l\-/.test(file) ? 'lrt' : 'mrt';
     data.stops.forEach(function(stop){
-      var s = allData.stops[stop.meta.ref] = stop.meta;
+      // Some stop don't have "ref", so use "coord"?
+      var s = stopsMap[stop.meta.ref || stop.coord.join(',')] = stop.meta;
       var coord = s.coord = stop.coord;
       var lat = coord[0], lng = coord[1];
       if (!s.network) s.network = network;
@@ -46,6 +49,11 @@ fs.readdir('data', function(e, files){
       bounds.south = Math.min(bounds.south, lat);
       bounds.east = Math.max(bounds.east, lng);
       bounds.west = Math.min(bounds.west, lng);
+    });
+
+    // Flatten it back to an array, hash is just to make sure uniques
+    allData.stops = Object.keys(stopsMap).map(function(key){
+      return stopsMap[key];
     });
 
     allData.routes[file.match(/\-([a-z]+)\./i)[1]] = {
@@ -56,8 +64,7 @@ fs.readdir('data', function(e, files){
   });
 
   var mrtCount = 0, lrtCount = 0;
-  Object.keys(allData.stops).forEach(function(key){
-    var stop = allData.stops[key];
+  allData.stops.forEach(function(stop){
     if (/mrt/i.test(stop.network)){
       mrtCount++;
     } else {

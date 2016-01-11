@@ -43,6 +43,13 @@ LINES.forEach(function(line){
     var osm = result.osm;
     var relation = osm.relation[0];
     var ways = osm.way;
+    var mapWays = (function(){
+      var way = {};
+      ways.forEach(function(w){
+        way[w.$.id] = w;
+      });
+      return way;
+    })();
     var nodes = (function(){
       var node = {};
       osm.node.forEach(function(n){
@@ -55,7 +62,8 @@ LINES.forEach(function(line){
       meta: expandTag(relation.tag),
       ways: ways.filter(function(way){
         var meta = expandTag(way.tag);
-        return meta.railway != 'construction'; // No need under-construction tracks
+        // No need buildings and under-construction tracks
+        return !meta.building && meta.railway != 'construction';
       }).map(function(way){
         return {
           id: way.$.id,
@@ -77,19 +85,37 @@ LINES.forEach(function(line){
           var meta = hasTag ? expandTag(node.tag) : {};
           return hasTag && meta.railway != 'construction' && !meta.construction; // No need under-construction stops
         } else if (m.$.type == 'way' && isStop){
-          // Changi Group line has this. But let's leave this hanging for a while
-          // Reasons:
+          // Changi Group line has this. Few notes:
           // - This is a "way", but it's a polygon, not a polyline
           // - The "way" contains coordinates of the station/stop building perimeter itself, NOT the center position
           // - There's no "ref" key
-          return;
-          var way = ways[ref];
+          var way = mapWays[ref];
           var hasTag = way && way.tag;
           return hasTag;
         }
         return;
       }).map(function(stop){
         var ref = stop.$.ref;
+        if (stop.$.type == 'way'){
+          var way = mapWays[ref];
+          var bounds = {north: -90, south: 90, east: -180, west: 180};
+          way.nd.forEach(function(nd){
+            var ref = nd.$.ref;
+            var node = nodes[ref];
+            var lat = parseFloat(node.$.lat, 10);
+            var lon = parseFloat(node.$.lon, 10);
+            bounds.north = Math.max(bounds.north, lat);
+            bounds.south = Math.min(bounds.south, lat);
+            bounds.east = Math.max(bounds.east, lon);
+            bounds.west = Math.min(bounds.west, lon);
+          });
+          // Super simple way of calculating center of polygon
+          var center = [(bounds.north + bounds.south)/2, (bounds.east + bounds.west)/2];
+          return {
+            meta: expandTag(way.tag),
+            coord: center,
+          };
+        }
         var node = nodes[ref];
         return {
           meta: expandTag(node.tag),
