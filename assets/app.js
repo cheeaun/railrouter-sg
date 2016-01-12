@@ -100,6 +100,105 @@ function initMap(){
     localStorage['railrouter-sg:about'] = 1;
   }
 
+  if (navigator.geolocation){
+    function LocationMarker(opts){
+      this.position = opts.position;
+      this.radius = 0;
+      var div = this.div = document.createElement('div');
+      div.id = 'location-marker';
+      div.style.position = 'absolute';
+      div.style.display = opts.visible ? 'block' : 'none';
+      this.setMap(opts.map);
+    };
+    LocationMarker.prototype = new google.maps.OverlayView();
+    LocationMarker.prototype.onAdd = function(){
+      var panes = this.getPanes();
+      panes.overlayImage.appendChild(this.div);
+    };
+    LocationMarker.prototype.draw = function(){
+      this.setPosition(this.position);
+      this.setRadius(this.radius);
+    };
+    LocationMarker.prototype.getPosition = function(){
+      return this.position;
+    };
+    LocationMarker.prototype.setPosition = function(position){
+      if (!position) return;
+      this.position = position;
+      var point = this.getProjection().fromLatLngToDivPixel(position);
+      var div = this.div;
+      if (point){
+        div.style.left = point.x + 'px';
+        div.style.top = point.y + 'px';
+      }
+    };
+    LocationMarker.prototype.setRadius = function(radius){
+      if (!radius) return;
+      this.radius = radius; // meters
+      var position = this.position;
+      // 1. Get a new position for offset from original position
+      var newPosition = google.maps.geometry.spherical.computeOffset(position, radius, 0);
+      // 2. Convert both position in pixels
+      var projection = this.getProjection();
+      var point = projection.fromLatLngToDivPixel(position);
+      var newPoint = projection.fromLatLngToDivPixel(newPosition);
+      // 3. Diff the pixel values between positions
+      var radiusInPx = Math.abs(point.y - newPoint.y);
+      // 4. Minus back the radius of the marker itself
+      radiusInPx -= this.div.clientWidth/2;
+      this.div.style.borderWidth = Math.max(radiusInPx, 0) + 'px';
+    };
+    LocationMarker.prototype.setVisible = function(visible){
+      this.div.style.display = visible ? 'block' : 'none';
+    };
+    var locationMarker = new LocationMarker({
+      visible: false,
+      map: map,
+    });
+
+    var $location = document.getElementById('location');
+    $location.style.display = 'block';
+
+    var watching = false;
+    var watch;
+
+    var unwatch = function(){
+      navigator.geolocation.clearWatch(watch);
+      watching = false;
+      locationMarker.setVisible(false);
+      $location.classList.remove('active');
+    };
+
+    $location.addEventListener('click', function(){
+      if (watching){
+        map.panTo(locationMarker.getPosition());
+        $location.classList.add('active');
+      } else {
+        watch = navigator.geolocation.watchPosition(function(position){
+          watching = true;
+          var coords = position.coords;
+          var pos = new google.maps.LatLng(coords.latitude, coords.longitude);
+          locationMarker.setPosition(pos);
+          locationMarker.setRadius(coords.accuracy);
+          locationMarker.setVisible(true);
+          $location.classList.add('active');
+          if (!map.getBounds().contains(pos)) map.panTo(pos);
+        }, function(e){
+          unwatch();
+          alert('Unable to get your location. Please try again.');
+        }, {
+          enableHighAccuracy: true,
+          timeout: 60*1000, // 1 min timeout
+          maximumAge: 5*1000 // 5-second cache
+        });
+      }
+    }, false);
+
+    map.addListener('dragstart', function(){
+      $location.classList.remove('active');
+    });
+  }
+
   var s = document.createElement('script');
   s.src = 'assets/infobox.js';
   s.async = true;

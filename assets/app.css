@@ -108,6 +108,31 @@ header img {
   margin: 0;
 }
 
+#location{
+  display: none;
+  outline: 0;
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  z-index: 1;
+  border: 0;
+  padding: 12px;
+  margin: 0;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  vertical-align: top;
+}
+#location img{
+  opacity: .6;
+}
+#location.active img{
+  opacity: 1;
+}
+
 .infowindow {
   width: 250px;
   background-color: #fff;
@@ -188,4 +213,19 @@ header img {
 
 .inline-block {
   display: inline-block;
+}
+
+#location-marker{
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  box-sizing: content-box;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #4285f4;
+  box-shadow: inset 0 0 0 2px #fff;
+  border: 10px solid rgba(66, 133, 244, .3);
+  background-clip: content-box;
 }
