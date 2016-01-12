@@ -182,7 +182,7 @@ function initMap(){
           locationMarker.setRadius(coords.accuracy);
           locationMarker.setVisible(true);
           $location.classList.add('active');
-          if (!map.getBounds().contains(pos)) map.panTo(pos);
+          if (!watching && !map.getBounds().contains(pos)) map.panTo(pos);
         }, function(e){
           unwatch();
           alert('Unable to get your location. Please try again.');
