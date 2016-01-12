@@ -54,6 +54,21 @@ function initMap(){
     ]
   });
 
+  var onlineStatus = null;
+  var setMapType = function(){
+    if (navigator.onLine){
+      map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+      onlineStatus = 'online';
+    } else {
+      map.setMapTypeId(null);
+      onlineStatus = 'offline';
+    }
+  };
+  setMapType();
+  window.addEventListener('online', function(){
+    if (onlineStatus == 'offline') setMapType();
+  });
+
   map.fitBounds({
     // Calculated from list of stops
     south: 1.2653951,
@@ -75,7 +90,6 @@ function initMap(){
   var $aboutOkay = document.getElementById('about-okay');
 
   var $header = document.getElementById('heading');
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push($header);
   var toggleAbout = function(){
     $about.classList.toggle('show');
   };
