@@ -435,7 +435,7 @@ function init(){
           anchor: new google.maps.Point(eCanvas.width/4, eCanvas.height/4),
         },
         title: 'Exit ' + label + ' - ' + stop.name,
-        visible: zoom >= 18,
+        visible: zoom >= 16,
         position: {lat: exit.coord[0], lng: exit.coord[1]},
         map: map,
       });
@@ -455,7 +455,7 @@ function init(){
       });
     });
 
-    var exitVisible = zoom >= 18;
+    var exitVisible = zoom >= 16;
     exitMarkers.forEach(function(marker){
       marker.setOptions({
         visible: exitVisible,
@@ -467,6 +467,6 @@ function init(){
 function zoomExit(lat, lng){
   if (!map) return;
   if (infowindow) infowindow.close();
-  if (map.getZoom() < 18) map.setZoom(18);
+  if (map.getZoom() < 16) map.setZoom(16);
   map.panTo({ lat: lat, lng: lng });
 };
