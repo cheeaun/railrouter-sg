@@ -177,9 +177,9 @@ function initMap(){
     };
 
     $location.addEventListener('click', function(){
+      $location.classList.add('active');
       if (watching){
         map.panTo(locationMarker.getPosition());
-        $location.classList.add('active');
       } else {
         watch = navigator.geolocation.watchPosition(function(position){
           watching = true;
@@ -188,7 +188,6 @@ function initMap(){
           locationMarker.setPosition(pos);
           locationMarker.setRadius(coords.accuracy);
           locationMarker.setVisible(true);
-          $location.classList.add('active');
           if (!watching && !map.getBounds().contains(pos)) map.panTo(pos);
         }, function(e){
           unwatch();
