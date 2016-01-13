@@ -1,5 +1,19 @@
 var map, infowindow, data, loadCount = 0, totalLoadCount = 2; // total means complete
 
+var $about = document.getElementById('about');
+var $aboutOkay = document.getElementById('about-okay');
+
+var $header = document.getElementById('heading');
+var toggleAbout = function(){
+  $about.classList.toggle('show');
+};
+$header.addEventListener('click', toggleAbout, false);
+$aboutOkay.addEventListener('click', toggleAbout, false);
+if (window.localStorage && !localStorage['railrouter-sg:about']){
+  $about.classList.add('show');
+  localStorage['railrouter-sg:about'] = 1;
+}
+
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'data/all.json', true);
 xhr.onload = function(){
@@ -84,21 +98,6 @@ function initMap(){
     transitLayer.setMap($transitCheckbox.checked ? map : null);
   }, false);
   var $transitToggle = document.getElementById('toggle-transit');
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push($transitToggle);
-
-  var $about = document.getElementById('about');
-  var $aboutOkay = document.getElementById('about-okay');
-
-  var $header = document.getElementById('heading');
-  var toggleAbout = function(){
-    $about.classList.toggle('show');
-  };
-  $header.addEventListener('click', toggleAbout, false);
-  $aboutOkay.addEventListener('click', toggleAbout, false);
-  if (window.localStorage && !localStorage['railrouter-sg:about']){
-    $about.classList.add('show');
-    localStorage['railrouter-sg:about'] = 1;
-  }
 
   if (navigator.geolocation){
     function LocationMarker(opts){
@@ -323,6 +322,11 @@ var stationMiniCanvas = function(colors){
 };
 
 function init(){
+  document.getElementById('legend').innerHTML = Object.keys(data.routes).reverse().map(function(routeCode){
+    var route = data.routes[routeCode];
+    return '<li onclick="zoomBoundsFromRoute(\'' + routeCode + '\')"><span style="background-color: ' + route.color + '"></span> ' + route.name + '</li>';
+  }).join('');
+
   var infoWidth = 250;
   infowindow = new InfoBox({
     closeBoxURL: '',
@@ -485,4 +489,10 @@ function zoomExit(lat, lng){
   if (infowindow) infowindow.close();
   if (map.getZoom() < 16) map.setZoom(16);
   map.panTo({ lat: lat, lng: lng });
+};
+
+function zoomBoundsFromRoute(route){
+  var bounds = data.routes[route].bounds;
+  map.fitBounds(bounds);
+  toggleAbout();
 };

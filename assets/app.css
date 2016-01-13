@@ -46,18 +46,20 @@ header img {
 }
 
 #about {
+  color: #666;
   background-color: rgba(255,255,255,.9);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  max-height: 100%;
+  overflow: auto;
   z-index: 2;
-  padding: 20px 20px 10px;
-  box-shadow: 0 1px 15px rgba(0,0,0,.3);
-  transition: transform .3s;
+  padding: 5px 10px 5px;
   -webkit-transition: -webkit-transform .3s;
-  transform: translate3d(0, -150%, 0);
-  -webkit-transform: translate3d(0, -150%, 0);
+  transition: transform .3s;
+  -webkit-transform: translate3d(0, -120%, 0);
+  transform: translate3d(0, -120%, 0);
   pointer-events: none;
 }
 
@@ -65,6 +67,7 @@ header img {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   pointer-events: auto;
+  box-shadow: 0 1px 15px rgba(0,0,0,.3);
 }
 
 @media screen and (min-width: 500px) {
@@ -82,28 +85,56 @@ header img {
   }
 }
 
+#about h2{
+  color: #111;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
 #about p {
-  margin-top: 0;
-  padding-top: 0;
+  margin: 0;
+  padding: 0 0 5px;
 }
 
 #about button {
   width: 100%;
+  margin: 5px 0;
+}
+
+#legend{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#legend li{
+  cursor: pointer;
+}
+
+#legend li:hover{
+  color: #4285f4;
+}
+
+#legend li span{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin: 0 5px;
 }
 
 #map {
   height: 100%;
 }
 
-#toggle-transit {
+label {
   vertical-align: middle;
-  padding: 10px;
-  background-color: rgba(255,255,255,.7);
   line-height: 1;
   cursor: pointer;
 }
 
-#toggle-transit input {
+label input {
   vertical-align: middle;
   margin: 0;
 }
@@ -112,7 +143,7 @@ header img {
   display: none;
   outline: 0;
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   right: 10px;
   z-index: 1;
   border: 0;
