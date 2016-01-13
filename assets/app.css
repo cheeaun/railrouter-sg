@@ -273,7 +273,7 @@ label input {
   pointer-events: none;
 }
 
-#location-marker:after{
+#location-marker.compass:after{
   content: '';
   display: inline-block;
   border-left: 4px solid transparent;
