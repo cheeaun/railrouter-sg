@@ -122,7 +122,12 @@ function initMap(){
     $location.addEventListener('click', function(){
       $location.classList.add('active');
       if (watching){
-        map.panTo(locationMarker.getPosition());
+        var markerLocation = locationMarker.getPosition();
+        if (markerLocation.equals(map.getCenter())){
+          if (map.getZoom() < 16) map.setZoom(16);
+        } else {
+          map.panTo(markerLocation);
+        }
       } else {
         watch = navigator.geolocation.watchPosition(function(position){
           watching = true;
