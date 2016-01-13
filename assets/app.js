@@ -151,6 +151,14 @@ function initMap(){
     LocationMarker.prototype.setVisible = function(visible){
       this.div.style.display = visible ? 'block' : 'none';
     };
+    LocationMarker.prototype.drawCompass = function(){
+      this.div.classList.add('compass');
+    };
+    LocationMarker.prototype.setCompassHeading = function(heading){
+      var transform = 'translate3d(-50%, -50%, 0) rotate(' + heading + 'deg)';
+      if (this.div.style.webkitTransform) this.div.style.webkitTransform = transform;
+      this.div.style.transform = transform;
+    };
     var locationMarker = new LocationMarker({
       visible: false,
       map: map,
@@ -197,6 +205,14 @@ function initMap(){
     map.addListener('dragstart', function(){
       $location.classList.remove('active');
     });
+
+    if (window.DeviceOrientationEvent){
+      locationMarker.drawCompass();
+      window.addEventListener('deviceorientation', function(e){
+        if (!watching) return;
+        locationMarker.setCompassHeading(e.webkitCompassHeading || e.alpha);
+      }, false);
+    }
   }
 
   var s = document.createElement('script');
