@@ -1,3 +1,4 @@
+function _InfoBox(google){ // START WRAPPER
 /**
  * @name InfoBox
  * @version 1.1.13 [March 19, 2014]
@@ -815,3 +816,4 @@ InfoBox.prototype.close = function () {
 
   this.setMap(null);
 };
+return InfoBox;} // END WRAPPER
