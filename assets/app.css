@@ -285,3 +285,27 @@ label input {
   left: 4px;
   top: -6px;
 }
+
+#bounds-warning{
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  display: none;
+  padding: 10px;
+  background-color: rgba(0,0,0,.7);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  color: #fff;
+}
+
+#bounds-warning button{
+  display: inline;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  text-decoration: underline;
+}
+
+#bounds-warning.visible{
+  display: block;
+}

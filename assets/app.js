@@ -81,13 +81,28 @@ function initMap(){
     if (onlineStatus == 'offline') setMapType();
   });
 
-  map.fitBounds({
+  var mapBounds = {
     // Calculated from list of stops
     south: 1.2653951,
     west: 103.67828510000004,
     north: 1.4490928,
     east: 103.98856469999998,
+  };
+  map.fitBounds(mapBounds);
+
+  var $boundsWarning = $('bounds-warning');
+  map.addListener('bounds_changed', function(){
+    var bounds = map.getBounds();
+    if (bounds.intersects(mapBounds)){
+      $boundsWarning.classList.remove('visible');
+    } else {
+      $boundsWarning.classList.add('visible');
+    }
   });
+  $('back-sg').addEventListener('click', function(){
+    $boundsWarning.classList.remove('visible');
+		map.fitBounds(mapBounds);
+  }, false);
 
   var transitLayer = new google.maps.TransitLayer();
   var $transitCheckbox = $('checkbox-transit');
