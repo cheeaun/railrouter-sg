@@ -1,9 +1,10 @@
-var map, infowindow, data, loadCount = 0, totalLoadCount = 2; // total means complete
+var map, infowindow;
+var $ = function(id){ return document.getElementById(id); };
 
-var $about = document.getElementById('about');
-var $aboutOkay = document.getElementById('about-okay');
+var $about = $('about');
+var $aboutOkay = $('about-okay');
 
-var $header = document.getElementById('heading');
+var $header = $('heading');
 var toggleAbout = function(){
   $about.classList.toggle('show');
 };
@@ -14,17 +15,6 @@ if (window.localStorage && !localStorage['railrouter-sg:about']){
   localStorage['railrouter-sg:about'] = 1;
 }
 
-// Fetch all JSON data
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'data/all.json', true);
-xhr.onload = function(){
-  data = JSON.parse(xhr.responseText);
-  loadCount++;
-  if (loadCount >= totalLoadCount) init();
-}
-xhr.send();
-
-// Fetch Google Maps JS
 var gms = document.createElement('script');
 gms.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap';
 gms.async = true;
@@ -32,7 +22,7 @@ var _s = document.getElementsByTagName('script')[0];
 _s.parentNode.insertBefore(gms, _s);
 
 function initMap(){
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map($('map'), {
     backgroundColor: '#B3D1FF',
     disableDefaultUI: true,
     keyboardShortcuts: true,
@@ -100,12 +90,12 @@ function initMap(){
   });
 
   var transitLayer = new google.maps.TransitLayer();
-  var $transitCheckbox = document.getElementById('checkbox-transit');
+  var $transitCheckbox = $('checkbox-transit');
   transitLayer.setMap($transitCheckbox.checked ? map : null);
   $transitCheckbox.addEventListener('change', function(){
     transitLayer.setMap($transitCheckbox.checked ? map : null);
   }, false);
-  var $transitToggle = document.getElementById('toggle-transit');
+  var $transitToggle = $('toggle-transit');
 
   if (navigator.geolocation){
     var LocationMarker = _LocationMarker(google);
@@ -114,7 +104,7 @@ function initMap(){
       map: map,
     });
 
-    var $location = document.getElementById('location');
+    var $location = $('location');
     $location.style.display = 'block';
 
     var watching = false;
@@ -169,8 +159,7 @@ function initMap(){
     }
   }
 
-  loadCount++;
-  if (loadCount >= totalLoadCount) init();
+  init();
 }
 
 var exitCanvas = function(name){
@@ -271,7 +260,7 @@ var stationMiniCanvas = function(colors){
 };
 
 function init(){
-  document.getElementById('legend').innerHTML = Object.keys(data.routes).reverse().map(function(routeCode){
+  $('legend').innerHTML = Object.keys(data.routes).reverse().map(function(routeCode){
     var route = data.routes[routeCode];
     return '<li onclick="zoomBoundsFromRoute(\'' + routeCode + '\')"><span style="background-color: ' + route.color + '"></span> ' + route.name + '</li>';
   }).join('');
