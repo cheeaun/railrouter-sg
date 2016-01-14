@@ -73,8 +73,8 @@ header svg {
   overflow: auto;
   z-index: 2;
   padding: 5px 10px 5px;
-  -webkit-transition: -webkit-transform .3s;
-  transition: transform .3s;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(0.150, 0.780, 0.180, 1.170);
+  transition: transform .3s cubic-bezier(0.150, 0.780, 0.180, 1.170);
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
   pointer-events: none;
