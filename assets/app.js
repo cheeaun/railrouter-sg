@@ -14,6 +14,7 @@ if (window.localStorage && !localStorage['railrouter-sg:about']){
   localStorage['railrouter-sg:about'] = 1;
 }
 
+// Fetch all JSON data
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'data/all.json', true);
 xhr.onload = function(){
@@ -22,6 +23,13 @@ xhr.onload = function(){
   if (loadCount >= totalLoadCount) init();
 }
 xhr.send();
+
+// Fetch Google Maps JS
+var gms = document.createElement('script');
+gms.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap';
+gms.async = true;
+var _s = document.getElementsByTagName('script')[0];
+_s.parentNode.insertBefore(gms, _s);
 
 function initMap(){
   map = new google.maps.Map(document.getElementById('map'), {
