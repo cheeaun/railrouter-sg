@@ -17,7 +17,7 @@
     "wikipedia-all": "node scripts/fetch-wikipedia-recompile-all.js",
     "smrt": "node scripts/fetch-smrt.js",
     "inliner": "node scripts/inliner.js _index.html index.html",
-    "watch": "chokidar 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'npm run inliner'",
+    "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'npm run inliner'",
     "start": "parallelshell 'npm run watch' 'npm run serve'"
   },
   "devDependencies": {
