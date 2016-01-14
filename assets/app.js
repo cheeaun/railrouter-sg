@@ -30,39 +30,39 @@ function initMap(){
     keyboardShortcuts: true,
     styles: [
       {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-          { "color": "#ffffff" },
-          { "weight": 1 }
+        featureType: 'road.highway',
+        elementType: 'geometry.fill',
+        stylers: [
+          { color: '#ffffff' },
+          { weight: 1 }
         ]
       },{
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-          { "color": "#cccccc" },
-          { "weight": 2 }
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [
+          { color: '#cccccc' },
+          { weight: 2 }
         ]
       },{
-        "featureType": "road.local",
-        "stylers": [
-          { "visibility": "simplified" }
+        featureType: 'road.local',
+        stylers: [
+          { visibility: 'simplified' }
         ]
       },{
-        "featureType": "road.arterial",
-        "stylers": [
-          { "visibility": "simplified" }
+        featureType: 'road.arterial',
+        stylers: [
+          { visibility: 'simplified' }
         ]
       },{
-        "featureType": "transit.station.rail",
-        "stylers": [
-          { "visibility": "off" }
+        featureType: 'transit.station.rail',
+        stylers: [
+          { visibility: 'off' }
         ]
       },{
-        "featureType": "road",
-        "elementType": "labels.icon",
-        "stylers": [
-          { "visibility": "off" }
+        featureType: 'road',
+        elementType: 'labels.icon',
+        stylers: [
+          { visibility: 'off' }
         ]
       }
     ]
