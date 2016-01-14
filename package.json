@@ -30,6 +30,7 @@
     "clean-css": "~3.4.9",
     "got": "~5.3.0",
     "http-server": "~0.8.5",
+    "json5": "~0.4.0",
     "parallelshell": "~2.0.0",
     "polyline": "~0.2.0",
     "uglify-js": "^2.6.1",

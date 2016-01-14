@@ -1,6 +1,7 @@
 var process = require('process');
 var fs = require('fs');
 var cheerio = require('cheerio');
+var JSON5 = require('json5');
 var CleanCSS = require('clean-css');
 var UglifyJS = require('uglify-js');
 
@@ -15,7 +16,7 @@ $('inline-json').each(function(){
   var src = el.attr('src');
   var variable = el.attr('variable');
   var json = fs.readFileSync(src, 'utf8');
-  var minifiedJSON = JSON.stringify(JSON.parse(json));
+  var minifiedJSON = JSON5.stringify(JSON.parse(json));
   el.replaceWith('<script>var ' + variable + '=' + minifiedJSON + '</script>');
 });
 
