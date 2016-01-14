@@ -63,7 +63,7 @@ header h1 {
   height: 32px;
 }
 
-header img {
+header svg {
   vertical-align: top;
 }
 
@@ -178,11 +178,11 @@ label input {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   vertical-align: top;
 }
-#location img{
-  opacity: .6;
+#location svg{
+  fill: #666;
 }
-#location.active img{
-  opacity: 1;
+#location.active svg{
+  fill: #4285f4;
 }
 
 .infowindow {
