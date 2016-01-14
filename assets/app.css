@@ -54,13 +54,8 @@ header:active {
 header h1 {
   margin: 0;
   padding: 0;
-  background-color: #fff;
-  border: 2px solid #00454d;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  padding: 6px;
-  width: 32px;
-  height: 32px;
+  -webkit-filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 header svg {
@@ -68,7 +63,7 @@ header svg {
 }
 
 #about {
-  color: #666;
+  color: #333;
   background-color: rgba(255,255,255,.9);
   position: absolute;
   top: 0;

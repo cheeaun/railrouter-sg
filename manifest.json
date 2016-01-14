@@ -1,0 +1,13 @@
+{
+  "short_name": "RailRouter SG",
+  "name": "RailRouter SG",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "144x144",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}
