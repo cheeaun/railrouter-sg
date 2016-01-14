@@ -1,10 +1,14 @@
 {
   "name": "railrouter-sg",
   "version": "0.0.1",
-  "description": "Singapore MRT lines on a map",
+  "description": "Explore MRT and LRT rail routes in Singapore",
   "keywords": [
     "singapore",
     "mrt",
+    "lrt",
+    "train",
+    "metro",
+    "subway",
     "map"
   ],
   "author": "Lim Chee Aun <cheeaun@gmail.com> (http://cheeaun.com/)",
