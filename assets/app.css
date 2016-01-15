@@ -122,6 +122,12 @@ header svg {
   margin: 5px 0;
 }
 
+#preview{
+  float: right;
+  border: 1px solid #999;
+  margin-left: 10px;
+}
+
 #legend{
   list-style: none;
   margin: 0;
