@@ -25,6 +25,10 @@ button{
   padding: 10px;
   color: #4285f4;
   background-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 button:active{
   color: #fff;
@@ -122,6 +126,10 @@ header svg {
   list-style: none;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #legend li{
