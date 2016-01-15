@@ -22,7 +22,8 @@
     "smrt": "node scripts/fetch-smrt.js",
     "inliner": "node scripts/inliner.js _index.html index.html",
     "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'npm run inliner'",
-    "start": "parallelshell 'npm run watch' 'npm run serve'"
+    "start": "parallelshell 'npm run watch' 'npm run serve'",
+    "deploy": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
   },
   "devDependencies": {
     "cheerio": "~0.19.0",
