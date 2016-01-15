@@ -137,13 +137,13 @@ function initMap(){
         }
       } else {
         watch = navigator.geolocation.watchPosition(function(position){
-          watching = true;
           var coords = position.coords;
           var pos = new google.maps.LatLng(coords.latitude, coords.longitude);
           locationMarker.setPosition(pos);
           locationMarker.setRadius(coords.accuracy);
           locationMarker.setVisible(true);
           if (!watching && !map.getBounds().contains(pos)) map.panTo(pos);
+          watching = true;
         }, function(e){
           unwatch();
           alert('Unable to get your location. Please try again.');
