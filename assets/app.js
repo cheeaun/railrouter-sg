@@ -80,7 +80,7 @@ function initMap(){
     south: 1.2513146,
     west: 103.67828510000004,
     north: 1.4490928,
-    east: 103.98856469999998,
+    east: 103.99178865,
   };
   map.fitBounds(mapBounds);
 
