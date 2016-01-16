@@ -126,6 +126,7 @@ header svg {
   float: right;
   border: 1px solid #999;
   margin-left: 10px;
+  margin-top: 5px;
 }
 
 #legend{
