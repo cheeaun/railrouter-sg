@@ -37,7 +37,10 @@ $('script').each(function(){
   el.replaceWith('<script>' + result.code + '</script>');
 });
 
-fs.writeFile(output, $.html(), function(e){
+var htmlString = $.html();
+htmlString = htmlString.replace(/([^>])<\/script>[\s\n\r\t]*<script>/ig, '$1\n');
+
+fs.writeFile(output, htmlString, function(e){
   if (e) throw e;
   console.log('HTML file generated: ' + output);
 });
