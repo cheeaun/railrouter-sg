@@ -15,6 +15,11 @@ if (window.localStorage && !localStorage['railrouter-sg:about']){
   localStorage['railrouter-sg:about'] = 1;
 }
 
+$('legend').innerHTML = Object.keys(data.routes).reverse().map(function(routeCode){
+  var route = data.routes[routeCode];
+  return '<li onclick="zoomBoundsFromRoute(\'' + routeCode + '\')"><span style="background-color: ' + route.color + '"></span> ' + route.name + '</li>';
+}).join('');
+
 function initMap(){
   map = new google.maps.Map($('map'), {
     backgroundColor: '#B3D1FF',
@@ -269,11 +274,6 @@ var stationMiniCanvas = function(colors){
 };
 
 function init(){
-  $('legend').innerHTML = Object.keys(data.routes).reverse().map(function(routeCode){
-    var route = data.routes[routeCode];
-    return '<li onclick="zoomBoundsFromRoute(\'' + routeCode + '\')"><span style="background-color: ' + route.color + '"></span> ' + route.name + '</li>';
-  }).join('');
-
   var infoWidth = 250;
   var InfoBox = _InfoBox(google);
   infowindow = new InfoBox({
@@ -440,6 +440,7 @@ function zoomExit(lat, lng){
 };
 
 function zoomBoundsFromRoute(route){
+  if (!map) return;
   var bounds = data.routes[route].bounds;
   map.fitBounds(bounds);
   toggleAbout();
