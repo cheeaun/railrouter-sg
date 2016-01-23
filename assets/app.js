@@ -147,8 +147,9 @@ function initMap(){
           locationMarker.setPosition(pos);
           locationMarker.setRadius(coords.accuracy);
           locationMarker.setVisible(true);
-          if (!watching && !map.getBounds().contains(pos)) map.panTo(pos);
+          if (!watching) map.panTo(pos);
           watching = true;
+          sessionStorage['railrouter-sg:watch-location'] = 1;
         }, function(e){
           unwatch();
           alert('Unable to get your location. Please try again.');
@@ -159,6 +160,11 @@ function initMap(){
         });
       }
     }, false);
+
+    // Always show current location
+    if (sessionStorage['railrouter-sg:watch-location']) setTimeout(function(){
+      $location.click();
+    }, 1000);
 
     map.addListener('dragstart', function(){
       $location.classList.remove('active');
