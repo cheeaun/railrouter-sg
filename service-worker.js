@@ -6,7 +6,8 @@ self.addEventListener('activate', function(event){
 	console.log('Activate');
 });
 
-var cacheName = 'railroutersg-v1';
+var cacheName = 'railroutersg-v2';
+caches.delete('railroutersg-v1'); // Delete the old one
 var successResponses = /^0|([123]\d\d)|(40[14567])|410$/;
 
 function fetchAndCache(request){
