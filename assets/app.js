@@ -30,20 +30,13 @@ function initMap(){
         featureType: 'road.highway',
         elementType: 'geometry.fill',
         stylers: [
-          { color: '#ffffff' },
-          { weight: 1 }
+          { color: '#ffffff' }
         ]
       },{
         featureType: 'road.highway',
         elementType: 'geometry.stroke',
         stylers: [
           { color: '#cccccc' },
-          { weight: 2 }
-        ]
-      },{
-        featureType: 'road.local',
-        stylers: [
-          { visibility: 'simplified' }
         ]
       },{
         featureType: 'road.arterial',
