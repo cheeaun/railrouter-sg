@@ -173,6 +173,7 @@ function initMap(){
     if (window.DeviceOrientationEvent){
       window.addEventListener('deviceorientation', function(e){
         if (!watching) return;
+        if (!e || e.alpha === null) return;
         locationMarker.drawCompass();
         locationMarker.setCompassHeading(e.webkitCompassHeading || e.alpha);
       }, false);
