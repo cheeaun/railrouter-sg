@@ -18,7 +18,7 @@ function fetchAndCache(request){
 				cache.put(request, response);
 			});
 		}
-		return response.clone();
+		return response;
 	});
 };
 
