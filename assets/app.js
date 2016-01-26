@@ -1,4 +1,11 @@
 var map, infowindow;
+var mapBounds = {
+  // Calculated from list of stops
+  south: 1.2513146,
+  west: 103.67828510000004,
+  north: 1.4490928,
+  east: 103.99178865,
+};
 var $ = function(id){ return document.getElementById(id); };
 
 var $about = $('about');
@@ -73,15 +80,7 @@ function initMap(){
     if (onlineStatus == 'offline') setMapType();
   });
 
-  var mapBounds = {
-    // Calculated from list of stops
-    south: 1.2513146,
-    west: 103.67828510000004,
-    north: 1.4490928,
-    east: 103.99178865,
-  };
   map.fitBounds(mapBounds);
-
   var $boundsWarning = $('bounds-warning');
   map.addListener('bounds_changed', function(){
     var bounds = map.getBounds();
@@ -111,6 +110,7 @@ function initMap(){
       map: map,
     });
 
+    var $nearestStation = $('nearest-station');
     var $location = $('location');
     $location.style.display = 'block';
 
@@ -122,6 +122,7 @@ function initMap(){
       watching = false;
       locationMarker.setVisible(false);
       $location.classList.remove('active');
+      $nearestStation.classList.remove('show');
     };
 
     $location.addEventListener('click', function(){
@@ -143,6 +144,36 @@ function initMap(){
           if (!watching) map.panTo(pos);
           watching = true;
           sessionStorage['railrouter-sg:watch-location'] = 1;
+
+          // Make sure current location is in Singapore first
+          var bounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(mapBounds.south, mapBounds.west),
+            new google.maps.LatLng(mapBounds.north, mapBounds.east)
+          );
+          if (!bounds.contains(pos)){
+            $nearestStation.classList.remove('show');
+            return;
+          }
+
+          // Show nearest station
+          var nearestStop;
+          var shortestDistance = Infinity;
+          data.stops.forEach(function(stop){
+            var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, new google.maps.LatLng(stop.coord[0], stop.coord[1]));
+            if (distance < shortestDistance){
+              shortestDistance = distance;
+              nearestStop = stop;
+            }
+          });
+          $nearestStation.innerHTML = 'Nearest station: <b>' + nearestStop.name + '</b>';
+          $nearestStation.onclick = function(){ // probably memory leak here
+            if (map.getZoom() < 16) map.setZoom(16);
+            map.panTo({
+              lat: nearestStop.coord[0],
+              lng: nearestStop.coord[1],
+            });
+          };
+          $nearestStation.classList.add('show');
         }, function(e){
           unwatch();
           alert('Unable to get your location. Please try again.');

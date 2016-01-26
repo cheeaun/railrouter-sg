@@ -195,6 +195,28 @@ label input {
   fill: #4285f4;
 }
 
+#nearest-station{
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  position: absolute;
+  bottom: 24px;
+  right: 68px;
+  z-index: 1;
+  padding: 10px;
+  background-color: rgba(255,255,255,.8);
+  border-radius: 5px;
+  cursor: pointer;
+}
+#nearest-station:hover{
+  background-color: #fff;
+}
+#nearest-station.show{
+  display: block;
+  opacity: 1;
+}
+
 .infowindow {
   width: 250px;
   background-color: #fff;
