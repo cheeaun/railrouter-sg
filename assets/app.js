@@ -207,7 +207,9 @@ function initMap(){
   init();
 }
 
+var exitCanvasCache = {};
 var exitCanvas = function(name){
+  if (exitCanvasCache[name]) return exitCanvasCache[name];
   var canvas = document.createElement('canvas');
   var context = canvas.getContext('2d');
   var font = context.font = '24px Sans-serif';
@@ -228,7 +230,11 @@ var exitCanvas = function(name){
   context.textAlign = 'center';
   context.fillStyle = '#fff';
   context.fillText(name, width/2, height/2);
-  return canvas;
+  return exitCanvasCache[name] = {
+    image: canvas.toDataURL(),
+    width: width,
+    height: height,
+  };
 };
 
 var stationCanvas = function(codes, name){
@@ -283,7 +289,10 @@ var stationCanvas = function(codes, name){
   return canvas;
 };
 
+var stationMiniCanvasCache = {};
 var stationMiniCanvas = function(colors){
+  var key = colors.map(function(color){ return color }).join('');
+  if (stationMiniCanvasCache[key]) return stationMiniCanvasCache[key];
   var colorWidth = 16;
   var canvas = document.createElement('canvas');
   var width = canvas.width = colorWidth * colors.length;
@@ -301,7 +310,11 @@ var stationMiniCanvas = function(colors){
     context.fillStyle = color;
     context.fill();
   });
-  return canvas;
+  return stationMiniCanvasCache[key] = {
+    image: canvas.toDataURL(),
+    width: width,
+    height: height,
+  };
 };
 
 function init(){
@@ -381,7 +394,7 @@ function init(){
         anchor: new google.maps.Point(largeCanvas._blocksWidth/4, largeCanvas._blockHeight/4),
       },
       small: {
-        url: smallCanvas.toDataURL(),
+        url: smallCanvas.image,
         scaledSize: new google.maps.Size(smallCanvas.width/2, smallCanvas.height/2),
         size: new google.maps.Size(smallCanvas.width/2, smallCanvas.height/2),
         anchor: new google.maps.Point(smallCanvas.width/4, smallCanvas.height/4),
@@ -428,7 +441,7 @@ function init(){
       var eCanvas = exitCanvas(label);
       return new google.maps.Marker({
         icon: {
-          url: eCanvas.toDataURL(),
+          url: eCanvas.image,
           scaledSize: new google.maps.Size(eCanvas.width/2, eCanvas.height/2),
           size: new google.maps.Size(eCanvas.width/2, eCanvas.height/2),
           anchor: new google.maps.Point(eCanvas.width/4, eCanvas.height/4),
