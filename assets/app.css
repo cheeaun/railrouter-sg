@@ -281,6 +281,18 @@ label input {
   opacity: .7;
 }
 
+.station-name{
+  display: block;
+  cursor: pointer;
+  color: inherit;
+}
+
+.exit-info{
+  display: inline-block;
+  line-height: 1;
+  padding: 2px 0;
+}
+
 .exit-label {
   display: inline-block;
   line-height: 1;

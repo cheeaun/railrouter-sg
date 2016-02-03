@@ -416,16 +416,19 @@ function init(){
       };
       html += '<div class="infowindow-content">';
       html += '<div class="infowindow-heading">'
+        + '<a class="station-name" onclick="zoomTo(' + stop.coord.join(',') + ')">'
         + '<div><b>' + stop.name + '</b> ' + stop.network.split(';')[0].toUpperCase() + ' Station</div>'
         + (stop['name:zh'] ? stop['name:zh'] + '&nbsp;&nbsp;&nbsp;' : '')
         + (stop['name:hi'] ? stop['name:hi'] : '')
+        + '</a>'
         + '</div>';
       if (stop.exits && stop.exits.length){
         var count = stop.exits.length;
-        html += '<div><b>' + count + '</b> exit' + (count != 1 ? 's' : '') + '&nbsp;&nbsp;';
+        var s = (count != 1 ? 's' : '');
+        html += '<div><span class="exit-info"><b>' + count + '</b> entrance' + s + '/exit' + s + '</span>&nbsp;&nbsp;';
         html += '<div class="inline-block">';
         stop.exits.forEach(function(exit){
-          html += '<a class="exit-label" onclick="zoomExit(' + exit.coord.join(',') + ')">' + exit.exit + '</a> ';
+          html += '<a class="exit-label" onclick="zoomTo(' + exit.coord.join(',') + ')">' + exit.exit + '</a> ';
         });
         html += '</div>';
         html += '</div>';
@@ -505,7 +508,7 @@ function init(){
   });
 }
 
-function zoomExit(lat, lng){
+function zoomTo(lat, lng){
   if (!map) return;
   if (infowindow) infowindow.close();
   if (map.getZoom() < 16) map.setZoom(16);
