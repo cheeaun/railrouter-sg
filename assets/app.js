@@ -353,6 +353,7 @@ function init(){
   });
 
   var exitMarkers = [];
+  var exitLines = [];
   var zoom = map.getZoom();
   var visible = zoom >= 12;
   var markers = data.stops.map(function(stop){
@@ -400,11 +401,12 @@ function init(){
         anchor: new google.maps.Point(smallCanvas.width/4, smallCanvas.height/4),
       }
     };
+    var stopPosition = {lat: stop.coord[0], lng: stop.coord[1]};
     var marker = new google.maps.Marker({
       icon: zoom >= 14 ? icons.large : icons.small,
       _icons: icons,
       visible: visible,
-      position: {lat: stop.coord[0], lng: stop.coord[1]},
+      position: stopPosition,
       map: map,
     });
 
@@ -436,10 +438,13 @@ function init(){
       infowindow.open(map);
     });
 
-    var stopExits = (stop.exits || []).map(function(exit){
+    var stopExits = [];
+    var stopLines = [];
+    (stop.exits || []).forEach(function(exit){
       var label = exit.exit;
       var eCanvas = exitCanvas(label);
-      return new google.maps.Marker({
+      var exitPosition = {lat: exit.coord[0], lng: exit.coord[1]};
+      stopExits.push(new google.maps.Marker({
         icon: {
           url: eCanvas.image,
           scaledSize: new google.maps.Size(eCanvas.width/2, eCanvas.height/2),
@@ -448,11 +453,31 @@ function init(){
         },
         title: 'Exit ' + label + ' - ' + stop.name,
         visible: zoom >= 16,
-        position: {lat: exit.coord[0], lng: exit.coord[1]},
+        position: exitPosition,
         map: map,
-      });
+      }));
+      stopLines.push(new google.maps.Polyline({
+        path: [ exitPosition, stopPosition ],
+        strokeOpacity: 0,
+        icons: [
+          {
+            icon: {
+              path: 'M 0,-1 0,1',
+              strokeOpacity: .3,
+              strokeColor: '#00454d',
+              scale: 3,
+            },
+            offset: '0',
+            repeat: '15px',
+          }
+        ],
+        clickable: false,
+        visible: zoom >= 16,
+        map: map,
+      }));
     });
     exitMarkers = exitMarkers.concat(stopExits);
+    exitLines = exitLines.concat(stopLines);
 
     return marker;
   });
@@ -470,6 +495,11 @@ function init(){
     var exitVisible = zoom >= 16;
     exitMarkers.forEach(function(marker){
       marker.setOptions({
+        visible: exitVisible,
+      });
+    });
+    exitLines.forEach(function(line){
+      line.setOptions({
         visible: exitVisible,
       });
     });
