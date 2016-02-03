@@ -332,24 +332,23 @@ function init(){
 
   data.lines.forEach(function(line){
     var path = google.maps.geometry.encoding.decodePath(line.coords);
-    line._path = path;
-    var outline = new google.maps.Polyline({
+    new google.maps.Polyline({
       path: path,
       strokeColor: '#fff',
       strokeOpacity: .9,
       strokeWeight: 4,
       clickable: false,
       zIndex: 1,
+      map: map,
     });
-    outline.setMap(map);
-    var l = new google.maps.Polyline({
+    new google.maps.Polyline({
       path: path,
       strokeColor: line.colour,
       strokeWeight: 2,
       clickable: false,
       zIndex: 2,
+      map: map,
     });
-    l.setMap(map);
   });
 
   var exitMarkers = [];
