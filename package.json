@@ -1,6 +1,6 @@
 {
   "name": "railrouter-sg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Explore MRT and LRT rail routes in Singapore",
   "keywords": [
     "singapore",
@@ -21,20 +21,20 @@
     "wikipedia-all": "node scripts/fetch-wikipedia-recompile-all.js",
     "smrt": "node scripts/fetch-smrt.js",
     "inliner": "node scripts/inliner.js _index.html index.html",
-    "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'npm run inliner'",
-    "start": "parallelshell 'npm run watch' 'npm run serve'",
+    "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'yarn run inliner'",
+    "start": "parallelshell 'yarn run watch' 'yarn run serve'",
     "deploy": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
   },
   "devDependencies": {
-    "cheerio": "~0.19.0",
+    "cheerio": "~0.22.0",
     "chokidar-cli": "~1.2.0",
-    "clean-css": "~3.4.9",
-    "got": "~6.1.1",
-    "http-server": "~0.8.5",
-    "json5": "~0.4.0",
+    "clean-css": "~3.4.21",
+    "got": "~6.6.3",
+    "http-server": "~0.9.0",
+    "json5": "~0.5.0",
     "parallelshell": "~2.0.0",
     "polyline": "~0.2.0",
-    "uglify-js": "^2.6.1",
-    "xml2js": "~0.4.16"
+    "uglify-js": "^2.7.4",
+    "xml2js": "~0.4.17"
   }
 }

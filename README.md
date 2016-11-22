@@ -26,17 +26,17 @@ The *real* route lines come from OpenStreetMap here: http://wiki.openstreetmap.o
 
 The JSON files are in `data` folder. `all.json` is for *all* routes and stops, while other files are individual lines.
 
-Here's a sprinkle of NPM magic:
+Here's a sprinkle of yarn magic:
 
-- `npm install` - install everything
-- `npm run lines` - scrape the lines from OpenStreetMap
-- `npm run lines-all` - generate `all.json` from the scraped lines
-- `npm run exits-all` - scrape exits fron OneMap.sg and regenerate `all.json`
-- `npm run wikipedia-all` - fetch data from Wikipedia and regenerate `all.json`
-- `npm run inliner` - inline all assets from `_index.html` to `index.html`
-- `npm run watch` - watch files and run `inliner` when files changed
-- `npm run serve` - run a local server
-- `npm start` - runs both `watch` and `serve`
+- `yarn` - install everything
+- `yarn run lines` - scrape the lines from OpenStreetMap
+- `yarn run lines-all` - generate `all.json` from the scraped lines
+- `yarn run exits-all` - scrape exits fron OneMap.sg and regenerate `all.json`
+- `yarn run wikipedia-all` - fetch data from Wikipedia and regenerate `all.json`
+- `yarn run inliner` - inline all assets from `_index.html` to `index.html`
+- `yarn run watch` - watch files and run `inliner` when files changed
+- `yarn run serve` - run a local server
+- `yarn start` - runs both `watch` and `serve`
 
 License
 ---
