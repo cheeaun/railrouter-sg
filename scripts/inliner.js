@@ -24,7 +24,7 @@ $('link[rel=stylesheet]').each(function(){
   var el = $(this);
   var href = el.attr('href');
   var css = fs.readFileSync(href, 'utf8');
-  var minifiedCSS = new CleanCSS().minify(css).styles;
+  var minifiedCSS = new CleanCSS({ level: 0 }).minify(css).styles;
   el.replaceWith('<style>' + minifiedCSS + '</style>');
 });
 
