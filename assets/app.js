@@ -2,7 +2,7 @@ var map, infowindow;
 var mapBounds = {
   // Calculated from list of stops
   south: 1.2513146,
-  west: 103.67828510000004,
+  west: 103.6366651,
   north: 1.4490928,
   east: 103.99178865,
 };
