@@ -4,8 +4,7 @@ var got = require('got');
 var convert = require('./svy21.js');
 var fs = require('fs');
 
-got('http://www.onemap.sg/API/services.svc/getToken?accessKEY=' + encodeURIComponent(accessToken), function(err, body, res){
-  var tokenBody = JSON.parse(body);
+got('http://www.onemap.sg/API/services.svc/getToken?accessKEY=' + encodeURIComponent(accessToken), {json: true}).then(({body:tokenBody}) => {
   var token = tokenBody.GetToken[0].NewToken;
   console.log('Token: ', token);
 
@@ -23,10 +22,9 @@ got('http://www.onemap.sg/API/services.svc/getToken?accessKEY=' + encodeURICompo
       var searchVal = 'searchval like \'$' + stopName + ' mrt station exit$\'';
       var url = 'http://www.onemap.sg/API/services.svc/basicSearch?token=' + encodeURIComponent(token) + '&returnGeom=1&wc=' + encodeURIComponent(searchVal) + '&otptFlds=CATEGORY';
       console.log('Stop: ' + stopName + ' ' + url);
-      got(url, function(e, body, r){
-        if (e) throw (e);
+      got(url, {json: true}).then(({body}) => {
         resolve();
-        var results = JSON.parse(body).SearchResults;
+        var results = body.SearchResults;
         if (results[0].ErrorMessage){
           console.log('!! No exits for ' + stopName);
           return;
@@ -47,7 +45,7 @@ got('http://www.onemap.sg/API/services.svc/getToken?accessKEY=' + encodeURICompo
           };
         });
         console.log(stopName + ': ' + stop.exits.length);
-      });
+      }).then(reject);
     });
   });
 
@@ -57,4 +55,4 @@ got('http://www.onemap.sg/API/services.svc/getToken?accessKEY=' + encodeURICompo
       console.log('JSON file generated: ' + filePath);
     });
   });
-});
+}).catch((e) => e);

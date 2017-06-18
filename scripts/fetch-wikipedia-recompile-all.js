@@ -17,11 +17,8 @@ var stopPromises = Object.keys(allData.stops).map(function(key){
         // This prevents it from getting the wrong one
         fullName += ', singapore';
       }
-      got('https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + encodeURIComponent(fullName) + '&limit=1&redirects=resolve', {json: true, timeout: 5000}, function(err, body, res){
-        if (err){
-          reject(err);
-          return;
-        }
+      var url = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + encodeURIComponent(fullName) + '&limit=1&redirects=resolve';
+      got(url, {json: true, timeout: 5000}).then(({ body }) => {
         if (!body || !body.length){
           console.log('NOT FOUND: ' + stopName);
           return;
@@ -37,11 +34,7 @@ var stopPromises = Object.keys(allData.stops).map(function(key){
 
         var title = url.match(/wiki\/(.*)$/i)[1]; // "title" from the URL
         var apiURL = 'https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(title) + '&prop=pageimages&format=json&pithumbsize=' + thumbnailWidth;
-        got(apiURL, {json: true, timeout: 5000}, function(e, b, r){
-          if (e){
-            reject(e);
-            return;
-          }
+        got(apiURL, {json: true, timeout: 5000}).then(({body: b}) => {
           var pages = b.query.pages;
           var thumbnail = pages[Object.keys(pages)[0]].thumbnail;
           var imgURL = thumbnail ? thumbnail.source : null;
@@ -56,25 +49,17 @@ var stopPromises = Object.keys(allData.stops).map(function(key){
             // Note that some wikipedia pages DON'T HAVE images, so it grabs a tiny image at the footer
             // which is still... kinda relevant, so whatever, still grab it anyway
             console.log('Try https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(title) + '&prop=images&imlimit=1&format=json')
-            got('https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(title) + '&prop=images&imlimit=1&format=json', {json: true, timeout: 5000}, function(e1, b1, r1){
-              if (e1){
-                reject(e1);
-                return;
-              }
+            got('https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(title) + '&prop=images&imlimit=1&format=json', {json: true, timeout: 5000}).then(({body: b1}) => {
               var imgTitle = b1.query.pages[Object.keys(b1.query.pages)[0]].images[0].title;
-              got('https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(imgTitle) + '&prop=imageinfo&iiprop=url&iiurlwidth=' + thumbnailWidth + '&format=json', {json: true, timeout: 5000}, function(e2, b2, r2){
-                if (e2){
-                  reject(e2);
-                  return;
-                }
+              got('https://en.wikipedia.org/w/api.php?action=query&titles=' + encodeURIComponent(imgTitle) + '&prop=imageinfo&iiprop=url&iiurlwidth=' + thumbnailWidth + '&format=json', {json: true, timeout: 5000}).then(({body: b2}) => {
                 var imgURL = b2.query.pages['-1'].imageinfo[0].thumburl;
                 stop.wikipedia_image_url = imgURL;
                 resolve();
-              });
-            });
+              }).catch((e) => reject(e));;
+            }).catch((e) => reject(e));
           }
-        });
-      });
+        }).catch((e) => reject(e));
+      }).catch((e) => reject(e));;
     } catch (e){
       reject(e);
     }

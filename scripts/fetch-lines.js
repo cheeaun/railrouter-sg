@@ -23,12 +23,13 @@ var LINES = [ // Refer to http://wiki.openstreetmap.org/wiki/Mass_Rapid_Transit_
 
 var get = function(url, callback){
   console.log('Request: ' + url);
-  got(url, function(err, body, res){
-    if (err) throw err;
+  got(url).then(({body}) => {
     parseString(body, function(e, result){
       if (e) throw e;
       callback(result);
     });
+  }).catch((e) => {
+    throw e;
   });
 };
 

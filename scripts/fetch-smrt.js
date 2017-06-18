@@ -9,8 +9,7 @@ var headers = {
 got('https://connect.smrt.wwprojects.com/smrt/api/stations/', {
   json: true,
   headers: headers,
-}, function(err, body, res){
-  if (err) throw err;
+}).then(({body}) => {
   var resultsPromises = body.results.map(function(result){
     return new Promise(function(resolve, reject){
       var name = result.name;
@@ -19,11 +18,7 @@ got('https://connect.smrt.wwprojects.com/smrt/api/stations/', {
       got('https://connect.smrt.wwprojects.com/smrt/api/station_info/?name=' + name.replace(/\s+/, '+'), {
         json: true,
         headers: headers,
-      }, function(e, item, r){
-        if (e){
-          reject(e);
-          return;
-        }
+      }.then(({item}) => {
         var meta = item.results[0];
         meta.exit.map(function(exit){
           exit._images = [
@@ -35,7 +30,7 @@ got('https://connect.smrt.wwprojects.com/smrt/api/stations/', {
         result._meta = meta;
         result._map = 'http://connect-cdn.smrt.wwprojects.com/autoupdate/images/locality/' + encodeURIComponent(name) + '.jpg';
         resolve(result);
-      });
+      }).catch(reject);
     });
   });
 
@@ -48,4 +43,6 @@ got('https://connect.smrt.wwprojects.com/smrt/api/stations/', {
   }, function(e){
     console.log(e);
   });
+}).catch((e) => {
+  throw e;
 });
