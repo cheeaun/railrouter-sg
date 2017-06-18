@@ -33,6 +33,7 @@ Here's a sprinkle of yarn magic:
 - `yarn run lines-all` - generate `all.json` from the scraped lines
 - `yarn run exits-all` - scrape exits fron OneMap.sg and regenerate `all.json`
 - `yarn run wikipedia-all` - fetch data from Wikipedia and regenerate `all.json`
+- `yarn run all` - run `lines`, `lines-all`, `exits-all` and `wikipedia-all`
 - `yarn run inliner` - inline all assets from `_index.html` to `index.html`
 - `yarn run watch` - watch files and run `inliner` when files changed
 - `yarn run serve` - run a local server

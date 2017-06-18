@@ -19,6 +19,7 @@
     "lines-all": "node scripts/from-lines-compile-all.js",
     "exits-all": "node scripts/fetch-onemap-exits-recompile-all.js",
     "wikipedia-all": "node scripts/fetch-wikipedia-recompile-all.js",
+    "all": "yarn run lines && yarn run lines-all && yarn run exits-all && yarn run wikipedia-all",
     "smrt": "node scripts/fetch-smrt.js",
     "inliner": "node scripts/inliner.js _index.html index.html",
     "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/all.json' -c 'yarn run inliner'",
