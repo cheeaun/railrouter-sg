@@ -33,7 +33,7 @@ $('script').each(function(){
   var src = el.attr('src');
   if (!src || /^http/i.test(src)) return; // Only accept local files
   var js = fs.readFileSync(src, 'utf8');
-  var result = UglifyJS.minify(js, {fromString: true});
+  var result = UglifyJS.minify(js);
   el.replaceWith('<script>' + result.code + '</script>');
 });
 
