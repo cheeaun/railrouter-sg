@@ -53,11 +53,19 @@ fs.readdir('data', function(e, files){
 
     // Flatten it back to an array, hash is just to make sure uniques
     allData.stops = Object.keys(stopsMap).map(function(key){
-      return stopsMap[key];
+      const stop = stopsMap[key];
+      return {
+        name: stop['name:en'] || stop.name,
+        'name:zh': stop['name:zh'],
+        'name:hi': stop['name:hi'],
+        coord: stop.coord,
+        network: stop.network,
+        ref: stop.ref,
+      };
     });
 
     allData.routes[file.match(/\-([a-z]+)\./i)[1]] = {
-      name: data.meta.ref || data.meta.name,
+      name: data.meta.ref || data.meta['name:en'] || data.meta.name,
       color: color,
       bounds: bounds,
     };
