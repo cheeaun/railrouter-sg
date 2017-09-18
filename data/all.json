@@ -150,7 +150,7 @@
 		},
 		{
 			"colour": "#748477",
-			"coords": "seqGuhdyRx@NbEjBt@p@V\\Rn@@n@Ot@U~@mAtE}@lDW`AWj@YV]Rc@Lo@Bg@GcDm@qBa@wA[gBg@gA[aCs@}FaCoBaA{H_DmEoBcAg@k@SwAg@aL_C]Ma@UmA}@kA_Aq@o@wBmDi@qA_@}@Uy@Im@Ak@@k@Hq@Jm@Lk@Pq@l@_B\\_Ab@}@Zg@XWb@]^Sj@Of@Gj@Ah@Dv@NlAZhM~EhD`BtHxD|KlFxCrA"
+			"coords": "seqGuhdyRx@NbEjBt@p@V\\Rn@@n@Ot@U~@mAtE}@lDW`AWj@YV]Rc@Lo@Bg@GcDm@qBa@wA[gBg@gA[aCs@}FaCoBaA{H_DmEoBcAg@k@SwAg@aL_C]Ma@UmA}@kA_Aq@o@wBmDi@qA_@}@Uy@Im@Ak@@k@Hq@Jm@Lk@Pq@Ri@Xw@\\_Ab@}@Zg@XWb@]^Sj@Of@Gj@Ah@Dv@NlAZhM~EhD`BtHxD|KlFxCrA"
 		},
 		{
 			"colour": "#748477",
@@ -214,7 +214,7 @@
 		},
 		{
 			"colour": "#748477",
-			"coords": "yfnGg{byRn@DvEhAp@Rn@Zb@f@Lb@Al@@f@V`DDxB?zAAf@_AdFSj@i@bAuBtDw@vAw@nAuAhCcArB}ArCmApBmBpDuAdCoBnDa@z@[~@g@|BIn@Ad@BzD?h@B^Ff@Ld@pBdHPr@FZ@\\CZKZKRSTUNg@VcB~@cAb@_@Hc@BwACeDOaA@eAJy@NgBZm@HW@U@i@?gBGqEQa@Eo@Q]WUc@Im@@i@d@sKX}GBaDVaFZqCh@aJJ{Bh@cHj@qHLsC`@wFPqBT{DTsBh@{CN{@Hi@f@}BR{@x@_El@kEHa@V[XS`@MZE\\@^F~@^fE~Ab@V"
+			"coords": "yfnGg{byRn@DvEhAp@Rn@Zb@f@Lb@Al@@f@V`DDxB?zAAf@_AdFSj@i@bAuBtDw@vAw@nAuAhCcArB}ArCmApBmBpDk@~@i@bAoBnDa@z@[~@g@|BIn@Ad@BzD?h@B^Ff@Ld@pBdHPr@FZ@\\CZKZKRSTUNg@VcB~@cAb@_@Hc@BwACeDOaA@eAJy@NgBZm@HW@U@i@?gBGqEQa@Eo@Q]WUc@Im@@i@d@sKX}GBaDVaFZqCh@aJJ{Bh@cHj@qHLsC`@wFPqBT{DTsBh@{CN{@Hi@f@}BR{@x@_El@kEHa@V[XS`@MZE\\@^F~@^fE~Ab@V"
 		},
 		{
 			"colour": "#748477",
@@ -234,7 +234,7 @@
 		},
 		{
 			"colour": "orange",
-			"coords": "cifG_bxxRkFq@}@IeGy@{Dy@kDeCmA{CGgGhBqJnAgEjBaGr@uFN_Bb@cD`AkIpAmMX_ER{FFiIeAyOoBiIg@uF_@{AY{Cs@yEe@gHEmEDiC~@_E|B}IdAyE`AgCbDsEnAmAlAu@dBIpDCtAGbCW`ByA|ByA~BeChGcOjH{Q"
+			"coords": "cifG_bxxRkFq@}@IeGy@{Dy@kDeCmA{CGgGhBqJnAgEjBaGr@uFN_Bb@cDh@oEVyBpAmMX_ER{FFiIeAyOoBiIg@uF_@{AY{Cs@yEe@gHEmEDiC~@_E|B}IdAyE`AgCbDsEnAmAlAu@dBIpDCtAGbCW`ByA|ByA~BeChGcOjH{Q"
 		},
 		{
 			"colour": "orange",
@@ -278,19 +278,27 @@
 		},
 		{
 			"colour": "blue",
-			"coords": "a_iG{~ixRsBOQASC{Co@QAQ?g@@qC\\eYfLkFzC{I`Gcg@dDoD~@wD`BOJUJcEbBwJxE_Bt@k@^oAnAgDhDmJxGmI`CgGnA}Gv@"
+			"coords": "a_iG{~ixRsBOQASC{Co@QAQ?g@@qC\\eYfLkFzCyE`DaC~AkCp@wb@rBoD~@wD`BOJUJ"
 		},
 		{
 			"colour": "blue",
-			"coords": "yunGougxR_QdCaB@qKyB"
+			"coords": "yunGkugxRyF`AKBIB_B`@E@E@E@E?wGJ[AYCWCWEYGWKm@WoBcAQKQGa@M"
 		},
 		{
 			"colour": "blue",
-			"coords": "kwoGaugxRiKgC"
+			"coords": "uvoGmvgxRiKoC"
 		},
 		{
 			"colour": "blue",
-			"coords": "ucpGkygxReQoDkFw@"
+			"coords": "}bpG}zgxRw@QWCWA_BCSASC[G]I_A[[G[Ey@IcCUkDa@"
+		},
+		{
+			"colour": "blue",
+			"coords": "k{pG{_hxRs@I"
+		},
+		{
+			"colour": "blue",
+			"coords": "wplGa{hxRcEbBwJxE_Bt@k@^oAnAgDhDmJxGmI`CgGfA_H`A"
 		},
 		{
 			"colour": "green",
@@ -298,7 +306,7 @@
 		},
 		{
 			"colour": "green",
-			"coords": "aycGc}dxRjEmBrBaAjGqCr@[~@g@vAeA|@eAr@iAl@iAx@_Br@_B`@gAt@eBl@sAv@eCf@oAr@iB`@wAViBLsBIkED}AJeBTaBhA}DXkAb@cC`@oBPyAVqBToBn@mEP_A`@qAj@oA`A{An@k@x@m@hAm@zBy@hDkAvCeAjE{AlBw@vBiAzCeBvE_DnFaDnBgA~B_ApBq@zHgCpB}@~@k@lAcAjAwAl@gAr@aCVyANaDKyCOkCi@wJa@cGUoECe@I_CHgBTcBb@uAh@kAl@eAlD_H|B_FdIuOd@{@t@{AXu@Ty@P}@LeAJcBDuAJsBJmBLiDLmCHiBXsGLkCJyALsAReA\\uAVm@d@gA\\k@d@s@h@k@|@gAtGwHbCsCjA{Ar@aAjEiF^]HIfAgAl@w@|AgB`CsC~AgBtI}JlCaDdAeAnA_A|@g@fDkB`FmClAs@|@g@\\Wj@e@h@i@`BmB`AgA\\e@\\k@Zm@Xs@Ru@VsAHw@LwAzAgQd@wFPyAPy@Tu@`@kAlCiHZaAV_ANy@NkADq@B{A@o@"
+			"coords": "aycGc}dxRjEmBrBaAjGqCr@[~@g@vAeA|@eAr@iAl@iAx@_Br@_B`@gAt@eBl@sAv@eCf@oAr@iB`@wAViBLsBIkED}AJeBTaBhA}DXkAb@cC^oBRwAVqBToBl@mEH_@Je@La@HUHSj@qANWNWPUPSn@k@x@m@nAo@tBw@hDkAvCeAjE{AlBw@vBiAzCeBvE_DnFaDnBgA~B_ApBq@zHgCpB}@~@k@lAcAjAwAl@gAr@aCVyANaDKyCOkCi@wJa@cGUoECe@I_CHgBTcBb@uAh@kAl@eAlD_H|B_FdIuOd@{@t@{AXu@Ty@P}@LeAJcBDuAJsBJmBLiDLmCHiBXsGLkCJyALsAReA\\uAVm@d@gA\\k@d@s@h@k@|@gAtGwHbCsCjA{Ar@aAjEiF^]HIfAgAl@w@|AgB`CsC~AgBtI}JlCaDdAeAnA_A|@g@fDkB`FmClAs@|@g@\\Wj@e@h@i@`BmB`AgA\\e@\\k@Zm@Xs@Ru@VsAHw@LwAzAgQd@wFPyAPy@Tu@`@kAlCiHZaAV_ANy@NkADq@B{A@o@"
 		},
 		{
 			"colour": "green",
@@ -318,11 +326,11 @@
 		},
 		{
 			"colour": "green",
-			"coords": "}_dGkxdxRxBwA`B_A"
+			"coords": "{_dGixdxRVSXQfAq@`B_A"
 		},
 		{
 			"colour": "green",
-			"coords": "yhbGcaxwRGcCMuCEkEBaG?oCDgD?uYEwC[wBc@oAk@mAs@aAg@e@aAq@_Bw@yAYoCm@sB_Aq@a@u@k@cPwKyAgAuC}BuAeAs@u@y@oAo@iAi@aBUqAOqAIcAMaASmCCyLDaGBcLC}DQuBi@aCuA_FuB_Io@{Bu@yBiEqKs@_C_K_`@sB{HaBiGy@yC}A{Jm@gEKsAEiB@iBDgALmA^uBv@gEVyAFaABcA?kA@uB@iCFqBZcCp@{B~@mBlAkBhBsCjBqClCaEtAsBdA}AnC_EhDcFlCsD~BaD|@kArAgBp@s@"
+			"coords": "yhbGcaxwRGcCMuCEkEBaG?oCDgD?uYEwC[wBc@oAk@mAs@aAg@e@aAq@_Bw@yAYoCm@sB_Aq@a@u@k@cPwKyAgAuC}BuAeAs@u@y@oAo@iAi@aBUqAOqAIcAMaASmCCyLDaGBcLC}DQuBi@aCuA_FuB_Io@{Bu@yBiEqKs@_C_K_`@sB{HaBiGy@yC}A{Jm@gEKsAEiB@iBDgALmA^uBv@gEVyAFaABcA?kA@uB@iCFqBZcCp@{B~@mBlAkBhBsCjBqClCaEtAsBdA}AnC_EhDcFlCsD~BaD|@kArAeBVYXY"
 		},
 		{
 			"colour": "green",
@@ -366,7 +374,7 @@
 		},
 		{
 			"colour": "purple",
-			"coords": "advFsvtxR[uK_@yBs@iBoJsLsSwR{FmGuSoQqC_CuSsWe\\}Xk[sSkQuAsZ~PeI]mFyBkr@q[}Y{UuEaE{W}XsHkJeMgKwh@i`@eDiBmHkB_Ei@cQsCuHkBiVaBmF]_U`@}COkCc@uQyGoCyAgG{Eu|@obAud@gf@eHqEyE}AuFm@iNCscA_AK?}Mo@eYkGkb@wLwi@cWyG_D}JkE"
+			"coords": "advFsvtxR[uK_@yBs@iBoJsLsSwR{FmGuSoQqC_CuSsWe\\}Xk[sSkQuAsZ~PeI]mFyBkr@q[}Y{UuEaE{W}XsHkJeMgKwh@i`@eDiBmHkB_Ei@cQsCuHkBiVaBmF]_U`@}COkCc@uQyGoCyAgG{Eu|@obAud@gf@eHqEyE}AuFm@iNCscA_AK?}Mo@oBc@uUgFkb@wLwi@cWyG_D}JkE"
 		},
 		{
 			"colour": "red",
@@ -374,7 +382,7 @@
 		},
 		{
 			"colour": "red",
-			"coords": "}jfGivyxRaBQ_AMeC[aC]"
+			"coords": "klfGqvyxRs@I_AMeC[aC]"
 		},
 		{
 			"colour": "red",
@@ -406,7 +414,7 @@
 		},
 		{
 			"colour": "red",
-			"coords": "atvGqljxRJ`@"
+			"coords": "atvGqljxRJ`@ZbA`@|@Vf@b@n@r@|@p@p@n@j@"
 		},
 		{
 			"colour": "red",
@@ -430,7 +438,7 @@
 		},
 		{
 			"colour": "red",
-			"coords": "e~fGw}fxRNH~@j@bBlAt@d@bAh@dAn@`@V`FjDhAx@dAx@vAdA~DhC|B~AtBvAdKjHrIzF`BfAv@h@lBlApCfBlAv@jCrBTNt@d@p@Zv@RfATt@Hr@@dAAhAIn@MvBy@lAe@fA]"
+			"coords": "e~fGw}fxRNH~@j@bBlAt@d@bAh@dAn@`@V`FjDhAx@dAx@vAdA~DhC|B~AtBvAdKjHrIzF`BfAv@h@lBlApCfBlAv@jCrBTNt@d@JFJDJDJDv@T`@Jd@HXDZBr@@dAAb@C\\CPCJALCLEvBy@lAe@fA]"
 		},
 		{
 			"colour": "red",
@@ -442,11 +450,7 @@
 		},
 		{
 			"colour": "red",
-			"coords": "usvGmkjxRZbA`@|@Vf@b@n@r@|@p@p@n@j@"
-		},
-		{
-			"colour": "red",
-			"coords": "_tuGcmixRb@n@rCzDn@bAdDlFt@pAd@~@b@fAX~@t@lCd@bBb@bB^lB`@~C\\vCfA`J`BxMRfAV`AVv@l@tAd@x@`@r@r@z@t@t@x@p@n@`@tAv@xAj@|Ab@zAVbBPtAF~AAzAIxI{@hLmAjXoCz@IhAIdAC|@AlA?nAFxALhBPzAR`GbAbHrA`GhAxF`AlDl@zAZxGjAdAPhATdAXvB|@fCvAnDpBzBnA|A|@bBn@nBl@`Cb@jANlAJpABnA?|JWfCKjBEbGMfBEzAAx@BrAJlALnAJtHz@zGl@pBPnAFl@@dA?r@?bAEtAKt@E"
+			"coords": "_tuGcmixRb@n@rCzDn@bAdDlFt@pAd@~@b@fAX~@t@lCd@bBb@bB^lB`@~C\\vCfA`J`BxMRfAV`AVv@l@tAd@x@`@r@r@z@t@t@x@p@n@`@tAv@xAj@|Ab@zAVbBPtAF~AAzAIxI{@hLmAjXoCz@IhAIdAC|@AlA?nAFxALhBPzAR`GbAbHrA`GhAxF`AlDl@zAZxGjAdAPhATdAXvB|@fCvAnDpBzBnA|A|@bBn@nBl@`Cb@jANlAJpABnA?|JWfCKjBEtCGlBEfBEzAAx@BrAJlALnAJtHz@zGl@pBPnAFl@@dA?r@?bAEtAKt@E"
 		},
 		{
 			"colour": "red",
@@ -466,238 +470,168 @@
 		},
 		{
 			"colour": "red",
-			"coords": "qv{FupzxRkDfCqBhBqQr[aDzRuBzNsAdJs@lGEvAd@zBBLRxCa@tBY~A_ApCyAxAyClAiDlAeHz@c@AcAIuA[mZ_KsR{ZkHgKkMsDoHyAeKsIuNiK}g@sKcCo@iDK{DLoJvAaT|@gFFk@BgI`@gG?}TKqV}C"
+			"coords": "qv{FupzxRkDfCqBhBqQr[aDzRuBzNsAdJs@lGEvAd@zBBLRxCa@tBY~A_ApCyAxAyClAiDlAeHz@c@AcAIuA[mZ_KsR{ZkHgKkMsDoHyAeKsIuNiK}g@sKcCo@iDK{DLoJvAyF`AoClAcDbAuBPmESqA]yHeAgG?}TK}WgD"
 		}
 	],
 	"stops": [
 		{
 			"name": "Choa Chu Kang",
-			"name:en": "Choa Chu Kang",
 			"name:zh": "蔡厝港",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP1",
-			"station": "light_rail",
 			"coord": [
 				1.3847493,
 				103.7445341
 			],
+			"network": "LRT",
+			"ref": "BP1",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cck-mrt.JPG/500px-Cck-mrt.JPG"
 		},
 		{
 			"name": "South View",
-			"name:en": "South View",
 			"name:zh": "南景",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP2",
-			"station": "light_rail",
 			"coord": [
 				1.3802601,
 				103.745285
 			],
+			"network": "LRT",
+			"ref": "BP2",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/South_View_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/SouthViewLRTStation.JPG/500px-SouthViewLRTStation.JPG"
 		},
 		{
 			"name": "Keat Hong",
-			"name:en": "Keat Hong",
 			"name:zh": "吉丰",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP3",
-			"station": "light_rail",
 			"coord": [
 				1.3786034,
 				103.7490207
 			],
+			"network": "LRT",
+			"ref": "BP3",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Keat_Hong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Teck Whye",
-			"name:en": "Teck Whye",
 			"name:zh": "德惠",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP4",
-			"station": "light_rail",
 			"coord": [
 				1.3766705,
 				103.7536471
 			],
+			"network": "LRT",
+			"ref": "BP4",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Teck_Whye_LRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Senja_LRT_Station%2C_Singapore.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Phoenix",
-			"name:en": "Phoenix",
 			"name:zh": "凤凰",
-			"network": "LRT",
-			"operator": "SMRT",
-			"platforms": "2",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP5",
-			"station": "light_rail",
 			"coord": [
 				1.3786164,
 				103.758008
 			],
+			"network": "LRT",
+			"ref": "BP5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Phoenix_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/PhoenixLRTExterior.jpg/500px-PhoenixLRTExterior.jpg"
 		},
 		{
 			"name": "Bukit Panjang",
-			"name:en": "Bukit Panjang",
 			"name:zh": "武吉班让",
-			"network": "LRT",
-			"note": "Bukit Panjang (BPLRT)",
-			"operator": "SMRT",
-			"platforms": "2",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP6",
-			"station": "light_rail",
 			"coord": [
 				1.3779027,
 				103.7630978
 			],
+			"network": "LRT",
+			"ref": "BP6",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Panjang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bukitpanjangmrtplatform.jpg/500px-Bukitpanjangmrtplatform.jpg"
 		},
 		{
 			"name": "Petir",
-			"name:en": "Petir",
 			"name:zh": "柏提",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP7",
-			"station": "light_rail",
 			"coord": [
 				1.3777556,
 				103.7666339
 			],
+			"network": "LRT",
+			"ref": "BP7",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Petir_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Pending",
-			"name:en": "Pending",
 			"name:zh": "秉定",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP8",
-			"station": "light_rail",
 			"coord": [
 				1.3761841,
 				103.7712587
 			],
+			"network": "LRT",
+			"ref": "BP8",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Pending_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Bangkit",
-			"name:en": "Bangkit",
 			"name:zh": "万吉",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP9",
-			"station": "light_rail",
 			"coord": [
 				1.3800554,
 				103.7726443
 			],
+			"network": "LRT",
+			"ref": "BP9",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bangkit_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Fajar",
-			"name:en": "Fajar",
 			"name:zh": "法嘉",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP10",
-			"station": "light_rail",
 			"coord": [
 				1.3845503,
 				103.7708003
 			],
+			"network": "LRT",
+			"ref": "BP10",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Fajar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Light_Rail_Transit_train_at_Fajar_LRT_Station%2C_Singapore_-_20060422.jpg/500px-Light_Rail_Transit_train_at_Fajar_LRT_Station%2C_Singapore_-_20060422.jpg"
 		},
 		{
 			"name": "Segar",
-			"name:en": "Segar",
 			"name:zh": "实加",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP11",
-			"station": "light_rail",
 			"coord": [
 				1.3877919,
 				103.7695932
 			],
+			"network": "LRT",
+			"ref": "BP11",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Segar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Jelapang",
-			"name:en": "Jelapang",
 			"name:zh": "泽拉邦",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP12",
-			"station": "light_rail",
 			"coord": [
 				1.3866832,
 				103.7645153
 			],
+			"network": "LRT",
+			"ref": "BP12",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Jelapang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Senja",
-			"name:en": "Senja",
 			"name:zh": "信佳",
-			"network": "LRT",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "BP13",
-			"station": "light_rail",
 			"coord": [
 				1.3826778,
 				103.7623822
 			],
+			"network": "LRT",
+			"ref": "BP13",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Senja_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Senja_LRT_Station%2C_Singapore.jpg"
 		},
 		{
-			"building": "yes",
 			"name": "Station A",
-			"source": "Bing",
 			"coord": [
 				1.3539411499999998,
 				103.98541265
@@ -705,9 +639,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station B",
-			"source": "Bing",
 			"coord": [
 				1.3584462,
 				103.98730695
@@ -715,9 +647,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station C",
-			"source": "Bing",
 			"coord": [
 				1.3620792499999999,
 				103.98896189999999
@@ -725,9 +655,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station D",
-			"source": "Bing",
 			"coord": [
 				1.3608806,
 				103.9912273
@@ -735,9 +663,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station D",
-			"source": "Bing",
 			"coord": [
 				1.3610217,
 				103.99178865
@@ -745,9 +671,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station E",
-			"source": "Bing",
 			"coord": [
 				1.35700515,
 				103.99003725
@@ -755,9 +679,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station F",
-			"source": "Bing",
 			"coord": [
 				1.35344825,
 				103.9886306
@@ -765,9 +687,7 @@
 			"network": "lrt"
 		},
 		{
-			"building": "yes",
 			"name": "Station G",
-			"source": "Bing",
 			"coord": [
 				1.35027865,
 				103.9838115
@@ -776,17 +696,13 @@
 		},
 		{
 			"name": "Punggol",
-			"name:en": "Punggol",
 			"name:zh": "榜鹅",
-			"network": "MRT;LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE17;PTC",
-			"station": "subway",
 			"coord": [
 				1.4052551,
 				103.9023538
 			],
+			"network": "MRT;LRT",
+			"ref": "NE17;PTC",
 			"exits": [
 				{
 					"exit": "A",
@@ -822,214 +738,169 @@
 		},
 		{
 			"name": "Cove",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE1",
-			"station": "light_rail",
 			"coord": [
 				1.3994643,
 				103.9058522
 			],
+			"network": "LRT",
+			"ref": "PE1",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cove_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Meridian",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE2",
-			"station": "light_rail",
 			"coord": [
 				1.3969762,
 				103.9088744
 			],
+			"network": "LRT",
+			"ref": "PE2",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Meridian_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pe2_meridian.jpg/500px-Pe2_meridian.jpg"
 		},
 		{
 			"name": "Coral Edge",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE3",
-			"station": "light_rail",
 			"coord": [
 				1.3938755,
 				103.9126427
 			],
+			"network": "LRT",
+			"ref": "PE3",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Coral_Edge_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coral_Edge_LRT.JPG/500px-Coral_Edge_LRT.JPG"
 		},
 		{
 			"name": "Riviera",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE4",
-			"station": "light_rail",
 			"coord": [
 				1.3945492,
 				103.9161044
 			],
+			"network": "LRT",
+			"ref": "PE4",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Riviera_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Kadaloor",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE5",
-			"station": "light_rail",
 			"coord": [
 				1.399601,
 				103.9164448
 			],
+			"network": "LRT",
+			"ref": "PE5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kadaloor_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Oasis",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE6",
-			"station": "light_rail",
 			"coord": [
 				1.4023166,
 				103.9126843
 			],
+			"network": "LRT",
+			"ref": "PE6",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Oasis_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Damai",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PE7",
-			"station": "light_rail",
 			"coord": [
 				1.4052818,
 				103.9085559
 			],
+			"network": "LRT",
+			"ref": "PE7",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Damai_LRT_Station,_Singapore",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
-			"disused": "yes",
 			"name": "Sam Kee",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW1",
 			"coord": [
 				1.409721,
 				103.9048928
 			],
 			"network": "lrt",
+			"ref": "PW1",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sam_Kee_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Sam_Kee_Entrance.jpg/500px-Sam_Kee_Entrance.jpg"
 		},
 		{
-			"disused": "yes",
 			"name": "Teck Lee",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW2",
 			"coord": [
 				1.4127373,
 				103.9065808
 			],
 			"network": "lrt",
+			"ref": "PW2",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Teck_Lee_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Teck_Lee_Platform.jpg/500px-Teck_Lee_Platform.jpg"
 		},
 		{
-			"disused": "yes",
 			"name": "Punggol Point",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW3",
 			"coord": [
 				1.4168814,
 				103.9066298
 			],
 			"network": "lrt",
+			"ref": "PW3",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Punggol_Point_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Punggol_Point_LRT_View.JPG/500px-Punggol_Point_LRT_View.JPG"
 		},
 		{
-			"disused": "no",
 			"name": "Samudera",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW4",
 			"coord": [
 				1.4159537,
 				103.9021398
 			],
 			"network": "lrt",
+			"ref": "PW4",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Samudera_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Samudera_LRT_View.JPG/500px-Samudera_LRT_View.JPG"
 		},
 		{
 			"name": "Nibong",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW5",
 			"coord": [
 				1.4118314,
 				103.9003049
 			],
 			"network": "lrt",
+			"ref": "PW5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Nibong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Sumang",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW6",
 			"coord": [
 				1.4085322,
 				103.8985342
 			],
 			"network": "lrt",
+			"ref": "PW6",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sumang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Entrance_A_to_Sumang_LRT_Station.jpg/500px-Entrance_A_to_Sumang_LRT_Station.jpg"
 		},
 		{
 			"name": "Soo Teck",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "PW7",
 			"coord": [
 				1.4053939,
 				103.8972365
 			],
 			"network": "lrt",
+			"ref": "PW7",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Soo_Teck_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Pw7_soo_teck.jpg/500px-Pw7_soo_teck.jpg"
 		},
 		{
 			"name": "Sentosa",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "S1",
-			"wheelchair": "yes",
 			"coord": [
 				1.2650909,
 				103.8224201
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"ref": "S1"
 		},
 		{
-			"asset_ref": "S2",
 			"name": "Waterfront",
-			"public_transport": "station",
-			"railway": "station",
 			"coord": [
 				1.2555418,
 				103.8209626
@@ -1037,10 +908,7 @@
 			"network": "lrt"
 		},
 		{
-			"asset_ref": "S3",
 			"name": "Imbiah",
-			"public_transport": "station",
-			"railway": "station",
 			"coord": [
 				1.2539153,
 				103.8194525
@@ -1048,10 +916,7 @@
 			"network": "lrt"
 		},
 		{
-			"asset_ref": "S4",
 			"name": "Beach",
-			"public_transport": "station",
-			"railway": "station",
 			"coord": [
 				1.251316,
 				103.8178125
@@ -1060,18 +925,13 @@
 		},
 		{
 			"name": "Sengkang",
-			"name:en": "Sengkang",
 			"name:zh": "盛港",
-			"network": "MRT;LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE16;STC",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3913304,
 				103.8952941
 			],
+			"network": "MRT;LRT",
+			"ref": "NE16;STC",
 			"exits": [
 				{
 					"exit": "A",
@@ -1107,202 +967,157 @@
 		},
 		{
 			"name": "Ranggung",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SE5",
-			"station": "light_rail",
 			"coord": [
 				1.3840301,
 				103.8973486
 			],
+			"network": "LRT",
+			"ref": "SE5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Ranggung_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ranggung_LRT_Station_3%2C_Sep_06.JPG/500px-Ranggung_LRT_Station_3%2C_Sep_06.JPG"
 		},
 		{
 			"name": "Compassvale",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SE1",
-			"station": "light_rail",
 			"coord": [
 				1.394518,
 				103.9004349
 			],
+			"network": "LRT",
+			"ref": "SE1",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Compassvale_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Rumbia",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SE2",
-			"station": "light_rail",
 			"coord": [
 				1.3915095,
 				103.9059369
 			],
+			"network": "LRT",
+			"ref": "SE2",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Rumbia_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Rumbia_LRT.JPG/500px-Rumbia_LRT.JPG"
 		},
 		{
 			"name": "Bakau",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SE3",
-			"station": "light_rail",
 			"coord": [
 				1.3880291,
 				103.9054582
 			],
+			"network": "LRT",
+			"ref": "SE3",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bakau_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
 		{
 			"name": "Kangkar",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SE4",
-			"station": "light_rail",
 			"coord": [
 				1.3839216,
 				103.9022015
 			],
+			"network": "LRT",
+			"ref": "SE4",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kangkar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kangkar_LRT_Station%2C_Oct_06.JPG/500px-Kangkar_LRT_Station%2C_Oct_06.JPG"
 		},
 		{
-			"layer": "1",
 			"name": "Cheng Lim",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW1",
-			"station": "light_rail",
 			"coord": [
 				1.3963098,
 				103.8937126
 			],
+			"network": "LRT",
+			"ref": "SW1",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cheng_Lim_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Cheng_Lim_LRT_Station%2C_Sep_05.JPG/500px-Cheng_Lim_LRT_Station%2C_Sep_05.JPG"
 		},
 		{
 			"name": "Farmway",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW2",
-			"station": "light_rail",
 			"coord": [
-				1.3971908,
-				103.8891666
+				1.3971948,
+				103.8892243
 			],
+			"network": "LRT",
+			"ref": "SW2",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Farmway_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Farmway_LRT_Station%2C_Sep_05.JPG/500px-Farmway_LRT_Station%2C_Sep_05.JPG"
 		},
 		{
 			"name": "Kupang",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW3",
-			"station": "light_rail",
 			"coord": [
 				1.3982038,
 				103.881246
 			],
+			"network": "LRT",
+			"ref": "SW3",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kupang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Kupang_LRT.jpg/500px-Kupang_LRT.jpg"
 		},
 		{
 			"name": "Thanggam",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW4",
-			"station": "light_rail",
 			"coord": [
 				1.3974337,
 				103.8756446
 			],
+			"network": "LRT",
+			"ref": "SW4",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Thanggam_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ThanggamLRT.JPG/500px-ThanggamLRT.JPG"
 		},
 		{
 			"name": "Fernvale",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW5",
-			"station": "light_rail",
 			"coord": [
 				1.3919165,
 				103.8762969
 			],
+			"network": "LRT",
+			"ref": "SW5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Fernvale_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Fernvale_LRT_Station_3%2C_Aug_06.JPG/500px-Fernvale_LRT_Station_3%2C_Aug_06.JPG"
 		},
 		{
 			"name": "Layar",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW6",
-			"station": "light_rail",
 			"coord": [
 				1.3921138,
 				103.8800735
 			],
+			"network": "LRT",
+			"ref": "SW6",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Layar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Layar_LRT_Station_3%2C_Aug_06.JPG/500px-Layar_LRT_Station_3%2C_Aug_06.JPG"
 		},
 		{
 			"name": "Tongkang",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW7",
-			"station": "light_rail",
 			"coord": [
 				1.3894453,
 				103.8858069
 			],
+			"network": "LRT",
+			"ref": "SW7",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tongkang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Tongkang_LRT_Station_2%2C_Aug_06.JPG/500px-Tongkang_LRT_Station_2%2C_Aug_06.JPG"
 		},
 		{
 			"name": "Renjong",
-			"network": "LRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "SW8",
-			"station": "light_rail",
 			"coord": [
 				1.3867081,
 				103.8904847
 			],
+			"network": "LRT",
+			"ref": "SW8",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Renjong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Renjong_LRT_Station_2%2C_Aug_06.JPG/500px-Renjong_LRT_Station_2%2C_Aug_06.JPG"
 		},
 		{
 			"name": "Marina Bay",
-			"name:en": "Marina Bay",
-			"name:hi": "மரீனா பே",
-			"name:ms": "Teluk Marina",
 			"name:zh": "滨海湾",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS27;CE2;TE20",
-			"station": "subway",
+			"name:hi": "மரீனா பே",
 			"coord": [
 				1.2756818,
 				103.8546165
 			],
+			"network": "MRT",
+			"ref": "NS27;CE2;TE20",
 			"exits": [
 				{
 					"exit": "A",
@@ -1320,24 +1135,18 @@
 				}
 			],
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Marina_Bay_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mrb_ccl_exit.JPG/500px-Mrb_ccl_exit.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Circle_Line_Marina_Bay_platform.jpg/500px-Circle_Line_Marina_Bay_platform.jpg"
 		},
 		{
 			"name": "Bayfront",
-			"name:en": "Bayfront",
-			"name:hi": "பேஃபிரண்ட்",
-			"name:ms": "Bayfront",
 			"name:zh": "海湾舫",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CE1;DT16",
-			"station": "subway",
-			"wikidata": "Q1106644",
+			"name:hi": "பேஃபிரண்ட்",
 			"coord": [
 				1.2825349,
 				103.8597296
 			],
+			"network": "MRT",
+			"ref": "CE1;DT16",
 			"exits": [
 				{
 					"exit": "A",
@@ -1380,20 +1189,14 @@
 		},
 		{
 			"name": "Dhoby Ghaut",
-			"name:en": "Dhoby Ghaut",
-			"name:hi": "டோபி காட்",
-			"name:ms": "Dhoby Ghaut",
 			"name:zh": "多美歌",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE6;NS24;CC1",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "டோபி காட்",
 			"coord": [
 				1.2987856,
 				103.8450197
 			],
+			"network": "MRT",
+			"ref": "NE6;NS24;CC1",
 			"exits": [
 				{
 					"exit": "A",
@@ -1443,20 +1246,14 @@
 		},
 		{
 			"name": "Bras Basah",
-			"name:en": "Bras Basah",
-			"name:hi": "பிராஸ் பாசா",
-			"name:ms": "Bras Basah",
 			"name:zh": "百胜",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC2",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "பிராஸ் பாசா",
 			"coord": [
 				1.2968963,
 				103.8505497
 			],
+			"network": "MRT",
+			"ref": "CC2",
 			"exits": [
 				{
 					"exit": "A",
@@ -1499,19 +1296,14 @@
 		},
 		{
 			"name": "Esplanade",
-			"name:en": "Esplanade",
-			"name:hi": "எஸ்பிளனேட்",
-			"name:ms": "Esplanade",
 			"name:zh": "滨海中心",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC3",
-			"station": "subway",
+			"name:hi": "எஸ்பிளனேட்",
 			"coord": [
 				1.293258,
 				103.8559742
 			],
+			"network": "MRT",
+			"ref": "CC3",
 			"exits": [
 				{
 					"exit": "A",
@@ -1568,19 +1360,14 @@
 		},
 		{
 			"name": "Promenade",
-			"name:en": "Promenade",
-			"name:hi": "புரொமனெட்",
-			"name:ms": "Promenade",
 			"name:zh": "宝门廊",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC4;DT15",
-			"station": "subway",
+			"name:hi": "புரொமனெட்",
 			"coord": [
 				1.2927806,
 				103.8610839
 			],
+			"network": "MRT",
+			"ref": "CC4;DT15",
 			"exits": [
 				{
 					"exit": "A",
@@ -1609,19 +1396,14 @@
 		},
 		{
 			"name": "Nicoll Highway",
-			"name:en": "Nicoll Highway",
-			"name:hi": "நிக்கல் நெடுஞ்சாலை",
-			"name:ms": "Nicoll Highway",
 			"name:zh": "尼诰大道",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC5",
-			"station": "subway",
+			"name:hi": "நிக்கல் நெடுஞ்சாலை",
 			"coord": [
 				1.2996713,
 				103.8635001
 			],
+			"network": "MRT",
+			"ref": "CC5",
 			"exits": [
 				{
 					"exit": "A",
@@ -1643,19 +1425,14 @@
 		},
 		{
 			"name": "Stadium",
-			"name:en": "Stadium",
-			"name:hi": "ஸ்டேடியம்",
-			"name:ms": "Stadium",
 			"name:zh": "体育场",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC6",
-			"station": "subway",
+			"name:hi": "ஸ்டேடியம்",
 			"coord": [
 				1.3028989,
 				103.8754768
 			],
+			"network": "MRT",
+			"ref": "CC6",
 			"exits": [
 				{
 					"exit": "A",
@@ -1677,19 +1454,14 @@
 		},
 		{
 			"name": "Mountbatten",
-			"name:en": "Mountbatten",
-			"name:hi": "மவுண்ட்பேட்டன்",
-			"name:ms": "Mountbatten",
 			"name:zh": "蒙巴登",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC7",
-			"station": "subway",
+			"name:hi": "மவுண்ட்பேட்டன்",
 			"coord": [
 				1.3062494,
 				103.8824959
 			],
+			"network": "MRT",
+			"ref": "CC7",
 			"exits": [
 				{
 					"exit": "A",
@@ -1711,19 +1483,14 @@
 		},
 		{
 			"name": "Dakota",
-			"name:en": "Dakota",
-			"name:hi": "டகோட்டா",
-			"name:ms": "Dakota",
 			"name:zh": "达科达",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC8",
-			"station": "subway",
+			"name:hi": "டகோட்டா",
 			"coord": [
 				1.3083182,
 				103.8883362
 			],
+			"network": "MRT",
+			"ref": "CC8",
 			"exits": [
 				{
 					"exit": "A",
@@ -1745,20 +1512,14 @@
 		},
 		{
 			"name": "Paya Lebar",
-			"name:en": "Paya Lebar",
-			"name:hi": "பாய லேபார்",
-			"name:ms": "Paya Lebar",
 			"name:zh": "巴耶利峇",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW8;CC9",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "பாய லேபார்",
 			"coord": [
 				1.3180497,
 				103.8923182
 			],
+			"network": "MRT",
+			"ref": "EW8;CC9",
 			"exits": [
 				{
 					"exit": "A",
@@ -1794,20 +1555,14 @@
 		},
 		{
 			"name": "MacPherson",
-			"name:en": "MacPherson",
-			"name:hi": "மெக்பர்சன்",
-			"name:ms": "MacPherson",
 			"name:zh": "麦波申",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC10;DT26",
-			"state": "proposed",
-			"station": "subway",
+			"name:hi": "மெக்பர்சன்",
 			"coord": [
 				1.3265672,
 				103.8903059
 			],
+			"network": "MRT",
+			"ref": "CC10;DT26",
 			"exits": [
 				{
 					"exit": "A",
@@ -1836,19 +1591,14 @@
 		},
 		{
 			"name": "Tai Seng",
-			"name:en": "Tai Seng",
-			"name:hi": "தை செங்",
-			"name:ms": "Tai Seng",
 			"name:zh": "大成",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC11",
-			"station": "subway",
+			"name:hi": "தை செங்",
 			"coord": [
 				1.334874,
 				103.8881723
 			],
+			"network": "MRT",
+			"ref": "CC11",
 			"exits": [
 				{
 					"exit": "A",
@@ -1870,25 +1620,20 @@
 		},
 		{
 			"name": "Bartley",
-			"name:en": "Bartley",
-			"name:hi": "பார்ட்லி",
-			"name:ms": "Bartley",
 			"name:zh": "巴特礼",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC12",
-			"station": "subway",
+			"name:hi": "பார்ட்லி",
 			"coord": [
 				1.3424382,
 				103.8804493
 			],
+			"network": "MRT",
+			"ref": "CC12",
 			"exits": [
 				{
 					"exit": "A",
 					"coord": [
-						1.3422528985237958,
-						103.88025151375378
+						1.3422595837526985,
+						103.88038311696285
 					]
 				},
 				{
@@ -1904,20 +1649,14 @@
 		},
 		{
 			"name": "Serangoon",
-			"name:en": "Serangoon",
-			"name:hi": "சிராங்கூன்",
-			"name:ms": "Serangoon",
 			"name:zh": "实龙岗",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE12;CC13",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "சிராங்கூன்",
 			"coord": [
 				1.3498066,
 				103.8737713
 			],
+			"network": "MRT",
+			"ref": "NE12;CC13",
 			"exits": [
 				{
 					"exit": "A",
@@ -1981,19 +1720,14 @@
 		},
 		{
 			"name": "Lorong Chuan",
-			"name:en": "Lorong Chuan",
-			"name:hi": "லோரோங் சுவான்",
-			"name:ms": "Lorong Chuan",
 			"name:zh": "罗弄泉",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC14",
-			"station": "subway",
+			"name:hi": "லோரோங் சுவான்",
 			"coord": [
 				1.3514878,
 				103.8633948
 			],
+			"network": "MRT",
+			"ref": "CC14",
 			"exits": [
 				{
 					"exit": "A",
@@ -2015,19 +1749,14 @@
 		},
 		{
 			"name": "Bishan",
-			"name:en": "Bishan",
-			"name:hi": "பீஷான்",
-			"name:ms": "Bishan",
 			"name:zh": "碧山",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS17;CC15",
-			"station": "subway",
+			"name:hi": "பீஷான்",
 			"coord": [
 				1.3514551,
 				103.8482628
 			],
+			"network": "MRT",
+			"ref": "NS17;CC15",
 			"exits": [
 				{
 					"exit": "A",
@@ -2070,20 +1799,14 @@
 		},
 		{
 			"name": "Marymount",
-			"name:en": "Marymount",
-			"name:hi": "மேரிமவுண்ட்",
-			"name:ms": "Marymount",
 			"name:zh": "玛丽蒙",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC16",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "மேரிமவுண்ட்",
 			"coord": [
 				1.3486136,
 				103.8392382
 			],
+			"network": "MRT",
+			"ref": "CC16",
 			"exits": [
 				{
 					"exit": "A",
@@ -2105,19 +1828,14 @@
 		},
 		{
 			"name": "Caldecott",
-			"name:en": "Caldecott",
-			"name:hi": "கால்டிகாட்",
-			"name:ms": "Caldecott",
 			"name:zh": "加利谷",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC17;TE9",
-			"station": "subway",
+			"name:hi": "கால்டிகாட்",
 			"coord": [
 				1.3376796,
 				103.8399908
 			],
+			"network": "MRT",
+			"ref": "CC17;TE9",
 			"exits": [
 				{
 					"exit": "A",
@@ -2139,18 +1857,14 @@
 		},
 		{
 			"name": "Bukit Brown",
-			"name:en": "Bukit Brown",
-			"name:hi": "புக்கிட் பிரவுன்",
-			"name:ms": "Bukit Brown",
 			"name:zh": "武吉布朗",
-			"proposed": "station",
-			"railway": "proposed",
-			"ref": "CC18",
+			"name:hi": "புக்கிட் பிரவுன்",
 			"coord": [
 				1.3337697,
 				103.8306764
 			],
 			"network": "mrt",
+			"ref": "CC18",
 			"exits": [
 				{
 					"exit": "A",
@@ -2165,21 +1879,14 @@
 		},
 		{
 			"name": "Botanic Gardens",
-			"name:en": "Botanic Gardens",
-			"name:hi": "பூ மலை",
-			"name:ms": "Botanic Gardens",
-			"name:ta": "பூ மலை",
 			"name:zh": "植物园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC19;DT9",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "பூ மலை",
 			"coord": [
 				1.322585,
 				103.8157246
 			],
+			"network": "MRT",
+			"ref": "CC19;DT9",
 			"exits": [
 				{
 					"exit": "A",
@@ -2201,19 +1908,14 @@
 		},
 		{
 			"name": "Farrer Road",
-			"name:en": "Farrer Road",
-			"name:hi": "பேரர் சாலை",
-			"name:ms": "Farrer Road",
 			"name:zh": "花拉路",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC20",
-			"station": "subway",
+			"name:hi": "பேரர் சாலை",
 			"coord": [
 				1.3176276,
 				103.8077853
 			],
+			"network": "MRT",
+			"ref": "CC20",
 			"exits": [
 				{
 					"exit": "A",
@@ -2235,20 +1937,14 @@
 		},
 		{
 			"name": "Holland Village",
-			"name:en": "Holland Village",
-			"name:hi": "ஹாலந்து வில்லேஜ்",
-			"name:ms": "Holland Village",
 			"name:zh": "荷兰村",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC21",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "ஹாலந்து வில்லேஜ்",
 			"coord": [
 				1.3121173,
 				103.795744
 			],
+			"network": "MRT",
+			"ref": "CC21",
 			"exits": [
 				{
 					"exit": "A",
@@ -2277,20 +1973,14 @@
 		},
 		{
 			"name": "Buona Vista",
-			"name:en": "Buona Vista",
-			"name:hi": "புவன விஸ்தா",
-			"name:ms": "Buona Vista",
 			"name:zh": "波那维斯达",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW21;CC22",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "புவன விஸ்தா",
 			"coord": [
 				1.3071902,
 				103.7908483
 			],
+			"network": "MRT",
+			"ref": "EW21;CC22",
 			"exits": [
 				{
 					"exit": "A",
@@ -2326,19 +2016,14 @@
 		},
 		{
 			"name": "one-north",
-			"name:en": "one-north",
-			"name:hi": "ஒன்-நார்த்",
-			"name:ms": "one-north",
 			"name:zh": "纬壹",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC23",
-			"station": "subway",
+			"name:hi": "ஒன்-நார்த்",
 			"coord": [
 				1.2996073,
 				103.7872407
 			],
+			"network": "MRT",
+			"ref": "CC23",
 			"exits": [
 				{
 					"exit": "A",
@@ -2374,19 +2059,14 @@
 		},
 		{
 			"name": "Kent Ridge",
-			"name:en": "Kent Ridge",
-			"name:hi": "கெண்ட் ரிஜ்",
-			"name:ms": "Kent Ridge",
 			"name:zh": "肯特岗",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC24",
-			"station": "subway",
+			"name:hi": "கெண்ட் ரிஜ்",
 			"coord": [
 				1.2933012,
 				103.7844127
 			],
+			"network": "MRT",
+			"ref": "CC24",
 			"exits": [
 				{
 					"exit": "A",
@@ -2422,19 +2102,14 @@
 		},
 		{
 			"name": "Haw Par Villa",
-			"name:en": "Haw Par Villa",
-			"name:hi": "ஹா பர் வில்லா",
-			"name:ms": "Haw Par Villa",
 			"name:zh": "虎豹别墅",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC25",
-			"station": "subway",
+			"name:hi": "ஹா பர் வில்லா",
 			"coord": [
 				1.2826539,
 				103.7817717
 			],
+			"network": "MRT",
+			"ref": "CC25",
 			"exits": [
 				{
 					"exit": "A",
@@ -2449,19 +2124,14 @@
 		},
 		{
 			"name": "Pasir Panjang",
-			"name:en": "Pasir Panjang",
-			"name:hi": "பாசிர் பாஞ்சாங்",
-			"name:ms": "Pasir Panjang",
 			"name:zh": "巴西班让",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC26",
-			"station": "subway",
+			"name:hi": "பாசிர் பாஞ்சாங்",
 			"coord": [
 				1.276177,
 				103.7916138
 			],
+			"network": "MRT",
+			"ref": "CC26",
 			"exits": [
 				{
 					"exit": "A",
@@ -2476,19 +2146,14 @@
 		},
 		{
 			"name": "Labrador Park",
-			"name:en": "Labrador Park",
-			"name:hi": "லாப்ரடார் பூங்கா",
-			"name:ms": "Taman Labrador",
 			"name:zh": "拉柏多公园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC27",
-			"station": "subway",
+			"name:hi": "லாப்ரடார் பூங்கா",
 			"coord": [
 				1.2723277,
 				103.8027822
 			],
+			"network": "MRT",
+			"ref": "CC27",
 			"exits": [
 				{
 					"exit": "A",
@@ -2503,19 +2168,14 @@
 		},
 		{
 			"name": "Telok Blangah",
-			"name:en": "Telok Blangah",
-			"name:hi": "தெலுக் பிளாங்கா",
-			"name:ms": "Telok Blangah",
 			"name:zh": "直落布兰雅",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CC28",
-			"station": "subway",
+			"name:hi": "தெலுக் பிளாங்கா",
 			"coord": [
 				1.2705858,
 				103.8098632
 			],
+			"network": "MRT",
+			"ref": "CC28",
 			"exits": [
 				{
 					"exit": "A",
@@ -2530,20 +2190,14 @@
 		},
 		{
 			"name": "HarbourFront",
-			"name:en": "HarbourFront",
-			"name:hi": "துறைமுகம்",
-			"name:ms": "HarbourFront",
 			"name:zh": "港湾",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE1;CC29",
-			"station": "subway",
-			"wheelchair": "yes",
+			"name:hi": "துறைமுகம்",
 			"coord": [
 				1.2653951,
 				103.8224032
 			],
+			"network": "MRT",
+			"ref": "NE1;CC29",
 			"exits": [
 				{
 					"exit": "A",
@@ -2585,29 +2239,14 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/HarbourFront_MRT_Station_201012.jpg/500px-HarbourFront_MRT_Station_201012.jpg"
 		},
 		{
-			"name": "Prince Edward (U/C)",
-			"network": "MRT",
-			"railway": "station",
-			"ref": "CC32",
-			"coord": [
-				1.2729778,
-				103.8467175
-			]
-		},
-		{
 			"name": "Bukit Panjang",
-			"name:en": "Bukit Panjang",
 			"name:zh": "武吉班让",
-			"network": "MRT",
-			"note": "Bukit Panjang (DTL)",
-			"operator": "SBS",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT1",
 			"coord": [
-				1.3786068,
-				103.762071
+				1.3785927,
+				103.7620837
 			],
+			"network": "MRT",
+			"ref": "DT1",
 			"exits": [
 				{
 					"exit": "A1",
@@ -2635,17 +2274,63 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bukitpanjangmrtplatform.jpg/500px-Bukitpanjangmrtplatform.jpg"
 		},
 		{
-			"name": "Beauty World",
-			"name:en": "Beauty World",
-			"name:zh": "美世界",
+			"name": "Cashew",
+			"name:zh": "凯秀",
+			"coord": [
+				1.3697501,
+				103.7645133
+			],
 			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT5",
+			"ref": "DT2",
+			"exits": [
+				{
+					"exit": "A",
+					"coord": [
+						1.3698443863303496,
+						103.76420787287488
+					]
+				}
+			],
+			"wikipedia_url": "https://en.wikipedia.org/wiki/Cashew_MRT_Station",
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/DT2_Cashew_Platform.JPG/500px-DT2_Cashew_Platform.JPG"
+		},
+		{
+			"name": "Hillview",
+			"name:zh": "山景",
+			"coord": [
+				1.3624405,
+				103.7670842
+			],
+			"network": "MRT",
+			"ref": "DT3",
+			"exits": [
+				{
+					"exit": "A",
+					"coord": [
+						1.362497532585035,
+						103.76768969934845
+					]
+				},
+				{
+					"exit": "B",
+					"coord": [
+						1.3620882073157903,
+						103.76708800847292
+					]
+				}
+			],
+			"wikipedia_url": "https://en.wikipedia.org/wiki/Hillview_MRT_Station",
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/DT3_Hillview_Platform.JPG/500px-DT3_Hillview_Platform.JPG"
+		},
+		{
+			"name": "Beauty World",
+			"name:zh": "美世界",
 			"coord": [
 				1.3416523,
 				103.775935
 			],
+			"network": "MRT",
+			"ref": "DT5",
 			"exits": [
 				{
 					"exit": "A",
@@ -2674,16 +2359,13 @@
 		},
 		{
 			"name": "King Albert Park",
-			"name:en": "King Albert Park",
 			"name:zh": "阿尔柏王园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT6",
 			"coord": [
 				1.3356818,
 				103.7841492
 			],
+			"network": "MRT",
+			"ref": "DT6",
 			"exits": [
 				{
 					"exit": "A",
@@ -2705,16 +2387,13 @@
 		},
 		{
 			"name": "Sixth Avenue",
-			"name:en": "Sixth Avenue",
 			"name:zh": "第六道",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT7",
 			"coord": [
 				1.3305875,
 				103.7972287
 			],
+			"network": "MRT",
+			"ref": "DT7",
 			"exits": [
 				{
 					"exit": "A",
@@ -2736,16 +2415,13 @@
 		},
 		{
 			"name": "Tan Kah Kee",
-			"name:en": "Tan Kah Kee",
 			"name:zh": "陈嘉庚",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT8",
 			"coord": [
 				1.3259616,
 				103.8070218
 			],
+			"network": "MRT",
+			"ref": "DT8",
 			"exits": [
 				{
 					"exit": "A",
@@ -2767,16 +2443,13 @@
 		},
 		{
 			"name": "Stevens",
-			"name:en": "Stevens",
 			"name:zh": "史蒂芬",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT10;TE11",
 			"coord": [
 				1.3202201,
 				103.8254214
 			],
+			"network": "MRT",
+			"ref": "DT10;TE11",
 			"exits": [
 				{
 					"exit": "A",
@@ -2787,22 +2460,17 @@
 				}
 			],
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Stevens_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/DT10_Stevens_Platform.JPG/500px-DT10_Stevens_Platform.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stevens_MRT_Station_platform_A.jpg/500px-Stevens_MRT_Station_platform_A.jpg"
 		},
 		{
 			"name": "Newton",
-			"name:en": "Newton",
 			"name:zh": "纽顿",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS21;DT11",
-			"state": "proposed",
-			"station": "subway",
 			"coord": [
 				1.3129596,
 				103.8388638
 			],
+			"network": "MRT",
+			"ref": "NS21;DT11",
 			"exits": [
 				{
 					"exit": "A",
@@ -2831,18 +2499,13 @@
 		},
 		{
 			"name": "Little India",
-			"name:en": "Little India",
 			"name:zh": "小印度",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE7;DT12",
-			"state": "proposed",
-			"station": "subway",
 			"coord": [
 				1.3065714,
 				103.8492986
 			],
+			"network": "MRT",
+			"ref": "NE7;DT12",
 			"exits": [
 				{
 					"exit": "A",
@@ -2892,16 +2555,13 @@
 		},
 		{
 			"name": "Rochor",
-			"name:en": "Rochor",
 			"name:zh": "梧槽",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT13",
 			"coord": [
 				1.3039839,
 				103.8526118
 			],
+			"network": "MRT",
+			"ref": "DT13",
 			"exits": [
 				{
 					"exit": "A",
@@ -2923,18 +2583,13 @@
 		},
 		{
 			"name": "Bugis",
-			"name:en": "Bugis",
 			"name:zh": "武吉士",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW12;DT14",
-			"station": "subway",
-			"wheelchair": "limited",
 			"coord": [
 				1.3005303,
 				103.8560949
 			],
+			"network": "MRT",
+			"ref": "EW12;DT14",
 			"exits": [
 				{
 					"exit": "A",
@@ -2970,17 +2625,13 @@
 		},
 		{
 			"name": "Downtown",
-			"name:en": "Downtown",
 			"name:zh": "市中心",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT17",
-			"station": "subway",
 			"coord": [
 				1.2791912,
 				103.8533448
 			],
+			"network": "MRT",
+			"ref": "DT17",
 			"exits": [
 				{
 					"exit": "A",
@@ -3030,17 +2681,13 @@
 		},
 		{
 			"name": "Telok Ayer",
-			"name:en": "Telok Ayer",
 			"name:zh": "直落亚逸",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "DT18",
-			"station": "subway",
 			"coord": [
 				1.2821231,
 				103.848744
 			],
+			"network": "MRT",
+			"ref": "DT18",
 			"exits": [
 				{
 					"exit": "A",
@@ -3069,17 +2716,13 @@
 		},
 		{
 			"name": "Chinatown",
-			"name:en": "Chinatown",
 			"name:zh": "牛车水",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE4;DT19",
-			"station": "subway",
 			"coord": [
 				1.2850195,
 				103.8440033
 			],
+			"network": "MRT",
+			"ref": "NE4;DT19",
 			"exits": [
 				{
 					"exit": "A",
@@ -3129,18 +2772,13 @@
 		},
 		{
 			"name": "Tampines",
-			"name:en": "Tampines",
 			"name:zh": "淡滨尼",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW2;DT32",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3533737,
 				103.9450844
 			],
+			"network": "MRT",
+			"ref": "EW2;DT32",
 			"exits": [
 				{
 					"exit": "A",
@@ -3165,22 +2803,17 @@
 				}
 			],
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tampines_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/TAM_PLAT.JPG/500px-TAM_PLAT.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ew2tampines_mrt_stn.jpg/500px-Ew2tampines_mrt_stn.jpg"
 		},
 		{
 			"name": "Expo",
-			"name:en": "Expo",
 			"name:zh": "博览",
-			"network": "MRT",
-			"operator": "SMRT & SBS Transit",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CG1;DT35",
-			"station": "subway",
 			"coord": [
 				1.3352828,
 				103.9619775
 			],
+			"network": "MRT",
+			"ref": "CG1;DT35",
 			"exits": [
 				{
 					"exit": "A",
@@ -3201,79 +2834,62 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cg1_expo_exterior.jpg/500px-Cg1_expo_exterior.jpg"
 		},
 		{
-			"construction": "station",
 			"name": "Tuas Link",
-			"name:en": "Tuas Link",
 			"name:zh": "大士连",
-			"railway": "construction",
-			"ref": "EW33",
 			"coord": [
-				1.3396671,
-				103.6366651
+				1.3397375,
+				103.6365746
 			],
 			"network": "mrt",
+			"ref": "EW33",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_Link_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Tuas_Link_STN_UC.jpg/500px-Tuas_Link_STN_UC.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tuas_Link_station.jpg/500px-Tuas_Link_station.jpg"
 		},
 		{
-			"construction": "station",
 			"name": "Tuas West Road",
-			"name:en": "Tuas West",
 			"name:zh": "大士西",
-			"railway": "construction",
-			"ref": "EW32",
 			"coord": [
 				1.3300062,
 				103.6396096
 			],
 			"network": "mrt",
+			"ref": "EW32",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_West_Road_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/9/90/TWR_Stn_Near_Completion.jpg/500px-TWR_Stn_Near_Completion.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tuas_West_Road_station.jpg/500px-Tuas_West_Road_station.jpg"
 		},
 		{
-			"construction": "station",
 			"name": "Tuas Crescent",
-			"name:en": "Tuas Crescent",
 			"name:zh": "大士弯",
-			"railway": "construction",
-			"ref": "EW31",
 			"coord": [
 				1.3211099,
 				103.6489788
 			],
 			"network": "mrt",
+			"ref": "EW31",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_Crescent_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tuas_Crescent_Construction.jpg/375px-Tuas_Crescent_Construction.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Tuas_Crescent_station.jpg/500px-Tuas_Crescent_station.jpg"
 		},
 		{
-			"construction": "station",
 			"name": "Gul Circle",
-			"name:en": "Gul Circle",
 			"name:zh": "卡尔圈",
-			"platforms": "2",
-			"railway": "construction",
-			"ref": "EW30",
 			"coord": [
 				1.3196353,
 				103.6606551
 			],
 			"network": "mrt",
+			"ref": "EW30",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Gul_Circle_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/07/Gul_Circle_STN_UC.jpg/500px-Gul_Circle_STN_UC.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Gul_Circle_station.jpg/500px-Gul_Circle_station.jpg"
 		},
 		{
 			"name": "Joo Koon",
-			"name:en": "Joo Koon",
 			"name:zh": "裕群",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW29",
-			"station": "subway",
 			"coord": [
 				1.327735,
 				103.6782221
 			],
+			"network": "MRT",
+			"ref": "EW29",
 			"exits": [
 				{
 					"exit": "A",
@@ -3295,17 +2911,13 @@
 		},
 		{
 			"name": "Pioneer",
-			"name:en": "Pioneer",
 			"name:zh": "先驱",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW28",
-			"station": "subway",
 			"coord": [
 				1.3375884,
 				103.6974104
 			],
+			"network": "MRT",
+			"ref": "EW28",
 			"exits": [
 				{
 					"exit": "A",
@@ -3327,18 +2939,13 @@
 		},
 		{
 			"name": "Boon Lay",
-			"name:en": "Boon Lay",
 			"name:zh": "文礼",
-			"network": "MRT (Mass Rapid Transit)",
-			"operator": "SMRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW27",
-			"station": "subway",
 			"coord": [
 				1.3385752,
 				103.7058478
 			],
+			"network": "MRT (Mass Rapid Transit)",
+			"ref": "EW27",
 			"exits": [
 				{
 					"exit": "A",
@@ -3388,17 +2995,13 @@
 		},
 		{
 			"name": "Lakeside",
-			"name:en": "Lakeside",
 			"name:zh": "湖畔",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW26",
-			"station": "subway",
 			"coord": [
 				1.3442605,
 				103.7207503
 			],
+			"network": "MRT",
+			"ref": "EW26",
 			"exits": [
 				{
 					"exit": "A",
@@ -3423,21 +3026,17 @@
 				}
 			],
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Lakeside_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Lakeside-mrt.JPG/500px-Lakeside-mrt.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
 		{
 			"name": "Chinese Garden",
-			"name:en": "Chinese Garden",
 			"name:zh": "裕华园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW25",
-			"station": "subway",
 			"coord": [
 				1.3423978,
 				103.732544
 			],
+			"network": "MRT",
+			"ref": "EW25",
 			"exits": [
 				{
 					"exit": "A",
@@ -3466,17 +3065,13 @@
 		},
 		{
 			"name": "Jurong East",
-			"name:en": "Jurong East",
 			"name:zh": "裕廊东",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS1;EW24",
-			"station": "subway",
 			"coord": [
 				1.333115,
 				103.7422968
 			],
+			"network": "MRT",
+			"ref": "NS1;EW24",
 			"exits": [
 				{
 					"exit": "A",
@@ -3512,18 +3107,13 @@
 		},
 		{
 			"name": "Clementi",
-			"name:en": "Clementi",
 			"name:zh": "金文泰",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW23",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3151003,
 				103.7652311
 			],
+			"network": "MRT",
+			"ref": "EW23",
 			"exits": [
 				{
 					"exit": "A",
@@ -3559,17 +3149,13 @@
 		},
 		{
 			"name": "Dover",
-			"name:en": "Dover",
 			"name:zh": "杜佛",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW22",
-			"station": "subway",
 			"coord": [
 				1.3114214,
 				103.7786275
 			],
+			"network": "MRT",
+			"ref": "EW22",
 			"exits": [
 				{
 					"exit": "A",
@@ -3591,19 +3177,13 @@
 		},
 		{
 			"name": "Commonwealth",
-			"name:en": "Commonwealth",
 			"name:zh": "联邦",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW20",
-			"station": "subway",
-			"toilets:wheelchair": "yes",
-			"wheelchair": "yes",
 			"coord": [
 				1.3024428,
 				103.7983085
 			],
+			"network": "MRT",
+			"ref": "EW20",
 			"exits": [
 				{
 					"exit": "A",
@@ -3639,17 +3219,13 @@
 		},
 		{
 			"name": "Queenstown",
-			"name:en": "Queenstown",
 			"name:zh": "女皇镇",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW19",
-			"station": "subway",
 			"coord": [
 				1.2946235,
 				103.8060454
 			],
+			"network": "MRT",
+			"ref": "EW19",
 			"exits": [
 				{
 					"exit": "A",
@@ -3685,17 +3261,13 @@
 		},
 		{
 			"name": "Redhill",
-			"name:en": "Redhill",
 			"name:zh": "红山",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW18",
-			"station": "subway",
 			"coord": [
 				1.2896526,
 				103.8167566
 			],
+			"network": "MRT",
+			"ref": "EW18",
 			"exits": [
 				{
 					"exit": "A",
@@ -3717,17 +3289,13 @@
 		},
 		{
 			"name": "Tiong Bahru",
-			"name:en": "Tiong Bahru",
 			"name:zh": "中峇鲁",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW17",
-			"station": "subway",
 			"coord": [
 				1.2860952,
 				103.8276424
 			],
+			"network": "MRT",
+			"ref": "EW17",
 			"exits": [
 				{
 					"exit": "A",
@@ -3749,17 +3317,13 @@
 		},
 		{
 			"name": "Outram Park",
-			"name:en": "Outram Park",
 			"name:zh": "欧南园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE3;EW16;TE17",
-			"station": "subway",
 			"coord": [
 				1.2806848,
 				103.8402413
 			],
+			"network": "MRT",
+			"ref": "NE3;EW16;TE17",
 			"exits": [
 				{
 					"exit": "A",
@@ -3823,17 +3387,13 @@
 		},
 		{
 			"name": "Tanjong Pagar",
-			"name:en": "Tanjong Pagar",
 			"name:zh": "丹戎巴葛",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW15",
-			"station": "subway",
 			"coord": [
 				1.2765741,
 				103.8458843
 			],
+			"network": "MRT",
+			"ref": "EW15",
 			"exits": [
 				{
 					"exit": "A",
@@ -3904,18 +3464,13 @@
 		},
 		{
 			"name": "Raffles Place",
-			"name:en": "Raffles Place",
 			"name:zh": "莱佛士坊",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW14;NS26",
-			"station": "subway",
-			"wikidata": "Q3234430",
 			"coord": [
 				1.2843955,
 				103.8514973
 			],
+			"network": "MRT",
+			"ref": "EW14;NS26",
 			"exits": [
 				{
 					"exit": "A",
@@ -3993,17 +3548,13 @@
 		},
 		{
 			"name": "City Hall",
-			"name:en": "City Hall",
 			"name:zh": "政府大厦",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW13;NS25",
-			"station": "subway",
 			"coord": [
 				1.2931061,
 				103.8526871
 			],
+			"network": "MRT",
+			"ref": "EW13;NS25",
 			"exits": [
 				{
 					"exit": "A",
@@ -4032,17 +3583,13 @@
 		},
 		{
 			"name": "Lavender",
-			"name:en": "Lavender",
 			"name:zh": "劳明达",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW11",
-			"station": "subway",
 			"coord": [
 				1.3074447,
 				103.8630305
 			],
+			"network": "MRT",
+			"ref": "EW11",
 			"exits": [
 				{
 					"exit": "A",
@@ -4064,18 +3611,13 @@
 		},
 		{
 			"name": "Kallang",
-			"name:en": "Kallang",
 			"name:zh": "加冷",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW10",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3114481,
 				103.8713388
 			],
+			"network": "MRT",
+			"ref": "EW10",
 			"exits": [
 				{
 					"exit": "A",
@@ -4097,18 +3639,13 @@
 		},
 		{
 			"name": "Aljunied",
-			"name:en": "Aljunied",
 			"name:zh": "阿裕尼",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW9",
-			"source": "Kaart Ground Survey 2017",
-			"station": "subway",
 			"coord": [
 				1.3164515,
 				103.8829087
 			],
+			"network": "MRT",
+			"ref": "EW9",
 			"exits": [
 				{
 					"exit": "A",
@@ -4130,18 +3667,13 @@
 		},
 		{
 			"name": "Eunos",
-			"name:en": "Eunos",
 			"name:zh": "友诺士",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW7",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3198016,
 				103.9028891
 			],
+			"network": "MRT",
+			"ref": "EW7",
 			"exits": [
 				{
 					"exit": "A",
@@ -4170,18 +3702,13 @@
 		},
 		{
 			"name": "Kembangan",
-			"name:en": "Kembangan",
 			"name:zh": "景万岸",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW6",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3210321,
 				103.9129269
 			],
+			"network": "MRT",
+			"ref": "EW6",
 			"exits": [
 				{
 					"exit": "A",
@@ -4203,17 +3730,13 @@
 		},
 		{
 			"name": "Bedok",
-			"name:en": "Bedok",
 			"name:zh": "勿洛",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW5",
-			"station": "subway",
 			"coord": [
 				1.324014,
 				103.9301382
 			],
+			"network": "MRT",
+			"ref": "EW5",
 			"exits": [
 				{
 					"exit": "A",
@@ -4242,17 +3765,13 @@
 		},
 		{
 			"name": "Tanah Merah",
-			"name:en": "Tanah Merah",
 			"name:zh": "丹那美拉",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW4",
-			"station": "subway",
 			"coord": [
 				1.3272541,
 				103.9465046
 			],
+			"network": "MRT",
+			"ref": "EW4",
 			"exits": [
 				{
 					"exit": "A",
@@ -4274,19 +3793,13 @@
 		},
 		{
 			"name": "Simei",
-			"name:en": "Simei",
 			"name:zh": "四美",
-			"network": "MRT",
-			"operator": "SMRT",
-			"platforms": "1",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW3",
-			"station": "subway",
 			"coord": [
 				1.3431881,
 				103.953371
 			],
+			"network": "MRT",
+			"ref": "EW3",
 			"exits": [
 				{
 					"exit": "A",
@@ -4301,17 +3814,13 @@
 		},
 		{
 			"name": "Pasir Ris",
-			"name:en": "Pasir Ris",
 			"name:zh": "巴西立",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "EW1",
-			"station": "subway",
 			"coord": [
 				1.3730307,
 				103.949255
 			],
+			"network": "MRT",
+			"ref": "EW1",
 			"exits": [
 				{
 					"exit": "A",
@@ -4332,20 +3841,14 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/PasirRisMRTStation.JPG/500px-PasirRisMRTStation.JPG"
 		},
 		{
-			"layer": "-1",
 			"name": "Changi Airport",
-			"name:en": "Changi Airport",
 			"name:zh": "樟宜机场",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "CG2",
-			"station": "subway",
-			"wheelchair": "unknown",
 			"coord": [
 				1.3573382,
 				103.9885647
 			],
+			"network": "MRT",
+			"ref": "CG2",
 			"exits": [
 				{
 					"exit": "A",
@@ -4367,17 +3870,13 @@
 		},
 		{
 			"name": "Clarke Quay",
-			"name:en": "Clarke Quay",
 			"name:zh": "克拉码头",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE5",
-			"station": "subway",
 			"coord": [
 				1.2889806,
 				103.8468686
 			],
+			"network": "MRT",
+			"ref": "NE5",
 			"exits": [
 				{
 					"exit": "A",
@@ -4406,18 +3905,13 @@
 		},
 		{
 			"name": "Farrer Park",
-			"name:en": "Farrer Park",
 			"name:zh": "花拉公园",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE8",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3127545,
 				103.8543738
 			],
+			"network": "MRT",
+			"ref": "NE8",
 			"exits": [
 				{
 					"exit": "A",
@@ -4450,8 +3944,8 @@
 				{
 					"exit": "E",
 					"coord": [
-						1.3117884909621982,
-						103.8522142813532
+						1.3118637317761157,
+						103.85263507519213
 					]
 				},
 				{
@@ -4488,18 +3982,13 @@
 		},
 		{
 			"name": "Boon Keng",
-			"name:en": "Boon Keng",
 			"name:zh": "文庆",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE9",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3198244,
 				103.8615207
 			],
+			"network": "MRT",
+			"ref": "NE9",
 			"exits": [
 				{
 					"exit": "A",
@@ -4528,18 +4017,13 @@
 		},
 		{
 			"name": "Potong Pasir",
-			"name:en": "Potong Pasir",
 			"name:zh": "波东巴西",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE10",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3312544,
 				103.8690932
 			],
+			"network": "MRT",
+			"ref": "NE10",
 			"exits": [
 				{
 					"exit": "A",
@@ -4568,18 +4052,13 @@
 		},
 		{
 			"name": "Woodleigh",
-			"name:en": "Woodleigh",
 			"name:zh": "兀里",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE11",
-			"station": "subway",
-			"wheelchair": "yes",
 			"coord": [
 				1.3391966,
 				103.8707535
 			],
+			"network": "MRT",
+			"ref": "NE11",
 			"exits": [
 				{
 					"exit": "A",
@@ -4608,17 +4087,13 @@
 		},
 		{
 			"name": "Kovan",
-			"name:en": "Kovan",
 			"name:zh": "高文",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE13",
-			"station": "subway",
 			"coord": [
 				1.3599769,
 				103.8848743
 			],
+			"network": "MRT",
+			"ref": "NE13",
 			"exits": [
 				{
 					"exit": "A",
@@ -4647,17 +4122,13 @@
 		},
 		{
 			"name": "Hougang",
-			"name:en": "Hougang",
 			"name:zh": "后港",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE14",
-			"station": "subway",
 			"coord": [
 				1.3719039,
 				103.8927535
 			],
+			"network": "MRT",
+			"ref": "NE14",
 			"exits": [
 				{
 					"exit": "A",
@@ -4686,17 +4157,13 @@
 		},
 		{
 			"name": "Buangkok",
-			"name:en": "Buangkok",
 			"name:zh": "万国",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NE15",
-			"station": "subway",
 			"coord": [
 				1.3830565,
 				103.89305
 			],
+			"network": "MRT",
+			"ref": "NE15",
 			"exits": [
 				{
 					"exit": "B",
@@ -4718,17 +4185,13 @@
 		},
 		{
 			"name": "Marina South Pier",
-			"name:en": "Marina South Pier",
 			"name:zh": "滨海南码头",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS28",
-			"station": "subway",
 			"coord": [
-				1.2717504,
-				103.8627228
+				1.2717019,
+				103.8627418
 			],
+			"network": "MRT",
+			"ref": "NS28",
 			"exits": [
 				{
 					"exit": "A",
@@ -4750,17 +4213,13 @@
 		},
 		{
 			"name": "Somerset",
-			"name:en": "Somerset",
 			"name:zh": "索美塞",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS23",
-			"station": "subway",
 			"coord": [
 				1.3003276,
 				103.8385037
 			],
+			"network": "MRT",
+			"ref": "NS23",
 			"exits": [
 				{
 					"exit": "A",
@@ -4796,17 +4255,13 @@
 		},
 		{
 			"name": "Orchard",
-			"name:en": "Orchard",
 			"name:zh": "乌节",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS22;TE14",
-			"station": "subway",
 			"coord": [
 				1.3031958,
 				103.8320595
 			],
+			"network": "MRT",
+			"ref": "NS22;TE14",
 			"exits": [
 				{
 					"exit": "A",
@@ -4849,17 +4304,13 @@
 		},
 		{
 			"name": "Novena",
-			"name:en": "Novena",
 			"name:zh": "诺维娜",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS20",
-			"station": "subway",
 			"coord": [
 				1.3200842,
 				103.8434924
 			],
+			"network": "MRT",
+			"ref": "NS20",
 			"exits": [
 				{
 					"exit": "A",
@@ -4881,17 +4332,13 @@
 		},
 		{
 			"name": "Toa Payoh",
-			"name:en": "Toa Payoh",
 			"name:zh": "大巴窑",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS19",
-			"station": "subway",
 			"coord": [
 				1.3322966,
 				103.8473272
 			],
+			"network": "MRT",
+			"ref": "NS19",
 			"exits": [
 				{
 					"exit": "A",
@@ -4927,17 +4374,13 @@
 		},
 		{
 			"name": "Braddell",
-			"name:en": "Braddell",
 			"name:zh": "布莱德",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS18",
-			"station": "subway",
 			"coord": [
 				1.3406006,
 				103.8468227
 			],
+			"network": "MRT",
+			"ref": "NS18",
 			"exits": [
 				{
 					"exit": "A",
@@ -4966,17 +4409,13 @@
 		},
 		{
 			"name": "Ang Mo Kio",
-			"name:en": "Ang Mo Kio",
 			"name:zh": "宏茂桥",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS16",
-			"station": "subway",
 			"coord": [
 				1.3700733,
 				103.8495157
 			],
+			"network": "MRT",
+			"ref": "NS16",
 			"exits": [
 				{
 					"exit": "A",
@@ -5012,18 +4451,13 @@
 		},
 		{
 			"name": "Yio Chu Kang",
-			"name:en": "Yio Chu Kang",
 			"name:zh": "杨厝港",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS15",
-			"shop": "bakery",
-			"station": "subway",
 			"coord": [
 				1.3817905,
 				103.8449359
 			],
+			"network": "MRT",
+			"ref": "NS15",
 			"exits": [
 				{
 					"exit": "A",
@@ -5052,15 +4486,12 @@
 		},
 		{
 			"name": "Khatib",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS14",
-			"station": "subway",
 			"coord": [
 				1.4173597,
 				103.8330179
 			],
+			"network": "MRT",
+			"ref": "NS14",
 			"exits": [
 				{
 					"exit": "A",
@@ -5096,17 +4527,13 @@
 		},
 		{
 			"name": "Yishun",
-			"name:en": "Yishun",
 			"name:zh": "义顺",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS13",
-			"station": "subway",
 			"coord": [
 				1.4293839,
 				103.8350282
 			],
+			"network": "MRT",
+			"ref": "NS13",
 			"exits": [
 				{
 					"exit": "A",
@@ -5149,16 +4576,13 @@
 		},
 		{
 			"name": "Sembawang",
-			"name:en": "Sembawang",
 			"name:zh": "三巴旺",
-			"network": "MRT",
-			"railway": "station",
-			"ref": "NS11",
-			"station": "subway",
 			"coord": [
 				1.4490928,
 				103.8200555
 			],
+			"network": "MRT",
+			"ref": "NS11",
 			"exits": [
 				{
 					"exit": "A",
@@ -5194,17 +4618,13 @@
 		},
 		{
 			"name": "Admiralty",
-			"name:en": "Admiralty",
 			"name:zh": "海军部",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS10",
-			"station": "subway",
 			"coord": [
 				1.4406369,
 				103.8009592
 			],
+			"network": "MRT",
+			"ref": "NS10",
 			"exits": [
 				{
 					"exit": "A",
@@ -5240,17 +4660,13 @@
 		},
 		{
 			"name": "Woodlands",
-			"name:en": "Woodlands",
 			"name:zh": "兀兰",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS9;TE2",
-			"station": "subway",
 			"coord": [
 				1.4373881,
 				103.787675
 			],
+			"network": "MRT",
+			"ref": "NS9;TE2",
 			"exits": [
 				{
 					"exit": "A",
@@ -5275,21 +4691,17 @@
 				}
 			],
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Woodlands_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/33/WoodlandsJan2012.jpg/301px-WoodlandsJan2012.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Woodlands_MRT_Station_%28NSL%29_-_Platforms_A_and_B.jpg/500px-Woodlands_MRT_Station_%28NSL%29_-_Platforms_A_and_B.jpg"
 		},
 		{
 			"name": "Marsiling",
-			"name:en": "Marsiling",
 			"name:zh": "马西岭",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS8",
-			"station": "subway",
 			"coord": [
 				1.4325704,
 				103.7741243
 			],
+			"network": "MRT",
+			"ref": "NS8",
 			"exits": [
 				{
 					"exit": "A",
@@ -5325,19 +4737,13 @@
 		},
 		{
 			"name": "Kranji",
-			"name:en": "Kranji",
 			"name:zh": "克兰芝",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS7",
-			"station": "subway",
-			"wikidata": "Q2598513",
-			"wikipedia": "en:Kranji MRT Station",
 			"coord": [
 				1.4252189,
 				103.7619891
 			],
+			"network": "MRT",
+			"ref": "NS7",
 			"exits": [
 				{
 					"exit": "A",
@@ -5373,33 +4779,25 @@
 		},
 		{
 			"name": "Yew Tee",
-			"name:en": "Yew Tee",
 			"name:zh": "油池",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS5",
-			"station": "subway",
 			"coord": [
 				1.3974608,
 				103.7474009
 			],
+			"network": "MRT",
+			"ref": "NS5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Yew_Tee_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Yew_Tee_with_New_Signage.jpg/500px-Yew_Tee_with_New_Signage.jpg"
 		},
 		{
 			"name": "Choa Chu Kang",
-			"name:en": "Choa Chu Kang",
 			"name:zh": "蔡厝港",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS4",
-			"station": "subway",
 			"coord": [
 				1.3853167,
 				103.744325
 			],
+			"network": "MRT",
+			"ref": "NS4",
 			"exits": [
 				{
 					"exit": "A",
@@ -5435,17 +4833,13 @@
 		},
 		{
 			"name": "Bukit Gombak",
-			"name:en": "Bukit Gombak",
 			"name:zh": "武吉甘柏",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS3",
-			"station": "subway",
 			"coord": [
 				1.3588929,
 				103.7518249
 			],
+			"network": "MRT",
+			"ref": "NS3",
 			"exits": [
 				{
 					"exit": "A",
@@ -5481,17 +4875,13 @@
 		},
 		{
 			"name": "Bukit Batok",
-			"name:en": "Bukit Batok",
 			"name:zh": "武吉巴督",
-			"network": "MRT",
-			"public_transport": "station",
-			"railway": "station",
-			"ref": "NS2",
-			"station": "subway",
 			"coord": [
 				1.3490572,
 				103.7495906
 			],
+			"network": "MRT",
+			"ref": "NS2",
 			"exits": [
 				{
 					"exit": "A",
@@ -5611,10 +5001,10 @@
 			"name": "Downtown Line",
 			"color": "blue",
 			"bounds": {
-				"north": 1.3786068,
+				"north": 1.3785927,
 				"south": 1.2791912,
 				"east": 103.9619775,
-				"west": 103.762071
+				"west": 103.7620837
 			}
 		},
 		"ew": {
@@ -5624,7 +5014,7 @@
 				"north": 1.3730307,
 				"south": 1.2765741,
 				"east": 103.9885647,
-				"west": 103.6366651
+				"west": 103.6365746
 			}
 		},
 		"ne": {
@@ -5642,8 +5032,8 @@
 			"color": "red",
 			"bounds": {
 				"north": 1.4490928,
-				"south": 1.2717504,
-				"east": 103.8627228,
+				"south": 1.2717019,
+				"east": 103.8627418,
 				"west": 103.7422968
 			}
 		}

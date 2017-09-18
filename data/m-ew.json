@@ -568,8 +568,8 @@
 					103.7543944
 				],
 				[
-					1.327294,
-					103.7549525
+					1.327301,
+					103.754956
 				],
 				[
 					1.3272031,
@@ -584,20 +584,44 @@
 					103.7565302
 				],
 				[
-					1.3267312,
-					103.7575588
+					1.326742,
+					103.7575619
 				],
 				[
-					1.3266368,
-					103.7578751
+					1.3266941,
+					103.7577185
 				],
 				[
-					1.3264622,
-					103.7582887
+					1.3266315,
+					103.757907
+				],
+				[
+					1.326561,
+					103.7580796
+				],
+				[
+					1.3265098,
+					103.7581867
+				],
+				[
+					1.3264587,
+					103.7582875
 				],
 				[
 					1.3262413,
 					103.7586926
+				],
+				[
+					1.3261659,
+					103.758811
+				],
+				[
+					1.3260852,
+					103.7589321
+				],
+				[
+					1.325999,
+					103.7590449
 				],
 				[
 					1.3259128,
@@ -612,8 +636,8 @@
 					103.7595957
 				],
 				[
-					1.3250199,
-					103.7598266
+					1.3249922,
+					103.7598389
 				],
 				[
 					1.3243983,
@@ -1568,8 +1592,16 @@
 			},
 			"coords": [
 				[
-					1.3364677,
-					103.7403825
+					1.3364646,
+					103.7403733
+				],
+				[
+					1.3363422,
+					103.7404772
+				],
+				[
+					1.3362167,
+					103.7405687
 				],
 				[
 					1.3358547,
@@ -1915,11 +1947,15 @@
 				],
 				[
 					1.3367203,
-					103.7401253
+					103.740113
 				],
 				[
-					1.3364677,
-					103.7403825
+					1.3365955,
+					103.7402477
+				],
+				[
+					1.3364646,
+					103.7403733
 				]
 			]
 		},
@@ -2558,25 +2594,25 @@
 	"stops": [
 		{
 			"meta": {
-				"construction": "station",
 				"name": "Tuas Link",
 				"name:en": "Tuas Link",
 				"name:zh": "大士连",
-				"railway": "construction",
+				"public_transport": "station",
+				"railway": "station",
 				"ref": "EW33"
 			},
 			"coord": [
-				1.3396671,
-				103.6366651
+				1.3397375,
+				103.6365746
 			]
 		},
 		{
 			"meta": {
-				"construction": "station",
 				"name": "Tuas West Road",
-				"name:en": "Tuas West",
+				"name:en": "Tuas West Road",
 				"name:zh": "大士西",
-				"railway": "construction",
+				"public_transport": "station",
+				"railway": "station",
 				"ref": "EW32"
 			},
 			"coord": [
@@ -2586,11 +2622,11 @@
 		},
 		{
 			"meta": {
-				"construction": "station",
 				"name": "Tuas Crescent",
 				"name:en": "Tuas Crescent",
 				"name:zh": "大士弯",
-				"railway": "construction",
+				"public_transport": "station",
+				"railway": "station",
 				"ref": "EW31"
 			},
 			"coord": [
@@ -2600,12 +2636,12 @@
 		},
 		{
 			"meta": {
-				"construction": "station",
 				"name": "Gul Circle",
 				"name:en": "Gul Circle",
 				"name:zh": "卡尔圈",
 				"platforms": "2",
-				"railway": "construction",
+				"public_transport": "station",
+				"railway": "station",
 				"ref": "EW30"
 			},
 			"coord": [
@@ -2846,10 +2882,14 @@
 		},
 		{
 			"meta": {
-				"name": "Tanjong Pagar",
+				"addr:housenumber": "B1-40",
+				"addr:postcode": "069119",
+				"name": "Taujong pPagar",
 				"name:en": "Tanjong Pagar",
 				"name:zh": "丹戎巴葛",
 				"network": "MRT",
+				"opening_hours": "10:00-20:00",
+				"phone": "90259090 www.apple-corner.com",
 				"public_transport": "station",
 				"railway": "station",
 				"ref": "EW15",

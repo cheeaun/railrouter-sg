@@ -20,7 +20,7 @@
 				"bridge": "yes",
 				"layer": "2",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -62,7 +62,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -432,7 +432,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -582,7 +582,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -768,7 +768,7 @@
 				"bridge": "yes",
 				"layer": "2",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -858,7 +858,7 @@
 				"bridge": "yes",
 				"layer": "2",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -904,7 +904,7 @@
 				"bridge": "yes",
 				"layer": "2",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1020,7 +1020,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1210,7 +1210,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1290,7 +1290,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1432,7 +1432,7 @@
 				"embankment": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1458,7 +1458,7 @@
 				"bridge": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
@@ -1828,7 +1828,7 @@
 				"embankment": "yes",
 				"layer": "1",
 				"name": "Bukit Panjang LRT",
-				"railway": "monorail",
+				"railway": "light_rail",
 				"ref": "BPL",
 				"source": "Yahoo aerial images"
 			},
