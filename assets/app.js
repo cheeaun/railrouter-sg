@@ -425,6 +425,7 @@ function init(){
       icon: zoom >= 14 ? icons.large : icons.small,
       _icons: icons,
       visible: visible,
+      opacity: stop.construction ? .8 : 1,
       position: stopPosition,
       map: map,
     });
