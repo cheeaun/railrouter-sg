@@ -341,14 +341,34 @@ function init(){
       zIndex: 1,
       map: map,
     });
-    new google.maps.Polyline({
-      path: path,
-      strokeColor: line.colour,
-      strokeWeight: 2,
-      clickable: false,
-      zIndex: 2,
-      map: map,
-    });
+    if (line.construction){
+      new google.maps.Polyline({
+        path: path,
+        icons: [{
+          icon: {
+            path: 'M 0,-1 0,1',
+            strokeOpacity: .5,
+          },
+          offset: '0',
+          repeat: '10px',
+        }],
+        strokeColor: line.colour,
+        strokeOpacity: 0,
+        strokeWeight: 2,
+        clickable: false,
+        zIndex: 2,
+        map: map,
+      });
+    } else {
+      new google.maps.Polyline({
+        path: path,
+        strokeColor: line.colour,
+        strokeWeight: 2,
+        clickable: false,
+        zIndex: 2,
+        map: map,
+      });
+    }
   });
 
   var exitMarkers = [];
