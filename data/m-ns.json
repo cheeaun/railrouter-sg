@@ -2803,6 +2803,23 @@
 		},
 		{
 			"meta": {
+				"construction": "yes",
+				"name": "Canberra (U/C)",
+				"name:en": "Canberra",
+				"name:zh": "坎贝拉",
+				"network": "North South Line",
+				"operator": "SMRT",
+				"public_transport": "station",
+				"railway": "station",
+				"ref": "NS12"
+			},
+			"coord": [
+				1.4432515,
+				103.8295852
+			]
+		},
+		{
+			"meta": {
 				"name": "Sembawang",
 				"name:en": "Sembawang",
 				"name:zh": "三巴旺",

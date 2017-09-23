@@ -702,6 +702,98 @@
 			]
 		},
 		{
+			"id": "377679052",
+			"visible": "true",
+			"meta": {
+				"alt_name": "Circle Line Stage 6",
+				"construction": "subway",
+				"electrified": "yes",
+				"gauge": "1435",
+				"layer": "-3",
+				"name": "Circle Line MRT",
+				"railway": "construction",
+				"tunnel": "yes"
+			},
+			"coords": [
+				[
+					1.2751712,
+					103.8547506
+				],
+				[
+					1.274333,
+					103.8542293
+				],
+				[
+					1.2737561,
+					103.8533979
+				],
+				[
+					1.2732476,
+					103.8519503
+				],
+				[
+					1.27314,
+					103.8506201
+				],
+				[
+					1.2731415,
+					103.8484019
+				],
+				[
+					1.2731108,
+					103.8473316
+				],
+				[
+					1.2729665,
+					103.8465601
+				],
+				[
+					1.2729737,
+					103.846054
+				],
+				[
+					1.2728419,
+					103.8374515
+				],
+				[
+					1.2727204,
+					103.833323
+				],
+				[
+					1.272584,
+					103.832697
+				],
+				[
+					1.2721341,
+					103.8320808
+				],
+				[
+					1.2695851,
+					103.8293325
+				],
+				[
+					1.2658562,
+					103.825317
+				],
+				[
+					1.2656178,
+					103.8248529
+				],
+				[
+					1.2654347,
+					103.8240759
+				],
+				[
+					1.2654174,
+					103.8238835
+				],
+				[
+					1.2653828,
+					103.8233994
+				]
+			]
+		},
+		{
 			"id": "377679053",
 			"visible": "true",
 			"meta": {
@@ -1696,6 +1788,54 @@
 			"coord": [
 				1.2653951,
 				103.8224032
+			]
+		},
+		{
+			"meta": {
+				"construction": "station",
+				"name": "Keppel",
+				"name:en": "Keppel",
+				"name:zh": "岌巴",
+				"network": "MRT",
+				"railway": "construction",
+				"ref": "CC30",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.2695851,
+				103.8293325
+			]
+		},
+		{
+			"meta": {
+				"construction": "station",
+				"name": "Cantonment",
+				"name:en": "Cantonment",
+				"name:zh": "广东民",
+				"network": "MRT",
+				"railway": "construction",
+				"ref": "CC31",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.2728419,
+				103.8374515
+			]
+		},
+		{
+			"meta": {
+				"construction": "station",
+				"name": "Prince Edward",
+				"name:en": "Prince Edward",
+				"name:zh": "爱德华太子",
+				"network": "MRT",
+				"railway": "construction",
+				"ref": "CC32",
+				"wheelchair": "yes"
+			},
+			"coord": [
+				1.2730205,
+				103.8464167
 			]
 		}
 	]

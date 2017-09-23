@@ -65,9 +65,7 @@ LINES.forEach(function(line){
       meta: expandTag(relation.tag),
       ways: ways.filter(function(way){
         var meta = expandTag(way.tag);
-        if (way.$.id == '471540609') return; // Downtown Line Stage 3 not ready yet
-        // No need buildings and under-construction tracks
-        return !meta.building && meta.railway != 'construction';
+        return !meta.building; // No need buildings
       }).map(function(way){
         return {
           id: way.$.id,
@@ -87,7 +85,7 @@ LINES.forEach(function(line){
           var node = nodes[ref];
           var hasTag = node && node.tag;
           var meta = hasTag ? expandTag(node.tag) : {};
-          return hasTag && meta.railway != 'construction' && !meta.construction; // No need under-construction stops
+          return hasTag;
         } else if (m.$.type == 'way' && isStop){
           // Changi Group line has this. Few notes:
           // - This is a "way", but it's a polygon, not a polyline

@@ -31,6 +31,7 @@ fs.readdir('data', function(e, files){
       var line = {
         colour: color,
         coords: polyline.encode(way.coords),
+        construction: !!way.meta.construction,
       };
       allData.lines.push(line);
     });
