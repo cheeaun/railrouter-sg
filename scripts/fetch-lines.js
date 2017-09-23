@@ -87,11 +87,6 @@ LINES.forEach(function(line){
           var node = nodes[ref];
           var hasTag = node && node.tag;
           var meta = hasTag ? expandTag(node.tag) : {};
-
-          // New Tuas West Link
-          // https://www.lta.gov.sg/content/ltaweb/en/public-transport/projects/tuas-west-extension.html
-          if (meta.ref && /^ew/i.test(meta.ref)) return true;
-
           return hasTag && meta.railway != 'construction' && !meta.construction; // No need under-construction stops
         } else if (m.$.type == 'way' && isStop){
           // Changi Group line has this. Few notes:
