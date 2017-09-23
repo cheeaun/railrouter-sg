@@ -29,13 +29,13 @@
   "devDependencies": {
     "cheerio": "~1.0.0-rc.2",
     "chokidar-cli": "~1.2.0",
-    "clean-css": "~4.1.8",
+    "clean-css": "~4.1.9",
     "got": "~7.1.0",
     "http-server": "~0.10.0",
     "json5": "~0.5.1",
     "parallelshell": "~3.0.1",
     "polyline": "~0.2.0",
-    "uglify-js": "^3.1.0",
+    "uglify-js": "^3.1.1",
     "xml2js": "~0.4.19"
   }
 }
