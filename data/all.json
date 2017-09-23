@@ -621,6 +621,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cck-mrt.JPG/500px-Cck-mrt.JPG"
 		},
@@ -633,6 +634,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/South_View_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/SouthViewLRTStation.JPG/500px-SouthViewLRTStation.JPG"
 		},
@@ -645,6 +647,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Keat_Hong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -657,6 +660,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Teck_Whye_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -669,6 +673,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Phoenix_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/PhoenixLRTExterior.jpg/500px-PhoenixLRTExterior.jpg"
 		},
@@ -681,6 +686,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Panjang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bukitpanjangmrtplatform.jpg/500px-Bukitpanjangmrtplatform.jpg"
 		},
@@ -693,6 +699,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Petir_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -705,6 +712,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Pending_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -717,6 +725,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bangkit_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -729,6 +738,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP10",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Fajar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Light_Rail_Transit_train_at_Fajar_LRT_Station%2C_Singapore_-_20060422.jpg/500px-Light_Rail_Transit_train_at_Fajar_LRT_Station%2C_Singapore_-_20060422.jpg"
 		},
@@ -741,6 +751,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Segar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -753,6 +764,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP12",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Jelapang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -765,6 +777,7 @@
 			],
 			"network": "LRT",
 			"ref": "BP13",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Senja_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Senja_LRT_Station%2C_Singapore.jpg"
 		},
@@ -774,7 +787,8 @@
 				1.3539411499999998,
 				103.98541265
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station B",
@@ -782,7 +796,8 @@
 				1.3584462,
 				103.98730695
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station C",
@@ -790,7 +805,8 @@
 				1.3620792499999999,
 				103.98896189999999
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station D",
@@ -798,7 +814,8 @@
 				1.3608806,
 				103.9912273
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station D",
@@ -806,7 +823,8 @@
 				1.3610217,
 				103.99178865
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station E",
@@ -814,7 +832,8 @@
 				1.35700515,
 				103.99003725
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station F",
@@ -822,7 +841,8 @@
 				1.35344825,
 				103.9886306
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Station G",
@@ -830,7 +850,8 @@
 				1.35027865,
 				103.9838115
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Punggol",
@@ -841,6 +862,7 @@
 			],
 			"network": "MRT;LRT",
 			"ref": "NE17;PTC",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Punggol_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Punggol_MRT-LRT_Station.jpg/500px-Punggol_MRT-LRT_Station.jpg"
 		},
@@ -852,6 +874,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cove_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -863,6 +886,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Meridian_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pe2_meridian.jpg/500px-Pe2_meridian.jpg"
 		},
@@ -874,6 +898,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Coral_Edge_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Coral_Edge_LRT.JPG/500px-Coral_Edge_LRT.JPG"
 		},
@@ -885,6 +910,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Riviera_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -896,6 +922,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kadaloor_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -907,6 +934,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Oasis_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -918,6 +946,7 @@
 			],
 			"network": "LRT",
 			"ref": "PE7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Damai_LRT_Station,_Singapore",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -929,6 +958,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sam_Kee_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Sam_Kee_Entrance.jpg/500px-Sam_Kee_Entrance.jpg"
 		},
@@ -940,6 +970,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Teck_Lee_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Teck_Lee_Platform.jpg/500px-Teck_Lee_Platform.jpg"
 		},
@@ -951,6 +982,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Punggol_Point_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Punggol_Point_LRT_View.JPG/500px-Punggol_Point_LRT_View.JPG"
 		},
@@ -962,6 +994,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Samudera_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Samudera_LRT_View.JPG/500px-Samudera_LRT_View.JPG"
 		},
@@ -973,6 +1006,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Nibong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -984,6 +1018,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sumang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Entrance_A_to_Sumang_LRT_Station.jpg/500px-Entrance_A_to_Sumang_LRT_Station.jpg"
 		},
@@ -995,6 +1030,7 @@
 			],
 			"network": "lrt",
 			"ref": "PW7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Soo_Teck_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Pw7_soo_teck.jpg/500px-Pw7_soo_teck.jpg"
 		},
@@ -1005,7 +1041,8 @@
 				103.8224201
 			],
 			"network": "lrt",
-			"ref": "S1"
+			"ref": "S1",
+			"construction": false
 		},
 		{
 			"name": "Waterfront",
@@ -1013,7 +1050,8 @@
 				1.2555418,
 				103.8209626
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Imbiah",
@@ -1021,7 +1059,8 @@
 				1.2539153,
 				103.8194525
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Beach",
@@ -1029,7 +1068,8 @@
 				1.251316,
 				103.8178125
 			],
-			"network": "lrt"
+			"network": "lrt",
+			"construction": false
 		},
 		{
 			"name": "Sengkang",
@@ -1040,6 +1080,7 @@
 			],
 			"network": "MRT;LRT",
 			"ref": "NE16;STC",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sengkang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ne16sengkang.jpg/500px-Ne16sengkang.jpg"
 		},
@@ -1051,6 +1092,7 @@
 			],
 			"network": "LRT",
 			"ref": "SE5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Ranggung_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ranggung_LRT_Station_3%2C_Sep_06.JPG/500px-Ranggung_LRT_Station_3%2C_Sep_06.JPG"
 		},
@@ -1062,6 +1104,7 @@
 			],
 			"network": "LRT",
 			"ref": "SE1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Compassvale_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -1073,6 +1116,7 @@
 			],
 			"network": "LRT",
 			"ref": "SE2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Rumbia_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Rumbia_LRT.JPG/500px-Rumbia_LRT.JPG"
 		},
@@ -1084,6 +1128,7 @@
 			],
 			"network": "LRT",
 			"ref": "SE3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bakau_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Crystalmover_meridian.jpg/500px-Crystalmover_meridian.jpg"
 		},
@@ -1095,6 +1140,7 @@
 			],
 			"network": "LRT",
 			"ref": "SE4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kangkar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kangkar_LRT_Station%2C_Oct_06.JPG/500px-Kangkar_LRT_Station%2C_Oct_06.JPG"
 		},
@@ -1106,6 +1152,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cheng_Lim_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Cheng_Lim_LRT_Station%2C_Sep_05.JPG/500px-Cheng_Lim_LRT_Station%2C_Sep_05.JPG"
 		},
@@ -1117,6 +1164,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Farmway_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Farmway_LRT_Station%2C_Sep_05.JPG/500px-Farmway_LRT_Station%2C_Sep_05.JPG"
 		},
@@ -1128,6 +1176,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kupang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Kupang_LRT.jpg/500px-Kupang_LRT.jpg"
 		},
@@ -1139,6 +1188,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Thanggam_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ThanggamLRT.JPG/500px-ThanggamLRT.JPG"
 		},
@@ -1150,6 +1200,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Fernvale_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Fernvale_LRT_Station_3%2C_Aug_06.JPG/500px-Fernvale_LRT_Station_3%2C_Aug_06.JPG"
 		},
@@ -1161,6 +1212,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Layar_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Layar_LRT_Station_3%2C_Aug_06.JPG/500px-Layar_LRT_Station_3%2C_Aug_06.JPG"
 		},
@@ -1172,6 +1224,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tongkang_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Tongkang_LRT_Station_2%2C_Aug_06.JPG/500px-Tongkang_LRT_Station_2%2C_Aug_06.JPG"
 		},
@@ -1183,6 +1236,7 @@
 			],
 			"network": "LRT",
 			"ref": "SW8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Renjong_LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Renjong_LRT_Station_2%2C_Aug_06.JPG/500px-Renjong_LRT_Station_2%2C_Aug_06.JPG"
 		},
@@ -1196,6 +1250,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS27;CE2;TE20",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Marina_Bay_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Circle_Line_Marina_Bay_platform.jpg/500px-Circle_Line_Marina_Bay_platform.jpg"
 		},
@@ -1209,6 +1264,7 @@
 			],
 			"network": "MRT",
 			"ref": "CE1;DT16",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bayfront_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bft_interior.JPG/500px-Bft_interior.JPG"
 		},
@@ -1222,6 +1278,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE6;NS24;CC1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Dhoby_Ghaut_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Dhoby_Ghaut_CCL.jpg/500px-Dhoby_Ghaut_CCL.jpg"
 		},
@@ -1235,6 +1292,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bras_Basah_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Escalators_in_Bras_Basah_MRT_Station%2C_Singapore.jpg/449px-Escalators_in_Bras_Basah_MRT_Station%2C_Singapore.jpg"
 		},
@@ -1248,6 +1306,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Esplanade_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Esplanade-CCLStation.JPG/500px-Esplanade-CCLStation.JPG"
 		},
@@ -1261,6 +1320,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC4;DT15",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Promenade_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Promenade-CCLPlatform.JPG/500px-Promenade-CCLPlatform.JPG"
 		},
@@ -1274,6 +1334,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Nicoll_Highway_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/NicollHighway-CCLPlatform.JPG/500px-NicollHighway-CCLPlatform.JPG"
 		},
@@ -1287,6 +1348,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Stadium_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Stadium_MRT_Platform.JPG/333px-Stadium_MRT_Platform.JPG"
 		},
@@ -1300,6 +1362,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Mountbatten_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mountbatten-CCLPlatform.JPG/500px-Mountbatten-CCLPlatform.JPG"
 		},
@@ -1313,6 +1376,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Dakota_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Dakota-CCLPlatform.JPG/500px-Dakota-CCLPlatform.JPG"
 		},
@@ -1326,6 +1390,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW8;CC9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Paya_Lebar_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Ew8_Paya_Lebar.jpg/500px-Ew8_Paya_Lebar.jpg"
 		},
@@ -1339,6 +1404,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC10;DT26",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/MacPherson_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/MacPherson-CCLPlatform.JPG/500px-MacPherson-CCLPlatform.JPG"
 		},
@@ -1352,6 +1418,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tai_Seng_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/TaiSeng-CCLPlatform.JPG/500px-TaiSeng-CCLPlatform.JPG"
 		},
@@ -1365,6 +1432,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC12",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bartley_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bartley_MRT_Station.jpg/500px-Bartley_MRT_Station.jpg"
 		},
@@ -1378,6 +1446,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE12;CC13",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Serangoon_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ne12_Serangoon_2.jpg/500px-Ne12_Serangoon_2.jpg"
 		},
@@ -1391,6 +1460,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC14",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Lorong_Chuan_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/LorongChuanMRTStation-Singapore-20090523.jpg/500px-LorongChuanMRTStation-Singapore-20090523.jpg"
 		},
@@ -1404,6 +1474,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS17;CC15",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bishan_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/Bishan_MRT_Station_Platform.jpg/500px-Bishan_MRT_Station_Platform.jpg"
 		},
@@ -1417,6 +1488,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC16",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Marymount_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CC16Marymount.jpg/500px-CC16Marymount.jpg"
 		},
@@ -1430,6 +1502,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC17;TE9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Caldecott_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/CC17Caldecott.jpg/500px-CC17Caldecott.jpg"
 		},
@@ -1443,6 +1516,7 @@
 			],
 			"network": "mrt",
 			"ref": "CC18",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Brown_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/CC18BukitBrown.jpg/500px-CC18BukitBrown.jpg"
 		},
@@ -1456,6 +1530,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC19;DT9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Botanic_Gardens_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Botanic_Gardens_MRT_Station_%28DTL%29_-_Platform_B.jpg/500px-Botanic_Gardens_MRT_Station_%28DTL%29_-_Platform_B.jpg"
 		},
@@ -1469,6 +1544,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC20",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Farrer_Road_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/FRR_platform_level.jpg/333px-FRR_platform_level.jpg"
 		},
@@ -1482,6 +1558,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC21",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Holland_Village_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Interior_of_Holland_Village_MRT_Station_-_20111008.jpg/500px-Interior_of_Holland_Village_MRT_Station_-_20111008.jpg"
 		},
@@ -1495,6 +1572,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW21;CC22",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Buona_Vista_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Interior_of_the_Circle_Line_section_of_Buona_Vista_MRT_Station%2C_Singapore_-_20110820.jpg/500px-Interior_of_the_Circle_Line_section_of_Buona_Vista_MRT_Station%2C_Singapore_-_20110820.jpg"
 		},
@@ -1508,6 +1586,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC23",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/One-north_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/CC23one-north.jpg/320px-CC23one-north.jpg"
 		},
@@ -1521,6 +1600,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC24",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kent_Ridge_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/KentRidgeMRT.JPG/500px-KentRidgeMRT.JPG"
 		},
@@ -1534,6 +1614,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC25",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Haw_Par_Villa_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/CC25HawParVilla.jpeg/500px-CC25HawParVilla.jpeg"
 		},
@@ -1547,6 +1628,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC26",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Pasir_Panjang_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Platform_level_of_Pasir_Panjang_MRT_Station%2C_Singapore_-_20111002.jpg/500px-Platform_level_of_Pasir_Panjang_MRT_Station%2C_Singapore_-_20111002.jpg"
 		},
@@ -1560,6 +1642,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC27",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Labrador_Park_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/CC27LabradorPark.jpg/500px-CC27LabradorPark.jpg"
 		},
@@ -1573,6 +1656,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC28",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Telok_Blangah_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/CC28TelokBlangah.jpg/500px-CC28TelokBlangah.jpg"
 		},
@@ -1586,6 +1670,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE1;CC29",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/HarbourFront_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/HarbourFront_MRT_Station_201012.jpg/500px-HarbourFront_MRT_Station_201012.jpg"
 		},
@@ -1598,6 +1683,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC30",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Keppel_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/MRT_map_NECC.svg/500px-MRT_map_NECC.svg.png"
 		},
@@ -1610,6 +1696,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC31",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cantonment_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1622,6 +1709,7 @@
 			],
 			"network": "MRT",
 			"ref": "CC32",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Prince_Edward_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/MRT_map_CC.svg/500px-MRT_map_CC.svg.png"
 		},
@@ -1634,6 +1722,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Panjang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Bukitpanjangmrtplatform.jpg/500px-Bukitpanjangmrtplatform.jpg"
 		},
@@ -1646,6 +1735,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Cashew_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/DT2_Cashew_Platform.JPG/500px-DT2_Cashew_Platform.JPG"
 		},
@@ -1658,6 +1748,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Hillview_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/DT3_Hillview_Platform.JPG/500px-DT3_Hillview_Platform.JPG"
 		},
@@ -1670,6 +1761,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Beauty_World_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Beauty_World_MRT_Station_Exit_B%2C_Singapore%2C_at_night_-_20151114.jpg/500px-Beauty_World_MRT_Station_Exit_B%2C_Singapore%2C_at_night_-_20151114.jpg"
 		},
@@ -1682,6 +1774,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/King_Albert_Park_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/DT6_KingAlbertPark_Platform.JPG/500px-DT6_KingAlbertPark_Platform.JPG"
 		},
@@ -1694,6 +1787,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sixth_Avenue_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/DT7_Sixth_Avenue_Platform.JPG/500px-DT7_Sixth_Avenue_Platform.JPG"
 		},
@@ -1706,6 +1800,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tan_Kah_Kee_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tankahkeemrt.jpg/500px-Tankahkeemrt.jpg"
 		},
@@ -1718,6 +1813,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT10;TE11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Stevens_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Stevens_MRT_Station_platform_A.jpg/500px-Stevens_MRT_Station_platform_A.jpg"
 		},
@@ -1730,6 +1826,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS21;DT11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Newton_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Newton_MRT.JPG/500px-Newton_MRT.JPG"
 		},
@@ -1742,6 +1839,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE7;DT12",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Little_India_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Little_India_DTL_open_house.jpg/500px-Little_India_DTL_open_house.jpg"
 		},
@@ -1754,6 +1852,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT13",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Rochor_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/%22I_love_Downtown_Line%22_label%2C_Rochor_MRT_Station%2C_Singapore_-_20160108.jpg/500px-%22I_love_Downtown_Line%22_label%2C_Rochor_MRT_Station%2C_Singapore_-_20160108.jpg"
 		},
@@ -1766,6 +1865,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW12;DT14",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bugis_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Bugis_MRT_Station.JPG/500px-Bugis_MRT_Station.JPG"
 		},
@@ -1778,6 +1878,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT17",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Downtown_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Downtown_MRT_station_platform.jpg/500px-Downtown_MRT_station_platform.jpg"
 		},
@@ -1790,6 +1891,7 @@
 			],
 			"network": "MRT",
 			"ref": "DT18",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Telok_Ayer_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/Telok_Ayer_Downtown_OpenHouse_Dec7.jpg/500px-Telok_Ayer_Downtown_OpenHouse_Dec7.jpg"
 		},
@@ -1802,6 +1904,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE4;DT19",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Chinatown_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Chinatown_Station_Downtown_Line_Platform_201401.jpg/500px-Chinatown_Station_Downtown_Line_Platform_201401.jpg"
 		},
@@ -1814,6 +1917,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT20",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Fort_Canning_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1826,6 +1930,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT21",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bencoolen_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1838,6 +1943,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT22",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Jalan_Besar_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jalan-Besar-Station.jpg/500px-Jalan-Besar-Station.jpg"
 		},
@@ -1850,6 +1956,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT23",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bendemeer_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1862,6 +1969,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT24",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Geylang_Bahru_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1874,6 +1982,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT25",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Mattar_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1886,6 +1995,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT27",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Ubi_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1898,6 +2008,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT28",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kaki_Bukit_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1910,6 +2021,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT29",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bedok_North_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1922,6 +2034,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT30",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bedok_Reservoir_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1934,6 +2047,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT31",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tampines_West_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Tampines_West_MRT_Station_underconstruction.jpg/500px-Tampines_West_MRT_Station_underconstruction.jpg"
 		},
@@ -1946,6 +2060,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW2;DT32",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tampines_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ew2tampines_mrt_stn.jpg/500px-Ew2tampines_mrt_stn.jpg"
 		},
@@ -1958,6 +2073,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT33",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tampines_East_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -1970,6 +2086,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT34",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Upper_Changi_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/MRT_Singapore_Destination_11.png"
 		},
@@ -1982,6 +2099,7 @@
 			],
 			"network": "MRT",
 			"ref": "CG1;DT35",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Expo_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cg1_expo_exterior.jpg/500px-Cg1_expo_exterior.jpg"
 		},
@@ -1994,6 +2112,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT36",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Xilin_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -2006,6 +2125,7 @@
 			],
 			"network": "mrt",
 			"ref": "DT37;TE31",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sungei_Bedok_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -2018,6 +2138,7 @@
 			],
 			"network": "mrt",
 			"ref": "EW33",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_Link_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tuas_Link_station.jpg/500px-Tuas_Link_station.jpg"
 		},
@@ -2030,6 +2151,7 @@
 			],
 			"network": "mrt",
 			"ref": "EW32",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_West_Road_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tuas_West_Road_station.jpg/500px-Tuas_West_Road_station.jpg"
 		},
@@ -2042,6 +2164,7 @@
 			],
 			"network": "mrt",
 			"ref": "EW31",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tuas_Crescent_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Tuas_Crescent_station.jpg/500px-Tuas_Crescent_station.jpg"
 		},
@@ -2054,6 +2177,7 @@
 			],
 			"network": "mrt",
 			"ref": "EW30",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Gul_Circle_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Gul_Circle_station.jpg/500px-Gul_Circle_station.jpg"
 		},
@@ -2066,6 +2190,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW29",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Joo_Koon_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jookoonstn09.JPG/500px-Jookoonstn09.JPG"
 		},
@@ -2078,6 +2203,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW28",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Pioneer_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Pioneerstn09.JPG/500px-Pioneerstn09.JPG"
 		},
@@ -2090,6 +2216,7 @@
 			],
 			"network": "MRT (Mass Rapid Transit)",
 			"ref": "EW27",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Boon_Lay_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Boon_Lay_with_PSD.jpg/500px-Boon_Lay_with_PSD.jpg"
 		},
@@ -2102,6 +2229,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW26",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Lakeside_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -2114,6 +2242,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW25",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Chinese_Garden_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Chinesegarden-mrt.JPG/500px-Chinesegarden-mrt.JPG"
 		},
@@ -2126,6 +2255,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS1;EW24",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Jurong_East_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Jurong_East_MRT_Station_with_PSDs.jpg/500px-Jurong_East_MRT_Station_with_PSDs.jpg"
 		},
@@ -2138,6 +2268,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW23",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Clementi_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Clementi_MRT_Station.jpeg/500px-Clementi_MRT_Station.jpeg"
 		},
@@ -2150,6 +2281,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW22",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Dover_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Dover_mrt_singapore_z.JPG/500px-Dover_mrt_singapore_z.JPG"
 		},
@@ -2162,6 +2294,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW20",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Commonwealth_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Commonwealth-mrt.JPG/500px-Commonwealth-mrt.JPG"
 		},
@@ -2174,6 +2307,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW19",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Queenstown_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Queenstown_MRT_Station_Platform_201401.jpg/500px-Queenstown_MRT_Station_Platform_201401.jpg"
 		},
@@ -2186,6 +2320,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW18",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Redhill_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/RedHillMRTfromAbove.jpg/429px-RedHillMRTfromAbove.jpg"
 		},
@@ -2198,6 +2333,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW17",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tiong_Bahru_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Ew17_tiongbahru.jpg/500px-Ew17_tiongbahru.jpg"
 		},
@@ -2210,6 +2346,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE3;EW16;TE17",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Outram_Park_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Outram_Park_Station_East_West_Line_Platform.jpg/500px-Outram_Park_Station_East_West_Line_Platform.jpg"
 		},
@@ -2222,6 +2359,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW15",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tanjong_Pagar_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/TJP_PLAT.JPG/500px-TJP_PLAT.JPG"
 		},
@@ -2234,6 +2372,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW14;NS26",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Raffles_Place_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ns25_rafflesplace.jpg/500px-Ns25_rafflesplace.jpg"
 		},
@@ -2246,6 +2385,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW13;NS25",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/City_Hall_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/CityHall_MRTStation.jpg/500px-CityHall_MRTStation.jpg"
 		},
@@ -2258,6 +2398,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Lavender_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/LavenderMRTStation-platform-20050621.jpg/500px-LavenderMRTStation-platform-20050621.jpg"
 		},
@@ -2270,6 +2411,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW10",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kallang_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/KAL_PLAT.JPG/500px-KAL_PLAT.JPG"
 		},
@@ -2282,6 +2424,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Aljunied_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/AljuinedMRT.JPG/500px-AljuinedMRT.JPG"
 		},
@@ -2294,6 +2437,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Eunos_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Eunos_MRT.JPG/500px-Eunos_MRT.JPG"
 		},
@@ -2306,6 +2450,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW6",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kembangan_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/KBG_PLAT.JPG/500px-KBG_PLAT.JPG"
 		},
@@ -2318,6 +2463,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bedok_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Bedok_MRT_Station_platform_A.JPG/500px-Bedok_MRT_Station_platform_A.JPG"
 		},
@@ -2330,6 +2476,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tanah_Merah_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/C151_tnm_cgl.jpg/500px-C151_tnm_cgl.jpg"
 		},
@@ -2342,6 +2489,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Simei_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Ew3_Simei.jpg/500px-Ew3_Simei.jpg"
 		},
@@ -2354,6 +2502,7 @@
 			],
 			"network": "MRT",
 			"ref": "EW1",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Pasir_Ris_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/PasirRisMRTStation.JPG/500px-PasirRisMRTStation.JPG"
 		},
@@ -2366,6 +2515,7 @@
 			],
 			"network": "MRT",
 			"ref": "CG2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Changi_Airport_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/CGA_PLAT.JPG/500px-CGA_PLAT.JPG"
 		},
@@ -2378,6 +2528,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Clarke_Quay_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Clarke_Quay_MRT_Station%2C_Aug_06.JPG/500px-Clarke_Quay_MRT_Station%2C_Aug_06.JPG"
 		},
@@ -2390,6 +2541,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Farrer_Park_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Farrer_Park_MRT_Station%2C_Aug_06.JPG/500px-Farrer_Park_MRT_Station%2C_Aug_06.JPG"
 		},
@@ -2402,6 +2554,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE9",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Boon_Keng_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Ne9boonkeng.jpg/500px-Ne9boonkeng.jpg"
 		},
@@ -2414,6 +2567,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE10",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Potong_Pasir_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ne10potongpasir.jpg/500px-Ne10potongpasir.jpg"
 		},
@@ -2426,6 +2580,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Woodleigh_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Woodleigh_MRT_Station.JPG/500px-Woodleigh_MRT_Station.JPG"
 		},
@@ -2438,6 +2593,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE13",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kovan_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Ne13kovan.jpg/500px-Ne13kovan.jpg"
 		},
@@ -2450,6 +2606,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE14",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Hougang_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Ne14hougang.jpg/500px-Ne14hougang.jpg"
 		},
@@ -2462,6 +2619,7 @@
 			],
 			"network": "MRT",
 			"ref": "NE15",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Buangkok_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Ne15_buangkok2.jpg/500px-Ne15_buangkok2.jpg"
 		},
@@ -2474,6 +2632,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS28",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Marina_South_Pier_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Marina_South_Pier_Station.JPG/500px-Marina_South_Pier_Station.JPG"
 		},
@@ -2486,6 +2645,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS23",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Somerset_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SomersetMRTStation.jpg/500px-SomersetMRTStation.jpg"
 		},
@@ -2498,6 +2658,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS22;TE14",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Orchard_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Orchard_MRT_Station%2C_Dec_05.JPG/500px-Orchard_MRT_Station%2C_Dec_05.JPG"
 		},
@@ -2510,6 +2671,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS20",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Novena_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Ns20_novena.jpg/500px-Ns20_novena.jpg"
 		},
@@ -2522,6 +2684,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS19",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Toa_Payoh_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Toapayohmrtplatform.jpg/500px-Toapayohmrtplatform.jpg"
 		},
@@ -2534,6 +2697,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS18",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Braddell_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Ns18braddell.jpg/500px-Ns18braddell.jpg"
 		},
@@ -2546,6 +2710,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS16",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Ang_Mo_Kio_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/AMKHHPSD_Operation.jpg/500px-AMKHHPSD_Operation.jpg"
 		},
@@ -2558,6 +2723,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS15",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Yio_Chu_Kang_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Ns15_Yio_Chu_Kang_2.jpg/500px-Ns15_Yio_Chu_Kang_2.jpg"
 		},
@@ -2569,6 +2735,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS14",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Khatib_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/KhatibMRT.JPG/500px-KhatibMRT.JPG"
 		},
@@ -2581,6 +2748,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS13",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Yishun_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Yishun_MRT_Station_with_PSDs.jpg/500px-Yishun_MRT_Station_with_PSDs.jpg"
 		},
@@ -2593,6 +2761,7 @@
 			],
 			"network": "North South Line",
 			"ref": "NS12",
+			"construction": true,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Canberra_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kawasaki_c751_eunos.jpg/500px-Kawasaki_c751_eunos.jpg"
 		},
@@ -2605,6 +2774,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS11",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sembawang_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Ns11sembawang.jpg/500px-Ns11sembawang.jpg"
 		},
@@ -2617,6 +2787,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS10",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Admiralty_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ns10_Admiralty.jpg/500px-Ns10_Admiralty.jpg"
 		},
@@ -2629,6 +2800,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS9;TE2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Woodlands_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Woodlands_MRT_Station_%28NSL%29_-_Platforms_A_and_B.jpg/500px-Woodlands_MRT_Station_%28NSL%29_-_Platforms_A_and_B.jpg"
 		},
@@ -2641,6 +2813,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS8",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Marsiling_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/MarsilingMRT.JPG/500px-MarsilingMRT.JPG"
 		},
@@ -2653,6 +2826,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS7",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kranji_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ns7_Kranji.jpg/500px-Ns7_Kranji.jpg"
 		},
@@ -2667,6 +2841,7 @@
 			"ref": "NS5",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Yew_Tee_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Yew_Tee_with_New_Signage.jpg/500px-Yew_Tee_with_New_Signage.jpg"
+			"construction": false
 		},
 		{
 			"name": "Choa Chu Kang",
@@ -2677,6 +2852,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS4",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_MRT/LRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cck-mrt.JPG/500px-Cck-mrt.JPG"
 		},
@@ -2689,6 +2865,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS3",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Gombak_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/BukitGombakMRT.JPG/500px-BukitGombakMRT.JPG"
 		},
@@ -2701,6 +2878,7 @@
 			],
 			"network": "MRT",
 			"ref": "NS2",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bukit_Batok_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/BukitBatokMRT.JPG/500px-BukitBatokMRT.JPG"
 		}

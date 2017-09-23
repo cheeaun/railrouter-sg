@@ -62,6 +62,7 @@ fs.readdir('data', function(e, files){
         coord: stop.coord,
         network: stop.network,
         ref: stop.ref,
+        construction: !!stop.construction,
       };
     });
 
