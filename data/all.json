@@ -2839,9 +2839,9 @@
 			],
 			"network": "MRT",
 			"ref": "NS5",
+			"construction": false,
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Yew_Tee_MRT_Station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Yew_Tee_with_New_Signage.jpg/500px-Yew_Tee_with_New_Signage.jpg"
-			"construction": false
 		},
 		{
 			"name": "Choa Chu Kang",
