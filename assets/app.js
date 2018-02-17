@@ -453,7 +453,7 @@ function init(){
           size: new google.maps.Size(eCanvas.width/2, eCanvas.height/2),
           anchor: new google.maps.Point(eCanvas.width/4, eCanvas.height/4),
         },
-        title: 'Exit ' + label + ' - ' + stop.name,
+        title: 'Exit ' + label + ' - ' + (exit.name || stop.name),
         visible: zoom >= 16,
         position: exitPosition,
         map: map,
