@@ -41,7 +41,7 @@ const ROOT = 'https://en.wikipedia.org';
       console.log(url);
       const station = await got(url);
       const $$ = cheerio.load(station.body);
-      const src = $$('.infobox img[alt][src*=jpg i]').prop('src');
+      const src = $$('.infobox img[alt][src*=jpg i],.infobox img[alt][src*=jpeg i]').prop('src');
       if (src) image = 'https:' + src;
     }
 
