@@ -39,8 +39,6 @@
   <p>Sister sites: <a href="https://busrouter.sg/" target="_blank">🚍 BusRouter SG</a> <a href="https://taxirouter.sg/" target="_blank">🚖 TaxiRouter SG</a></p>
   <h2>Legend</h2>
   <ul id="legend"></ul>
-  <h2>Options</h2>
-  <p><label id="toggle-transit"><input type="checkbox" id="checkbox-transit"> Show Google's transit layer</label></p>
   <p><button id="about-okay" ontouchstart>Okay</button></p>
 </div>
 <div id="map"></div>
@@ -52,11 +50,11 @@
 <div id="nearest-station"></div>
 <div id="bounds-warning">Looks like you're lost.<br><button id="back-sg">Go back to Singapore</button>.</div>
 <!--div id="debug" style="position: absolute; z-index: 999; bottom: 0; left: 0; background: red; color: #fff; padding: 10px;"></div-->
-<inline-json src="data/all.json" variable="data"></inline-json>
+<inline-json src="data/v2/all.json" variable="data"></inline-json>
 <script src="assets/infobox.js"></script>
 <script src="assets/locationmarker.js"></script>
 <script src="assets/app.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpk0BS7iLdbn5U545tiIN12k1OCgj2cc4&libraries=geometry&callback=initMap&v=3.exp"></script>
 <script>
 if ('serviceWorker' in navigator){
   navigator.serviceWorker.register('service-worker.js').then(function(registration){

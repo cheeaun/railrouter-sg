@@ -1,0 +1,426 @@
+{
+	"routes": [
+		{
+			"name": "North East Line",
+			"color": "#851197",
+			"ui_color": "#851197",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-NE",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTNortheastLine"
+		},
+		{
+			"name": "Punggol LRT (East Loop)",
+			"color": "#748477",
+			"ui_color": "#748477",
+			"brand_id": "SingaporeLRT",
+			"icon_name": "sg-singapore-LRT-PE",
+			"icon_contains_name": false,
+			"id": "SingaporeLRTPunggolLineEastLoop"
+		},
+		{
+			"name": "Punggol LRT (West Loop)",
+			"color": "#748477",
+			"ui_color": "#748477",
+			"brand_id": "SingaporeLRT",
+			"icon_name": "sg-singapore-LRT-PW",
+			"icon_contains_name": false,
+			"id": "SingaporeLRTPunggolLineWestLoop"
+		}
+	],
+	"shared": {
+		"stop_curation_urls": [
+			{
+				"permission_required": "show_batcave_station_disruption",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/disruptions",
+				"id": "batcave_station_disruption",
+				"title": "Add Disruption"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_exits",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/exits",
+				"id": "batcave_edit_station_exits",
+				"title": "Edit / Add Exit"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_tags",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/tags",
+				"id": "batcave_edit_station_tags",
+				"title": "Add Station Facilities (Batcave)"
+			},
+			{
+				"permission_required": "show_batcave_stop_disruption",
+				"href": "https://citymapper.com/station/{stop_id}/edit/?region_id={region_id}",
+				"id": "web_edit_station",
+				"title": "Add Facilities"
+			},
+			{
+				"permission_required": "show_batcave_add_station_exits",
+				"href": "https://citymapper.com/station/{stop_id}/add/exit/?region_id={region_id}",
+				"id": "web_edit_station_exits",
+				"title": "Add Exits"
+			}
+		]
+	},
+	"stops": [
+		{
+			"name": "Soo Teck",
+			"exits": [
+				{
+					"coords": [
+						1.405441,
+						103.897171
+					],
+					"id": "SingaporeStation_SooTeck_E31106",
+					"station_id": "SingaporeStation_SooTeck"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/soo-teck",
+			"alias": "soo-teck",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.405394,
+				103.897237
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/soo-teck",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_SooTeck",
+			"id": "SingaporeStation_SooTeck"
+		},
+		{
+			"name": "Samudera",
+			"exits": [
+				{
+					"coords": [
+						1.415939,
+						103.902133
+					],
+					"id": "CMStation_samudera_E31114",
+					"station_id": "CMStation_samudera"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/samudera",
+			"alias": "samudera",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.415976,
+				103.90219
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/samudera",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "CMStation_samudera",
+			"id": "CMStation_samudera"
+		},
+		{
+			"name": "Sumang",
+			"exits": [
+				{
+					"coords": [
+						1.408522,
+						103.898563
+					],
+					"id": "SingaporeStation_Sumang_E31107",
+					"station_id": "SingaporeStation_Sumang"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/sumang",
+			"alias": "sumang",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.408532,
+				103.898534
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/sumang",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Sumang",
+			"id": "SingaporeStation_Sumang"
+		},
+		{
+			"name": "Punggol",
+			"exits": [
+				{
+					"indicator": "C",
+					"name": "Punggol Field, Bus Interchange ",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Punggol",
+					"coords": [
+						1.4043305,
+						103.9022561
+					],
+					"id": "SingaporeStation_Punggol_E4488"
+				},
+				{
+					"indicator": "D",
+					"name": "Punggol Field",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Punggol",
+					"coords": [
+						1.4048418,
+						103.9017348
+					],
+					"id": "SingaporeStation_Punggol_E4489"
+				},
+				{
+					"indicator": "A",
+					"name": "Punggol Drive",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Punggol",
+					"coords": [
+						1.405817,
+						103.902289
+					],
+					"id": "SingaporeStation_Punggol_E4490"
+				},
+				{
+					"indicator": "B",
+					"name": "Punggol Drive",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Punggol",
+					"coords": [
+						1.4054507,
+						103.903126
+					],
+					"id": "SingaporeStation_Punggol_E4491"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNortheastLine",
+				"SingaporeLRTPunggolLineEastLoop",
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/punggol",
+			"alias": "punggol",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.405255,
+				103.902354
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/punggol",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Punggol",
+			"id": "SingaporeStation_Punggol"
+		},
+		{
+			"name": "Punggol Point",
+			"exits": [
+				{
+					"coords": [
+						1.41677,
+						103.906546
+					],
+					"id": "CMStation_punggol_point_E31109",
+					"station_id": "CMStation_punggol_point"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/punggol-point",
+			"alias": "punggol-point",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.416845,
+				103.906664
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/punggol-point",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "CMStation_punggol_point",
+			"id": "CMStation_punggol_point"
+		},
+		{
+			"name": "Teck Lee",
+			"exits": [
+				{
+					"coords": [
+						1.412788,
+						103.906704
+					],
+					"id": "CMStation_teck_lee_E31110",
+					"station_id": "CMStation_teck_lee"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/teck-lee",
+			"alias": "teck-lee",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.412705,
+				103.906653
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/teck-lee",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "CMStation_teck_lee",
+			"id": "CMStation_teck_lee"
+		},
+		{
+			"name": "Nibong",
+			"exits": [
+				{
+					"coords": [
+						1.41185,
+						103.900334
+					],
+					"id": "SingaporeStation_Nibong_E31108",
+					"station_id": "SingaporeStation_Nibong"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/nibong",
+			"alias": "nibong",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.411831,
+				103.900305
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/nibong",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Nibong",
+			"id": "SingaporeStation_Nibong"
+		},
+		{
+			"name": "Sam Kee",
+			"exits": [
+				{
+					"coords": [
+						1.409739,
+						103.904907
+					],
+					"id": "CMStation_sam_kee_E31111",
+					"station_id": "CMStation_sam_kee"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/sam-kee",
+			"alias": "sam-kee",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.40975,
+				103.904583
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/sam-kee",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "CMStation_sam_kee",
+			"id": "CMStation_sam_kee"
+		}
+	]
+}

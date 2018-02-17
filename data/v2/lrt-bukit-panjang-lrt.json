@@ -1,0 +1,1346 @@
+{
+	"routes": [
+		{
+			"supports_routeinfo": true,
+			"name": "Bukit Panjang LRT",
+			"patterns": [
+				{
+					"id": "Cmpattern_Singaporelrtbukitpanjangline_3975__Stations",
+					"path": [
+						[
+							1.384727,
+							103.744588
+						],
+						[
+							1.384159,
+							103.744583
+						],
+						[
+							1.383429,
+							103.744492
+						],
+						[
+							1.382121,
+							103.744251
+						],
+						[
+							1.381467,
+							103.744165
+						],
+						[
+							1.381284,
+							103.744135
+						],
+						[
+							1.381097,
+							103.744149
+						],
+						[
+							1.380957,
+							103.744186
+						],
+						[
+							1.380818,
+							103.744261
+						],
+						[
+							1.38026,
+							103.745285
+						],
+						[
+							1.379397,
+							103.747185
+						],
+						[
+							1.378599,
+							103.74903
+						],
+						[
+							1.378115,
+							103.750194
+						],
+						[
+							1.377592,
+							103.751332
+						],
+						[
+							1.37708,
+							103.75248
+						],
+						[
+							1.376755,
+							103.753169
+						],
+						[
+							1.376688,
+							103.753432
+						],
+						[
+							1.37667,
+							103.753647
+						],
+						[
+							1.376683,
+							103.753963
+						],
+						[
+							1.376766,
+							103.754244
+						],
+						[
+							1.376991,
+							103.754813
+						],
+						[
+							1.377166,
+							103.755583
+						],
+						[
+							1.377345,
+							103.755913
+						],
+						[
+							1.378,
+							103.756924
+						],
+						[
+							1.378327,
+							103.757466
+						],
+						[
+							1.378488,
+							103.757731
+						],
+						[
+							1.378616,
+							103.758008
+						],
+						[
+							1.37945,
+							103.760242
+						],
+						[
+							1.37949,
+							103.760379
+						],
+						[
+							1.379501,
+							103.760515
+						],
+						[
+							1.37941,
+							103.760794
+						],
+						[
+							1.379169,
+							103.760977
+						],
+						[
+							1.378914,
+							103.761106
+						],
+						[
+							1.378622,
+							103.761269
+						],
+						[
+							1.378337,
+							103.761403
+						],
+						[
+							1.378,
+							103.761584
+						],
+						[
+							1.377876,
+							103.76165
+						],
+						[
+							1.377753,
+							103.761768
+						],
+						[
+							1.377686,
+							103.762243
+						],
+						[
+							1.378217,
+							103.764421
+						],
+						[
+							1.378329,
+							103.764989
+						],
+						[
+							1.378303,
+							103.765558
+						],
+						[
+							1.37826,
+							103.765864
+						],
+						[
+							1.378109,
+							103.766121
+						],
+						[
+							1.377756,
+							103.766634
+						],
+						[
+							1.376399,
+							103.768766
+						],
+						[
+							1.375466,
+							103.770381
+						],
+						[
+							1.375498,
+							103.770665
+						],
+						[
+							1.375653,
+							103.770922
+						],
+						[
+							1.376184,
+							103.771259
+						],
+						[
+							1.377863,
+							103.772264
+						],
+						[
+							1.378388,
+							103.772462
+						],
+						[
+							1.378941,
+							103.772623
+						],
+						[
+							1.380055,
+							103.772644
+						],
+						[
+							1.380668,
+							103.772601
+						],
+						[
+							1.3813,
+							103.772682
+						],
+						[
+							1.381601,
+							103.77258
+						],
+						[
+							1.381804,
+							103.772274
+						],
+						[
+							1.381821,
+							103.771545
+						],
+						[
+							1.381745,
+							103.769715
+						],
+						[
+							1.381912,
+							103.76941
+						],
+						[
+							1.382325,
+							103.769292
+						],
+						[
+							1.382791,
+							103.76934
+						],
+						[
+							1.383199,
+							103.769501
+						],
+						[
+							1.383875,
+							103.769968
+						],
+						[
+							1.38455,
+							103.7708
+						],
+						[
+							1.385226,
+							103.771287
+						],
+						[
+							1.385585,
+							103.77148
+						],
+						[
+							1.385762,
+							103.771566
+						],
+						[
+							1.385977,
+							103.77162
+						],
+						[
+							1.386234,
+							103.771513
+						],
+						[
+							1.386529,
+							103.771325
+						],
+						[
+							1.38677,
+							103.771164
+						],
+						[
+							1.387044,
+							103.770885
+						],
+						[
+							1.387452,
+							103.770263
+						],
+						[
+							1.387792,
+							103.769593
+						],
+						[
+							1.388406,
+							103.768219
+						],
+						[
+							1.388782,
+							103.767403
+						],
+						[
+							1.38883,
+							103.767114
+						],
+						[
+							1.388824,
+							103.766835
+						],
+						[
+							1.38868,
+							103.766395
+						],
+						[
+							1.388454,
+							103.766052
+						],
+						[
+							1.387865,
+							103.765558
+						],
+						[
+							1.387269,
+							103.765048
+						],
+						[
+							1.386683,
+							103.764515
+						],
+						[
+							1.386213,
+							103.764142
+						],
+						[
+							1.38588,
+							103.76368
+						],
+						[
+							1.385521,
+							103.763198
+						],
+						[
+							1.385113,
+							103.762779
+						],
+						[
+							1.384835,
+							103.762613
+						],
+						[
+							1.38454,
+							103.76249
+						],
+						[
+							1.383885,
+							103.762339
+						],
+						[
+							1.383622,
+							103.762259
+						],
+						[
+							1.383274,
+							103.762254
+						],
+						[
+							1.382678,
+							103.762382
+						],
+						[
+							1.381799,
+							103.762913
+						],
+						[
+							1.380877,
+							103.763289
+						],
+						[
+							1.379616,
+							103.76389
+						],
+						[
+							1.379053,
+							103.764136
+						],
+						[
+							1.378769,
+							103.764271
+						],
+						[
+							1.378643,
+							103.764292
+						],
+						[
+							1.378512,
+							103.764289
+						],
+						[
+							1.37837,
+							103.764228
+						],
+						[
+							1.378246,
+							103.764139
+						],
+						[
+							1.378101,
+							103.763855
+						],
+						[
+							1.377943,
+							103.763171
+						],
+						[
+							1.377725,
+							103.762277
+						],
+						[
+							1.377715,
+							103.762237
+						],
+						[
+							1.37767,
+							103.762034
+						],
+						[
+							1.377726,
+							103.761851
+						],
+						[
+							1.37786,
+							103.761621
+						],
+						[
+							1.378335,
+							103.761374
+						],
+						[
+							1.378683,
+							103.761248
+						],
+						[
+							1.379032,
+							103.761084
+						],
+						[
+							1.379185,
+							103.761004
+						],
+						[
+							1.379316,
+							103.760902
+						],
+						[
+							1.379456,
+							103.760682
+						],
+						[
+							1.379464,
+							103.760515
+						],
+						[
+							1.379448,
+							103.760355
+						],
+						[
+							1.37934,
+							103.760027
+						],
+						[
+							1.379069,
+							103.759341
+						],
+						[
+							1.378616,
+							103.758008
+						],
+						[
+							1.378555,
+							103.757788
+						],
+						[
+							1.378345,
+							103.757434
+						],
+						[
+							1.378021,
+							103.756908
+						],
+						[
+							1.377686,
+							103.756396
+						],
+						[
+							1.377316,
+							103.755924
+						],
+						[
+							1.377131,
+							103.755596
+						],
+						[
+							1.37694,
+							103.754786
+						],
+						[
+							1.376699,
+							103.754193
+						],
+						[
+							1.37664,
+							103.753923
+						],
+						[
+							1.37667,
+							103.753647
+						],
+						[
+							1.376659,
+							103.753437
+						],
+						[
+							1.376723,
+							103.753201
+						],
+						[
+							1.377053,
+							103.752469
+						],
+						[
+							1.377568,
+							103.75131
+						],
+						[
+							1.378085,
+							103.750178
+						],
+						[
+							1.378599,
+							103.74903
+						],
+						[
+							1.378914,
+							103.748091
+						],
+						[
+							1.379354,
+							103.747153
+						],
+						[
+							1.38026,
+							103.745285
+						],
+						[
+							1.380839,
+							103.744224
+						],
+						[
+							1.381022,
+							103.744116
+						],
+						[
+							1.381274,
+							103.744095
+						],
+						[
+							1.381976,
+							103.744165
+						],
+						[
+							1.383786,
+							103.744457
+						],
+						[
+							1.384617,
+							103.744428
+						],
+						[
+							1.384752,
+							103.744431
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Choa Chu Kang · Choa Chu Kang",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_ChoaChuKang",
+							"path_index": 0
+						},
+						{
+							"id": "SingaporeStation_SouthView",
+							"path_index": 9
+						},
+						{
+							"id": "SingaporeStation_KeatHong",
+							"path_index": 11
+						},
+						{
+							"id": "SingaporeStation_TeckWhye",
+							"path_index": 17
+						},
+						{
+							"id": "SingaporeStation_Phoenix",
+							"path_index": 26
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 35
+						},
+						{
+							"id": "SingaporeStation_Petir",
+							"path_index": 44
+						},
+						{
+							"id": "SingaporeStation_Pending",
+							"path_index": 49
+						},
+						{
+							"id": "SingaporeStation_Bangkit",
+							"path_index": 53
+						},
+						{
+							"id": "SingaporeStation_Fajar",
+							"path_index": 65
+						},
+						{
+							"id": "SingaporeStation_Segar",
+							"path_index": 75
+						},
+						{
+							"id": "SingaporeStation_Jelapang",
+							"path_index": 84
+						},
+						{
+							"id": "SingaporeStation_Senja",
+							"path_index": 94
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 106
+						},
+						{
+							"id": "SingaporeStation_Phoenix",
+							"path_index": 121
+						},
+						{
+							"id": "SingaporeStation_TeckWhye",
+							"path_index": 131
+						},
+						{
+							"id": "SingaporeStation_KeatHong",
+							"path_index": 137
+						},
+						{
+							"id": "SingaporeStation_SouthView",
+							"path_index": 140
+						},
+						{
+							"id": "SingaporeStation_ChoaChuKang",
+							"path_index": 147
+						}
+					]
+				},
+				{
+					"id": "Cmpattern_Singaporelrtbukitpanjangline_3977__Stations",
+					"path": [
+						[
+							1.379712,
+							103.760398
+						],
+						[
+							1.379804,
+							103.760499
+						],
+						[
+							1.379767,
+							103.760676
+						],
+						[
+							1.379316,
+							103.760971
+						],
+						[
+							1.378678,
+							103.761261
+						],
+						[
+							1.37812,
+							103.761508
+						],
+						[
+							1.377963,
+							103.761606
+						],
+						[
+							1.377884,
+							103.761655
+						],
+						[
+							1.377742,
+							103.761816
+						],
+						[
+							1.37768,
+							103.762101
+						],
+						[
+							1.377742,
+							103.762372
+						],
+						[
+							1.378072,
+							103.76368
+						],
+						[
+							1.378158,
+							103.76411
+						],
+						[
+							1.378646,
+							103.764292
+						],
+						[
+							1.379649,
+							103.763916
+						],
+						[
+							1.380217,
+							103.763654
+						],
+						[
+							1.380769,
+							103.763294
+						],
+						[
+							1.381676,
+							103.762946
+						],
+						[
+							1.382678,
+							103.762382
+						],
+						[
+							1.382958,
+							103.76227
+						],
+						[
+							1.383252,
+							103.762243
+						],
+						[
+							1.38359,
+							103.762232
+						],
+						[
+							1.383891,
+							103.762307
+						],
+						[
+							1.38462,
+							103.762463
+						],
+						[
+							1.385156,
+							103.762779
+						],
+						[
+							1.385639,
+							103.763278
+						],
+						[
+							1.386041,
+							103.763874
+						],
+						[
+							1.386683,
+							103.764515
+						],
+						[
+							1.387832,
+							103.765504
+						],
+						[
+							1.388444,
+							103.765987
+						],
+						[
+							1.388841,
+							103.766577
+						],
+						[
+							1.388851,
+							103.767318
+						],
+						[
+							1.38854,
+							103.768133
+						],
+						[
+							1.387792,
+							103.769593
+						],
+						[
+							1.387393,
+							103.770397
+						],
+						[
+							1.38691,
+							103.771137
+						],
+						[
+							1.386352,
+							103.771491
+						],
+						[
+							1.385816,
+							103.771641
+						],
+						[
+							1.38455,
+							103.7708
+						],
+						[
+							1.384164,
+							103.770472
+						],
+						[
+							1.383907,
+							103.770021
+						],
+						[
+							1.383188,
+							103.769517
+						],
+						[
+							1.382437,
+							103.769302
+						],
+						[
+							1.38203,
+							103.769335
+						],
+						[
+							1.381815,
+							103.769571
+						],
+						[
+							1.381804,
+							103.771588
+						],
+						[
+							1.381815,
+							103.772167
+						],
+						[
+							1.381719,
+							103.772521
+						],
+						[
+							1.381397,
+							103.772714
+						],
+						[
+							1.380861,
+							103.772682
+						],
+						[
+							1.380055,
+							103.772644
+						],
+						[
+							1.378978,
+							103.772639
+						],
+						[
+							1.377911,
+							103.772323
+						],
+						[
+							1.376184,
+							103.771259
+						],
+						[
+							1.375793,
+							103.77103
+						],
+						[
+							1.375567,
+							103.770874
+						],
+						[
+							1.375444,
+							103.770708
+						],
+						[
+							1.375466,
+							103.770225
+						],
+						[
+							1.37568,
+							103.769828
+						],
+						[
+							1.376265,
+							103.768916
+						],
+						[
+							1.377756,
+							103.766634
+						],
+						[
+							1.378238,
+							103.765762
+						],
+						[
+							1.378297,
+							103.764812
+						],
+						[
+							1.377933,
+							103.763262
+						],
+						[
+							1.377745,
+							103.762506
+						],
+						[
+							1.377654,
+							103.762103
+						],
+						[
+							1.377713,
+							103.761811
+						],
+						[
+							1.377849,
+							103.76165
+						],
+						[
+							1.378048,
+							103.761521
+						],
+						[
+							1.379043,
+							103.761047
+						],
+						[
+							1.379386,
+							103.760784
+						],
+						[
+							1.379712,
+							103.760398
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Ten Mile Junction · Ten Mile Junction",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_TenMileJunction",
+							"path_index": 0
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 6
+						},
+						{
+							"id": "SingaporeStation_Senja",
+							"path_index": 18
+						},
+						{
+							"id": "SingaporeStation_Jelapang",
+							"path_index": 27
+						},
+						{
+							"id": "SingaporeStation_Segar",
+							"path_index": 33
+						},
+						{
+							"id": "SingaporeStation_Fajar",
+							"path_index": 38
+						},
+						{
+							"id": "SingaporeStation_Bangkit",
+							"path_index": 50
+						},
+						{
+							"id": "SingaporeStation_Pending",
+							"path_index": 53
+						},
+						{
+							"id": "SingaporeStation_Petir",
+							"path_index": 60
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 64
+						},
+						{
+							"id": "SingaporeStation_TenMileJunction",
+							"path_index": 71
+						}
+					]
+				},
+				{
+					"id": "Cmpattern_Singaporelrtbukitpanjangline_4629__Stations",
+					"path": [
+						[
+							1.378296,
+							103.762138
+						],
+						[
+							1.378616,
+							103.758008
+						],
+						[
+							1.37667,
+							103.753647
+						],
+						[
+							1.378599,
+							103.74903
+						],
+						[
+							1.38026,
+							103.745285
+						],
+						[
+							1.384749,
+							103.744534
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Bukit Panjang · Choa Chu Kang",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 0
+						},
+						{
+							"id": "SingaporeStation_Phoenix",
+							"path_index": 1
+						},
+						{
+							"id": "SingaporeStation_TeckWhye",
+							"path_index": 2
+						},
+						{
+							"id": "SingaporeStation_KeatHong",
+							"path_index": 3
+						},
+						{
+							"id": "SingaporeStation_SouthView",
+							"path_index": 4
+						},
+						{
+							"id": "SingaporeStation_ChoaChuKang",
+							"path_index": 5
+						}
+					]
+				}
+			],
+			"color": "#748477",
+			"live_availability": 0,
+			"brand": "SingaporeLRT",
+			"long_name": "Bukit Panjang LRT",
+			"url": "https://citymapper.com/singapore/l/lrt-bukit-panjang-lrt",
+			"icon_name": "sg-singapore-LRT-BP",
+			"mode": "metro",
+			"aliases": [
+				"lrt-bukit-panjang-lrt"
+			],
+			"icon_contains_name": false,
+			"ui_color": "#748477",
+			"live_line_code": "SingaporeLRTBukitPanjangLine"
+		}
+	],
+	"status": 0,
+	"feeds": [],
+	"stops": {
+		"SingaporeStation_KeatHong": {
+			"name": "Keat Hong",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.378599,
+				103.74903
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_KeatHong",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Bangkit": {
+			"name": "Bangkit",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.380055,
+				103.772644
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Bangkit",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Petir": {
+			"name": "Petir",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.377756,
+				103.766634
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Petir",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Jelapang": {
+			"name": "Jelapang",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.386683,
+				103.764515
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Jelapang",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_TeckWhye": {
+			"name": "Teck Whye",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.37667,
+				103.753647
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_TeckWhye",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_ChoaChuKang": {
+			"name": "Choa Chu Kang",
+			"brands": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.384749,
+				103.744534
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"live_code": "SingaporeStation_ChoaChuKang",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP",
+				"sg-singapore-MRT-NS"
+			]
+		},
+		"SingaporeStation_TenMileJunction": {
+			"name": "Ten Mile Junction",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.379712,
+				103.760398
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_TenMileJunction",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Phoenix": {
+			"name": "Phoenix",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.378616,
+				103.758008
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Phoenix",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Senja": {
+			"name": "Senja",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.382678,
+				103.762382
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Senja",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Pending": {
+			"name": "Pending",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.376184,
+				103.771259
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Pending",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Segar": {
+			"name": "Segar",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.387792,
+				103.769593
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Segar",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_Fajar": {
+			"name": "Fajar",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.38455,
+				103.7708
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_Fajar",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		},
+		"SingaporeStation_BukitPanjang": {
+			"name": "Bukit Panjang",
+			"brands": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.378296,
+				103.762138
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_BukitPanjang",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP",
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_SouthView": {
+			"name": "South View",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.38026,
+				103.745285
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine"
+			],
+			"live_code": "SingaporeStation_SouthView",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP"
+			]
+		}
+	}
+}

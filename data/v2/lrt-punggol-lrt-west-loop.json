@@ -1,0 +1,334 @@
+{
+	"routes": [
+		{
+			"supports_routeinfo": true,
+			"name": "Punggol LRT (West Loop)",
+			"patterns": [
+				{
+					"pattern_type": "multidirectional",
+					"name": "Punggol · Punggol",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_Punggol",
+							"path_index": 0
+						},
+						{
+							"id": "CMStation_sam_kee",
+							"path_index": 2
+						},
+						{
+							"id": "CMStation_teck_lee",
+							"path_index": 5
+						},
+						{
+							"id": "CMStation_punggol_point",
+							"path_index": 9
+						},
+						{
+							"id": "CMStation_samudera",
+							"path_index": 14
+						},
+						{
+							"id": "SingaporeStation_Nibong",
+							"path_index": 19
+						},
+						{
+							"id": "SingaporeStation_Sumang",
+							"path_index": 20
+						},
+						{
+							"id": "SingaporeStation_SooTeck",
+							"path_index": 21
+						},
+						{
+							"id": "SingaporeStation_Punggol",
+							"path_index": 29
+						}
+					],
+					"path": [
+						[
+							1.405255,
+							103.902354
+						],
+						[
+							1.407568,
+							103.90352
+						],
+						[
+							1.409695,
+							103.904684
+						],
+						[
+							1.409841,
+							103.904765
+						],
+						[
+							1.411986,
+							103.906095
+						],
+						[
+							1.412776,
+							103.90652
+						],
+						[
+							1.414217,
+							103.907297
+						],
+						[
+							1.415397,
+							103.90779
+						],
+						[
+							1.416384,
+							103.907447
+						],
+						[
+							1.416815,
+							103.906648
+						],
+						[
+							1.417263,
+							103.905816
+						],
+						[
+							1.417499,
+							103.904765
+						],
+						[
+							1.417135,
+							103.903821
+						],
+						[
+							1.416577,
+							103.902962
+						],
+						[
+							1.415981,
+							103.902187
+						],
+						[
+							1.415933,
+							103.902125
+						],
+						[
+							1.415054,
+							103.901525
+						],
+						[
+							1.413917,
+							103.901138
+						],
+						[
+							1.412823,
+							103.900774
+						],
+						[
+							1.411831,
+							103.900305
+						],
+						[
+							1.408532,
+							103.898534
+						],
+						[
+							1.405394,
+							103.897236
+						],
+						[
+							1.404414,
+							103.896911
+						],
+						[
+							1.403921,
+							103.896868
+						],
+						[
+							1.403427,
+							103.897061
+						],
+						[
+							1.402784,
+							103.898671
+						],
+						[
+							1.402441,
+							103.899701
+						],
+						[
+							1.402312,
+							103.900216
+						],
+						[
+							1.402462,
+							103.900709
+						],
+						[
+							1.405255,
+							103.902354
+						]
+					],
+					"is_circular": true,
+					"id": "Cmpattern_Singaporelrtpunggollinewestloop_4371__Stations"
+				}
+			],
+			"color": "#748477",
+			"live_availability": 0,
+			"brand": "SingaporeLRT",
+			"long_name": "Punggol LRT (West Loop) ",
+			"url": "https://citymapper.com/singapore/l/lrt-punggol-lrt-west-loop",
+			"icon_name": "sg-singapore-LRT-PW",
+			"mode": "metro",
+			"aliases": [
+				"lrt-punggol-lrt-west-loop"
+			],
+			"icon_contains_name": false,
+			"ui_color": "#748477",
+			"live_line_code": "SingaporeLRTPunggolLineWestLoop"
+		}
+	],
+	"status": 0,
+	"feeds": [],
+	"stops": {
+		"SingaporeStation_SooTeck": {
+			"name": "Soo Teck",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.405394,
+				103.897237
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "SingaporeStation_SooTeck",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"CMStation_samudera": {
+			"name": "Samudera",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.415976,
+				103.90219
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "CMStation_samudera",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"SingaporeStation_Sumang": {
+			"name": "Sumang",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.408532,
+				103.898534
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "SingaporeStation_Sumang",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"SingaporeStation_Punggol": {
+			"name": "Punggol",
+			"brands": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.405255,
+				103.902354
+			],
+			"routes": [
+				"SingaporeMRTNortheastLine",
+				"SingaporeLRTPunggolLineEastLoop",
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "SingaporeStation_Punggol",
+			"route_icon_names": [
+				"sg-singapore-MRT-NE",
+				"sg-singapore-LRT-PE",
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"CMStation_punggol_point": {
+			"name": "Punggol Point",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.416845,
+				103.906664
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "CMStation_punggol_point",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"CMStation_teck_lee": {
+			"name": "Teck Lee",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.412705,
+				103.906653
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "CMStation_teck_lee",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"SingaporeStation_Nibong": {
+			"name": "Nibong",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.411831,
+				103.900305
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "SingaporeStation_Nibong",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		},
+		"CMStation_sam_kee": {
+			"name": "Sam Kee",
+			"brands": [
+				"SingaporeLRT"
+			],
+			"coords": [
+				1.40975,
+				103.904583
+			],
+			"routes": [
+				"SingaporeLRTPunggolLineWestLoop"
+			],
+			"live_code": "CMStation_sam_kee",
+			"route_icon_names": [
+				"sg-singapore-LRT-PW"
+			]
+		}
+	}
+}

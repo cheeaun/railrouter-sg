@@ -1,0 +1,2555 @@
+{
+	"routes": [
+		{
+			"supports_routeinfo": true,
+			"name": "Downtown Line",
+			"patterns": [
+				{
+					"id": "Cmpattern_Singaporemrtdowntownline_3867__Stations",
+					"path": [
+						[
+							1.378302,
+							103.762153
+						],
+						[
+							1.378128,
+							103.762217
+						],
+						[
+							1.372403,
+							103.762795
+						],
+						[
+							1.371704,
+							103.763047
+						],
+						[
+							1.371056,
+							103.763528
+						],
+						[
+							1.369961,
+							103.76434
+						],
+						[
+							1.369062,
+							103.764935
+						],
+						[
+							1.368786,
+							103.765119
+						],
+						[
+							1.364593,
+							103.767234
+						],
+						[
+							1.363859,
+							103.767384
+						],
+						[
+							1.363656,
+							103.76739
+						],
+						[
+							1.363562,
+							103.767388
+						],
+						[
+							1.363474,
+							103.767374
+						],
+						[
+							1.362697,
+							103.767134
+						],
+						[
+							1.362592,
+							103.767111
+						],
+						[
+							1.362507,
+							103.767098
+						],
+						[
+							1.361916,
+							103.767109
+						],
+						[
+							1.361091,
+							103.767005
+						],
+						[
+							1.35848,
+							103.767291
+						],
+						[
+							1.35716,
+							103.767547
+						],
+						[
+							1.355918,
+							103.768425
+						],
+						[
+							1.354549,
+							103.769029
+						],
+						[
+							1.353782,
+							103.769288
+						],
+						[
+							1.352283,
+							103.769694
+						],
+						[
+							1.349379,
+							103.770079
+						],
+						[
+							1.34894,
+							103.770178
+						],
+						[
+							1.346684,
+							103.771699
+						],
+						[
+							1.346542,
+							103.771806
+						],
+						[
+							1.346335,
+							103.772
+						],
+						[
+							1.34599,
+							103.772443
+						],
+						[
+							1.34509,
+							103.773978
+						],
+						[
+							1.344632,
+							103.774749
+						],
+						[
+							1.344408,
+							103.775088
+						],
+						[
+							1.344292,
+							103.775233
+						],
+						[
+							1.344141,
+							103.775349
+						],
+						[
+							1.341762,
+							103.775904
+						],
+						[
+							1.34118,
+							103.776025
+						],
+						[
+							1.340679,
+							103.776128
+						],
+						[
+							1.338803,
+							103.77721
+						],
+						[
+							1.338229,
+							103.777952
+						],
+						[
+							1.33582,
+							103.784059
+						],
+						[
+							1.335796,
+							103.784119
+						],
+						[
+							1.33435,
+							103.788155
+						],
+						[
+							1.330697,
+							103.797203
+						],
+						[
+							1.330572,
+							103.797587
+						],
+						[
+							1.32892,
+							103.80266
+						],
+						[
+							1.328814,
+							103.80282
+						],
+						[
+							1.326052,
+							103.806972
+						],
+						[
+							1.325958,
+							103.807116
+						],
+						[
+							1.323255,
+							103.811231
+						],
+						[
+							1.322791,
+							103.813651
+						],
+						[
+							1.322585,
+							103.815725
+						],
+						[
+							1.322306,
+							103.818884
+						],
+						[
+							1.32022,
+							103.825421
+						],
+						[
+							1.320048,
+							103.825932
+						],
+						[
+							1.317198,
+							103.834896
+						],
+						[
+							1.315931,
+							103.83601
+						],
+						[
+							1.31354,
+							103.838045
+						],
+						[
+							1.313147,
+							103.838478
+						],
+						[
+							1.312954,
+							103.838861
+						],
+						[
+							1.310068,
+							103.844602
+						],
+						[
+							1.308213,
+							103.847447
+						],
+						[
+							1.306571,
+							103.849299
+						],
+						[
+							1.305251,
+							103.850789
+						],
+						[
+							1.304297,
+							103.852108
+						],
+						[
+							1.303984,
+							103.852612
+						],
+						[
+							1.30323,
+							103.853624
+						],
+						[
+							1.303122,
+							103.853694
+						],
+						[
+							1.30236,
+							103.854269
+						],
+						[
+							1.302065,
+							103.854513
+						],
+						[
+							1.301985,
+							103.854572
+						],
+						[
+							1.301722,
+							103.854795
+						],
+						[
+							1.301095,
+							103.855474
+						],
+						[
+							1.300805,
+							103.855794
+						],
+						[
+							1.300528,
+							103.856093
+						],
+						[
+							1.30029,
+							103.856348
+						],
+						[
+							1.29966,
+							103.856777
+						],
+						[
+							1.299108,
+							103.857249
+						],
+						[
+							1.298529,
+							103.8577
+						],
+						[
+							1.297981,
+							103.858161
+						],
+						[
+							1.296952,
+							103.859249
+						],
+						[
+							1.296446,
+							103.859754
+						],
+						[
+							1.296017,
+							103.860151
+						],
+						[
+							1.295647,
+							103.860478
+						],
+						[
+							1.295223,
+							103.860698
+						],
+						[
+							1.294877,
+							103.860805
+						],
+						[
+							1.294329,
+							103.860945
+						],
+						[
+							1.293961,
+							103.861009
+						],
+						[
+							1.292782,
+							103.861082
+						],
+						[
+							1.292315,
+							103.861122
+						],
+						[
+							1.291312,
+							103.861165
+						],
+						[
+							1.290459,
+							103.861141
+						],
+						[
+							1.287964,
+							103.861129
+						],
+						[
+							1.286651,
+							103.861077
+						],
+						[
+							1.285841,
+							103.861071
+						],
+						[
+							1.28516,
+							103.860958
+						],
+						[
+							1.284323,
+							103.860653
+						],
+						[
+							1.283851,
+							103.860379
+						],
+						[
+							1.282983,
+							103.859886
+						],
+						[
+							1.282592,
+							103.859639
+						],
+						[
+							1.281458,
+							103.858923
+						],
+						[
+							1.280994,
+							103.858633
+						],
+						[
+							1.28039,
+							103.858246
+						],
+						[
+							1.279959,
+							103.857857
+						],
+						[
+							1.279377,
+							103.857317
+						],
+						[
+							1.27903,
+							103.856983
+						],
+						[
+							1.278791,
+							103.856658
+						],
+						[
+							1.278516,
+							103.856065
+						],
+						[
+							1.278394,
+							103.855446
+						],
+						[
+							1.278414,
+							103.854867
+						],
+						[
+							1.278486,
+							103.854508
+						],
+						[
+							1.278662,
+							103.854067
+						],
+						[
+							1.279128,
+							103.853306
+						],
+						[
+							1.279174,
+							103.85323
+						],
+						[
+							1.279801,
+							103.852325
+						],
+						[
+							1.280082,
+							103.851941
+						],
+						[
+							1.280384,
+							103.851521
+						],
+						[
+							1.280982,
+							103.850739
+						],
+						[
+							1.282131,
+							103.848749
+						],
+						[
+							1.282174,
+							103.848674
+						],
+						[
+							1.283589,
+							103.846222
+						],
+						[
+							1.284895,
+							103.844147
+						],
+						[
+							1.285021,
+							103.844004
+						],
+						[
+							1.285152,
+							103.843857
+						],
+						[
+							1.285591,
+							103.843378
+						],
+						[
+							1.28597,
+							103.843011
+						],
+						[
+							1.286249,
+							103.842744
+						],
+						[
+							1.286578,
+							103.842427
+						],
+						[
+							1.287155,
+							103.842115
+						],
+						[
+							1.287629,
+							103.841991
+						],
+						[
+							1.287997,
+							103.841901
+						],
+						[
+							1.288767,
+							103.842006
+						],
+						[
+							1.289439,
+							103.842276
+						],
+						[
+							1.29224,
+							103.844163
+						],
+						[
+							1.292343,
+							103.844232
+						],
+						[
+							1.292613,
+							103.844414
+						],
+						[
+							1.292948,
+							103.844639
+						],
+						[
+							1.29477,
+							103.846444
+						],
+						[
+							1.297186,
+							103.848875
+						],
+						[
+							1.297929,
+							103.849559
+						],
+						[
+							1.298724,
+							103.850186
+						],
+						[
+							1.298893,
+							103.850333
+						],
+						[
+							1.300374,
+							103.851628
+						],
+						[
+							1.302958,
+							103.853755
+						],
+						[
+							1.303422,
+							103.854112
+						],
+						[
+							1.304419,
+							103.854761
+						],
+						[
+							1.304689,
+							103.854925
+						],
+						[
+							1.305017,
+							103.85515
+						],
+						[
+							1.305128,
+							103.855226
+						],
+						[
+							1.305417,
+							103.855426
+						],
+						[
+							1.305865,
+							103.855705
+						],
+						[
+							1.3062,
+							103.855885
+						],
+						[
+							1.308468,
+							103.857352
+						],
+						[
+							1.30992,
+							103.85866
+						],
+						[
+							1.310749,
+							103.859384
+						],
+						[
+							1.311133,
+							103.859754
+						],
+						[
+							1.312158,
+							103.860807
+						],
+						[
+							1.312852,
+							103.861417
+						],
+						[
+							1.313093,
+							103.861677
+						],
+						[
+							1.313245,
+							103.861922
+						],
+						[
+							1.313575,
+							103.862645
+						],
+						[
+							1.313723,
+							103.863011
+						],
+						[
+							1.313934,
+							103.863534
+						],
+						[
+							1.314189,
+							103.863882
+						],
+						[
+							1.314451,
+							103.864159
+						],
+						[
+							1.314746,
+							103.864408
+						],
+						[
+							1.317184,
+							103.865638
+						],
+						[
+							1.317728,
+							103.86598
+						],
+						[
+							1.318217,
+							103.866516
+						],
+						[
+							1.321273,
+							103.871461
+						],
+						[
+							1.321584,
+							103.871999
+						],
+						[
+							1.321593,
+							103.872015
+						],
+						[
+							1.321843,
+							103.87243
+						],
+						[
+							1.323494,
+							103.875426
+						],
+						[
+							1.32433,
+							103.877527
+						],
+						[
+							1.32447,
+							103.877685
+						],
+						[
+							1.327013,
+							103.879549
+						],
+						[
+							1.327395,
+							103.880073
+						],
+						[
+							1.327579,
+							103.880753
+						],
+						[
+							1.327568,
+							103.88117
+						],
+						[
+							1.327408,
+							103.881944
+						],
+						[
+							1.3271,
+							103.882626
+						],
+						[
+							1.326946,
+							103.882947
+						],
+						[
+							1.326674,
+							103.883516
+						],
+						[
+							1.326266,
+							103.884371
+						],
+						[
+							1.326052,
+							103.885179
+						],
+						[
+							1.325891,
+							103.886177
+						],
+						[
+							1.325714,
+							103.88777
+						],
+						[
+							1.325735,
+							103.888269
+						],
+						[
+							1.325832,
+							103.888645
+						],
+						[
+							1.325919,
+							103.888841
+						],
+						[
+							1.326465,
+							103.890064
+						],
+						[
+							1.326558,
+							103.890309
+						],
+						[
+							1.326647,
+							103.890544
+						],
+						[
+							1.327428,
+							103.893288
+						],
+						[
+							1.329641,
+							103.898443
+						],
+						[
+							1.329983,
+							103.899291
+						],
+						[
+							1.33001,
+							103.899357
+						],
+						[
+							1.330401,
+							103.9002
+						],
+						[
+							1.330734,
+							103.90085
+						],
+						[
+							1.331248,
+							103.901691
+						],
+						[
+							1.331924,
+							103.902555
+						],
+						[
+							1.333288,
+							103.903875
+						],
+						[
+							1.33401,
+							103.905097
+						],
+						[
+							1.334464,
+							103.906242
+						],
+						[
+							1.334986,
+							103.908619
+						],
+						[
+							1.334994,
+							103.908657
+						],
+						[
+							1.335295,
+							103.910026
+						],
+						[
+							1.336458,
+							103.91289
+						],
+						[
+							1.336515,
+							103.913476
+						],
+						[
+							1.336331,
+							103.914267
+						],
+						[
+							1.335027,
+							103.917216
+						],
+						[
+							1.334691,
+							103.917991
+						],
+						[
+							1.333951,
+							103.919766
+						],
+						[
+							1.333871,
+							103.92034
+						],
+						[
+							1.33378,
+							103.921199
+						],
+						[
+							1.333865,
+							103.921995
+						],
+						[
+							1.334337,
+							103.923108
+						],
+						[
+							1.335265,
+							103.925394
+						],
+						[
+							1.336397,
+							103.929682
+						],
+						[
+							1.336483,
+							103.930343
+						],
+						[
+							1.336489,
+							103.931394
+						],
+						[
+							1.336483,
+							103.931889
+						],
+						[
+							1.336482,
+							103.931918
+						],
+						[
+							1.336497,
+							103.93304
+						],
+						[
+							1.336471,
+							103.933712
+						],
+						[
+							1.336824,
+							103.936311
+						],
+						[
+							1.337314,
+							103.9383
+						],
+						[
+							1.33771,
+							103.93906
+						],
+						[
+							1.338315,
+							103.93947
+						],
+						[
+							1.339118,
+							103.939731
+						],
+						[
+							1.341572,
+							103.939403
+						],
+						[
+							1.344428,
+							103.938595
+						],
+						[
+							1.3449,
+							103.938515
+						],
+						[
+							1.345518,
+							103.938507
+						],
+						[
+							1.346126,
+							103.9385
+						],
+						[
+							1.349967,
+							103.938181
+						],
+						[
+							1.350516,
+							103.938234
+						],
+						[
+							1.351008,
+							103.938433
+						],
+						[
+							1.354659,
+							103.942509
+						],
+						[
+							1.355224,
+							103.943045
+						],
+						[
+							1.35524,
+							103.943061
+						],
+						[
+							1.355415,
+							103.943227
+						],
+						[
+							1.35545,
+							103.943261
+						],
+						[
+							1.356424,
+							103.944393
+						],
+						[
+							1.356631,
+							103.944869
+						],
+						[
+							1.356712,
+							103.945429
+						],
+						[
+							1.356694,
+							103.949453
+						],
+						[
+							1.356607,
+							103.950347
+						],
+						[
+							1.356354,
+							103.95199
+						],
+						[
+							1.356198,
+							103.953487
+						],
+						[
+							1.35615,
+							103.954978
+						],
+						[
+							1.356149,
+							103.955007
+						],
+						[
+							1.356143,
+							103.955702
+						],
+						[
+							1.35632,
+							103.957361
+						],
+						[
+							1.356987,
+							103.958735
+						],
+						[
+							1.357282,
+							103.959979
+						],
+						[
+							1.35721,
+							103.960576
+						],
+						[
+							1.357073,
+							103.961031
+						],
+						[
+							1.356851,
+							103.961499
+						],
+						[
+							1.356579,
+							103.961883
+						],
+						[
+							1.35558,
+							103.962749
+						],
+						[
+							1.355166,
+							103.963038
+						],
+						[
+							1.35404,
+							103.963424
+						],
+						[
+							1.352944,
+							103.963685
+						],
+						[
+							1.351786,
+							103.963874
+						],
+						[
+							1.350643,
+							103.963809
+						],
+						[
+							1.34861,
+							103.963428
+						],
+						[
+							1.341665,
+							103.961346
+						],
+						[
+							1.341005,
+							103.961149
+						],
+						[
+							1.339541,
+							103.960693
+						],
+						[
+							1.338941,
+							103.960387
+						],
+						[
+							1.338502,
+							103.9603
+						],
+						[
+							1.337858,
+							103.960246
+						],
+						[
+							1.337493,
+							103.960269
+						],
+						[
+							1.337142,
+							103.960388
+						],
+						[
+							1.336865,
+							103.96058
+						],
+						[
+							1.33556,
+							103.962172
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Bukit Panjang · Expo",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 0
+						},
+						{
+							"id": "CMStation_cashew",
+							"path_index": 6
+						},
+						{
+							"id": "CMStation_hillview",
+							"path_index": 14
+						},
+						{
+							"id": "CMStation_beauty_world",
+							"path_index": 36
+						},
+						{
+							"id": "CMStation_king_albert_park",
+							"path_index": 40
+						},
+						{
+							"id": "CMStation_sixth_avenue",
+							"path_index": 44
+						},
+						{
+							"id": "CMStation_tan_kah_kee",
+							"path_index": 48
+						},
+						{
+							"id": "SingaporeStation_BotanicGardens",
+							"path_index": 51
+						},
+						{
+							"id": "CMStation_stevens",
+							"path_index": 54
+						},
+						{
+							"id": "SingaporeStation_Newton",
+							"path_index": 59
+						},
+						{
+							"id": "SingaporeStation_LittleIndia",
+							"path_index": 62
+						},
+						{
+							"id": "CMStation_rochor",
+							"path_index": 65
+						},
+						{
+							"id": "SingaporeStation_Bugis",
+							"path_index": 74
+						},
+						{
+							"id": "SingaporeStation_Promenade",
+							"path_index": 88
+						},
+						{
+							"id": "SingaporeStation_Bayfront",
+							"path_index": 99
+						},
+						{
+							"id": "SingaporeStation_Downtown",
+							"path_index": 112
+						},
+						{
+							"id": "SingaporeStation_TelokAyer",
+							"path_index": 118
+						},
+						{
+							"id": "SingaporeStation_Chinatown",
+							"path_index": 122
+						},
+						{
+							"id": "CMStation_fort_canning",
+							"path_index": 134
+						},
+						{
+							"id": "CMStation_bencoolen",
+							"path_index": 141
+						},
+						{
+							"id": "CMStation_jalan_besar",
+							"path_index": 148
+						},
+						{
+							"id": "CMStation_bendemeer",
+							"path_index": 161
+						},
+						{
+							"id": "CMStation_geylang_bahru",
+							"path_index": 170
+						},
+						{
+							"id": "CMStation_mattar",
+							"path_index": 182
+						},
+						{
+							"id": "SingaporeStation_Macpherson",
+							"path_index": 192
+						},
+						{
+							"id": "CMStation_ubi",
+							"path_index": 196
+						},
+						{
+							"id": "CMStation_kaki_bukit",
+							"path_index": 205
+						},
+						{
+							"id": "CMStation_bedok_north",
+							"path_index": 212
+						},
+						{
+							"id": "CMStation_bedok_reservoir",
+							"path_index": 222
+						},
+						{
+							"id": "CMStation_tampines_west",
+							"path_index": 234
+						},
+						{
+							"id": "SingaporeStation_Tampines",
+							"path_index": 240
+						},
+						{
+							"id": "CMStation_tampines_east",
+							"path_index": 251
+						},
+						{
+							"id": "CMStation_upper_changi",
+							"path_index": 268
+						},
+						{
+							"id": "SingaporeStation_Expo",
+							"path_index": 277
+						}
+					]
+				},
+				{
+					"id": "Cmpattern_Singaporemrtdowntownline_3872__Stations",
+					"path": [
+						[
+							1.300528,
+							103.856093
+						],
+						[
+							1.300805,
+							103.855794
+						],
+						[
+							1.301095,
+							103.855474
+						],
+						[
+							1.301722,
+							103.854795
+						],
+						[
+							1.301985,
+							103.854572
+						],
+						[
+							1.302065,
+							103.854513
+						],
+						[
+							1.30236,
+							103.854269
+						],
+						[
+							1.303122,
+							103.853694
+						],
+						[
+							1.30323,
+							103.853624
+						],
+						[
+							1.30392,
+							103.852697
+						],
+						[
+							1.303984,
+							103.852612
+						],
+						[
+							1.304297,
+							103.852108
+						],
+						[
+							1.305251,
+							103.850789
+						],
+						[
+							1.306571,
+							103.849299
+						],
+						[
+							1.308213,
+							103.847447
+						],
+						[
+							1.310068,
+							103.844602
+						],
+						[
+							1.312954,
+							103.838861
+						],
+						[
+							1.313147,
+							103.838478
+						],
+						[
+							1.31354,
+							103.838045
+						],
+						[
+							1.315931,
+							103.83601
+						],
+						[
+							1.317198,
+							103.834896
+						],
+						[
+							1.320031,
+							103.825985
+						],
+						[
+							1.320048,
+							103.825932
+						],
+						[
+							1.32022,
+							103.825421
+						],
+						[
+							1.322306,
+							103.818884
+						],
+						[
+							1.322583,
+							103.815749
+						],
+						[
+							1.322585,
+							103.815725
+						],
+						[
+							1.322791,
+							103.813651
+						],
+						[
+							1.323255,
+							103.811231
+						],
+						[
+							1.325958,
+							103.807116
+						],
+						[
+							1.326052,
+							103.806972
+						],
+						[
+							1.328814,
+							103.80282
+						],
+						[
+							1.32892,
+							103.80266
+						],
+						[
+							1.330572,
+							103.797587
+						],
+						[
+							1.330697,
+							103.797203
+						],
+						[
+							1.33435,
+							103.788155
+						],
+						[
+							1.335796,
+							103.784119
+						],
+						[
+							1.338229,
+							103.777952
+						],
+						[
+							1.338803,
+							103.77721
+						],
+						[
+							1.340679,
+							103.776128
+						],
+						[
+							1.34118,
+							103.776025
+						],
+						[
+							1.341762,
+							103.775904
+						],
+						[
+							1.344141,
+							103.775349
+						],
+						[
+							1.344292,
+							103.775233
+						],
+						[
+							1.344408,
+							103.775088
+						],
+						[
+							1.344632,
+							103.774749
+						],
+						[
+							1.34509,
+							103.773978
+						],
+						[
+							1.34599,
+							103.772443
+						],
+						[
+							1.346335,
+							103.772
+						],
+						[
+							1.346542,
+							103.771806
+						],
+						[
+							1.346684,
+							103.771699
+						],
+						[
+							1.34894,
+							103.770178
+						],
+						[
+							1.349379,
+							103.770079
+						],
+						[
+							1.352283,
+							103.769694
+						],
+						[
+							1.353782,
+							103.769288
+						],
+						[
+							1.354549,
+							103.769029
+						],
+						[
+							1.355918,
+							103.768425
+						],
+						[
+							1.35716,
+							103.767547
+						],
+						[
+							1.35848,
+							103.767291
+						],
+						[
+							1.361091,
+							103.767005
+						],
+						[
+							1.361916,
+							103.767109
+						],
+						[
+							1.362466,
+							103.767099
+						],
+						[
+							1.362507,
+							103.767098
+						],
+						[
+							1.362592,
+							103.767111
+						],
+						[
+							1.362697,
+							103.767134
+						],
+						[
+							1.363474,
+							103.767374
+						],
+						[
+							1.363562,
+							103.767388
+						],
+						[
+							1.363656,
+							103.76739
+						],
+						[
+							1.363859,
+							103.767384
+						],
+						[
+							1.364593,
+							103.767234
+						],
+						[
+							1.368786,
+							103.765119
+						],
+						[
+							1.369062,
+							103.764935
+						],
+						[
+							1.369961,
+							103.76434
+						],
+						[
+							1.371056,
+							103.763528
+						],
+						[
+							1.371704,
+							103.763047
+						],
+						[
+							1.372403,
+							103.762795
+						],
+						[
+							1.378128,
+							103.762217
+						],
+						[
+							1.378302,
+							103.762153
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Bugis · Bukit Panjang",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_Bugis",
+							"path_index": 0
+						},
+						{
+							"id": "CMStation_rochor",
+							"path_index": 9
+						},
+						{
+							"id": "SingaporeStation_LittleIndia",
+							"path_index": 13
+						},
+						{
+							"id": "SingaporeStation_Newton",
+							"path_index": 16
+						},
+						{
+							"id": "CMStation_stevens",
+							"path_index": 21
+						},
+						{
+							"id": "SingaporeStation_BotanicGardens",
+							"path_index": 25
+						},
+						{
+							"id": "CMStation_tan_kah_kee",
+							"path_index": 29
+						},
+						{
+							"id": "CMStation_sixth_avenue",
+							"path_index": 33
+						},
+						{
+							"id": "CMStation_king_albert_park",
+							"path_index": 36
+						},
+						{
+							"id": "CMStation_beauty_world",
+							"path_index": 40
+						},
+						{
+							"id": "CMStation_hillview",
+							"path_index": 61
+						},
+						{
+							"id": "CMStation_cashew",
+							"path_index": 71
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 77
+						}
+					]
+				},
+				{
+					"id": "Cmpattern_Singaporemrtdowntownline_3873__Stations",
+					"path": [
+						[
+							1.312954,
+							103.838861
+						],
+						[
+							1.313147,
+							103.838478
+						],
+						[
+							1.31354,
+							103.838045
+						],
+						[
+							1.315931,
+							103.83601
+						],
+						[
+							1.317198,
+							103.834896
+						],
+						[
+							1.320031,
+							103.825985
+						],
+						[
+							1.320048,
+							103.825932
+						],
+						[
+							1.32022,
+							103.825421
+						],
+						[
+							1.322306,
+							103.818884
+						],
+						[
+							1.322583,
+							103.815749
+						],
+						[
+							1.322585,
+							103.815725
+						],
+						[
+							1.322791,
+							103.813651
+						],
+						[
+							1.323255,
+							103.811231
+						],
+						[
+							1.325958,
+							103.807116
+						],
+						[
+							1.326052,
+							103.806972
+						],
+						[
+							1.328814,
+							103.80282
+						],
+						[
+							1.32892,
+							103.80266
+						],
+						[
+							1.330572,
+							103.797587
+						],
+						[
+							1.330697,
+							103.797203
+						],
+						[
+							1.33435,
+							103.788155
+						],
+						[
+							1.335796,
+							103.784119
+						],
+						[
+							1.338229,
+							103.777952
+						],
+						[
+							1.338803,
+							103.77721
+						],
+						[
+							1.340679,
+							103.776128
+						],
+						[
+							1.34118,
+							103.776025
+						],
+						[
+							1.341762,
+							103.775904
+						],
+						[
+							1.344141,
+							103.775349
+						],
+						[
+							1.344292,
+							103.775233
+						],
+						[
+							1.344408,
+							103.775088
+						],
+						[
+							1.344632,
+							103.774749
+						],
+						[
+							1.34509,
+							103.773978
+						],
+						[
+							1.34599,
+							103.772443
+						],
+						[
+							1.346335,
+							103.772
+						],
+						[
+							1.346542,
+							103.771806
+						],
+						[
+							1.346684,
+							103.771699
+						],
+						[
+							1.34894,
+							103.770178
+						],
+						[
+							1.349379,
+							103.770079
+						],
+						[
+							1.352283,
+							103.769694
+						],
+						[
+							1.353782,
+							103.769288
+						],
+						[
+							1.354549,
+							103.769029
+						],
+						[
+							1.355918,
+							103.768425
+						],
+						[
+							1.35716,
+							103.767547
+						],
+						[
+							1.35848,
+							103.767291
+						],
+						[
+							1.361091,
+							103.767005
+						],
+						[
+							1.361916,
+							103.767109
+						],
+						[
+							1.362466,
+							103.767099
+						],
+						[
+							1.362507,
+							103.767098
+						],
+						[
+							1.362592,
+							103.767111
+						],
+						[
+							1.362697,
+							103.767134
+						],
+						[
+							1.363474,
+							103.767374
+						],
+						[
+							1.363562,
+							103.767388
+						],
+						[
+							1.363656,
+							103.76739
+						],
+						[
+							1.363859,
+							103.767384
+						],
+						[
+							1.364593,
+							103.767234
+						],
+						[
+							1.368786,
+							103.765119
+						],
+						[
+							1.369062,
+							103.764935
+						],
+						[
+							1.369961,
+							103.76434
+						],
+						[
+							1.371056,
+							103.763528
+						],
+						[
+							1.371704,
+							103.763047
+						],
+						[
+							1.372403,
+							103.762795
+						],
+						[
+							1.378128,
+							103.762217
+						],
+						[
+							1.378302,
+							103.762153
+						]
+					],
+					"pattern_type": "multidirectional",
+					"name": "Newton · Bukit Panjang",
+					"stop_points": [
+						{
+							"id": "SingaporeStation_Newton",
+							"path_index": 0
+						},
+						{
+							"id": "CMStation_stevens",
+							"path_index": 5
+						},
+						{
+							"id": "SingaporeStation_BotanicGardens",
+							"path_index": 9
+						},
+						{
+							"id": "CMStation_tan_kah_kee",
+							"path_index": 13
+						},
+						{
+							"id": "CMStation_sixth_avenue",
+							"path_index": 17
+						},
+						{
+							"id": "CMStation_king_albert_park",
+							"path_index": 20
+						},
+						{
+							"id": "CMStation_beauty_world",
+							"path_index": 24
+						},
+						{
+							"id": "CMStation_hillview",
+							"path_index": 45
+						},
+						{
+							"id": "CMStation_cashew",
+							"path_index": 55
+						},
+						{
+							"id": "SingaporeStation_BukitPanjang",
+							"path_index": 61
+						}
+					]
+				}
+			],
+			"color": "#03529F",
+			"live_availability": 0,
+			"brand": "SingaporeMRT",
+			"long_name": "Downtown Line",
+			"url": "https://citymapper.com/singapore/l/mrt-downtown-line",
+			"icon_name": "sg-singapore-MRT-DT",
+			"mode": "metro",
+			"aliases": [
+				"mrt-downtown-line"
+			],
+			"icon_contains_name": false,
+			"ui_color": "#03529F",
+			"live_line_code": "SingaporeMRTDowntownLine"
+		}
+	],
+	"status": 0,
+	"feeds": [],
+	"stops": {
+		"SingaporeStation_Bayfront": {
+			"name": "Bayfront",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.282535,
+				103.85973
+			],
+			"routes": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_Bayfront",
+			"route_icon_names": [
+				"sg-singapore-MRT-CC",
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_kaki_bukit": {
+			"name": "Kaki Bukit ",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.335024,
+				103.908611
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_kaki_bukit",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_sixth_avenue": {
+			"name": "Sixth Avenue",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.330591,
+				103.797225
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_sixth_avenue",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_beauty_world": {
+			"name": "Beauty World",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.341664,
+				103.775936
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_beauty_world",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_upper_changi": {
+			"name": "Upper Changi",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.34169,
+				103.961263
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_upper_changi",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_LittleIndia": {
+			"name": "Little India",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.306571,
+				103.849299
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTNortheastLine"
+			],
+			"live_code": "SingaporeStation_LittleIndia",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-NE"
+			]
+		},
+		"CMStation_mattar": {
+			"name": "Mattar",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.326969,
+				103.882958
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_mattar",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Tampines": {
+			"name": "Tampines",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.353374,
+				103.945084
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTEastwestLine"
+			],
+			"live_code": "SingaporeStation_Tampines",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-EW"
+			]
+		},
+		"CMStation_bedok_north": {
+			"name": "Bedok North",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.33475,
+				103.918036
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_bedok_north",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_stevens": {
+			"name": "Stevens",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.320192,
+				103.825461
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_stevens",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_tampines_east": {
+			"name": "Tampines East",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.356084,
+				103.954976
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_tampines_east",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_ubi": {
+			"name": "Ubi ",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.329763,
+				103.899379
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_ubi",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_bencoolen": {
+			"name": "Bencoolen",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.298861,
+				103.850369
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_bencoolen",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Newton": {
+			"name": "Newton",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.31296,
+				103.838864
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"live_code": "SingaporeStation_Newton",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-NS"
+			]
+		},
+		"CMStation_jalan_besar": {
+			"name": "Jalan Besar",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.305125,
+				103.85523
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_jalan_besar",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_fort_canning": {
+			"name": "Fort Canning",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.292393,
+				103.844157
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_fort_canning",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_tan_kah_kee": {
+			"name": "Tan Kah Kee",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.325701,
+				103.807753
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_tan_kah_kee",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_tampines_west": {
+			"name": "Tampines West",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.345519,
+				103.93856
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_tampines_west",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_BotanicGardens": {
+			"name": "Botanic Gardens",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.322559,
+				103.815747
+			],
+			"routes": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_BotanicGardens",
+			"route_icon_names": [
+				"sg-singapore-MRT-CC",
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Bugis": {
+			"name": "Bugis",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.30053,
+				103.856095
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTEastwestLine"
+			],
+			"live_code": "SingaporeStation_Bugis",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-EW"
+			]
+		},
+		"CMStation_geylang_bahru": {
+			"name": "Geylang Bahru",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.321611,
+				103.871983
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_geylang_bahru",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_bendemeer": {
+			"name": "Bendemeer",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.313583,
+				103.863067
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_bendemeer",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_cashew": {
+			"name": "Cashew",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.369661,
+				103.764481
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_cashew",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Macpherson": {
+			"name": "MacPherson",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.326567,
+				103.890306
+			],
+			"routes": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_Macpherson",
+			"route_icon_names": [
+				"sg-singapore-MRT-CC",
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Expo": {
+			"name": "Expo",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.33564,
+				103.962238
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTEastwestLine"
+			],
+			"live_code": "SingaporeStation_Expo",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-EW"
+			]
+		},
+		"SingaporeStation_Promenade": {
+			"name": "Promenade",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.293854,
+				103.860151
+			],
+			"routes": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_Promenade",
+			"route_icon_names": [
+				"sg-singapore-MRT-CC",
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_hillview": {
+			"name": "Hillview",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.362451,
+				103.767067
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_hillview",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_Chinatown": {
+			"name": "Chinatown",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.28502,
+				103.844003
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTNortheastLine"
+			],
+			"live_code": "SingaporeStation_Chinatown",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT",
+				"sg-singapore-MRT-NE"
+			]
+		},
+		"SingaporeStation_Downtown": {
+			"name": "Downtown",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.279191,
+				103.853345
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_Downtown",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_rochor": {
+			"name": "Rochor",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.303951,
+				103.852634
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_rochor",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_bedok_reservoir": {
+			"name": "Bedok Reservoir",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.336284,
+				103.931887
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_bedok_reservoir",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_TelokAyer": {
+			"name": "Telok Ayer",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.282123,
+				103.848744
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_TelokAyer",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"CMStation_king_albert_park": {
+			"name": "King Albert Park",
+			"brands": [
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.33566,
+				103.78416
+			],
+			"routes": [
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "CMStation_king_albert_park",
+			"route_icon_names": [
+				"sg-singapore-MRT-DT"
+			]
+		},
+		"SingaporeStation_BukitPanjang": {
+			"name": "Bukit Panjang",
+			"brands": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"coords": [
+				1.378296,
+				103.762138
+			],
+			"routes": [
+				"SingaporeLRTBukitPanjangLine",
+				"SingaporeMRTDowntownLine"
+			],
+			"live_code": "SingaporeStation_BukitPanjang",
+			"route_icon_names": [
+				"sg-singapore-LRT-BP",
+				"sg-singapore-MRT-DT"
+			]
+		}
+	}
+}

@@ -1,0 +1,2111 @@
+{
+	"routes": [
+		{
+			"name": "Bukit Panjang LRT",
+			"color": "#748477",
+			"ui_color": "#748477",
+			"brand_id": "SingaporeLRT",
+			"icon_name": "sg-singapore-LRT-BP",
+			"icon_contains_name": false,
+			"id": "SingaporeLRTBukitPanjangLine"
+		},
+		{
+			"name": "Circle Line",
+			"color": "#F79F07",
+			"ui_color": "#F79F07",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-CC",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTCircleLine"
+		},
+		{
+			"name": "Downtown Line",
+			"color": "#03529F",
+			"ui_color": "#03529F",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-DT",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTDowntownLine"
+		},
+		{
+			"name": "East West Line",
+			"color": "#009D57",
+			"ui_color": "#009D57",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-EW",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTEastwestLine"
+		},
+		{
+			"name": "North East Line",
+			"color": "#851197",
+			"ui_color": "#851197",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-NE",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTNortheastLine"
+		},
+		{
+			"name": "North South Line",
+			"color": "#DF2518",
+			"ui_color": "#DF2518",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-NS",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTNorthsouthLine"
+		}
+	],
+	"shared": {
+		"stop_curation_urls": [
+			{
+				"permission_required": "show_batcave_station_disruption",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/disruptions",
+				"id": "batcave_station_disruption",
+				"title": "Add Disruption"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_exits",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/exits",
+				"id": "batcave_edit_station_exits",
+				"title": "Edit / Add Exit"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_tags",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/tags",
+				"id": "batcave_edit_station_tags",
+				"title": "Add Station Facilities (Batcave)"
+			},
+			{
+				"permission_required": "show_batcave_stop_disruption",
+				"href": "https://citymapper.com/station/{stop_id}/edit/?region_id={region_id}",
+				"id": "web_edit_station",
+				"title": "Add Facilities"
+			},
+			{
+				"permission_required": "show_batcave_add_station_exits",
+				"href": "https://citymapper.com/station/{stop_id}/add/exit/?region_id={region_id}",
+				"id": "web_edit_station_exits",
+				"title": "Add Exits"
+			}
+		]
+	},
+	"stops": [
+		{
+			"name": "Bukit Gombak",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Bukit Gombak MRT Station Carpark",
+					"short_name": "A",
+					"station_id": "SingaporeStation_BukitGombak",
+					"coords": [
+						1.3593757,
+						103.7520718
+					],
+					"id": "SingaporeStation_BukitGombak_E10489"
+				},
+				{
+					"indicator": "C",
+					"name": "Bukit Batok Driving & Test Centre, Bukit Batok Golf Range",
+					"short_name": "C",
+					"station_id": "SingaporeStation_BukitGombak",
+					"coords": [
+						1.3593676,
+						103.7516694
+					],
+					"id": "SingaporeStation_BukitGombak_E10490"
+				},
+				{
+					"indicator": "D",
+					"name": "Bukit Gombak Sport Hall, Bukit Gombak Stadium",
+					"short_name": "D",
+					"station_id": "SingaporeStation_BukitGombak",
+					"coords": [
+						1.3596358,
+						103.7520557
+					],
+					"id": "SingaporeStation_BukitGombak_E10491"
+				},
+				{
+					"indicator": "B",
+					"name": "Guilin View Condominium, Hillgrove Sec. School",
+					"short_name": "B",
+					"station_id": "SingaporeStation_BukitGombak",
+					"coords": [
+						1.3589761,
+						103.752002
+					],
+					"id": "SingaporeStation_BukitGombak_E10492"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/bukit-gombak",
+			"alias": "bukit-gombak",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.358893,
+				103.751825
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/bukit-gombak",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_BukitGombak",
+			"id": "SingaporeStation_BukitGombak"
+		},
+		{
+			"name": "Sembawang",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Sembawang Bus Interchange",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Sembawang",
+					"coords": [
+						1.448782,
+						103.8200024
+					],
+					"id": "SingaporeStation_Sembawang_E10515"
+				},
+				{
+					"indicator": "B",
+					"name": "Jelutong CC, Sembawang NPC",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Sembawang",
+					"coords": [
+						1.4488249,
+						103.8197663
+					],
+					"id": "SingaporeStation_Sembawang_E10516"
+				},
+				{
+					"indicator": "C",
+					"name": "Sembawang Way",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Sembawang",
+					"coords": [
+						1.4490742,
+						103.8196161
+					],
+					"id": "SingaporeStation_Sembawang_E10517"
+				},
+				{
+					"indicator": "D",
+					"name": "Admiralty Country Club, Assyafaah Mosque",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Sembawang",
+					"coords": [
+						1.4490045,
+						103.8203886
+					],
+					"id": "SingaporeStation_Sembawang_E10518"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/sembawang",
+			"alias": "sembawang",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.449093,
+				103.820056
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/sembawang",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Sembawang",
+			"id": "SingaporeStation_Sembawang"
+		},
+		{
+			"name": "Marina South Pier",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Marina Bay Cruise Centre (600m)",
+					"short_name": "A",
+					"station_id": "SingaporeStation_MarinaSouthPier",
+					"coords": [
+						1.270731,
+						103.8623368
+					],
+					"id": "SingaporeStation_MarinaSouthPier_E10537"
+				},
+				{
+					"indicator": "B",
+					"name": "Marina South Pier (Ferry Terminal)",
+					"short_name": "B",
+					"station_id": "SingaporeStation_MarinaSouthPier",
+					"coords": [
+						1.2715462,
+						103.8634418
+					],
+					"id": "SingaporeStation_MarinaSouthPier_E10538"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/marina-south-pier",
+			"alias": "marina-south-pier",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.27175,
+				103.862723
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/marina-south-pier",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_MarinaSouthPier",
+			"id": "SingaporeStation_MarinaSouthPier"
+		},
+		{
+			"name": "City Hall",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Esplanade via Raffles City",
+					"short_name": "A",
+					"station_id": "SingaporeStation_CityHall",
+					"coords": [
+						1.293206,
+						103.853019
+					],
+					"id": "SingaporeStation_CityHall_E4240"
+				},
+				{
+					"indicator": "C",
+					"name": "Esplanade via City Link Mall",
+					"short_name": "C",
+					"station_id": "SingaporeStation_CityHall",
+					"coords": [
+						1.293139,
+						103.852939
+					],
+					"id": "SingaporeStation_CityHall_E4241"
+				},
+				{
+					"indicator": "B",
+					"name": "North Bridge Rd/St. Andrea's Cathedral ",
+					"short_name": "B",
+					"station_id": "SingaporeStation_CityHall",
+					"coords": [
+						1.2931221,
+						103.8519978
+					],
+					"id": "SingaporeStation_CityHall_E4242"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTEastwestLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/city-hall",
+			"alias": "city-hall",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.293047,
+				103.852573
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/city-hall",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_CityHall",
+			"id": "SingaporeStation_CityHall"
+		},
+		{
+			"name": "Raffles Place",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "One Raffles Place",
+					"short_name": "A",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2839782,
+						103.8514307
+					],
+					"id": "SingaporeStation_RafflesPlace_E4577"
+				},
+				{
+					"indicator": "B",
+					"name": "Fullerton Bay Hotel, OUE Bayfront",
+					"short_name": "B",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.284649,
+						103.8515164
+					],
+					"id": "SingaporeStation_RafflesPlace_E4578"
+				},
+				{
+					"indicator": "C",
+					"name": "Ocean Tower",
+					"short_name": "C",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2837225,
+						103.8516725
+					],
+					"id": "SingaporeStation_RafflesPlace_E4579"
+				},
+				{
+					"indicator": "D",
+					"name": "Republic Plaza",
+					"short_name": "D",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.28302,
+						103.8512715
+					],
+					"id": "SingaporeStation_RafflesPlace_E4580"
+				},
+				{
+					"indicator": "E",
+					"name": "Ocean Tower, Equity Plaza",
+					"short_name": "E",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2828537,
+						103.851403
+					],
+					"id": "SingaporeStation_RafflesPlace_E4581"
+				},
+				{
+					"indicator": "F",
+					"name": "Capital Square",
+					"short_name": "F",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2825306,
+						103.8510422
+					],
+					"id": "SingaporeStation_RafflesPlace_E4582"
+				},
+				{
+					"indicator": "G",
+					"name": "Boat Quay",
+					"short_name": "G",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2850405,
+						103.8513292
+					],
+					"id": "SingaporeStation_RafflesPlace_E4583"
+				},
+				{
+					"indicator": "H",
+					"name": "Bank of China",
+					"short_name": "H",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.285062,
+						103.8514767
+					],
+					"id": "SingaporeStation_RafflesPlace_E4584"
+				},
+				{
+					"indicator": "I",
+					"name": "Raffles Quay, Marina Boulevard",
+					"short_name": "I",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.282418,
+						103.8515201
+					],
+					"id": "SingaporeStation_RafflesPlace_E4585"
+				},
+				{
+					"indicator": "J",
+					"name": "One Raffles Quay",
+					"short_name": "J",
+					"station_id": "SingaporeStation_RafflesPlace",
+					"coords": [
+						1.2829516,
+						103.8520405
+					],
+					"id": "SingaporeStation_RafflesPlace_E4847"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTEastwestLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/raffles-place",
+			"alias": "raffles-place",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.284409,
+				103.85147
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/raffles-place",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_RafflesPlace",
+			"id": "SingaporeStation_RafflesPlace"
+		},
+		{
+			"name": "Kranji",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Singapore Turf Club",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Kranji",
+					"coords": [
+						1.4247042,
+						103.7619354
+					],
+					"id": "SingaporeStation_Kranji_E10500"
+				},
+				{
+					"indicator": "B",
+					"name": "Access to pick-up point",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Kranji",
+					"coords": [
+						1.424857,
+						103.7618495
+					],
+					"id": "SingaporeStation_Kranji_E10501"
+				},
+				{
+					"indicator": "C",
+					"name": "Woodlands Road, Buses",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Kranji",
+					"coords": [
+						1.4251412,
+						103.7616832
+					],
+					"id": "SingaporeStation_Kranji_E10502"
+				},
+				{
+					"indicator": "D",
+					"name": "Kranji (Woodlands Road)",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Kranji",
+					"coords": [
+						1.425211,
+						103.7624772
+					],
+					"id": "SingaporeStation_Kranji_E10503"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/kranji",
+			"alias": "kranji",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.425219,
+				103.761989
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/kranji",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Kranji",
+			"id": "SingaporeStation_Kranji"
+		},
+		{
+			"name": "Bishan",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Junction 8 / Bus Interchange",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.350666,
+						103.8483604
+					],
+					"id": "SingaporeStation_Bishan_E4738"
+				},
+				{
+					"indicator": "C",
+					"name": "Bishan Road",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3506136,
+						103.8480939
+					],
+					"id": "SingaporeStation_Bishan_E4739"
+				},
+				{
+					"indicator": "B",
+					"name": "Bishan Road",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3512408,
+						103.8482154
+					],
+					"id": "SingaporeStation_Bishan_E4740"
+				},
+				{
+					"indicator": "E",
+					"name": "Junction 8 (Basement 1)",
+					"short_name": "E",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3510965,
+						103.8484484
+					],
+					"id": "SingaporeStation_Bishan_E4741"
+				},
+				{
+					"indicator": "D",
+					"name": "Bishan Place / Bishan St 13",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3511507,
+						103.8499983
+					],
+					"id": "SingaporeStation_Bishan_E4742"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/bishan",
+			"alias": "bishan",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.351455,
+				103.848263
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/bishan",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Bishan",
+			"id": "SingaporeStation_Bishan"
+		},
+		{
+			"name": "Novena",
+			"exits": [
+				{
+					"indicator": "B",
+					"name": "National Skin Centre, Bus Stops, Thomson Medical Centre",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Novena",
+					"coords": [
+						1.320093,
+						103.843423
+					],
+					"id": "SingaporeStation_Novena_E8517"
+				},
+				{
+					"coords": [
+						1.3210663,
+						103.8439447
+					],
+					"id": "SingaporeStation_Novena_E8518",
+					"station_id": "SingaporeStation_Novena"
+				},
+				{
+					"coords": [
+						1.3186435,
+						103.8437252
+					],
+					"id": "SingaporeStation_Novena_E8519",
+					"station_id": "SingaporeStation_Novena",
+					"name": "B1"
+				},
+				{
+					"coords": [
+						1.3210192,
+						103.8448181
+					],
+					"id": "SingaporeStation_Novena_E8520",
+					"station_id": "SingaporeStation_Novena"
+				},
+				{
+					"indicator": "A",
+					"name": "Ministry of Home Affairs, Ren Ci Hospital & Medicare Centre",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Novena",
+					"coords": [
+						1.3208942,
+						103.8443665
+					],
+					"id": "SingaporeStation_Novena_E8521"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/novena",
+			"alias": "novena",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.320084,
+				103.843492
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/novena",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Novena",
+			"id": "SingaporeStation_Novena"
+		},
+		{
+			"name": "Dhoby Ghaut",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Orchard Road (East)",
+					"short_name": "A",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.2985608,
+						103.8467152
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4395"
+				},
+				{
+					"indicator": "B",
+					"name": "Orchard Road (West)",
+					"short_name": "B",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.298904,
+						103.8454974
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4396"
+				},
+				{
+					"indicator": "C",
+					"name": "Istana Park",
+					"short_name": "C",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.2998532,
+						103.8444836
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4397"
+				},
+				{
+					"indicator": "D",
+					"name": "Plaza Singapura Basement 2",
+					"short_name": "D",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.299596,
+						103.845171
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4398"
+				},
+				{
+					"indicator": "E",
+					"name": "Plaza Singapura New Wing (Level 1)",
+					"short_name": "E",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.299604,
+						103.845399
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4399"
+				},
+				{
+					"indicator": "G",
+					"name": "Plaza Singapura",
+					"short_name": "G",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.299381,
+						103.845249
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4688"
+				},
+				{
+					"indicator": "F",
+					"name": "The Atrium @ Orchard",
+					"short_name": "F",
+					"station_id": "SingaporeStation_DhobyGhaut",
+					"coords": [
+						1.2989848,
+						103.8456191
+					],
+					"id": "SingaporeStation_DhobyGhaut_E4689"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTNortheastLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/dhoby-ghaut",
+			"alias": "dhoby-ghaut",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.298786,
+				103.84502
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/dhoby-ghaut",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_DhobyGhaut",
+			"id": "SingaporeStation_DhobyGhaut"
+		},
+		{
+			"name": "Admiralty",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Admiralty Place",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Admiralty",
+					"coords": [
+						1.4402831,
+						103.8010234
+					],
+					"id": "SingaporeStation_Admiralty_E10511"
+				},
+				{
+					"indicator": "B",
+					"name": "Woodlands Drive 71",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Admiralty",
+					"coords": [
+						1.4402831,
+						103.800723
+					],
+					"id": "SingaporeStation_Admiralty_E10512"
+				},
+				{
+					"indicator": "C",
+					"name": "Woodlands Avenue 7, Admiralty Pri Sch",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Admiralty",
+					"coords": [
+						1.4405619,
+						103.8004655
+					],
+					"id": "SingaporeStation_Admiralty_E10513"
+				},
+				{
+					"indicator": "D",
+					"coords": [
+						1.4405807,
+						103.8013613
+					],
+					"id": "SingaporeStation_Admiralty_E10514",
+					"station_id": "SingaporeStation_Admiralty",
+					"short_name": "D"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/admiralty",
+			"alias": "admiralty",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.440637,
+				103.800959
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/admiralty",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Admiralty",
+			"id": "SingaporeStation_Admiralty"
+		},
+		{
+			"name": "Jurong East",
+			"exits": [
+				{
+					"indicator": "D",
+					"name": "Westgate",
+					"short_name": "D",
+					"station_id": "SingaporeStation_JurongEast",
+					"coords": [
+						1.333616,
+						103.742378
+					],
+					"id": "SingaporeStation_JurongEast_E7818"
+				},
+				{
+					"indicator": "C",
+					"name": "Jurong Community Hospital",
+					"short_name": "C",
+					"station_id": "SingaporeStation_JurongEast",
+					"coords": [
+						1.332707,
+						103.742853
+					],
+					"id": "SingaporeStation_JurongEast_E7819"
+				},
+				{
+					"indicator": "B",
+					"name": "Jurong Gateway Road",
+					"short_name": "B",
+					"station_id": "SingaporeStation_JurongEast",
+					"coords": [
+						1.332458,
+						103.7426725
+					],
+					"id": "SingaporeStation_JurongEast_E7820"
+				},
+				{
+					"indicator": "A",
+					"name": "Jurong Gateway Road",
+					"short_name": "A",
+					"station_id": "SingaporeStation_JurongEast",
+					"coords": [
+						1.3340079,
+						103.7417713
+					],
+					"id": "SingaporeStation_JurongEast_E8040"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTEastwestLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/jurong-east",
+			"alias": "jurong-east",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.333115,
+				103.742297
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/jurong-east",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_JurongEast",
+			"id": "SingaporeStation_JurongEast"
+		},
+		{
+			"name": "Newton",
+			"exits": [
+				{
+					"indicator": " B",
+					"name": "Cairnhill Community Club, Newton Food Centre",
+					"short_name": " B",
+					"station_id": "SingaporeStation_Newton",
+					"coords": [
+						1.3122311,
+						103.8381587
+					],
+					"id": "SingaporeStation_Newton_E8513"
+				},
+				{
+					"indicator": "A",
+					"name": "Balmoral Plaza, Goldbell Towers",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Newton",
+					"coords": [
+						1.312384,
+						103.8379683
+					],
+					"id": "SingaporeStation_Newton_E8514"
+				},
+				{
+					"indicator": "C",
+					"name": "Alliance Francaise De Singapour",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Newton",
+					"coords": [
+						1.3139119,
+						103.837775
+					],
+					"id": "SingaporeStation_Newton_E24543"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTDowntownLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/newton",
+			"alias": "newton",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.31296,
+				103.838864
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/newton",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Newton",
+			"id": "SingaporeStation_Newton"
+		},
+		{
+			"name": "Toa Payoh",
+			"exits": [
+				{
+					"indicator": "B",
+					"name": "Toa Payoh Bus Interchange ",
+					"short_name": "B",
+					"station_id": "SingaporeStation_ToaPayoh",
+					"coords": [
+						1.3320653,
+						103.8473697
+					],
+					"id": "SingaporeStation_ToaPayoh_E4734"
+				},
+				{
+					"indicator": "A",
+					"name": "Toa Payoh Bus Interchange ",
+					"short_name": "A",
+					"station_id": "SingaporeStation_ToaPayoh",
+					"coords": [
+						1.3321127,
+						103.8475814
+					],
+					"id": "SingaporeStation_ToaPayoh_E4735"
+				},
+				{
+					"indicator": "C",
+					"name": "Toa Payoh Central",
+					"short_name": "C",
+					"station_id": "SingaporeStation_ToaPayoh",
+					"coords": [
+						1.3330915,
+						103.847338
+					],
+					"id": "SingaporeStation_ToaPayoh_E4736"
+				},
+				{
+					"indicator": "D",
+					"name": "Toa Payoh Lorong 2",
+					"short_name": "D",
+					"station_id": "SingaporeStation_ToaPayoh",
+					"coords": [
+						1.3334291,
+						103.8467346
+					],
+					"id": "SingaporeStation_ToaPayoh_E4737"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/toa-payoh",
+			"alias": "toa-payoh",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.332297,
+				103.847327
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/toa-payoh",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_ToaPayoh",
+			"id": "SingaporeStation_ToaPayoh"
+		},
+		{
+			"name": "Marina Bay",
+			"exits": [
+				{
+					"indicator": "B",
+					"name": "Asia Square, Central Boulevard, Marina Bay City Gallery",
+					"short_name": "B",
+					"station_id": "SingaporeStation_MarinaBay",
+					"coords": [
+						1.2770263,
+						103.8545816
+					],
+					"id": "SingaporeStation_MarinaBay_E8508"
+				},
+				{
+					"indicator": "A",
+					"name": "Marina Station Road, Marina South Pier",
+					"short_name": "A",
+					"station_id": "SingaporeStation_MarinaBay",
+					"coords": [
+						1.2761784,
+						103.8548341
+					],
+					"id": "SingaporeStation_MarinaBay_E8509"
+				},
+				{
+					"coords": [
+						1.2766813,
+						103.854001
+					],
+					"id": "SingaporeStation_MarinaBay_E8510",
+					"station_id": "SingaporeStation_MarinaBay"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/marina-bay",
+			"alias": "marina-bay",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.275171,
+				103.854751
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/marina-bay",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_MarinaBay",
+			"id": "SingaporeStation_MarinaBay"
+		},
+		{
+			"name": "Bukit Batok",
+			"exits": [
+				{
+					"indicator": "D",
+					"name": "Bukit Batok Central",
+					"short_name": "D",
+					"station_id": "SingaporeStation_BukitBatok",
+					"coords": [
+						1.3483276,
+						103.7493228
+					],
+					"id": "SingaporeStation_BukitBatok_E10485"
+				},
+				{
+					"indicator": "A",
+					"name": "Bukit Batok Bus Interchange",
+					"short_name": "A",
+					"station_id": "SingaporeStation_BukitBatok",
+					"coords": [
+						1.3495504,
+						103.7499665
+					],
+					"id": "SingaporeStation_BukitBatok_E10486"
+				},
+				{
+					"indicator": "B",
+					"name": "Bukit Batok Central",
+					"short_name": "B",
+					"station_id": "SingaporeStation_BukitBatok",
+					"coords": [
+						1.3492608,
+						103.7500094
+					],
+					"id": "SingaporeStation_BukitBatok_E10487"
+				},
+				{
+					"indicator": "C",
+					"name": "West Mall",
+					"short_name": "C",
+					"station_id": "SingaporeStation_BukitBatok",
+					"coords": [
+						1.3495611,
+						103.7496232
+					],
+					"id": "SingaporeStation_BukitBatok_E10488"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/bukit-batok",
+			"alias": "bukit-batok",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.349057,
+				103.749591
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/bukit-batok",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_BukitBatok",
+			"id": "SingaporeStation_BukitBatok"
+		},
+		{
+			"name": "Marsiling",
+			"exits": [
+				{
+					"indicator": "C",
+					"name": "Woodlands Stadium & Swimming Complex",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Marsiling",
+					"coords": [
+						1.4323516,
+						103.7741945
+					],
+					"id": "SingaporeStation_Marsiling_E10504"
+				},
+				{
+					"indicator": "A",
+					"name": "Marsiling Primary School",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Marsiling",
+					"coords": [
+						1.4328396,
+						103.774216
+					],
+					"id": "SingaporeStation_Marsiling_E10505"
+				},
+				{
+					"indicator": "B",
+					"name": "Woodlands Street 11",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Marsiling",
+					"coords": [
+						1.4327538,
+						103.7744949
+					],
+					"id": "SingaporeStation_Marsiling_E10506"
+				},
+				{
+					"indicator": "D",
+					"name": "Woodlands Centre Road",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Marsiling",
+					"coords": [
+						1.4327565,
+						103.7739371
+					],
+					"id": "SingaporeStation_Marsiling_E10507"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/marsiling",
+			"alias": "marsiling",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.432542,
+				103.774216
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/marsiling",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Marsiling",
+			"id": "SingaporeStation_Marsiling"
+		},
+		{
+			"name": "Yio Chu Kang",
+			"exits": [
+				{
+					"indicator": "A",
+					"coords": [
+						1.3818551,
+						103.844729
+					],
+					"id": "SingaporeStation_YioChuKang_E10529",
+					"station_id": "SingaporeStation_YioChuKang",
+					"short_name": "A"
+				},
+				{
+					"indicator": "B",
+					"name": "Ang Mo Kio Avenue 6",
+					"short_name": "B",
+					"station_id": "SingaporeStation_YioChuKang",
+					"coords": [
+						1.3822965,
+						103.8440904
+					],
+					"id": "SingaporeStation_YioChuKang_E10530"
+				},
+				{
+					"indicator": "C",
+					"name": "Ang Mo Kio Avenue 8",
+					"short_name": "C",
+					"station_id": "SingaporeStation_YioChuKang",
+					"coords": [
+						1.380862,
+						103.8453162
+					],
+					"id": "SingaporeStation_YioChuKang_E10531"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/yio-chu-kang",
+			"alias": "yio-chu-kang",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.38178,
+				103.844965
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/yio-chu-kang",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_YioChuKang",
+			"id": "SingaporeStation_YioChuKang"
+		},
+		{
+			"name": "Ang Mo Kio",
+			"exits": [
+				{
+					"indicator": "B",
+					"name": "Ang Mo Kio Avenue 8",
+					"short_name": "B",
+					"station_id": "SingaporeStation_AngMoKio",
+					"coords": [
+						1.3697283,
+						103.8494424
+					],
+					"id": "SingaporeStation_AngMoKio_E7775"
+				},
+				{
+					"indicator": "D",
+					"name": "AMK 3G Centre",
+					"short_name": "D",
+					"station_id": "SingaporeStation_AngMoKio",
+					"coords": [
+						1.3699711,
+						103.8498507
+					],
+					"id": "SingaporeStation_AngMoKio_E7776"
+				},
+				{
+					"indicator": "A",
+					"name": "Ang Mo Kio Avenue 3",
+					"short_name": "A",
+					"station_id": "SingaporeStation_AngMoKio",
+					"coords": [
+						1.3692531,
+						103.8499874
+					],
+					"id": "SingaporeStation_AngMoKio_E7777"
+				},
+				{
+					"indicator": "C",
+					"name": "AMK Hub",
+					"short_name": "C",
+					"station_id": "SingaporeStation_AngMoKio",
+					"coords": [
+						1.369416,
+						103.848937
+					],
+					"id": "SingaporeStation_AngMoKio_E7778"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/ang-mo-kio",
+			"alias": "ang-mo-kio",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.370053,
+				103.84954
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/ang-mo-kio",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_AngMoKio",
+			"id": "SingaporeStation_AngMoKio"
+		},
+		{
+			"name": "Somerset",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Somerset Road / Exeter Road",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Somerset",
+					"coords": [
+						1.300067,
+						103.8383672
+					],
+					"id": "SingaporeStation_Somerset_E4222"
+				},
+				{
+					"indicator": "B",
+					"name": "Orchard Road / 313@somerset",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Somerset",
+					"coords": [
+						1.300937,
+						103.838455
+					],
+					"id": "SingaporeStation_Somerset_E4223"
+				},
+				{
+					"indicator": "C",
+					"name": "Orchard Gateway",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Somerset",
+					"coords": [
+						1.3001194,
+						103.8392305
+					],
+					"id": "SingaporeStation_Somerset_E4224"
+				},
+				{
+					"indicator": "D",
+					"name": "Orchard Gateway, Orchard Central / The Centerpoint (via B2 Orchard Central Underpass)",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Somerset",
+					"coords": [
+						1.3000973,
+						103.8394893
+					],
+					"id": "SingaporeStation_Somerset_E4225"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/somerset",
+			"alias": "somerset",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.300328,
+				103.838504
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/somerset",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Somerset",
+			"id": "SingaporeStation_Somerset"
+		},
+		{
+			"name": "Yew Tee",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Yew Tee Residence, K-9 Dog Unit",
+					"short_name": "A",
+					"station_id": "SingaporeStation_YewTee",
+					"coords": [
+						1.3977533,
+						103.7471972
+					],
+					"id": "SingaporeStation_YewTee_E10496"
+				},
+				{
+					"indicator": "B",
+					"name": "Unity Sec Sch, Choa Chu Kang Street 62",
+					"short_name": "B",
+					"station_id": "SingaporeStation_YewTee",
+					"coords": [
+						1.3978873,
+						103.7473474
+					],
+					"id": "SingaporeStation_YewTee_E10497"
+				},
+				{
+					"indicator": "C",
+					"name": "Choa Chu Kang Drive, Regent Grove Condominium",
+					"short_name": "C",
+					"station_id": "SingaporeStation_YewTee",
+					"coords": [
+						1.3971848,
+						103.7475029
+					],
+					"id": "SingaporeStation_YewTee_E10498"
+				},
+				{
+					"indicator": "D",
+					"name": "Choa Chu Kang Bible Centre / Hebron Bible Presbyterian Church",
+					"short_name": "D",
+					"station_id": "SingaporeStation_YewTee",
+					"coords": [
+						1.3972492,
+						103.7471972
+					],
+					"id": "SingaporeStation_YewTee_E10499"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/yew-tee",
+			"alias": "yew-tee",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.397461,
+				103.747401
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/yew-tee",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_YewTee",
+			"id": "SingaporeStation_YewTee"
+		},
+		{
+			"name": "Braddell",
+			"exits": [
+				{
+					"indicator": "C",
+					"name": "Police Security Command, Yellow Pages Building, Jackson Square",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Braddell",
+					"coords": [
+						1.3406582,
+						103.8473944
+					],
+					"id": "SingaporeStation_Braddell_E8470"
+				},
+				{
+					"indicator": "B",
+					"name": "OnePeople.Sg, Blk 125A (Bishan – Toa Payoh Tc)",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Braddell",
+					"coords": [
+						1.3407305,
+						103.8464719
+					],
+					"id": "SingaporeStation_Braddell_E8471"
+				},
+				{
+					"indicator": "A",
+					"name": "Blk 207 (Boon Teck NPP)",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Braddell",
+					"coords": [
+						1.3411138,
+						103.8464661
+					],
+					"id": "SingaporeStation_Braddell_E10937"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/braddell",
+			"alias": "braddell",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.340599,
+				103.846788
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/braddell",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Braddell",
+			"id": "SingaporeStation_Braddell"
+		},
+		{
+			"name": "Choa Chu Kang",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Choa Chu Kang Centre, Choa Chu Kang NPC",
+					"short_name": "A",
+					"station_id": "SingaporeStation_ChoaChuKang",
+					"coords": [
+						1.3856392,
+						103.7447808
+					],
+					"id": "SingaporeStation_ChoaChuKang_E10493"
+				},
+				{
+					"indicator": "B",
+					"name": "Choa Chu Kang Avenue 4",
+					"short_name": "B",
+					"station_id": "SingaporeStation_ChoaChuKang",
+					"coords": [
+						1.3847463,
+						103.7443409
+					],
+					"id": "SingaporeStation_ChoaChuKang_E10494"
+				},
+				{
+					"indicator": "C",
+					"name": "Choa Chu Kang Loop, Choa Chu Kang Park",
+					"short_name": "C",
+					"station_id": "SingaporeStation_ChoaChuKang",
+					"coords": [
+						1.3858216,
+						103.7444911
+					],
+					"id": "SingaporeStation_ChoaChuKang_E10495"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTBukitPanjangLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/choa-chu-kang",
+			"alias": "choa-chu-kang",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.384749,
+				103.744534
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/choa-chu-kang",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_ChoaChuKang",
+			"id": "SingaporeStation_ChoaChuKang"
+		},
+		{
+			"name": "Yishun",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Sree Narayana Mission Bldg, Yishun Christian Church",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Yishun",
+					"coords": [
+						1.4293719,
+						103.8347638
+					],
+					"id": "SingaporeStation_Yishun_E10519"
+				},
+				{
+					"indicator": "B",
+					"name": "Yishun Avenue 5",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Yishun",
+					"coords": [
+						1.4300504,
+						103.8349006
+					],
+					"id": "SingaporeStation_Yishun_E10520"
+				},
+				{
+					"indicator": "C",
+					"name": "Yishun Ave 2, North Point Shopping Centre, Yishun Bus Interchange",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Yishun",
+					"coords": [
+						1.429136,
+						103.8350816
+					],
+					"id": "SingaporeStation_Yishun_E10521"
+				},
+				{
+					"indicator": "D",
+					"name": "Nee Soon Central Community Centre, Yishum Swimming Complex",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Yishun",
+					"coords": [
+						1.4290368,
+						103.8348684
+					],
+					"id": "SingaporeStation_Yishun_E10523"
+				},
+				{
+					"indicator": "E",
+					"name": "Northpoint Shopping Centre via underpass",
+					"short_name": "E",
+					"station_id": "SingaporeStation_Yishun",
+					"coords": [
+						1.429372,
+						103.8355631
+					],
+					"id": "SingaporeStation_Yishun_E10524"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/yishun",
+			"alias": "yishun",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.429384,
+				103.835028
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/yishun",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Yishun",
+			"id": "SingaporeStation_Yishun"
+		},
+		{
+			"name": "Orchard",
+			"exits": [
+				{
+					"indicator": "D",
+					"name": "Wisma Atria (Basement), Ngee Ann City via Wisma Atria",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Orchard",
+					"coords": [
+						1.304031,
+						103.832763
+					],
+					"id": "SingaporeStation_Orchard_E4232"
+				},
+				{
+					"indicator": "E",
+					"name": "ION Orchard / Wheelock Place",
+					"short_name": "E",
+					"station_id": "SingaporeStation_Orchard",
+					"coords": [
+						1.304701,
+						103.831878
+					],
+					"id": "SingaporeStation_Orchard_E4233"
+				},
+				{
+					"indicator": "A",
+					"name": "Orchard Rd/Scotts Rd/Tang Plaza",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Orchard",
+					"coords": [
+						1.305441,
+						103.8323694
+					],
+					"id": "SingaporeStation_Orchard_E4234"
+				},
+				{
+					"indicator": "C",
+					"name": "Orchard Rd / Wisma Atria ",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Orchard",
+					"coords": [
+						1.304278,
+						103.832533
+					],
+					"id": "SingaporeStation_Orchard_E4235"
+				},
+				{
+					"indicator": "B",
+					"name": "Orchard Boulevard / Orchard Turn",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Orchard",
+					"coords": [
+						1.303223,
+						103.831982
+					],
+					"id": "SingaporeStation_Orchard_E4237"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/orchard",
+			"alias": "orchard",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.303223,
+				103.831982
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/orchard",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Orchard",
+			"id": "SingaporeStation_Orchard"
+		},
+		{
+			"name": "Khatib",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Yishun Avenue 2, Yishun Stadium",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Khatib",
+					"coords": [
+						1.41719,
+						103.8330624
+					],
+					"id": "SingaporeStation_Khatib_E10525"
+				},
+				{
+					"indicator": "B",
+					"name": "Bottle Tree Park, AVA Sembawang",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Khatib",
+					"coords": [
+						1.4171363,
+						103.8327566
+					],
+					"id": "SingaporeStation_Khatib_E10526"
+				},
+				{
+					"indicator": "C",
+					"name": "Mariamman Temple",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Khatib",
+					"coords": [
+						1.4174085,
+						103.8328076
+					],
+					"id": "SingaporeStation_Khatib_E10527"
+				},
+				{
+					"indicator": "D",
+					"name": "Yishun Ring Road, Chung Cheng High Sch",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Khatib",
+					"coords": [
+						1.4176069,
+						103.83299
+					],
+					"id": "SingaporeStation_Khatib_E10528"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/khatib",
+			"alias": "khatib",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.417316,
+				103.832998
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/khatib",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Khatib",
+			"id": "SingaporeStation_Khatib"
+		},
+		{
+			"name": "Woodlands",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Woodlands Square",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Woodlands",
+					"coords": [
+						1.4366801,
+						103.7865807
+					],
+					"id": "SingaporeStation_Woodlands_E10508"
+				},
+				{
+					"indicator": "B",
+					"name": "Causeway Point",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Woodlands",
+					"coords": [
+						1.4366506,
+						103.786173
+					],
+					"id": "SingaporeStation_Woodlands_E10509"
+				},
+				{
+					"indicator": "C",
+					"name": "Republic Polytechnic",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Woodlands",
+					"coords": [
+						1.4369027,
+						103.7868221
+					],
+					"id": "SingaporeStation_Woodlands_E10510"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/woodlands",
+			"alias": "woodlands",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.437388,
+				103.787675
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/woodlands",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Woodlands",
+			"id": "SingaporeStation_Woodlands"
+		}
+	]
+}

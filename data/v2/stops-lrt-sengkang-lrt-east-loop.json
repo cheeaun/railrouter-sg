@@ -1,0 +1,404 @@
+{
+	"routes": [
+		{
+			"name": "North East Line",
+			"color": "#851197",
+			"ui_color": "#851197",
+			"brand_id": "SingaporeMRT",
+			"icon_name": "sg-singapore-MRT-NE",
+			"icon_contains_name": false,
+			"id": "SingaporeMRTNortheastLine"
+		},
+		{
+			"name": "Sengkang LRT (East Loop)",
+			"color": "#748477",
+			"ui_color": "#748477",
+			"brand_id": "SingaporeLRT",
+			"icon_name": "sg-singapore-LRT-SE",
+			"icon_contains_name": false,
+			"id": "SingaporeLRTSengkangLineEastLoop"
+		},
+		{
+			"name": "Sengkang LRT (West Loop)",
+			"color": "#748477",
+			"ui_color": "#748477",
+			"brand_id": "SingaporeLRT",
+			"icon_name": "sg-singapore-LRT-SW",
+			"icon_contains_name": false,
+			"id": "SingaporeLRTSengkangLineWestLoop"
+		}
+	],
+	"shared": {
+		"stop_curation_urls": [
+			{
+				"permission_required": "show_batcave_station_disruption",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/disruptions",
+				"id": "batcave_station_disruption",
+				"title": "Add Disruption"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_exits",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/exits",
+				"id": "batcave_edit_station_exits",
+				"title": "Edit / Add Exit"
+			},
+			{
+				"permission_required": "show_batcave_edit_station_tags",
+				"href": "https://batcave.citymapper.com/tools/{region_id}/stations/{stop_id}/tags",
+				"id": "batcave_edit_station_tags",
+				"title": "Add Station Facilities (Batcave)"
+			},
+			{
+				"permission_required": "show_batcave_stop_disruption",
+				"href": "https://citymapper.com/station/{stop_id}/edit/?region_id={region_id}",
+				"id": "web_edit_station",
+				"title": "Add Facilities"
+			},
+			{
+				"permission_required": "show_batcave_add_station_exits",
+				"href": "https://citymapper.com/station/{stop_id}/add/exit/?region_id={region_id}",
+				"id": "web_edit_station_exits",
+				"title": "Add Exits"
+			}
+		]
+	},
+	"stops": [
+		{
+			"name": "Sengkang",
+			"exits": [
+				{
+					"indicator": "D",
+					"name": "Sengkang East Way",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Sengkang",
+					"coords": [
+						1.3926157,
+						103.8956721
+					],
+					"id": "SingaporeStation_Sengkang_E4492"
+				},
+				{
+					"indicator": "C",
+					"name": "Sengkang Square",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Sengkang",
+					"coords": [
+						1.3906452,
+						103.8950995
+					],
+					"id": "SingaporeStation_Sengkang_E4493"
+				},
+				{
+					"indicator": "B",
+					"coords": [
+						1.3916979,
+						103.8954937
+					],
+					"id": "SingaporeStation_Sengkang_E4494",
+					"station_id": "SingaporeStation_Sengkang",
+					"short_name": "B"
+				},
+				{
+					"indicator": "A",
+					"coords": [
+						1.3917412,
+						103.8953582
+					],
+					"id": "SingaporeStation_Sengkang_E4495",
+					"station_id": "SingaporeStation_Sengkang",
+					"short_name": "A"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTNortheastLine",
+				"SingaporeLRTSengkangLineEastLoop",
+				"SingaporeLRTSengkangLineWestLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/sengkang",
+			"alias": "sengkang",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.39133,
+				103.895294
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/sengkang",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT",
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Sengkang",
+			"id": "SingaporeStation_Sengkang"
+		},
+		{
+			"name": "Ranggung",
+			"exits": [
+				{
+					"indicator": "A",
+					"coords": [
+						1.3842097,
+						103.8974938
+					],
+					"id": "SingaporeStation_Ranggung_E10586",
+					"station_id": "SingaporeStation_Ranggung",
+					"short_name": "A"
+				},
+				{
+					"indicator": "B",
+					"coords": [
+						1.3834481,
+						103.8977889
+					],
+					"id": "SingaporeStation_Ranggung_E10587",
+					"station_id": "SingaporeStation_Ranggung",
+					"short_name": "B"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTSengkangLineEastLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/ranggung",
+			"alias": "ranggung",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.38403,
+				103.897349
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/ranggung",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Ranggung",
+			"id": "SingaporeStation_Ranggung"
+		},
+		{
+			"name": "Rumbia",
+			"exits": [
+				{
+					"indicator": "A",
+					"coords": [
+						1.3913572,
+						103.9057922
+					],
+					"id": "SingaporeStation_Rumbia_E10580",
+					"station_id": "SingaporeStation_Rumbia",
+					"short_name": "A"
+				},
+				{
+					"indicator": "B",
+					"coords": [
+						1.3916736,
+						103.9060657
+					],
+					"id": "SingaporeStation_Rumbia_E10581",
+					"station_id": "SingaporeStation_Rumbia",
+					"short_name": "B"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTSengkangLineEastLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/rumbia",
+			"alias": "rumbia",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.391509,
+				103.905937
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/rumbia",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Rumbia",
+			"id": "SingaporeStation_Rumbia"
+		},
+		{
+			"name": "Bakau",
+			"exits": [
+				{
+					"indicator": "A",
+					"coords": [
+						1.3883481,
+						103.9054365
+					],
+					"id": "SingaporeStation_Bakau_E10582",
+					"station_id": "SingaporeStation_Bakau",
+					"short_name": "A"
+				},
+				{
+					"indicator": "B",
+					"coords": [
+						1.3878467,
+						103.9054473
+					],
+					"id": "SingaporeStation_Bakau_E10583",
+					"station_id": "SingaporeStation_Bakau",
+					"short_name": "B"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTSengkangLineEastLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/bakau",
+			"alias": "bakau",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.388029,
+				103.905458
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/bakau",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Bakau",
+			"id": "SingaporeStation_Bakau"
+		},
+		{
+			"name": "Compassvale",
+			"exits": [
+				{
+					"indicator": "B",
+					"coords": [
+						1.3945636,
+						103.9007622
+					],
+					"id": "SingaporeStation_Compassvale_E10578",
+					"station_id": "SingaporeStation_Compassvale",
+					"short_name": "B"
+				},
+				{
+					"indicator": "A",
+					"coords": [
+						1.3941962,
+						103.9005959
+					],
+					"id": "SingaporeStation_Compassvale_E10579",
+					"station_id": "SingaporeStation_Compassvale",
+					"short_name": "A"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTSengkangLineEastLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/compassvale",
+			"alias": "compassvale",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.394518,
+				103.900435
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/compassvale",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Compassvale",
+			"id": "SingaporeStation_Compassvale"
+		},
+		{
+			"name": "Kangkar",
+			"exits": [
+				{
+					"indicator": "A",
+					"coords": [
+						1.3841928,
+						103.9022074
+					],
+					"id": "SingaporeStation_Kangkar_E10584",
+					"station_id": "SingaporeStation_Kangkar",
+					"short_name": "A"
+				},
+				{
+					"indicator": "B",
+					"coords": [
+						1.3836136,
+						103.9022449
+					],
+					"id": "SingaporeStation_Kangkar_E10585",
+					"station_id": "SingaporeStation_Kangkar",
+					"short_name": "B"
+				}
+			],
+			"route_ids": [
+				"SingaporeLRTSengkangLineEastLoop"
+			],
+			"url": "https://citymapper.com/singapore/t/kangkar",
+			"alias": "kangkar",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.383922,
+				103.902202
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/kangkar",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeLRT"
+			],
+			"requested_id": "SingaporeStation_Kangkar",
+			"id": "SingaporeStation_Kangkar"
+		}
+	]
+}

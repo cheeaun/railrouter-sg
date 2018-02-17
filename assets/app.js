@@ -32,32 +32,10 @@ function initMap(){
     backgroundColor: '#B3D1FF',
     disableDefaultUI: true,
     keyboardShortcuts: true,
+    clickableIcons: false,
     styles: [
       {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [
-          { color: '#ffffff' }
-        ]
-      },{
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [
-          { color: '#cccccc' },
-        ]
-      },{
-        featureType: 'road.arterial',
-        stylers: [
-          { visibility: 'simplified' }
-        ]
-      },{
         featureType: 'transit.station.rail',
-        stylers: [
-          { visibility: 'off' }
-        ]
-      },{
-        featureType: 'road',
-        elementType: 'labels.icon',
         stylers: [
           { visibility: 'off' }
         ]
@@ -84,6 +62,7 @@ function initMap(){
   var $boundsWarning = $('bounds-warning');
   map.addListener('bounds_changed', function(){
     var bounds = map.getBounds();
+    if (!bounds) return;
     if (bounds.intersects(mapBounds)){
       $boundsWarning.classList.remove('visible');
     } else {
@@ -94,14 +73,6 @@ function initMap(){
     $boundsWarning.classList.remove('visible');
 		map.fitBounds(mapBounds);
   }, false);
-
-  var transitLayer = new google.maps.TransitLayer();
-  var $transitCheckbox = $('checkbox-transit');
-  transitLayer.setMap($transitCheckbox.checked ? map : null);
-  $transitCheckbox.addEventListener('change', function(){
-    transitLayer.setMap($transitCheckbox.checked ? map : null);
-  }, false);
-  var $transitToggle = $('toggle-transit');
 
   if (navigator.geolocation){
     var LocationMarker = _LocationMarker(google);
@@ -378,7 +349,15 @@ function init(){
   var markers = data.stops.map(function(stop){
     var codes = [];
     var ref = stop.ref || stop.asset_ref;
-    if (ref){
+    var _codes = stop.codes;
+    if (_codes){
+      codes = _codes.map(function(c){
+        return {
+          code: c.text,
+          color: c.color,
+        };
+      });
+    } else if (ref){
       codes = ref.split(';').map(function(k){
         var code = k.match(/^[a-z]{1,2}/i)[0].toLowerCase();
         if (data.routeMaps[code]) code = data.routeMaps[code];
@@ -449,7 +428,7 @@ function init(){
         html += '<div><span class="exit-info"><b>' + count + '</b> entrance' + s + '/exit' + s + '</span>&nbsp;&nbsp;';
         html += '<div class="inline-block">';
         stop.exits.forEach(function(exit){
-          html += '<a class="exit-label" onclick="zoomTo(' + exit.coord.join(',') + ')">' + exit.exit + '</a> ';
+          html += '<a class="exit-label" onclick="zoomTo(' + exit.coord.join(',') + ')">' + (exit.exit || '&nbsp;&nbsp;') + '</a> ';
         });
         html += '</div>';
         html += '</div>';
@@ -464,7 +443,7 @@ function init(){
     var stopExits = [];
     var stopLines = [];
     (stop.exits || []).forEach(function(exit){
-      var label = exit.exit;
+      var label = exit.exit || '';
       var eCanvas = exitCanvas(label);
       var exitPosition = {lat: exit.coord[0], lng: exit.coord[1]};
       stopExits.push(new google.maps.Marker({
@@ -505,26 +484,28 @@ function init(){
     return marker;
   });
 
+  var currentZoom = map.getZoom();
   google.maps.event.addListener(map, 'zoom_changed', function(){
     var zoom = map.getZoom();
+
     var visible = zoom >= 12;
     markers.forEach(function(marker){
-      marker.setOptions({
-        visible: visible,
-        icon: zoom >= 14 ? marker._icons.large : marker._icons.small,
-      });
+      marker.setVisible(visible);
     });
+
+    if ((currentZoom < 14 && zoom >= 14) || (currentZoom >= 14 && zoom < 14)){
+      markers.forEach(function(marker){
+        marker.setIcon(zoom >= 14 ? marker._icons.large : marker._icons.small);
+      });
+    }
+    currentZoom = zoom;
 
     var exitVisible = zoom >= 16;
     exitMarkers.forEach(function(marker){
-      marker.setOptions({
-        visible: exitVisible,
-      });
+      marker.setVisible(exitVisible);
     });
     exitLines.forEach(function(line){
-      line.setOptions({
-        visible: exitVisible,
-      });
+      line.setVisible(exitVisible);
     });
   });
 }
