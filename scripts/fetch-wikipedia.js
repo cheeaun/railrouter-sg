@@ -17,7 +17,11 @@ const ROOT = 'https://en.wikipedia.org';
         text: $(el).text().trim(),
         color: ($(el).attr('style').match(/#[a-f0-9]{3,6}/i) || [''])[0],
       };
-    }).get();
+    }).get().sort((a, b) => {
+      if (a.text < b.text) return -1;
+      if (a.text > b.text) return 1;
+      return 0;
+    });;
 
     const nameCell = $(cell).next('td');
     const nameLink = nameCell.find('a');

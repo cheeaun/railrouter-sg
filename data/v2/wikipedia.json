@@ -97,12 +97,12 @@
 	{
 		"codes": [
 			{
-				"text": "DT16",
-				"color": "#0354a6"
-			},
-			{
 				"text": "CE1",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "DT16",
+				"color": "#0354a6"
 			}
 		],
 		"name": "Bayfront",
@@ -235,12 +235,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS17",
-				"color": "#dc241f"
-			},
-			{
 				"text": "CC15",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "NS17",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Bishan",
@@ -278,12 +278,12 @@
 	{
 		"codes": [
 			{
-				"text": "DT9",
-				"color": "#0354a6"
-			},
-			{
 				"text": "CC19",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "DT9",
+				"color": "#0354a6"
 			}
 		],
 		"name": "Botanic Gardens",
@@ -364,12 +364,12 @@
 	{
 		"codes": [
 			{
-				"text": "EW12",
-				"color": "#009530"
-			},
-			{
 				"text": "DT14",
 				"color": "#0354a6"
+			},
+			{
+				"text": "EW12",
+				"color": "#009530"
 			}
 		],
 		"name": "Bugis",
@@ -437,12 +437,12 @@
 	{
 		"codes": [
 			{
-				"text": "DT1",
-				"color": "#0354a6"
-			},
-			{
 				"text": "BP6",
 				"color": "#748477"
+			},
+			{
+				"text": "DT1",
+				"color": "#0354a6"
 			}
 		],
 		"name": "Bukit Panjang",
@@ -488,12 +488,12 @@
 	{
 		"codes": [
 			{
-				"text": "EW21",
-				"color": "#009530"
-			},
-			{
 				"text": "CC22",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "EW21",
+				"color": "#009530"
 			}
 		],
 		"name": "Buona Vista",
@@ -504,13 +504,13 @@
 	},
 	{
 		"codes": [
-			{
-				"text": "TE9",
-				"color": "#734538"
-			},
 			{
 				"text": "CC17",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "TE9",
+				"color": "#734538"
 			}
 		],
 		"name": "Caldecott",
@@ -621,12 +621,12 @@
 	{
 		"codes": [
 			{
-				"text": "NE4",
-				"color": "#9016b2"
-			},
-			{
 				"text": "DT19",
 				"color": "#0354a6"
+			},
+			{
+				"text": "NE4",
+				"color": "#9016b2"
 			}
 		],
 		"name": "Chinatown",
@@ -651,12 +651,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS4",
-				"color": "#dc241f"
-			},
-			{
 				"text": "BP1",
 				"color": "#748477"
+			},
+			{
+				"text": "NS4",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Choa Chu Kang",
@@ -668,12 +668,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS4",
-				"color": "#dc241f"
-			},
-			{
 				"text": "BP1",
 				"color": "#748477"
+			},
+			{
+				"text": "NS4",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Choa Chu Kang",
@@ -702,12 +702,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS25",
-				"color": "#dc241f"
-			},
-			{
 				"text": "EW13",
 				"color": "#009530"
+			},
+			{
+				"text": "NS25",
+				"color": "#dc241f"
 			}
 		],
 		"name": "City Hall",
@@ -827,12 +827,12 @@
 				"color": "#ff9a00"
 			},
 			{
-				"text": "NS24",
-				"color": "#dc241f"
-			},
-			{
 				"text": "NE6",
 				"color": "#9016b2"
+			},
+			{
+				"text": "NS24",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -844,16 +844,16 @@
 	{
 		"codes": [
 			{
-				"text": "NS24",
-				"color": "#dc241f"
+				"text": "CC1",
+				"color": "#ff9a00"
 			},
 			{
 				"text": "NE6",
 				"color": "#9016b2"
 			},
 			{
-				"text": "CC1",
-				"color": "#ff9a00"
+				"text": "NS24",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -865,16 +865,16 @@
 	{
 		"codes": [
 			{
+				"text": "CC1",
+				"color": "#ff9a00"
+			},
+			{
 				"text": "NE6",
 				"color": "#9016b2"
 			},
 			{
 				"text": "NS24",
 				"color": "#dc241f"
-			},
-			{
-				"text": "CC1",
-				"color": "#ff9a00"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -938,12 +938,12 @@
 	{
 		"codes": [
 			{
-				"text": "DT35",
-				"color": "#0354a6"
-			},
-			{
 				"text": "CG1",
 				"color": "#009530"
+			},
+			{
+				"text": "DT35",
+				"color": "#0354a6"
 			}
 		],
 		"name": "Expo",
@@ -1102,12 +1102,12 @@
 	{
 		"codes": [
 			{
-				"text": "NE1",
-				"color": "#9016b2"
-			},
-			{
 				"text": "CC29",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "NE1",
+				"color": "#9016b2"
 			}
 		],
 		"name": "HarbourFront",
@@ -1240,12 +1240,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS1",
-				"color": "#dc241f"
-			},
-			{
 				"text": "EW24",
 				"color": "#009530"
+			},
+			{
+				"text": "NS1",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Jurong East",
@@ -1521,12 +1521,12 @@
 	{
 		"codes": [
 			{
-				"text": "NE7",
-				"color": "#9016b2"
-			},
-			{
 				"text": "DT12",
 				"color": "#0354a6"
+			},
+			{
+				"text": "NE7",
+				"color": "#9016b2"
 			}
 		],
 		"name": "Little India",
@@ -1568,23 +1568,6 @@
 	{
 		"codes": [
 			{
-				"text": "DT26",
-				"color": "#0354a6"
-			},
-			{
-				"text": "CC10",
-				"color": "#ff9a00"
-			}
-		],
-		"name": "MacPherson",
-		"url": "https://en.wikipedia.org/wiki/MacPherson_MRT_station",
-		"name_chinese": "麦波申",
-		"name_tamil": "மெக்பர்சன்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/MacPhersonMRTExitE.jpg/300px-MacPhersonMRTExitE.jpg"
-	},
-	{
-		"codes": [
-			{
 				"text": "CC10",
 				"color": "#ff9a00"
 			},
@@ -1602,16 +1585,33 @@
 	{
 		"codes": [
 			{
-				"text": "TE20",
-				"color": "#734538"
+				"text": "CC10",
+				"color": "#ff9a00"
+			},
+			{
+				"text": "DT26",
+				"color": "#0354a6"
+			}
+		],
+		"name": "MacPherson",
+		"url": "https://en.wikipedia.org/wiki/MacPherson_MRT_station",
+		"name_chinese": "麦波申",
+		"name_tamil": "மெக்பர்சன்",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/MacPhersonMRTExitE.jpg/300px-MacPhersonMRTExitE.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "CE2",
+				"color": "#ff9a00"
 			},
 			{
 				"text": "NS27",
 				"color": "#dc241f"
 			},
 			{
-				"text": "CE2",
-				"color": "#ff9a00"
+				"text": "TE20",
+				"color": "#734538"
 			}
 		],
 		"name": "Marina Bay",
@@ -1623,12 +1623,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS27",
-				"color": "#dc241f"
-			},
-			{
 				"text": "CE2",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "NS27",
+				"color": "#dc241f"
 			},
 			{
 				"text": "TE20",
@@ -1834,12 +1834,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS21",
-				"color": "#dc241f"
-			},
-			{
 				"text": "DT11",
 				"color": "#0354a6"
+			},
+			{
+				"text": "NS21",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Newton",
@@ -1920,12 +1920,12 @@
 	{
 		"codes": [
 			{
-				"text": "TE14",
-				"color": "#734538"
-			},
-			{
 				"text": "NS22",
 				"color": "#dc241f"
+			},
+			{
+				"text": "TE14",
+				"color": "#734538"
 			}
 		],
 		"name": "Orchard",
@@ -1988,12 +1988,12 @@
 	{
 		"codes": [
 			{
-				"text": "NE3",
-				"color": "#9016b2"
-			},
-			{
 				"text": "EW16",
 				"color": "#009530"
+			},
+			{
+				"text": "NE3",
+				"color": "#9016b2"
 			},
 			{
 				"text": "TE17",
@@ -2009,16 +2009,16 @@
 	{
 		"codes": [
 			{
-				"text": "TE17",
-				"color": "#734538"
-			},
-			{
 				"text": "EW16",
 				"color": "#009530"
 			},
 			{
 				"text": "NE3",
 				"color": "#9016b2"
+			},
+			{
+				"text": "TE17",
+				"color": "#734538"
 			}
 		],
 		"name": "Outram Park",
@@ -2056,12 +2056,12 @@
 	{
 		"codes": [
 			{
-				"text": "EW8",
-				"color": "#009530"
-			},
-			{
 				"text": "CC9",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "EW8",
+				"color": "#009530"
 			}
 		],
 		"name": "Paya Lebar",
@@ -2168,12 +2168,12 @@
 	{
 		"codes": [
 			{
-				"text": "DT15",
-				"color": "#0354a6"
-			},
-			{
 				"text": "CC4",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "DT15",
+				"color": "#0354a6"
 			}
 		],
 		"name": "Promenade",
@@ -2292,12 +2292,12 @@
 	{
 		"codes": [
 			{
-				"text": "NS26",
-				"color": "#dc241f"
-			},
-			{
 				"text": "EW14",
 				"color": "#009530"
+			},
+			{
+				"text": "NS26",
+				"color": "#dc241f"
 			}
 		],
 		"name": "Raffles Place",
@@ -2503,12 +2503,12 @@
 	{
 		"codes": [
 			{
-				"text": "NE12",
-				"color": "#9016b2"
-			},
-			{
 				"text": "CC13",
 				"color": "#ff9a00"
+			},
+			{
+				"text": "NE12",
+				"color": "#9016b2"
 			}
 		],
 		"name": "Serangoon",
@@ -2637,12 +2637,12 @@
 	{
 		"codes": [
 			{
-				"text": "TE11",
-				"color": "#734538"
-			},
-			{
 				"text": "DT10",
 				"color": "#0354a6"
+			},
+			{
+				"text": "TE11",
+				"color": "#734538"
 			}
 		],
 		"name": "Stevens",
@@ -2695,24 +2695,24 @@
 		"name": "Sungei Bedok",
 		"url": "https://en.wikipedia.org/wiki/Sungei_Bedok_MRT_station",
 		"name_chinese": "双溪勿洛[2]",
-		"name_tamil": "சங்கை பிடோக்",
+		"name_tamil": "சுங்கை பிடோக்",
 		"image": null
 	},
 	{
 		"codes": [
 			{
-				"text": "TE31",
-				"color": "#734538"
-			},
-			{
 				"text": "DT37",
 				"color": "#0354a6"
+			},
+			{
+				"text": "TE31",
+				"color": "#734538"
 			}
 		],
 		"name": "Sungei Bedok",
 		"url": "https://en.wikipedia.org/wiki/Sungei_Bedok_MRT_station",
 		"name_chinese": "双溪勿洛[2]",
-		"name_tamil": "சுங்கை பிடோக்",
+		"name_tamil": "சங்கை பிடோக்",
 		"image": null
 	},
 	{
@@ -2741,24 +2741,24 @@
 		],
 		"name": "Tampines",
 		"url": "https://en.wikipedia.org/wiki/Tampines_MRT_station",
-		"name_chinese": "淡宾尼",
+		"name_chinese": "淡滨尼",
 		"name_tamil": "தெம்பினிஸ்",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/TampinesMRTEWLandDTL.jpg/300px-TampinesMRTEWLandDTL.jpg"
 	},
 	{
 		"codes": [
 			{
-				"text": "EW2",
-				"color": "#009530"
-			},
-			{
 				"text": "DT32",
 				"color": "#0354a6"
+			},
+			{
+				"text": "EW2",
+				"color": "#009530"
 			}
 		],
 		"name": "Tampines",
 		"url": "https://en.wikipedia.org/wiki/Tampines_MRT_station",
-		"name_chinese": "淡滨尼",
+		"name_chinese": "淡宾尼",
 		"name_tamil": "தெம்பினிஸ்",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/TampinesMRTEWLandDTL.jpg/300px-TampinesMRTEWLandDTL.jpg"
 	},
@@ -2804,15 +2804,15 @@
 	{
 		"codes": [
 			{
-				"text": "EW4",
-				"color": "#009530"
-			},
-			{
 				"text": "",
 				"color": "#ffffff"
 			},
 			{
 				"text": "CG",
+				"color": "#009530"
+			},
+			{
+				"text": "EW4",
 				"color": "#009530"
 			}
 		],
@@ -3059,12 +3059,12 @@
 	{
 		"codes": [
 			{
-				"text": "TE2",
-				"color": "#734538"
-			},
-			{
 				"text": "NS9",
 				"color": "#dc241f"
+			},
+			{
+				"text": "TE2",
+				"color": "#734538"
 			}
 		],
 		"name": "Woodlands",
