@@ -53,6 +53,12 @@ const ROOT = 'https://en.wikipedia.org';
 
   console.info(`Total stations: ${results.length}`);
 
+  results.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
+
   const filePath = `data/v2/wikipedia.json`;
   fs.writeFile(filePath, JSON.stringify(results, null, '\t'), (e) => {
     if (e) throw e;
