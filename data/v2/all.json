@@ -173,15 +173,15 @@
 					]
 				}
 			],
-			"ref": "NS4;BP1",
+			"ref": "BP1;NS4",
 			"codes": [
-				{
-					"text": "NS4",
-					"color": "#dc241f"
-				},
 				{
 					"text": "BP1",
 					"color": "#748477"
+				},
+				{
+					"text": "NS4",
+					"color": "#dc241f"
 				}
 			],
 			"name:zh": "蔡厝港",
@@ -1493,15 +1493,15 @@
 					]
 				}
 			],
-			"ref": "DT16;CE1",
+			"ref": "CE1;DT16",
 			"codes": [
-				{
-					"text": "DT16",
-					"color": "#0354a6"
-				},
 				{
 					"text": "CE1",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "DT16",
+					"color": "#0354a6"
 				}
 			],
 			"name:zh": "海湾舫",
@@ -1806,15 +1806,15 @@
 					]
 				}
 			],
-			"ref": "NS17;CC15",
+			"ref": "CC15;NS17",
 			"codes": [
-				{
-					"text": "NS17",
-					"color": "#dc241f"
-				},
 				{
 					"text": "CC15",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "NS17",
+					"color": "#dc241f"
 				}
 			],
 			"name:zh": "碧山",
@@ -1847,15 +1847,15 @@
 					]
 				}
 			],
-			"ref": "TE9;CC17",
+			"ref": "CC17;TE9",
 			"codes": [
-				{
-					"text": "TE9",
-					"color": "#734538"
-				},
 				{
 					"text": "CC17",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "TE9",
+					"color": "#734538"
 				}
 			],
 			"name:zh": "加利谷",
@@ -1928,8 +1928,12 @@
 					]
 				}
 			],
-			"ref": "NE6;NS24;CC1",
+			"ref": "CC1;NE6;NS24",
 			"codes": [
+				{
+					"text": "CC1",
+					"color": "#ff9a00"
+				},
 				{
 					"text": "NE6",
 					"color": "#9016b2"
@@ -1937,10 +1941,6 @@
 				{
 					"text": "NS24",
 					"color": "#dc241f"
-				},
-				{
-					"text": "CC1",
-					"color": "#ff9a00"
 				}
 			],
 			"name:zh": "多美歌",
@@ -1989,15 +1989,15 @@
 					]
 				}
 			],
-			"ref": "EW21;CC22",
+			"ref": "CC22;EW21",
 			"codes": [
-				{
-					"text": "EW21",
-					"color": "#009530"
-				},
 				{
 					"text": "CC22",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "EW21",
+					"color": "#009530"
 				}
 			],
 			"name:zh": "波那维斯达",
@@ -2248,19 +2248,19 @@
 					]
 				}
 			],
-			"ref": "TE20;NS27;CE2",
+			"ref": "CE2;NS27;TE20",
 			"codes": [
 				{
-					"text": "TE20",
-					"color": "#734538"
+					"text": "CE2",
+					"color": "#ff9a00"
 				},
 				{
 					"text": "NS27",
 					"color": "#dc241f"
 				},
 				{
-					"text": "CE2",
-					"color": "#ff9a00"
+					"text": "TE20",
+					"color": "#734538"
 				}
 			],
 			"name:zh": "滨海湾",
@@ -2359,15 +2359,15 @@
 					]
 				}
 			],
-			"ref": "DT9;CC19",
+			"ref": "CC19;DT9",
 			"codes": [
-				{
-					"text": "DT9",
-					"color": "#0354a6"
-				},
 				{
 					"text": "CC19",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "DT9",
+					"color": "#0354a6"
 				}
 			],
 			"name:zh": "植物园",
@@ -2514,15 +2514,15 @@
 					]
 				}
 			],
-			"ref": "DT26;CC10",
+			"ref": "CC10;DT26",
 			"codes": [
-				{
-					"text": "DT26",
-					"color": "#0354a6"
-				},
 				{
 					"text": "CC10",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "DT26",
+					"color": "#0354a6"
 				}
 			],
 			"name:zh": "麦波申",
@@ -2563,15 +2563,15 @@
 					]
 				}
 			],
-			"ref": "DT15;CC4",
+			"ref": "CC4;DT15",
 			"codes": [
-				{
-					"text": "DT15",
-					"color": "#0354a6"
-				},
 				{
 					"text": "CC4",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "DT15",
+					"color": "#0354a6"
 				}
 			],
 			"name:zh": "宝门廊",
@@ -2857,15 +2857,15 @@
 					]
 				}
 			],
-			"ref": "NE12;CC13",
+			"ref": "CC13;NE12",
 			"codes": [
-				{
-					"text": "NE12",
-					"color": "#9016b2"
-				},
 				{
 					"text": "CC13",
 					"color": "#ff9a00"
+				},
+				{
+					"text": "NE12",
+					"color": "#9016b2"
 				}
 			],
 			"name:zh": "实龙岗",
@@ -2906,7 +2906,7 @@
 			"name:zh": "虎豹别墅",
 			"name:hi": "ஹா பர் வில்லா",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Haw_Par_Villa_MRT_station",
-			"wikipedia_image_url": null
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/CC25HawParVilla.jpeg/300px-CC25HawParVilla.jpeg"
 		},
 		{
 			"name": "Kaki Bukit ",
@@ -4075,15 +4075,15 @@
 					]
 				}
 			],
-			"ref": "NE4;DT19",
+			"ref": "DT19;NE4",
 			"codes": [
-				{
-					"text": "NE4",
-					"color": "#9016b2"
-				},
 				{
 					"text": "DT19",
 					"color": "#0354a6"
+				},
+				{
+					"text": "NE4",
+					"color": "#9016b2"
 				}
 			],
 			"name:zh": "牛车水",
@@ -4529,15 +4529,15 @@
 					]
 				}
 			],
-			"ref": "NS25;EW13",
+			"ref": "EW13;NS25",
 			"codes": [
-				{
-					"text": "NS25",
-					"color": "#dc241f"
-				},
 				{
 					"text": "EW13",
 					"color": "#009530"
+				},
+				{
+					"text": "NS25",
+					"color": "#dc241f"
 				}
 			],
 			"name:zh": "政府大厦",
@@ -5213,7 +5213,7 @@
 			"name:zh": "中峇鲁",
 			"name:hi": "தியோங் பாரு",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tiong_Bahru_MRT_station",
-			"wikipedia_image_url": null
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Tiong_Bahru_MRT_2016.jpeg/300px-Tiong_Bahru_MRT_2016.jpeg"
 		},
 		{
 			"name": "Pioneer",
@@ -5277,18 +5277,18 @@
 					]
 				}
 			],
-			"ref": "EW4;;CG",
+			"ref": ";CG;EW4",
 			"codes": [
-				{
-					"text": "EW4",
-					"color": "#009530"
-				},
 				{
 					"text": "",
 					"color": "#ffffff"
 				},
 				{
 					"text": "CG",
+					"color": "#009530"
+				},
+				{
+					"text": "EW4",
 					"color": "#009530"
 				}
 			],
@@ -5473,12 +5473,8 @@
 					]
 				}
 			],
-			"ref": "TE17;EW16;NE3",
+			"ref": "EW16;NE3;TE17",
 			"codes": [
-				{
-					"text": "TE17",
-					"color": "#734538"
-				},
 				{
 					"text": "EW16",
 					"color": "#009530"
@@ -5486,6 +5482,10 @@
 				{
 					"text": "NE3",
 					"color": "#9016b2"
+				},
+				{
+					"text": "TE17",
+					"color": "#734538"
 				}
 			],
 			"name:zh": "欧南园",
@@ -5638,7 +5638,7 @@
 			"name:zh": "金文泰",
 			"name:hi": "கிளிமெண்டி",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Clementi_MRT_station",
-			"wikipedia_image_url": null
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Clementi_MRT_Station.jpeg/300px-Clementi_MRT_Station.jpeg"
 		},
 		{
 			"name": "Boon Keng",
@@ -6891,15 +6891,15 @@
 					]
 				}
 			],
-			"ref": "TE14;NS22",
+			"ref": "NS22;TE14",
 			"codes": [
-				{
-					"text": "TE14",
-					"color": "#734538"
-				},
 				{
 					"text": "NS22",
 					"color": "#dc241f"
+				},
+				{
+					"text": "TE14",
+					"color": "#734538"
 				}
 			],
 			"name:zh": "乌节",
@@ -6993,15 +6993,15 @@
 					]
 				}
 			],
-			"ref": "TE2;NS9",
+			"ref": "NS9;TE2",
 			"codes": [
-				{
-					"text": "TE2",
-					"color": "#734538"
-				},
 				{
 					"text": "NS9",
 					"color": "#dc241f"
+				},
+				{
+					"text": "TE2",
+					"color": "#734538"
 				}
 			],
 			"name:zh": "兀兰",
