@@ -3,7 +3,7 @@
 		"codes": [
 			{
 				"text": "NS10",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Admiralty",
@@ -16,7 +16,7 @@
 		"codes": [
 			{
 				"text": "EW9",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Aljunied",
@@ -29,7 +29,7 @@
 		"codes": [
 			{
 				"text": "NS16",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Ang Mo Kio",
@@ -37,6 +37,19 @@
 		"name_chinese": "宏茂桥",
 		"name_tamil": "அங் மோ கியோ",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/NS16_Ang_Mo_Kio_Platform_A-2.jpg/300px-NS16_Ang_Mo_Kio_Platform_A-2.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JS7",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Bahar Junction",
+		"url": "https://en.wikipedia.org/wiki/Bahar_Junction_MRT_station",
+		"name_chinese": "巴哈路口",
+		"name_tamil": "",
+		"image": null
 	},
 	{
 		"codes": [
@@ -49,7 +62,7 @@
 		"url": "https://en.wikipedia.org/wiki/Bakau_LRT_Station",
 		"name_chinese": "码高",
 		"name_tamil": "பக்காவ்",
-		"image": null
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/SE3_Bakau_Station.jpg/300px-SE3_Bakau_Station.jpg"
 	},
 	{
 		"codes": [
@@ -68,7 +81,7 @@
 		"codes": [
 			{
 				"text": "CC12",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Bartley",
@@ -81,11 +94,11 @@
 		"codes": [
 			{
 				"text": "CE1",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT16",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bayfront",
@@ -98,11 +111,11 @@
 		"codes": [
 			{
 				"text": "CE1",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT16",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bayfront",
@@ -115,7 +128,7 @@
 		"codes": [
 			{
 				"text": "TE29",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Bayshore",
@@ -128,7 +141,7 @@
 		"codes": [
 			{
 				"text": "DT5",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Beauty World",
@@ -141,7 +154,7 @@
 		"codes": [
 			{
 				"text": "EW5",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Bedok",
@@ -154,7 +167,7 @@
 		"codes": [
 			{
 				"text": "DT29",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bedok North",
@@ -167,7 +180,7 @@
 		"codes": [
 			{
 				"text": "DT30",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bedok Reservoir",
@@ -180,7 +193,7 @@
 		"codes": [
 			{
 				"text": "TE30",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Bedok South",
@@ -193,7 +206,7 @@
 		"codes": [
 			{
 				"text": "DT21",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bencoolen",
@@ -206,7 +219,7 @@
 		"codes": [
 			{
 				"text": "DT23",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bendemeer",
@@ -219,11 +232,11 @@
 		"codes": [
 			{
 				"text": "CC15",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NS17",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Bishan",
@@ -236,11 +249,11 @@
 		"codes": [
 			{
 				"text": "CC15",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NS17",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Bishan",
@@ -253,7 +266,7 @@
 		"codes": [
 			{
 				"text": "NE9",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Boon Keng",
@@ -266,7 +279,28 @@
 		"codes": [
 			{
 				"text": "EW27",
-				"color": "#009530"
+				"color": "#009645"
+			},
+			{
+				"text": "JS8",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Boon Lay",
+		"url": "https://en.wikipedia.org/wiki/Boon_Lay_MRT_station",
+		"name_chinese": "文礼",
+		"name_tamil": "பூன் லே",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Boon_Lay_with_PSD.jpg/300px-Boon_Lay_with_PSD.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "EW27",
+				"color": "#009645"
+			},
+			{
+				"text": "JS8",
+				"color": "#0099aa"
 			}
 		],
 		"name": "Boon Lay",
@@ -279,11 +313,11 @@
 		"codes": [
 			{
 				"text": "CC19",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT9",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Botanic Gardens",
@@ -296,11 +330,11 @@
 		"codes": [
 			{
 				"text": "CC19",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT9",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Botanic Gardens",
@@ -313,20 +347,20 @@
 		"codes": [
 			{
 				"text": "NS18",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Braddell",
 		"url": "https://en.wikipedia.org/wiki/Braddell_MRT_station",
 		"name_chinese": "布莱德",
 		"name_tamil": "பிரேடல்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Ns18braddell.jpg/300px-Ns18braddell.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/NS18_Braddell_Exit_A.jpg/300px-NS18_Braddell_Exit_A.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CC2",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Bras Basah",
@@ -339,7 +373,7 @@
 		"codes": [
 			{
 				"text": "TE7",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Bright Hill",
@@ -352,7 +386,7 @@
 		"codes": [
 			{
 				"text": "NE15",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Buangkok",
@@ -365,11 +399,11 @@
 		"codes": [
 			{
 				"text": "DT14",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "EW12",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Bugis",
@@ -382,11 +416,11 @@
 		"codes": [
 			{
 				"text": "DT14",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "EW12",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Bugis",
@@ -399,7 +433,7 @@
 		"codes": [
 			{
 				"text": "NS2",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Bukit Batok",
@@ -411,8 +445,21 @@
 	{
 		"codes": [
 			{
+				"text": "JE3",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Bukit Batok West",
+		"url": "https://en.wikipedia.org/wiki/Bukit_Batok_West_MRT_station",
+		"name_chinese": "武吉巴督西",
+		"name_tamil": "புக்கிட் பாத்தோக் வெஸ்ட்",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "CC18",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Bukit Brown[a]",
@@ -425,7 +472,7 @@
 		"codes": [
 			{
 				"text": "NS3",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Bukit Gombak",
@@ -442,7 +489,7 @@
 			},
 			{
 				"text": "DT1",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bukit Panjang",
@@ -459,7 +506,7 @@
 			},
 			{
 				"text": "DT1",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Bukit Panjang",
@@ -472,11 +519,11 @@
 		"codes": [
 			{
 				"text": "CC22",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "EW21",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Buona Vista",
@@ -489,11 +536,11 @@
 		"codes": [
 			{
 				"text": "CC22",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "EW21",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Buona Vista",
@@ -506,11 +553,11 @@
 		"codes": [
 			{
 				"text": "CC17",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "TE9",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Caldecott",
@@ -523,11 +570,11 @@
 		"codes": [
 			{
 				"text": "CC17",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "TE9",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Caldecott",
@@ -540,20 +587,20 @@
 		"codes": [
 			{
 				"text": "NS12",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Canberra",
 		"url": "https://en.wikipedia.org/wiki/Canberra_MRT_station",
 		"name_chinese": "坎贝拉",
 		"name_tamil": "கான்பரா",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Canberra_MRT_Station_%28NSL%29_-_Construction.jpg/300px-Canberra_MRT_Station_%28NSL%29_-_Construction.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Canberra_April_2018.jpg/300px-Canberra_April_2018.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CC31",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Cantonment",
@@ -566,7 +613,7 @@
 		"codes": [
 			{
 				"text": "DT2",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Cashew",
@@ -579,7 +626,7 @@
 		"codes": [
 			{
 				"text": "CG2",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Changi Airport",
@@ -605,11 +652,11 @@
 		"codes": [
 			{
 				"text": "DT19",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NE4",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Chinatown",
@@ -622,11 +669,11 @@
 		"codes": [
 			{
 				"text": "DT19",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NE4",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Chinatown",
@@ -639,7 +686,7 @@
 		"codes": [
 			{
 				"text": "EW25",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Chinese Garden",
@@ -655,8 +702,12 @@
 				"color": "#748477"
 			},
 			{
+				"text": "JS1",
+				"color": "#0099aa"
+			},
+			{
 				"text": "NS4",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Choa Chu Kang",
@@ -672,8 +723,12 @@
 				"color": "#748477"
 			},
 			{
+				"text": "JS1",
+				"color": "#0099aa"
+			},
+			{
 				"text": "NS4",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Choa Chu Kang",
@@ -685,12 +740,46 @@
 	{
 		"codes": [
 			{
+				"text": "BP1",
+				"color": "#748477"
+			},
+			{
+				"text": "JS1",
+				"color": "#0099aa"
+			},
+			{
+				"text": "NS4",
+				"color": "#d42e12"
+			}
+		],
+		"name": "Choa Chu Kang",
+		"url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_MRT/LRT_station",
+		"name_chinese": "蔡厝港",
+		"name_tamil": "சுவா சூ காங்",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/NS4_BP1_Choa_Chu_Kang.jpg/300px-NS4_BP1_Choa_Chu_Kang.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JS2",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Choa Chu Kang West",
+		"url": "https://en.wikipedia.org/wiki/Choa_Chu_Kang_West_MRT_station",
+		"name_chinese": "蔡厝港西",
+		"name_tamil": "சுவா சூ காங் வெஸ்ட்",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "EW13",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NS25",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "City Hall",
@@ -703,11 +792,11 @@
 		"codes": [
 			{
 				"text": "EW13",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NS25",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "City Hall",
@@ -720,7 +809,7 @@
 		"codes": [
 			{
 				"text": "NE5",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Clarke Quay",
@@ -733,7 +822,7 @@
 		"codes": [
 			{
 				"text": "EW23",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Clementi",
@@ -746,7 +835,7 @@
 		"codes": [
 			{
 				"text": "EW20",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Commonwealth",
@@ -784,6 +873,19 @@
 	{
 		"codes": [
 			{
+				"text": "JS5",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Corporation",
+		"url": "https://en.wikipedia.org/wiki/Corporation_MRT_station",
+		"name_chinese": "企业",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "PE1",
 				"color": "#748477"
 			}
@@ -798,7 +900,7 @@
 		"codes": [
 			{
 				"text": "CC8",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Dakota",
@@ -824,15 +926,15 @@
 		"codes": [
 			{
 				"text": "CC1",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE6",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "NS24",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -845,15 +947,15 @@
 		"codes": [
 			{
 				"text": "CC1",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE6",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "NS24",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -866,15 +968,15 @@
 		"codes": [
 			{
 				"text": "CC1",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE6",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "NS24",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Dhoby Ghaut",
@@ -887,7 +989,7 @@
 		"codes": [
 			{
 				"text": "EW22",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Dover",
@@ -900,7 +1002,7 @@
 		"codes": [
 			{
 				"text": "DT17",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Downtown",
@@ -912,8 +1014,21 @@
 	{
 		"codes": [
 			{
+				"text": "JS9",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Enterprise",
+		"url": "https://en.wikipedia.org/wiki/Enterprise_MRT_station",
+		"name_chinese": "事业",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "CC3",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Esplanade",
@@ -926,24 +1041,24 @@
 		"codes": [
 			{
 				"text": "EW7",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Eunos",
 		"url": "https://en.wikipedia.org/wiki/Eunos_MRT_station",
 		"name_chinese": "友诺士",
 		"name_tamil": "யூனுஸ்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Eunos_MRT.JPG/300px-Eunos_MRT.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/EW7_Eunos_Platform.jpg/300px-EW7_Eunos_Platform.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CG1",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "DT35",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Expo",
@@ -956,11 +1071,11 @@
 		"codes": [
 			{
 				"text": "CG1",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "DT35",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Expo",
@@ -999,7 +1114,7 @@
 		"codes": [
 			{
 				"text": "NE8",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Farrer Park",
@@ -1012,7 +1127,7 @@
 		"codes": [
 			{
 				"text": "CC20",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Farrer Road",
@@ -1038,7 +1153,7 @@
 		"codes": [
 			{
 				"text": "DT20",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Fort Canning",
@@ -1051,7 +1166,7 @@
 		"codes": [
 			{
 				"text": "TE22",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Gardens by the Bay",
@@ -1063,21 +1178,34 @@
 	{
 		"codes": [
 			{
+				"text": "JW1",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Gek Poh",
+		"url": "https://en.wikipedia.org/wiki/Gek_Poh_MRT_station",
+		"name_chinese": "玉宝",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "DT24",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Geylang Bahru",
 		"url": "https://en.wikipedia.org/wiki/Geylang_Bahru_MRT_Station",
 		"name_chinese": "芽笼峇鲁",
 		"name_tamil": "கேலாங் பாரு",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/DT24_Geylang_Bahru_station.jpg/300px-DT24_Geylang_Bahru_station.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/DT24_Geylang_Bahru_Exit_B.jpg/300px-DT24_Geylang_Bahru_Exit_B.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "TE15",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Great World",
@@ -1090,7 +1218,7 @@
 		"codes": [
 			{
 				"text": "EW30",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Gul Circle",
@@ -1103,11 +1231,11 @@
 		"codes": [
 			{
 				"text": "CC29",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE1",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "HarbourFront",
@@ -1120,11 +1248,11 @@
 		"codes": [
 			{
 				"text": "CC29",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE1",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "HarbourFront",
@@ -1137,7 +1265,7 @@
 		"codes": [
 			{
 				"text": "TE16",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Havelock",
@@ -1150,7 +1278,7 @@
 		"codes": [
 			{
 				"text": "CC25",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Haw Par Villa",
@@ -1163,7 +1291,7 @@
 		"codes": [
 			{
 				"text": "DT3",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Hillview",
@@ -1176,7 +1304,7 @@
 		"codes": [
 			{
 				"text": "CC21",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Holland Village",
@@ -1188,21 +1316,34 @@
 	{
 		"codes": [
 			{
+				"text": "JS4",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Hong Kah",
+		"url": "https://en.wikipedia.org/wiki/Hong_Kah_MRT_station",
+		"name_chinese": "丰嘉",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "NE14",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Hougang",
 		"url": "https://en.wikipedia.org/wiki/Hougang_MRT_station",
 		"name_chinese": "后港",
 		"name_tamil": "ஹவ்காங்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Ne14hougang.jpg/300px-Ne14hougang.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/NE14_Hougang_MRT_Exit_A_at_Hougang_Bus_Interchange.jpg/300px-NE14_Hougang_MRT_Exit_A_at_Hougang_Bus_Interchange.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "DT22",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Jalan Besar",
@@ -1228,7 +1369,7 @@
 		"codes": [
 			{
 				"text": "EW29",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Joo Koon",
@@ -1241,11 +1382,15 @@
 		"codes": [
 			{
 				"text": "EW24",
-				"color": "#009530"
+				"color": "#009645"
+			},
+			{
+				"text": "JE5",
+				"color": "#0099aa"
 			},
 			{
 				"text": "NS1",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Jurong East",
@@ -1258,11 +1403,15 @@
 		"codes": [
 			{
 				"text": "EW24",
-				"color": "#009530"
+				"color": "#009645"
+			},
+			{
+				"text": "JE5",
+				"color": "#0099aa"
 			},
 			{
 				"text": "NS1",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Jurong East",
@@ -1270,6 +1419,79 @@
 		"name_chinese": "裕廊东",
 		"name_tamil": "ஜூரோங் கிழக்கு",
 		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Jurong_East_MRT_Station_with_PSDs.jpg/300px-Jurong_East_MRT_Station_with_PSDs.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "EW24",
+				"color": "#009645"
+			},
+			{
+				"text": "JE5",
+				"color": "#0099aa"
+			},
+			{
+				"text": "NS1",
+				"color": "#d42e12"
+			}
+		],
+		"name": "Jurong East",
+		"url": "https://en.wikipedia.org/wiki/Jurong_East_MRT_station",
+		"name_chinese": "裕廊东",
+		"name_tamil": "ஜூரோங் கிழக்கு",
+		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Jurong_East_MRT_Station_with_PSDs.jpg/300px-Jurong_East_MRT_Station_with_PSDs.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JS11",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Jurong Hill",
+		"url": "https://en.wikipedia.org/wiki/Jurong_Hill_MRT_station",
+		"name_chinese": "裕廊山",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JS12",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Jurong Pier",
+		"url": "https://en.wikipedia.org/wiki/Jurong_Pier_MRT_station",
+		"name_chinese": "裕廊渡头",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JE6",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Jurong Town Hall",
+		"url": "https://en.wikipedia.org/wiki/Jurong_Town_Hall_MRT_station",
+		"name_chinese": "裕廊镇大会堂",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JS6",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Jurong West",
+		"url": "https://en.wikipedia.org/wiki/Jurong_West_MRT_station",
+		"name_chinese": "裕廊西",
+		"name_tamil": "ஜூரோங் வெஸ்ட்",
+		"image": null
 	},
 	{
 		"codes": [
@@ -1288,7 +1510,7 @@
 		"codes": [
 			{
 				"text": "DT28",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Kaki Bukit",
@@ -1301,7 +1523,7 @@
 		"codes": [
 			{
 				"text": "EW10",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Kallang",
@@ -1321,13 +1543,13 @@
 		"url": "https://en.wikipedia.org/wiki/Kangkar_LRT_Station",
 		"name_chinese": "港脚",
 		"name_tamil": "கங்கார்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kangkar_LRT_Station%2C_Oct_06.JPG/300px-Kangkar_LRT_Station%2C_Oct_06.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/SE4_Kangkar_station.jpg/300px-SE4_Kangkar_station.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "TE24",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Katong Park",
@@ -1353,20 +1575,20 @@
 		"codes": [
 			{
 				"text": "EW6",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Kembangan",
 		"url": "https://en.wikipedia.org/wiki/Kembangan_MRT_station",
 		"name_chinese": "景万岸",
 		"name_tamil": "கெம்பாங்கான்",
-		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/KBG_PLAT.JPG/300px-KBG_PLAT.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/KBG_PLAT.jpg/300px-KBG_PLAT.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CC24",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Kent Ridge",
@@ -1379,7 +1601,7 @@
 		"codes": [
 			{
 				"text": "CC30",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Keppel",
@@ -1392,7 +1614,7 @@
 		"codes": [
 			{
 				"text": "NS14",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Khatib",
@@ -1405,7 +1627,7 @@
 		"codes": [
 			{
 				"text": "DT6",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "King Albert Park",
@@ -1418,20 +1640,20 @@
 		"codes": [
 			{
 				"text": "NE13",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Kovan",
 		"url": "https://en.wikipedia.org/wiki/Kovan_MRT_station",
 		"name_chinese": "高文",
 		"name_tamil": "கோவன்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Ne13kovan.jpg/300px-Ne13kovan.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NE13_Kovan_Exit_C.jpg/300px-NE13_Kovan_Exit_C.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "NS7",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Kranji",
@@ -1457,7 +1679,7 @@
 		"codes": [
 			{
 				"text": "CC27",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Labrador Park",
@@ -1470,20 +1692,20 @@
 		"codes": [
 			{
 				"text": "EW26",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Lakeside",
 		"url": "https://en.wikipedia.org/wiki/Lakeside_MRT_station",
 		"name_chinese": "湖畔",
 		"name_tamil": "ஏரிக்கரை",
-		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Lakeside_MRT_Station_with_HHPSD.jpg/300px-Lakeside_MRT_Station_with_HHPSD.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jurong_LakesideMRT.JPG/300px-Jurong_LakesideMRT.JPG"
 	},
 	{
 		"codes": [
 			{
 				"text": "EW11",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Lavender",
@@ -1509,7 +1731,7 @@
 		"codes": [
 			{
 				"text": "TE5",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Lentor",
@@ -1522,11 +1744,11 @@
 		"codes": [
 			{
 				"text": "DT12",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NE7",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Little India",
@@ -1539,11 +1761,11 @@
 		"codes": [
 			{
 				"text": "DT12",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NE7",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Little India",
@@ -1556,7 +1778,7 @@
 		"codes": [
 			{
 				"text": "CC14",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Lorong Chuan",
@@ -1569,11 +1791,11 @@
 		"codes": [
 			{
 				"text": "CC10",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT26",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "MacPherson",
@@ -1586,11 +1808,11 @@
 		"codes": [
 			{
 				"text": "CC10",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT26",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "MacPherson",
@@ -1603,15 +1825,15 @@
 		"codes": [
 			{
 				"text": "CE2",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NS27",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE20",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marina Bay",
@@ -1624,15 +1846,15 @@
 		"codes": [
 			{
 				"text": "CE2",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NS27",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE20",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marina Bay",
@@ -1645,15 +1867,15 @@
 		"codes": [
 			{
 				"text": "CE2",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NS27",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE20",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marina Bay",
@@ -1666,7 +1888,7 @@
 		"codes": [
 			{
 				"text": "TE21",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marina South",
@@ -1679,7 +1901,7 @@
 		"codes": [
 			{
 				"text": "NS28",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Marina South Pier",
@@ -1692,7 +1914,7 @@
 		"codes": [
 			{
 				"text": "TE26",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marine Parade",
@@ -1705,7 +1927,7 @@
 		"codes": [
 			{
 				"text": "TE27",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Marine Terrace",
@@ -1718,7 +1940,7 @@
 		"codes": [
 			{
 				"text": "NS8",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Marsiling",
@@ -1731,7 +1953,7 @@
 		"codes": [
 			{
 				"text": "CC16",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Marymount",
@@ -1744,7 +1966,7 @@
 		"codes": [
 			{
 				"text": "DT25",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Mattar",
@@ -1757,7 +1979,7 @@
 		"codes": [
 			{
 				"text": "TE18",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Maxwell",
@@ -1770,7 +1992,7 @@
 		"codes": [
 			{
 				"text": "TE6",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Mayflower",
@@ -1796,7 +2018,7 @@
 		"codes": [
 			{
 				"text": "TE10",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Mount Pleasant",
@@ -1809,7 +2031,7 @@
 		"codes": [
 			{
 				"text": "CC7",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Mountbatten",
@@ -1821,25 +2043,51 @@
 	{
 		"codes": [
 			{
+				"text": "JW4",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Nanyang Crescent",
+		"url": "https://en.wikipedia.org/wiki/Nanyang_Crescent_MRT_station",
+		"name_chinese": "南洋弯",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JW3",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Nanyang Gateway",
+		"url": "https://en.wikipedia.org/wiki/Nanyang_Gateway_MRT_station",
+		"name_chinese": "南洋门",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "TE12",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Napier",
 		"url": "https://en.wikipedia.org/wiki/Napier_MRT_station",
 		"name_chinese": "纳比雅",
 		"name_tamil": "நேப்பியர்",
-		"image": null
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/TE12_Napier_MRT_Under_Construction_1.jpg/300px-TE12_Napier_MRT_Under_Construction_1.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "DT11",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NS21",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Newton",
@@ -1852,11 +2100,11 @@
 		"codes": [
 			{
 				"text": "DT11",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "NS21",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Newton",
@@ -1882,7 +2130,7 @@
 		"codes": [
 			{
 				"text": "CC5",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Nicoll Highway",
@@ -1895,7 +2143,7 @@
 		"codes": [
 			{
 				"text": "NS20",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Novena",
@@ -1921,41 +2169,41 @@
 		"codes": [
 			{
 				"text": "NS22",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE14",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Orchard",
 		"url": "https://en.wikipedia.org/wiki/Orchard_MRT_station",
 		"name_chinese": "乌节",
 		"name_tamil": "ஆர்ச்சர்ட்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Orchard_MRT.JPG/300px-Orchard_MRT.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Orchard_C151b.jpg/300px-Orchard_C151b.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "NS22",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE14",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Orchard",
 		"url": "https://en.wikipedia.org/wiki/Orchard_MRT_station",
 		"name_chinese": "乌节",
 		"name_tamil": "ஆர்ச்சர்ட்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Orchard_MRT.JPG/300px-Orchard_MRT.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Orchard_C151b.jpg/300px-Orchard_C151b.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "TE13",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Orchard Boulevard",
@@ -1968,15 +2216,15 @@
 		"codes": [
 			{
 				"text": "EW16",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NE3",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "TE17",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Outram Park",
@@ -1989,15 +2237,15 @@
 		"codes": [
 			{
 				"text": "EW16",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NE3",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "TE17",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Outram Park",
@@ -2010,15 +2258,15 @@
 		"codes": [
 			{
 				"text": "EW16",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NE3",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "TE17",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Outram Park",
@@ -2026,12 +2274,25 @@
 		"name_chinese": "欧南园",
 		"name_tamil": "ஊட்ரம் பார்க்",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Outram_Park_Station_East_West_Line_Platform.jpg/300px-Outram_Park_Station_East_West_Line_Platform.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JE7",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Pandan Reservoir",
+		"url": "https://en.wikipedia.org/wiki/Pandan_Reservoir_MRT_station",
+		"name_chinese": "班丹蓄水池",
+		"name_tamil": "",
+		"image": null
 	},
 	{
 		"codes": [
 			{
 				"text": "CC26",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Pasir Panjang",
@@ -2044,7 +2305,7 @@
 		"codes": [
 			{
 				"text": "EW1",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Pasir Ris",
@@ -2057,11 +2318,11 @@
 		"codes": [
 			{
 				"text": "CC9",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "EW8",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Paya Lebar",
@@ -2074,11 +2335,11 @@
 		"codes": [
 			{
 				"text": "CC9",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "EW8",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Paya Lebar",
@@ -2099,6 +2360,19 @@
 		"name_chinese": "秉定",
 		"name_tamil": "பெண்டிங்",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/BP8_Pending_LRT_Station.jpg/300px-BP8_Pending_LRT_Station.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JW5",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Peng Kang Hill",
+		"url": "https://en.wikipedia.org/wiki/Peng_Kang_Hill_MRT_station",
+		"name_chinese": "秉光山",
+		"name_tamil": "",
+		"image": null
 	},
 	{
 		"codes": [
@@ -2130,7 +2404,7 @@
 		"codes": [
 			{
 				"text": "EW28",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Pioneer",
@@ -2143,7 +2417,7 @@
 		"codes": [
 			{
 				"text": "NE10",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Potong Pasir",
@@ -2156,7 +2430,7 @@
 		"codes": [
 			{
 				"text": "CC32",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Prince Edward",
@@ -2169,41 +2443,41 @@
 		"codes": [
 			{
 				"text": "CC4",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT15",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Promenade",
 		"url": "https://en.wikipedia.org/wiki/Promenade_MRT_station",
 		"name_chinese": "宝门廊",
 		"name_tamil": "புரொமனாட்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Promenade-CCLPlatform.JPG/300px-Promenade-CCLPlatform.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/CC%CC%A94_Promenade_Platform_A.jpg/300px-CC%CC%A94_Promenade_Platform_A.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CC4",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "DT15",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Promenade",
 		"url": "https://en.wikipedia.org/wiki/Promenade_MRT_station",
 		"name_chinese": "宝门廊",
 		"name_tamil": "புரொமனாட்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Promenade-CCLPlatform.JPG/300px-Promenade-CCLPlatform.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/CC%CC%A94_Promenade_Platform_A.jpg/300px-CC%CC%A94_Promenade_Platform_A.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "NE17",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "PTC",
@@ -2214,13 +2488,13 @@
 		"url": "https://en.wikipedia.org/wiki/Punggol_MRT/LRT_station",
 		"name_chinese": "榜鹅",
 		"name_tamil": "பொங்கோல்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ne17_Punggol_platform.jpg/308px-Ne17_Punggol_platform.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/NE17_PTC_Punggol_Exit_C.jpg/300px-NE17_PTC_Punggol_Exit_C.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "NE17",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "PTC",
@@ -2231,13 +2505,13 @@
 		"url": "https://en.wikipedia.org/wiki/Punggol_MRT/LRT_station",
 		"name_chinese": "榜鹅",
 		"name_tamil": "பொங்கோல்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ne17_Punggol_platform.jpg/308px-Ne17_Punggol_platform.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/NE17_PTC_Punggol_Exit_C.jpg/300px-NE17_PTC_Punggol_Exit_C.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "NE18",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Punggol Coast",
@@ -2257,13 +2531,13 @@
 		"url": "https://en.wikipedia.org/wiki/Punggol_Point_LRT_Station",
 		"name_chinese": "榜鹅坊",
 		"name_tamil": "பொங்கோல் பாயிண்ட்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Punggol_Point_LRT_View.JPG/300px-Punggol_Point_LRT_View.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Punggol_Point_Platform.jpg/300px-Punggol_Point_Platform.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "EW19",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Queenstown",
@@ -2276,11 +2550,11 @@
 		"codes": [
 			{
 				"text": "EW14",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NS26",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Raffles Place",
@@ -2293,11 +2567,11 @@
 		"codes": [
 			{
 				"text": "EW14",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "NS26",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Raffles Place",
@@ -2323,7 +2597,7 @@
 		"codes": [
 			{
 				"text": "EW18",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Redhill",
@@ -2362,7 +2636,7 @@
 		"codes": [
 			{
 				"text": "DT13",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Rochor",
@@ -2382,7 +2656,7 @@
 		"url": "https://en.wikipedia.org/wiki/Rumbia_LRT_Station",
 		"name_chinese": "棕美",
 		"name_tamil": "ரூம்பியா",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Rumbia_LRT.JPG/300px-Rumbia_LRT.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/SE2_Rumbia_Concourse.jpg/300px-SE2_Rumbia_Concourse.jpg"
 	},
 	{
 		"codes": [
@@ -2427,7 +2701,7 @@
 		"codes": [
 			{
 				"text": "NS11",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Sembawang",
@@ -2440,7 +2714,7 @@
 		"codes": [
 			{
 				"text": "NE16",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "STC",
@@ -2451,13 +2725,13 @@
 		"url": "https://en.wikipedia.org/wiki/Sengkang_MRT/LRT_station",
 		"name_chinese": "盛港",
 		"name_tamil": "செங்காங்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ne16sengkang.jpg/300px-Ne16sengkang.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sengkang_NEL_Interchange%2C_Nov_05.JPG/300px-Sengkang_NEL_Interchange%2C_Nov_05.JPG"
 	},
 	{
 		"codes": [
 			{
 				"text": "NE16",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			},
 			{
 				"text": "STC",
@@ -2468,7 +2742,7 @@
 		"url": "https://en.wikipedia.org/wiki/Sengkang_MRT/LRT_station",
 		"name_chinese": "盛港",
 		"name_tamil": "செங்காங்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ne16sengkang.jpg/300px-Ne16sengkang.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sengkang_NEL_Interchange%2C_Nov_05.JPG/300px-Sengkang_NEL_Interchange%2C_Nov_05.JPG"
 	},
 	{
 		"codes": [
@@ -2487,41 +2761,41 @@
 		"codes": [
 			{
 				"text": "CC13",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE12",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Serangoon",
 		"url": "https://en.wikipedia.org/wiki/Serangoon_MRT_station",
 		"name_chinese": "实龙岗",
 		"name_tamil": "சிராங்கூன்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Serangoon_MRT_station_entrance_.jpg/300px-Serangoon_MRT_station_entrance_.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/NE12_Serangoon_Exit_B.jpg/300px-NE12_Serangoon_Exit_B.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "CC13",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			},
 			{
 				"text": "NE12",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Serangoon",
 		"url": "https://en.wikipedia.org/wiki/Serangoon_MRT_station",
 		"name_chinese": "实龙岗",
 		"name_tamil": "சிராங்கூன்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Serangoon_MRT_station_entrance_.jpg/300px-Serangoon_MRT_station_entrance_.jpg"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/NE12_Serangoon_Exit_B.jpg/300px-NE12_Serangoon_Exit_B.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "TE19",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Shenton Way",
@@ -2534,7 +2808,7 @@
 		"codes": [
 			{
 				"text": "TE28",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Siglap",
@@ -2547,7 +2821,7 @@
 		"codes": [
 			{
 				"text": "EW3",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Simei",
@@ -2560,7 +2834,7 @@
 		"codes": [
 			{
 				"text": "DT7",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Sixth Avenue",
@@ -2573,7 +2847,7 @@
 		"codes": [
 			{
 				"text": "NS23",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Somerset",
@@ -2612,7 +2886,7 @@
 		"codes": [
 			{
 				"text": "TE4",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Springleaf",
@@ -2625,24 +2899,24 @@
 		"codes": [
 			{
 				"text": "CC6",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Stadium",
 		"url": "https://en.wikipedia.org/wiki/Stadium_MRT_station",
 		"name_chinese": "体育场",
 		"name_tamil": "ஸ்டேடியம்",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Stadium_MRT_Platform.JPG/300px-Stadium_MRT_Platform.JPG"
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/CC6_Stadium_MRT_Exit_A.jpg/300px-CC6_Stadium_MRT_Exit_A.jpg"
 	},
 	{
 		"codes": [
 			{
 				"text": "DT10",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "TE11",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Stevens",
@@ -2655,11 +2929,11 @@
 		"codes": [
 			{
 				"text": "DT10",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "TE11",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Stevens",
@@ -2685,28 +2959,11 @@
 		"codes": [
 			{
 				"text": "DT37",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "TE31",
-				"color": "#734538"
-			}
-		],
-		"name": "Sungei Bedok",
-		"url": "https://en.wikipedia.org/wiki/Sungei_Bedok_MRT_station",
-		"name_chinese": "双溪勿洛[2]",
-		"name_tamil": "சுங்கை பிடோக்",
-		"image": null
-	},
-	{
-		"codes": [
-			{
-				"text": "DT37",
-				"color": "#0354a6"
-			},
-			{
-				"text": "TE31",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Sungei Bedok",
@@ -2718,8 +2975,25 @@
 	{
 		"codes": [
 			{
+				"text": "DT37",
+				"color": "#005ec4"
+			},
+			{
+				"text": "TE31",
+				"color": "#784008"
+			}
+		],
+		"name": "Sungei Bedok",
+		"url": "https://en.wikipedia.org/wiki/Sungei_Bedok_MRT_station",
+		"name_chinese": "双溪勿洛[2]",
+		"name_tamil": "சுங்கை பிடோக்",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "CC11",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Tai Seng",
@@ -2732,11 +3006,11 @@
 		"codes": [
 			{
 				"text": "DT32",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "EW2",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tampines",
@@ -2749,16 +3023,16 @@
 		"codes": [
 			{
 				"text": "DT32",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			},
 			{
 				"text": "EW2",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tampines",
 		"url": "https://en.wikipedia.org/wiki/Tampines_MRT_station",
-		"name_chinese": "淡宾尼",
+		"name_chinese": "淡滨尼",
 		"name_tamil": "தெம்பினிஸ்",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/TampinesMRTEWLandDTL.jpg/300px-TampinesMRTEWLandDTL.jpg"
 	},
@@ -2766,7 +3040,7 @@
 		"codes": [
 			{
 				"text": "DT33",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Tampines East",
@@ -2779,7 +3053,7 @@
 		"codes": [
 			{
 				"text": "DT31",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Tampines West",
@@ -2792,7 +3066,7 @@
 		"codes": [
 			{
 				"text": "DT8",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Tan Kah Kee",
@@ -2809,11 +3083,11 @@
 			},
 			{
 				"text": "CG",
-				"color": "#009530"
+				"color": "#009645"
 			},
 			{
 				"text": "EW4",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tanah Merah",
@@ -2826,7 +3100,7 @@
 		"codes": [
 			{
 				"text": "TE25",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Tanjong Katong",
@@ -2839,7 +3113,7 @@
 		"codes": [
 			{
 				"text": "EW15",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tanjong Pagar",
@@ -2852,13 +3126,26 @@
 		"codes": [
 			{
 				"text": "TE23",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Tanjong Rhu",
 		"url": "https://en.wikipedia.org/wiki/Tanjong_Rhu_MRT_station",
 		"name_chinese": "丹戎禺",
 		"name_tamil": "தஞ்சோங் ரூ",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JW2",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Tawas",
+		"url": "https://en.wikipedia.org/wiki/Tawas_MRT_station",
+		"name_chinese": "大华士",
+		"name_tamil": "",
 		"image": null
 	},
 	{
@@ -2891,7 +3178,7 @@
 		"codes": [
 			{
 				"text": "DT18",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Telok Ayer",
@@ -2904,7 +3191,7 @@
 		"codes": [
 			{
 				"text": "CC28",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "Telok Blangah",
@@ -2929,6 +3216,45 @@
 	{
 		"codes": [
 			{
+				"text": "JS3",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Tengah",
+		"url": "https://en.wikipedia.org/wiki/Tengah_MRT_station",
+		"name_chinese": "登加",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JE2",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Tengah Park",
+		"url": "https://en.wikipedia.org/wiki/Tengah_Park_MRT_station",
+		"name_chinese": "登加园",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
+				"text": "JE1",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Tengah Plantation",
+		"url": "https://en.wikipedia.org/wiki/Tengah_Plantation_MRT_station",
+		"name_chinese": "登加种植",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "SW4",
 				"color": "#748477"
 			}
@@ -2943,7 +3269,7 @@
 		"codes": [
 			{
 				"text": "EW17",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tiong Bahru",
@@ -2956,7 +3282,7 @@
 		"codes": [
 			{
 				"text": "NS19",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Toa Payoh",
@@ -2964,6 +3290,19 @@
 		"name_chinese": "大巴窑",
 		"name_tamil": "தோ பாயோ",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Toapayohmrtplatform.jpg/300px-Toapayohmrtplatform.jpg"
+	},
+	{
+		"codes": [
+			{
+				"text": "JE4",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Toh Guan",
+		"url": "https://en.wikipedia.org/wiki/Toh_Guan_MRT_station",
+		"name_chinese": "卓源",
+		"name_tamil": "",
+		"image": null
 	},
 	{
 		"codes": [
@@ -2982,7 +3321,7 @@
 		"codes": [
 			{
 				"text": "EW31",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tuas Crescent",
@@ -2995,7 +3334,7 @@
 		"codes": [
 			{
 				"text": "EW33",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tuas Link",
@@ -3008,7 +3347,7 @@
 		"codes": [
 			{
 				"text": "EW32",
-				"color": "#009530"
+				"color": "#009645"
 			}
 		],
 		"name": "Tuas West Road",
@@ -3020,8 +3359,21 @@
 	{
 		"codes": [
 			{
+				"text": "JS10",
+				"color": "#0099aa"
+			}
+		],
+		"name": "Tukang",
+		"url": "https://en.wikipedia.org/wiki/Tukang_MRT_station",
+		"name_chinese": "都康",
+		"name_tamil": "",
+		"image": null
+	},
+	{
+		"codes": [
+			{
 				"text": "DT27",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Ubi",
@@ -3034,7 +3386,7 @@
 		"codes": [
 			{
 				"text": "DT34",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Upper Changi",
@@ -3047,12 +3399,12 @@
 		"codes": [
 			{
 				"text": "TE8",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Upper Thomson",
 		"url": "https://en.wikipedia.org/wiki/Upper_Thomson_MRT_station",
-		"name_chinese": "汤申路上段",
+		"name_chinese": "汤申上段",
 		"name_tamil": "அப்பர் தாம்சன்",
 		"image": null
 	},
@@ -3060,11 +3412,11 @@
 		"codes": [
 			{
 				"text": "NS9",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE2",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Woodlands",
@@ -3077,11 +3429,11 @@
 		"codes": [
 			{
 				"text": "NS9",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			},
 			{
 				"text": "TE2",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Woodlands",
@@ -3094,7 +3446,7 @@
 		"codes": [
 			{
 				"text": "TE1",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Woodlands North",
@@ -3107,7 +3459,7 @@
 		"codes": [
 			{
 				"text": "TE3",
-				"color": "#734538"
+				"color": "#784008"
 			}
 		],
 		"name": "Woodlands South",
@@ -3120,7 +3472,7 @@
 		"codes": [
 			{
 				"text": "NE11",
-				"color": "#9016b2"
+				"color": "#9900aa"
 			}
 		],
 		"name": "Woodleigh",
@@ -3133,7 +3485,7 @@
 		"codes": [
 			{
 				"text": "DT36",
-				"color": "#0354a6"
+				"color": "#005ec4"
 			}
 		],
 		"name": "Xilin",
@@ -3146,7 +3498,7 @@
 		"codes": [
 			{
 				"text": "NS5",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Yew Tee",
@@ -3159,7 +3511,7 @@
 		"codes": [
 			{
 				"text": "NS15",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Yio Chu Kang",
@@ -3172,7 +3524,7 @@
 		"codes": [
 			{
 				"text": "NS13",
-				"color": "#dc241f"
+				"color": "#d42e12"
 			}
 		],
 		"name": "Yishun",
@@ -3185,7 +3537,7 @@
 		"codes": [
 			{
 				"text": "CC23",
-				"color": "#ff9a00"
+				"color": "#fa9e0d"
 			}
 		],
 		"name": "one-north",

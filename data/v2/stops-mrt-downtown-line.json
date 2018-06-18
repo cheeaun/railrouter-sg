@@ -550,8 +550,8 @@
 					"short_name": "A",
 					"station_id": "CMStation_mattar",
 					"coords": [
-						1.327467,
-						103.882473
+						1.3272851,
+						103.8823467
 					],
 					"id": "CMStation_mattar_E34296"
 				},
@@ -561,8 +561,8 @@
 					"short_name": "B",
 					"station_id": "CMStation_mattar",
 					"coords": [
-						1.326443,
-						103.884007
+						1.3264913,
+						103.883881
 					],
 					"id": "CMStation_mattar_E34297"
 				}
@@ -1114,8 +1114,8 @@
 				{
 					"indicator": "A",
 					"coords": [
-						1.305085,
-						103.855203
+						1.3047819,
+						103.8551894
 					],
 					"id": "CMStation_jalan_besar_E34290",
 					"station_id": "CMStation_jalan_besar",
@@ -1124,8 +1124,8 @@
 				{
 					"indicator": "B",
 					"coords": [
-						1.305444,
-						103.855219
+						1.3055649,
+						103.8553181
 					],
 					"id": "CMStation_jalan_besar_E34291",
 					"station_id": "CMStation_jalan_besar",
@@ -1524,8 +1524,8 @@
 				{
 					"indicator": "A",
 					"coords": [
-						1.321246,
-						103.871653
+						1.3213992,
+						103.8714395
 					],
 					"id": "CMStation_geylang_bahru_E34294",
 					"station_id": "CMStation_geylang_bahru",
@@ -1534,8 +1534,8 @@
 				{
 					"indicator": "B",
 					"coords": [
-						1.321171,
-						103.871725
+						1.3210318,
+						103.8716541
 					],
 					"id": "CMStation_geylang_bahru_E34295",
 					"station_id": "CMStation_geylang_bahru",
@@ -1576,8 +1576,8 @@
 				{
 					"indicator": "A",
 					"coords": [
-						1.313856,
-						103.86311
+						1.3137757,
+						103.8628659
 					],
 					"id": "CMStation_bendemeer_E34292",
 					"station_id": "CMStation_bendemeer",
@@ -1586,8 +1586,8 @@
 				{
 					"indicator": "B",
 					"coords": [
-						1.313676,
-						103.86326
+						1.3130731,
+						103.8629624
 					],
 					"id": "CMStation_bendemeer_E34293",
 					"station_id": "CMStation_bendemeer",

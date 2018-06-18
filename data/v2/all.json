@@ -173,15 +173,19 @@
 					]
 				}
 			],
-			"ref": "BP1;NS4",
+			"ref": "BP1;JS1;NS4",
 			"codes": [
 				{
 					"text": "BP1",
 					"color": "#748477"
 				},
 				{
+					"text": "JS1",
+					"color": "#0099aa"
+				},
+				{
 					"text": "NS4",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "蔡厝港",
@@ -406,7 +410,7 @@
 				},
 				{
 					"text": "DT1",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "武吉班让",
@@ -663,7 +667,7 @@
 			"codes": [
 				{
 					"text": "NE17",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				},
 				{
 					"text": "PTC",
@@ -673,7 +677,7 @@
 			"name:zh": "榜鹅",
 			"name:hi": "பொங்கோல்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Punggol_MRT/LRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ne17_Punggol_platform.jpg/308px-Ne17_Punggol_platform.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/NE17_PTC_Punggol_Exit_C.jpg/300px-NE17_PTC_Punggol_Exit_C.jpg"
 		},
 		{
 			"name": "Cove",
@@ -851,7 +855,7 @@
 			"name:zh": "榜鹅坊",
 			"name:hi": "பொங்கோல் பாயிண்ட்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Punggol_Point_LRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Punggol_Point_LRT_View.JPG/300px-Punggol_Point_LRT_View.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Punggol_Point_Platform.jpg/300px-Punggol_Point_Platform.jpg"
 		},
 		{
 			"name": "Teck Lee",
@@ -977,7 +981,7 @@
 			"codes": [
 				{
 					"text": "NE16",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				},
 				{
 					"text": "STC",
@@ -987,7 +991,7 @@
 			"name:zh": "盛港",
 			"name:hi": "செங்காங்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Sengkang_MRT/LRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ne16sengkang.jpg/300px-Ne16sengkang.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sengkang_NEL_Interchange%2C_Nov_05.JPG/300px-Sengkang_NEL_Interchange%2C_Nov_05.JPG"
 		},
 		{
 			"name": "Ranggung",
@@ -1057,7 +1061,7 @@
 			"name:zh": "棕美",
 			"name:hi": "ரூம்பியா",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Rumbia_LRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Rumbia_LRT.JPG/300px-Rumbia_LRT.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/SE2_Rumbia_Concourse.jpg/300px-SE2_Rumbia_Concourse.jpg"
 		},
 		{
 			"name": "Bakau",
@@ -1092,7 +1096,7 @@
 			"name:zh": "码高",
 			"name:hi": "பக்காவ்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Bakau_LRT_Station",
-			"wikipedia_image_url": null
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/SE3_Bakau_Station.jpg/300px-SE3_Bakau_Station.jpg"
 		},
 		{
 			"name": "Compassvale",
@@ -1162,7 +1166,7 @@
 			"name:zh": "港脚",
 			"name:hi": "கங்கார்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kangkar_LRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kangkar_LRT_Station%2C_Oct_06.JPG/300px-Kangkar_LRT_Station%2C_Oct_06.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/SE4_Kangkar_station.jpg/300px-SE4_Kangkar_station.jpg"
 		},
 		{
 			"name": "Fernvale",
@@ -1497,11 +1501,11 @@
 			"codes": [
 				{
 					"text": "CE1",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "DT16",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "海湾舫",
@@ -1538,7 +1542,7 @@
 			"codes": [
 				{
 					"text": "CC20",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "花拉路",
@@ -1575,7 +1579,7 @@
 			"codes": [
 				{
 					"text": "CC5",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "尼诰大道",
@@ -1612,7 +1616,7 @@
 			"codes": [
 				{
 					"text": "CC16",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "玛丽蒙",
@@ -1649,7 +1653,7 @@
 			"codes": [
 				{
 					"text": "CC8",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "达科达",
@@ -1684,7 +1688,7 @@
 			"codes": [
 				{
 					"text": "CC27",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "拉柏多公园",
@@ -1745,82 +1749,17 @@
 			"codes": [
 				{
 					"text": "CC29",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "NE1",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "港湾",
 			"name:hi": "துறைமுகம்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/HarbourFront_MRT_station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/CC29_HarbourFront_station.jpg/300px-CC29_HarbourFront_station.jpg"
-		},
-		{
-			"name": "Bishan",
-			"coord": [
-				1.351455,
-				103.848263
-			],
-			"network": "mrt",
-			"exits": [
-				{
-					"exit": "A",
-					"name": "Junction 8 / Bus Interchange",
-					"coord": [
-						1.350666,
-						103.8483604
-					]
-				},
-				{
-					"exit": "B",
-					"name": "Bishan Road",
-					"coord": [
-						1.3512408,
-						103.8482154
-					]
-				},
-				{
-					"exit": "C",
-					"name": "Bishan Road",
-					"coord": [
-						1.3506136,
-						103.8480939
-					]
-				},
-				{
-					"exit": "D",
-					"name": "Bishan Place / Bishan St 13",
-					"coord": [
-						1.3511507,
-						103.8499983
-					]
-				},
-				{
-					"exit": "E",
-					"name": "Junction 8 (Basement 1)",
-					"coord": [
-						1.3510965,
-						103.8484484
-					]
-				}
-			],
-			"ref": "CC15;NS17",
-			"codes": [
-				{
-					"text": "CC15",
-					"color": "#ff9a00"
-				},
-				{
-					"text": "NS17",
-					"color": "#dc241f"
-				}
-			],
-			"name:zh": "碧山",
-			"name:hi": "பீஷான்",
-			"wikipedia_url": "https://en.wikipedia.org/wiki/Bishan_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bishan_MRT_Station_Exit_A.jpg/300px-Bishan_MRT_Station_Exit_A.jpg"
 		},
 		{
 			"name": "Caldecott",
@@ -1851,11 +1790,11 @@
 			"codes": [
 				{
 					"text": "CC17",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "TE9",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "加利谷",
@@ -1932,15 +1871,15 @@
 			"codes": [
 				{
 					"text": "CC1",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "NE6",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				},
 				{
 					"text": "NS24",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "多美歌",
@@ -1993,11 +1932,11 @@
 			"codes": [
 				{
 					"text": "CC22",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "EW21",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "波那维斯达",
@@ -2058,7 +1997,7 @@
 			"codes": [
 				{
 					"text": "CC2",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "百胜",
@@ -2135,7 +2074,7 @@
 			"codes": [
 				{
 					"text": "CC3",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "滨海中心",
@@ -2172,7 +2111,7 @@
 			"codes": [
 				{
 					"text": "CC11",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "大成",
@@ -2209,13 +2148,13 @@
 			"codes": [
 				{
 					"text": "CC6",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "体育场",
 			"name:hi": "ஸ்டேடியம்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Stadium_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Stadium_MRT_Platform.JPG/300px-Stadium_MRT_Platform.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/CC6_Stadium_MRT_Exit_A.jpg/300px-CC6_Stadium_MRT_Exit_A.jpg"
 		},
 		{
 			"name": "Marina Bay",
@@ -2252,15 +2191,15 @@
 			"codes": [
 				{
 					"text": "CE2",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "NS27",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				},
 				{
 					"text": "TE20",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "滨海湾",
@@ -2289,7 +2228,7 @@
 			"codes": [
 				{
 					"text": "CC26",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "巴西班让",
@@ -2326,7 +2265,7 @@
 			"codes": [
 				{
 					"text": "CC7",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "蒙巴登",
@@ -2335,45 +2274,49 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mountbatten-CCLPlatform.JPG/300px-Mountbatten-CCLPlatform.JPG"
 		},
 		{
-			"name": "Botanic Gardens",
+			"name": "Kent Ridge",
 			"coord": [
-				1.322559,
-				103.815747
+				1.293301,
+				103.784413
 			],
 			"network": "mrt",
 			"exits": [
 				{
 					"exit": "A",
-					"name": "S'pore Botanic Gardens",
+					"name": "Kent Ridge, NUH",
 					"coord": [
-						1.3224679,
-						103.8149953
+						1.2942465,
+						103.7844009
 					]
 				},
 				{
 					"exit": "B",
-					"name": "Bukit Timah Rd / Evans Rd",
+					"name": "Science Park, Kent Ridge Park",
 					"coord": [
-						1.3226019,
-						103.8159508
+						1.2925073,
+						103.7848766
+					]
+				},
+				{
+					"exit": "C",
+					"name": "One Kent Ridge",
+					"coord": [
+						1.2939017,
+						103.7847134
 					]
 				}
 			],
-			"ref": "CC19;DT9",
+			"ref": "CC24",
 			"codes": [
 				{
-					"text": "CC19",
-					"color": "#ff9a00"
-				},
-				{
-					"text": "DT9",
-					"color": "#0354a6"
+					"text": "CC24",
+					"color": "#fa9e0d"
 				}
 			],
-			"name:zh": "植物园",
-			"name:hi": "பூ மலை",
-			"wikipedia_url": "https://en.wikipedia.org/wiki/Botanic_Gardens_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Exit_A_Botanic_Gardens.jpg/300px-Exit_A_Botanic_Gardens.jpg"
+			"name:zh": "肯特岗",
+			"name:hi": "கெண்ட் ரிஜ்",
+			"wikipedia_url": "https://en.wikipedia.org/wiki/Kent_Ridge_MRT_station",
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/KentRidgeMRT.JPG/300px-KentRidgeMRT.JPG"
 		},
 		{
 			"name": "Holland Village",
@@ -2412,7 +2355,7 @@
 			"codes": [
 				{
 					"text": "CC21",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "荷兰村",
@@ -2457,7 +2400,7 @@
 			"codes": [
 				{
 					"text": "CC23",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "纬壹",
@@ -2518,11 +2461,11 @@
 			"codes": [
 				{
 					"text": "CC10",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "DT26",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "麦波申",
@@ -2567,17 +2510,17 @@
 			"codes": [
 				{
 					"text": "CC4",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "DT15",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "宝门廊",
 			"name:hi": "புரொமனாட்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Promenade_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Promenade-CCLPlatform.JPG/300px-Promenade-CCLPlatform.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/CC%CC%A94_Promenade_Platform_A.jpg/300px-CC%CC%A94_Promenade_Platform_A.jpg"
 		},
 		{
 			"name": "Lorong Chuan",
@@ -2608,7 +2551,7 @@
 			"codes": [
 				{
 					"text": "CC14",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "罗弄泉",
@@ -2617,49 +2560,45 @@
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/LorongChuanStationExitB.jpg/300px-LorongChuanStationExitB.jpg"
 		},
 		{
-			"name": "Kent Ridge",
+			"name": "Botanic Gardens",
 			"coord": [
-				1.293301,
-				103.784413
+				1.322559,
+				103.815747
 			],
 			"network": "mrt",
 			"exits": [
 				{
 					"exit": "A",
-					"name": "Kent Ridge, NUH",
+					"name": "S'pore Botanic Gardens",
 					"coord": [
-						1.2942465,
-						103.7844009
+						1.3224679,
+						103.8149953
 					]
 				},
 				{
 					"exit": "B",
-					"name": "Science Park, Kent Ridge Park",
+					"name": "Bukit Timah Rd / Evans Rd",
 					"coord": [
-						1.2925073,
-						103.7848766
-					]
-				},
-				{
-					"exit": "C",
-					"name": "One Kent Ridge",
-					"coord": [
-						1.2939017,
-						103.7847134
+						1.3226019,
+						103.8159508
 					]
 				}
 			],
-			"ref": "CC24",
+			"ref": "CC19;DT9",
 			"codes": [
 				{
-					"text": "CC24",
-					"color": "#ff9a00"
+					"text": "CC19",
+					"color": "#fa9e0d"
+				},
+				{
+					"text": "DT9",
+					"color": "#005ec4"
 				}
 			],
-			"name:zh": "肯特岗",
-			"name:hi": "கெண்ட் ரிஜ்",
-			"wikipedia_url": "https://en.wikipedia.org/wiki/Kent_Ridge_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/KentRidgeMRT.JPG/300px-KentRidgeMRT.JPG"
+			"name:zh": "植物园",
+			"name:hi": "பூ மலை",
+			"wikipedia_url": "https://en.wikipedia.org/wiki/Botanic_Gardens_MRT_station",
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Exit_A_Botanic_Gardens.jpg/300px-Exit_A_Botanic_Gardens.jpg"
 		},
 		{
 			"name": "Telok Blangah",
@@ -2682,7 +2621,7 @@
 			"codes": [
 				{
 					"text": "CC28",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "直落布兰雅",
@@ -2719,7 +2658,7 @@
 			"codes": [
 				{
 					"text": "CC12",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "巴特礼",
@@ -2772,11 +2711,11 @@
 			"codes": [
 				{
 					"text": "CC9",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "EW8",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "巴耶利峇",
@@ -2861,17 +2800,17 @@
 			"codes": [
 				{
 					"text": "CC13",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				},
 				{
 					"text": "NE12",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "实龙岗",
 			"name:hi": "சிராங்கூன்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Serangoon_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Serangoon_MRT_station_entrance_.jpg/300px-Serangoon_MRT_station_entrance_.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/NE12_Serangoon_Exit_B.jpg/300px-NE12_Serangoon_Exit_B.jpg"
 		},
 		{
 			"name": "Haw Par Villa",
@@ -2900,13 +2839,78 @@
 			"codes": [
 				{
 					"text": "CC25",
-					"color": "#ff9a00"
+					"color": "#fa9e0d"
 				}
 			],
 			"name:zh": "虎豹别墅",
 			"name:hi": "ஹா பர் வில்லா",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Haw_Par_Villa_MRT_station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/CC25HawParVilla.jpeg/300px-CC25HawParVilla.jpeg"
+		},
+		{
+			"name": "Bishan",
+			"coord": [
+				1.351455,
+				103.848263
+			],
+			"network": "mrt",
+			"exits": [
+				{
+					"exit": "A",
+					"name": "Junction 8 / Bus Interchange",
+					"coord": [
+						1.350666,
+						103.8483604
+					]
+				},
+				{
+					"exit": "B",
+					"name": "Bishan Road",
+					"coord": [
+						1.3512408,
+						103.8482154
+					]
+				},
+				{
+					"exit": "C",
+					"name": "Bishan Road",
+					"coord": [
+						1.3506136,
+						103.8480939
+					]
+				},
+				{
+					"exit": "D",
+					"name": "Bishan Place / Bishan St 13",
+					"coord": [
+						1.3511507,
+						103.8499983
+					]
+				},
+				{
+					"exit": "E",
+					"name": "Junction 8 (Basement 1)",
+					"coord": [
+						1.3510965,
+						103.8484484
+					]
+				}
+			],
+			"ref": "CC15;NS17",
+			"codes": [
+				{
+					"text": "CC15",
+					"color": "#fa9e0d"
+				},
+				{
+					"text": "NS17",
+					"color": "#d42e12"
+				}
+			],
+			"name:zh": "碧山",
+			"name:hi": "பீஷான்",
+			"wikipedia_url": "https://en.wikipedia.org/wiki/Bishan_MRT_station",
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Bishan_MRT_Station_Exit_A.jpg/300px-Bishan_MRT_Station_Exit_A.jpg"
 		},
 		{
 			"name": "Kaki Bukit ",
@@ -2937,7 +2941,7 @@
 			"codes": [
 				{
 					"text": "DT28",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "加基武吉",
@@ -2974,7 +2978,7 @@
 			"codes": [
 				{
 					"text": "DT7",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "第六道",
@@ -3019,7 +3023,7 @@
 			"codes": [
 				{
 					"text": "DT5",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "美世界",
@@ -3075,7 +3079,7 @@
 			"codes": [
 				{
 					"text": "DT34",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "樟宜上段",
@@ -3144,11 +3148,11 @@
 			"codes": [
 				{
 					"text": "DT12",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "NE7",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "小印度",
@@ -3168,16 +3172,16 @@
 					"exit": "A",
 					"name": "Merpati Road",
 					"coord": [
-						1.327467,
-						103.882473
+						1.3272851,
+						103.8823467
 					]
 				},
 				{
 					"exit": "B",
 					"name": "Mattar Road",
 					"coord": [
-						1.326443,
-						103.884007
+						1.3264913,
+						103.883881
 					]
 				}
 			],
@@ -3185,7 +3189,7 @@
 			"codes": [
 				{
 					"text": "DT25",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "玛达",
@@ -3294,14 +3298,14 @@
 			"codes": [
 				{
 					"text": "DT32",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "EW2",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
-			"name:zh": "淡宾尼",
+			"name:zh": "淡滨尼",
 			"name:hi": "தெம்பினிஸ்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Tampines_MRT_station",
 			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/TampinesMRTEWLandDTL.jpg/300px-TampinesMRTEWLandDTL.jpg"
@@ -3340,7 +3344,7 @@
 			"codes": [
 				{
 					"text": "DT29",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "勿洛北",
@@ -3369,11 +3373,11 @@
 			"codes": [
 				{
 					"text": "DT10",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "TE11",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "史蒂芬",
@@ -3422,7 +3426,7 @@
 			"codes": [
 				{
 					"text": "DT33",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "淡滨尼东",
@@ -3459,7 +3463,7 @@
 			"codes": [
 				{
 					"text": "DT27",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "乌美",
@@ -3501,7 +3505,7 @@
 			"codes": [
 				{
 					"text": "DT21",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "明古连",
@@ -3546,11 +3550,11 @@
 			"codes": [
 				{
 					"text": "DT11",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "NS21",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "纽顿",
@@ -3569,15 +3573,15 @@
 				{
 					"exit": "A",
 					"coord": [
-						1.305085,
-						103.855203
+						1.3047819,
+						103.8551894
 					]
 				},
 				{
 					"exit": "B",
 					"coord": [
-						1.305444,
-						103.855219
+						1.3055649,
+						103.8553181
 					]
 				}
 			],
@@ -3585,7 +3589,7 @@
 			"codes": [
 				{
 					"text": "DT22",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "惹兰勿刹",
@@ -3638,7 +3642,7 @@
 			"codes": [
 				{
 					"text": "DT20",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "福康宁",
@@ -3675,7 +3679,7 @@
 			"codes": [
 				{
 					"text": "DT8",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "陈嘉庚",
@@ -3726,7 +3730,7 @@
 			"codes": [
 				{
 					"text": "DT31",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "淡滨尼西",
@@ -3795,11 +3799,11 @@
 			"codes": [
 				{
 					"text": "DT14",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "EW12",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "武吉士",
@@ -3818,15 +3822,15 @@
 				{
 					"exit": "A",
 					"coord": [
-						1.321246,
-						103.871653
+						1.3213992,
+						103.8714395
 					]
 				},
 				{
 					"exit": "B",
 					"coord": [
-						1.321171,
-						103.871725
+						1.3210318,
+						103.8716541
 					]
 				}
 			],
@@ -3834,13 +3838,13 @@
 			"codes": [
 				{
 					"text": "DT24",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "芽笼峇鲁",
 			"name:hi": "கேலாங் பாரு",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Geylang_Bahru_MRT_Station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/DT24_Geylang_Bahru_station.jpg/300px-DT24_Geylang_Bahru_station.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/DT24_Geylang_Bahru_Exit_B.jpg/300px-DT24_Geylang_Bahru_Exit_B.jpg"
 		},
 		{
 			"name": "Bendemeer",
@@ -3853,15 +3857,15 @@
 				{
 					"exit": "A",
 					"coord": [
-						1.313856,
-						103.86311
+						1.3137757,
+						103.8628659
 					]
 				},
 				{
 					"exit": "B",
 					"coord": [
-						1.313676,
-						103.86326
+						1.3130731,
+						103.8629624
 					]
 				}
 			],
@@ -3869,7 +3873,7 @@
 			"codes": [
 				{
 					"text": "DT23",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "明地迷亚",
@@ -3898,7 +3902,7 @@
 			"codes": [
 				{
 					"text": "DT2",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "凯秀",
@@ -3970,11 +3974,11 @@
 			"codes": [
 				{
 					"text": "CG1",
-					"color": "#009530"
+					"color": "#009645"
 				},
 				{
 					"text": "DT35",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "博览",
@@ -4011,7 +4015,7 @@
 			"codes": [
 				{
 					"text": "DT3",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "山景",
@@ -4079,11 +4083,11 @@
 			"codes": [
 				{
 					"text": "DT19",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				},
 				{
 					"text": "NE4",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "牛车水",
@@ -4152,7 +4156,7 @@
 			"codes": [
 				{
 					"text": "DT17",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "市中心",
@@ -4189,7 +4193,7 @@
 			"codes": [
 				{
 					"text": "DT13",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "梧槽",
@@ -4224,7 +4228,7 @@
 			"codes": [
 				{
 					"text": "DT30",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "勿洛蓄水池",
@@ -4269,7 +4273,7 @@
 			"codes": [
 				{
 					"text": "DT18",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "直落亚逸",
@@ -4306,7 +4310,7 @@
 			"codes": [
 				{
 					"text": "DT6",
-					"color": "#0354a6"
+					"color": "#005ec4"
 				}
 			],
 			"name:zh": "阿尔柏王园",
@@ -4407,11 +4411,11 @@
 			"codes": [
 				{
 					"text": "EW14",
-					"color": "#009530"
+					"color": "#009645"
 				},
 				{
 					"text": "NS26",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "莱佛士坊",
@@ -4431,7 +4435,7 @@
 			"codes": [
 				{
 					"text": "EW31",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "大士弯",
@@ -4451,7 +4455,7 @@
 			"codes": [
 				{
 					"text": "EW33",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "大士连路",
@@ -4488,7 +4492,7 @@
 			"codes": [
 				{
 					"text": "EW18",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "红山",
@@ -4533,11 +4537,11 @@
 			"codes": [
 				{
 					"text": "EW13",
-					"color": "#009530"
+					"color": "#009645"
 				},
 				{
 					"text": "NS25",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "政府大厦",
@@ -4622,7 +4626,7 @@
 			"codes": [
 				{
 					"text": "EW15",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "丹戎巴葛",
@@ -4667,13 +4671,13 @@
 			"codes": [
 				{
 					"text": "EW26",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "湖畔",
 			"name:hi": "ஏரிக்கரை",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Lakeside_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Lakeside_MRT_Station_with_HHPSD.jpg/300px-Lakeside_MRT_Station_with_HHPSD.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Jurong_LakesideMRT.JPG/300px-Jurong_LakesideMRT.JPG"
 		},
 		{
 			"name": "Bedok",
@@ -4712,7 +4716,7 @@
 			"codes": [
 				{
 					"text": "EW5",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "勿洛",
@@ -4749,7 +4753,7 @@
 			"codes": [
 				{
 					"text": "EW10",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "加冷",
@@ -4814,11 +4818,15 @@
 					]
 				}
 			],
-			"ref": "EW27",
+			"ref": "EW27;JS8",
 			"codes": [
 				{
 					"text": "EW27",
-					"color": "#009530"
+					"color": "#009645"
+				},
+				{
+					"text": "JS8",
+					"color": "#0099aa"
 				}
 			],
 			"name:zh": "文礼",
@@ -4855,7 +4863,7 @@
 			"codes": [
 				{
 					"text": "EW9",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "阿裕尼",
@@ -4900,7 +4908,7 @@
 			"codes": [
 				{
 					"text": "EW25",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "裕华园",
@@ -4949,15 +4957,19 @@
 					]
 				}
 			],
-			"ref": "EW24;NS1",
+			"ref": "EW24;JE5;NS1",
 			"codes": [
 				{
 					"text": "EW24",
-					"color": "#009530"
+					"color": "#009645"
+				},
+				{
+					"text": "JE5",
+					"color": "#0099aa"
 				},
 				{
 					"text": "NS1",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "裕廊东",
@@ -4994,7 +5006,7 @@
 			"codes": [
 				{
 					"text": "EW22",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "杜弗",
@@ -5014,7 +5026,7 @@
 			"codes": [
 				{
 					"text": "EW30",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "卡尔圈",
@@ -5051,7 +5063,7 @@
 			"codes": [
 				{
 					"text": "EW11",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "劳明达",
@@ -5088,7 +5100,7 @@
 			"codes": [
 				{
 					"text": "EW29",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "裕群",
@@ -5133,13 +5145,13 @@
 			"codes": [
 				{
 					"text": "EW7",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "友诺士",
 			"name:hi": "யூனுஸ்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Eunos_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Eunos_MRT.JPG/300px-Eunos_MRT.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/EW7_Eunos_Platform.jpg/300px-EW7_Eunos_Platform.jpg"
 		},
 		{
 			"name": "Changi Airport",
@@ -5170,7 +5182,7 @@
 			"codes": [
 				{
 					"text": "CG2",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "樟宜机场",
@@ -5207,7 +5219,7 @@
 			"codes": [
 				{
 					"text": "EW17",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "中峇鲁",
@@ -5244,7 +5256,7 @@
 			"codes": [
 				{
 					"text": "EW28",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "先驱",
@@ -5285,11 +5297,11 @@
 				},
 				{
 					"text": "CG",
-					"color": "#009530"
+					"color": "#009645"
 				},
 				{
 					"text": "EW4",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "丹那美拉",
@@ -5326,7 +5338,7 @@
 			"codes": [
 				{
 					"text": "EW20",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "联邦",
@@ -5355,7 +5367,7 @@
 			"codes": [
 				{
 					"text": "EW3",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "四美",
@@ -5392,7 +5404,7 @@
 			"codes": [
 				{
 					"text": "EW1",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "巴西立",
@@ -5477,15 +5489,15 @@
 			"codes": [
 				{
 					"text": "EW16",
-					"color": "#009530"
+					"color": "#009645"
 				},
 				{
 					"text": "NE3",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				},
 				{
 					"text": "TE17",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "欧南园",
@@ -5522,7 +5534,7 @@
 			"codes": [
 				{
 					"text": "EW19",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "女皇镇",
@@ -5559,13 +5571,13 @@
 			"codes": [
 				{
 					"text": "EW6",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "景万岸",
 			"name:hi": "கெம்பாங்கான்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kembangan_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/KBG_PLAT.JPG/300px-KBG_PLAT.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/KBG_PLAT.jpg/300px-KBG_PLAT.jpg"
 		},
 		{
 			"name": "Tuas West Road",
@@ -5579,7 +5591,7 @@
 			"codes": [
 				{
 					"text": "EW32",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "大士西路",
@@ -5632,7 +5644,7 @@
 			"codes": [
 				{
 					"text": "EW23",
-					"color": "#009530"
+					"color": "#009645"
 				}
 			],
 			"name:zh": "金文泰",
@@ -5677,7 +5689,7 @@
 			"codes": [
 				{
 					"text": "NE9",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "文庆",
@@ -5770,7 +5782,7 @@
 			"codes": [
 				{
 					"text": "NE8",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "花拉公园",
@@ -5815,13 +5827,13 @@
 			"codes": [
 				{
 					"text": "NE14",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "后港",
 			"name:hi": "ஹவ்காங்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Hougang_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Ne14hougang.jpg/300px-Ne14hougang.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/NE14_Hougang_MRT_Exit_A_at_Hougang_Bus_Interchange.jpg/300px-NE14_Hougang_MRT_Exit_A_at_Hougang_Bus_Interchange.jpg"
 		},
 		{
 			"name": "Woodleigh",
@@ -5860,7 +5872,7 @@
 			"codes": [
 				{
 					"text": "NE11",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "兀里",
@@ -5897,7 +5909,7 @@
 			"codes": [
 				{
 					"text": "NE15",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "万国",
@@ -5942,13 +5954,13 @@
 			"codes": [
 				{
 					"text": "NE13",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "高文",
 			"name:hi": "கோவன்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Kovan_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Ne13kovan.jpg/300px-Ne13kovan.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NE13_Kovan_Exit_C.jpg/300px-NE13_Kovan_Exit_C.jpg"
 		},
 		{
 			"name": "Potong Pasir",
@@ -5987,7 +5999,7 @@
 			"codes": [
 				{
 					"text": "NE10",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "波东巴西",
@@ -6062,7 +6074,7 @@
 			"codes": [
 				{
 					"text": "NE5",
-					"color": "#9016b2"
+					"color": "#9900aa"
 				}
 			],
 			"name:zh": "克拉码头",
@@ -6115,7 +6127,7 @@
 			"codes": [
 				{
 					"text": "NS3",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "武吉甘柏",
@@ -6168,7 +6180,7 @@
 			"codes": [
 				{
 					"text": "NS11",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "三巴旺",
@@ -6205,7 +6217,7 @@
 			"codes": [
 				{
 					"text": "NS28",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "滨海南码头",
@@ -6258,7 +6270,7 @@
 			"codes": [
 				{
 					"text": "NS7",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "克兰芝",
@@ -6314,7 +6326,7 @@
 			"codes": [
 				{
 					"text": "NS20",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "诺维娜",
@@ -6366,7 +6378,7 @@
 			"codes": [
 				{
 					"text": "NS10",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "海军部",
@@ -6419,7 +6431,7 @@
 			"codes": [
 				{
 					"text": "NS19",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "大巴窑",
@@ -6472,7 +6484,7 @@
 			"codes": [
 				{
 					"text": "NS2",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "武吉巴督",
@@ -6525,7 +6537,7 @@
 			"codes": [
 				{
 					"text": "NS8",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "马西岭",
@@ -6569,7 +6581,7 @@
 			"codes": [
 				{
 					"text": "NS15",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "杨厝港",
@@ -6622,7 +6634,7 @@
 			"codes": [
 				{
 					"text": "NS16",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "宏茂桥",
@@ -6675,7 +6687,7 @@
 			"codes": [
 				{
 					"text": "NS23",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "索美塞",
@@ -6728,7 +6740,7 @@
 			"codes": [
 				{
 					"text": "NS5",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "油池",
@@ -6773,13 +6785,13 @@
 			"codes": [
 				{
 					"text": "NS18",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "布莱德",
 			"name:hi": "பிரேடல்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Braddell_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Ns18braddell.jpg/300px-Ns18braddell.jpg"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/NS18_Braddell_Exit_A.jpg/300px-NS18_Braddell_Exit_A.jpg"
 		},
 		{
 			"name": "Yishun",
@@ -6834,7 +6846,7 @@
 			"codes": [
 				{
 					"text": "NS13",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "义顺",
@@ -6895,17 +6907,17 @@
 			"codes": [
 				{
 					"text": "NS22",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				},
 				{
 					"text": "TE14",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "乌节",
 			"name:hi": "ஆர்ச்சர்ட்",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Orchard_MRT_station",
-			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Orchard_MRT.JPG/300px-Orchard_MRT.JPG"
+			"wikipedia_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Orchard_C151b.jpg/300px-Orchard_C151b.jpg"
 		},
 		{
 			"name": "Khatib",
@@ -6952,7 +6964,7 @@
 			"codes": [
 				{
 					"text": "NS14",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				}
 			],
 			"name:zh": "卡迪",
@@ -6997,11 +7009,11 @@
 			"codes": [
 				{
 					"text": "NS9",
-					"color": "#dc241f"
+					"color": "#d42e12"
 				},
 				{
 					"text": "TE2",
-					"color": "#734538"
+					"color": "#784008"
 				}
 			],
 			"name:zh": "兀兰",
@@ -7037,7 +7049,7 @@
 		},
 		{
 			"colour": "#F79F07",
-			"coords": "gcvFoytxRDrAClG}AnHeBbDoBrDkHjO}LrVGrFE`DsAvM{EtMUlFGjAUpFeEnLsKjb@sChLkCvKmG|W{ArDiCdDoApAuJjE{ChBo@XiBx@_E|@uA`@cAX_@AmGUaGYuEcA_EcDmIsH_IgBy@MaP_CkFuAuIuGiCiA{HiDc@OaGoBcIaCgFqB}Am@yCuAcBs@aJ}DsD_CcHmL_DeFu@mAkDkH_C{DgBwFoBaKo@gPqAoEc@a@cDiDmEqFaAmA}FwGG_@m@yCKi@GoDaBmE{AmEgBgBcFkEoAgBoDqEiCuCaCeAsCq@wQwB}HwBeEwBgBuA}DoEoCuEkAeJAaCOac@Mo]KqG{AuGsBmCoBkAwBaAeBGeBFgBHmCL{Jb@eMlAkOh@qHc@kHa@sAQwC_@}@IeGy@{Dy@kDeCmA{CGiGhBqJnAgEjBaGr@uFN_Bb@cDh@qEVyBpAmMX_ER{FFiIeAyOoBiIg@uF_@{AY{Cs@yEe@iHEmEDiC~@_E|B}IdAyE`AgC|BcDd@o@nAmAnAu@dBIpDCtAGbCW`ByA|ByA~BeChGcOlC_H|C{HnAiE\\kAjBaHtCoErG}DzJoDnDsAzDyAhBc@rDg@`Ga@zMcBxQcBPAZEZElBSzBYbDa@dD_@rKqAbTkEvFg@hAMjA@jEZbGn@THpDtAlCvAdCbA|@BtAG`Di@t@Ip@@b@T\\b@R~@bA~Fd@tDD\\NnAf@jEThC~@jCdArC|AjEjB`FP`@vKf[vChHtAfDHTxAjE`AbEb@rDp@nJr@hNf@`FrC`KbAjCrAjDDLjBvFpAzC~A|AlCl@vB@~Dg@xRU|AAh@Hh@Zf@v@b@jAAdDQhCgDrGc@bA{BpEaBfDkJtPaGbJyGfKWnBKnBAdAKnEEtAI`AOx@"
+			"coords": "us|FefyxRNy@HaADuAJoE@eAJoBVoBxGgK`GcJjJuP`BgDzBqEb@cAfDsGPiC@eDc@kAg@w@i@[i@I}A@yRT_Ef@wBAmCm@_B}AqA{CkBwFEMsAkDcAkCsCaKg@aFs@iNq@oJc@sDaAcEyAkEIUuAgDwCiHwKg[Qa@kBaF}AkEeAsC_AkCUiCg@kEOoAE[e@uDcA_GS_A]c@c@Uq@Au@HaDh@uAF}@CeCcAmCwAqDuAUIcGo@kE[kAAiALuFf@eTlEsKpAeD^cD`@{BXmBR[DYDSByQbB{MbBaG`@sDf@iBb@{DxAoDrA{JnDsG|DuCnEkB`H]jAoAhE}CzHmC~GiGbO_CdC}BxAaBxAcCVuAFqDBeBHoAt@oAlAe@n@}BbDaAfCeAxE}B|I_A~DEhCDlEd@hHr@xEXzC^zAf@tFnBhIdAxOGhISzFY~DqAlMWxBi@pEc@bDMvAAFs@tFkB`GoAfEiBpJFhGlAzCjDdCzDx@dGx@|@HvC^rAPjH`@pHb@jOi@dMmAzJc@lCMfBIdBGdBFvB`AnBjArBlCzAtGJpGLn]N`c@@`CjAdJnCtE|DnEfBtAdEvB|HvBvQvBrCp@`CdAhCtCnDpEnAfBbFjEfBfBzAlE`BlEFnDJh@l@xCF^|FvG`AlAlEpFbDhDb@`@pAnEn@fPnB`KfBvF~BzDjDjHt@lA~CdFbHlLrD~B`J|DbBr@xCtA|Al@fFpBbI`C`GnBb@NzHhDhChAtItGjFtA`P~Bx@L~HfBlIrH~DbDtEbA`GXlGT^@bAYtAa@~D}@hBy@n@YzCiBtJkEnAqAhCeDzAsDlG}WjCwKrCiLrKkb@dEoLTqFFkATmFzEuMrAwMDaDFsF|LsVjHkOnBsDdBcD|AoHBmGEsA"
 		},
 		{
 			"colour": "#F79F07",
@@ -7053,7 +7065,7 @@
 		},
 		{
 			"colour": "#009D57",
-			"coords": "sebG_amyR{@cD_AcDq@{BqAoE[aA{@cBaBiD{@sCo@eBKWmA{Cu@{BwAuE_@cB[uBWeBW}Ai@aDW}Ag@aBa@}@_@s@m@cAqAyAiA_Ac@YmKwFoEaCe@UyGqDqEcCqH{EuBqCeBcF_FeQuHuI}S_Ley@mUsAi@}AiA{A{AgAsBs@_DYiDIiEBmBLwA`@qBlJm]"
+			"coords": "kbhGqguyRmJl]a@pBMvAClBHhEXhDr@~CfArBzAzA|AhArAh@dy@lU|S~KtHtI~EdQdBbFtBpCpHzEpEbCxGpDd@TnE`ClKvFb@XhA~@pAxAl@bA^r@`@|@f@`BV|Ah@`DV|AVdBZtB^bBvAtEt@zBlAzCJVn@dBz@rC`BhDz@bBZ`ApAnEp@zB~@bDz@bD"
 		},
 		{
 			"colour": "#851197",

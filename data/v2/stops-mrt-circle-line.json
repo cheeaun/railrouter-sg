@@ -534,94 +534,6 @@
 			"id": "SingaporeStation_Harbourfront"
 		},
 		{
-			"name": "Bishan",
-			"exits": [
-				{
-					"indicator": "A",
-					"name": "Junction 8 / Bus Interchange",
-					"short_name": "A",
-					"station_id": "SingaporeStation_Bishan",
-					"coords": [
-						1.350666,
-						103.8483604
-					],
-					"id": "SingaporeStation_Bishan_E4738"
-				},
-				{
-					"indicator": "C",
-					"name": "Bishan Road",
-					"short_name": "C",
-					"station_id": "SingaporeStation_Bishan",
-					"coords": [
-						1.3506136,
-						103.8480939
-					],
-					"id": "SingaporeStation_Bishan_E4739"
-				},
-				{
-					"indicator": "B",
-					"name": "Bishan Road",
-					"short_name": "B",
-					"station_id": "SingaporeStation_Bishan",
-					"coords": [
-						1.3512408,
-						103.8482154
-					],
-					"id": "SingaporeStation_Bishan_E4740"
-				},
-				{
-					"indicator": "E",
-					"name": "Junction 8 (Basement 1)",
-					"short_name": "E",
-					"station_id": "SingaporeStation_Bishan",
-					"coords": [
-						1.3510965,
-						103.8484484
-					],
-					"id": "SingaporeStation_Bishan_E4741"
-				},
-				{
-					"indicator": "D",
-					"name": "Bishan Place / Bishan St 13",
-					"short_name": "D",
-					"station_id": "SingaporeStation_Bishan",
-					"coords": [
-						1.3511507,
-						103.8499983
-					],
-					"id": "SingaporeStation_Bishan_E4742"
-				}
-			],
-			"route_ids": [
-				"SingaporeMRTCircleLine",
-				"SingaporeMRTNorthsouthLine"
-			],
-			"url": "https://citymapper.com/singapore/t/bishan",
-			"alias": "bishan",
-			"stop_curation_url_ids": [
-				"batcave_station_disruption",
-				"batcave_edit_station_exits",
-				"batcave_edit_station_tags",
-				"web_edit_station",
-				"web_edit_station_exits"
-			],
-			"coords": [
-				1.351455,
-				103.848263
-			],
-			"sharing_urls": [
-				{
-					"url": "https://citymapper.com/singapore/t/bishan",
-					"departure_api": "metrodepartures"
-				}
-			],
-			"brand_ids": [
-				"SingaporeMRT"
-			],
-			"requested_id": "SingaporeStation_Bishan",
-			"id": "SingaporeStation_Bishan"
-		},
-		{
 			"name": "Caldecott",
 			"exits": [
 				{
@@ -1328,37 +1240,47 @@
 			"id": "SingaporeStation_Mountbatten"
 		},
 		{
-			"name": "Botanic Gardens",
+			"name": "Kent Ridge",
 			"exits": [
 				{
-					"indicator": "A",
-					"name": "S'pore Botanic Gardens",
-					"short_name": "A",
-					"station_id": "SingaporeStation_BotanicGardens",
+					"indicator": "B",
+					"name": "Science Park, Kent Ridge Park",
+					"short_name": "B",
+					"station_id": "SingaporeStation_KentRidge",
 					"coords": [
-						1.3224679,
-						103.8149953
+						1.2925073,
+						103.7848766
 					],
-					"id": "SingaporeStation_BotanicGardens_E8469"
+					"id": "SingaporeStation_KentRidge_E8495"
 				},
 				{
-					"indicator": "B",
-					"name": "Bukit Timah Rd / Evans Rd",
-					"short_name": "B",
-					"station_id": "SingaporeStation_BotanicGardens",
+					"indicator": "A",
+					"name": "Kent Ridge, NUH",
+					"short_name": "A",
+					"station_id": "SingaporeStation_KentRidge",
 					"coords": [
-						1.3226019,
-						103.8159508
+						1.2942465,
+						103.7844009
 					],
-					"id": "SingaporeStation_BotanicGardens_E24342"
+					"id": "SingaporeStation_KentRidge_E8496"
+				},
+				{
+					"indicator": "C",
+					"name": "One Kent Ridge",
+					"short_name": "C",
+					"station_id": "SingaporeStation_KentRidge",
+					"coords": [
+						1.2939017,
+						103.7847134
+					],
+					"id": "SingaporeStation_KentRidge_E11232"
 				}
 			],
 			"route_ids": [
-				"SingaporeMRTCircleLine",
-				"SingaporeMRTDowntownLine"
+				"SingaporeMRTCircleLine"
 			],
-			"url": "https://citymapper.com/singapore/t/botanic-gardens",
-			"alias": "botanic-gardens",
+			"url": "https://citymapper.com/singapore/t/kent-ridge",
+			"alias": "kent-ridge",
 			"stop_curation_url_ids": [
 				"batcave_station_disruption",
 				"batcave_edit_station_exits",
@@ -1367,20 +1289,20 @@
 				"web_edit_station_exits"
 			],
 			"coords": [
-				1.322559,
-				103.815747
+				1.293301,
+				103.784413
 			],
 			"sharing_urls": [
 				{
-					"url": "https://citymapper.com/singapore/t/botanic-gardens",
+					"url": "https://citymapper.com/singapore/t/kent-ridge",
 					"departure_api": "metrodepartures"
 				}
 			],
 			"brand_ids": [
 				"SingaporeMRT"
 			],
-			"requested_id": "SingaporeStation_BotanicGardens",
-			"id": "SingaporeStation_BotanicGardens"
+			"requested_id": "SingaporeStation_KentRidge",
+			"id": "SingaporeStation_KentRidge"
 		},
 		{
 			"name": "Holland Village",
@@ -1721,47 +1643,37 @@
 			"id": "SingaporeStation_LorongChuan"
 		},
 		{
-			"name": "Kent Ridge",
+			"name": "Botanic Gardens",
 			"exits": [
 				{
-					"indicator": "B",
-					"name": "Science Park, Kent Ridge Park",
-					"short_name": "B",
-					"station_id": "SingaporeStation_KentRidge",
-					"coords": [
-						1.2925073,
-						103.7848766
-					],
-					"id": "SingaporeStation_KentRidge_E8495"
-				},
-				{
 					"indicator": "A",
-					"name": "Kent Ridge, NUH",
+					"name": "S'pore Botanic Gardens",
 					"short_name": "A",
-					"station_id": "SingaporeStation_KentRidge",
+					"station_id": "SingaporeStation_BotanicGardens",
 					"coords": [
-						1.2942465,
-						103.7844009
+						1.3224679,
+						103.8149953
 					],
-					"id": "SingaporeStation_KentRidge_E8496"
+					"id": "SingaporeStation_BotanicGardens_E8469"
 				},
 				{
-					"indicator": "C",
-					"name": "One Kent Ridge",
-					"short_name": "C",
-					"station_id": "SingaporeStation_KentRidge",
+					"indicator": "B",
+					"name": "Bukit Timah Rd / Evans Rd",
+					"short_name": "B",
+					"station_id": "SingaporeStation_BotanicGardens",
 					"coords": [
-						1.2939017,
-						103.7847134
+						1.3226019,
+						103.8159508
 					],
-					"id": "SingaporeStation_KentRidge_E11232"
+					"id": "SingaporeStation_BotanicGardens_E24342"
 				}
 			],
 			"route_ids": [
-				"SingaporeMRTCircleLine"
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTDowntownLine"
 			],
-			"url": "https://citymapper.com/singapore/t/kent-ridge",
-			"alias": "kent-ridge",
+			"url": "https://citymapper.com/singapore/t/botanic-gardens",
+			"alias": "botanic-gardens",
 			"stop_curation_url_ids": [
 				"batcave_station_disruption",
 				"batcave_edit_station_exits",
@@ -1770,20 +1682,20 @@
 				"web_edit_station_exits"
 			],
 			"coords": [
-				1.293301,
-				103.784413
+				1.322559,
+				103.815747
 			],
 			"sharing_urls": [
 				{
-					"url": "https://citymapper.com/singapore/t/kent-ridge",
+					"url": "https://citymapper.com/singapore/t/botanic-gardens",
 					"departure_api": "metrodepartures"
 				}
 			],
 			"brand_ids": [
 				"SingaporeMRT"
 			],
-			"requested_id": "SingaporeStation_KentRidge",
-			"id": "SingaporeStation_KentRidge"
+			"requested_id": "SingaporeStation_BotanicGardens",
+			"id": "SingaporeStation_BotanicGardens"
 		},
 		{
 			"name": "Telok Blangah",
@@ -2130,6 +2042,94 @@
 			],
 			"requested_id": "SingaporeStation_HawParVilla",
 			"id": "SingaporeStation_HawParVilla"
+		},
+		{
+			"name": "Bishan",
+			"exits": [
+				{
+					"indicator": "A",
+					"name": "Junction 8 / Bus Interchange",
+					"short_name": "A",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.350666,
+						103.8483604
+					],
+					"id": "SingaporeStation_Bishan_E4738"
+				},
+				{
+					"indicator": "C",
+					"name": "Bishan Road",
+					"short_name": "C",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3506136,
+						103.8480939
+					],
+					"id": "SingaporeStation_Bishan_E4739"
+				},
+				{
+					"indicator": "B",
+					"name": "Bishan Road",
+					"short_name": "B",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3512408,
+						103.8482154
+					],
+					"id": "SingaporeStation_Bishan_E4740"
+				},
+				{
+					"indicator": "E",
+					"name": "Junction 8 (Basement 1)",
+					"short_name": "E",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3510965,
+						103.8484484
+					],
+					"id": "SingaporeStation_Bishan_E4741"
+				},
+				{
+					"indicator": "D",
+					"name": "Bishan Place / Bishan St 13",
+					"short_name": "D",
+					"station_id": "SingaporeStation_Bishan",
+					"coords": [
+						1.3511507,
+						103.8499983
+					],
+					"id": "SingaporeStation_Bishan_E4742"
+				}
+			],
+			"route_ids": [
+				"SingaporeMRTCircleLine",
+				"SingaporeMRTNorthsouthLine"
+			],
+			"url": "https://citymapper.com/singapore/t/bishan",
+			"alias": "bishan",
+			"stop_curation_url_ids": [
+				"batcave_station_disruption",
+				"batcave_edit_station_exits",
+				"batcave_edit_station_tags",
+				"web_edit_station",
+				"web_edit_station_exits"
+			],
+			"coords": [
+				1.351455,
+				103.848263
+			],
+			"sharing_urls": [
+				{
+					"url": "https://citymapper.com/singapore/t/bishan",
+					"departure_api": "metrodepartures"
+				}
+			],
+			"brand_ids": [
+				"SingaporeMRT"
+			],
+			"requested_id": "SingaporeStation_Bishan",
+			"id": "SingaporeStation_Bishan"
 		}
 	]
 }

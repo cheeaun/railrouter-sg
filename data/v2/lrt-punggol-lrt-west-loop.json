@@ -1,6 +1,10 @@
 {
 	"routes": [
 		{
+			"status": {
+				"summary": "Good Service",
+				"level": 0
+			},
 			"supports_routeinfo": true,
 			"name": "Punggol LRT (West Loop)",
 			"patterns": [

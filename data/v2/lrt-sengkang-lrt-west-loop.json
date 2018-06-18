@@ -1,6 +1,10 @@
 {
 	"routes": [
 		{
+			"status": {
+				"summary": "Good Service",
+				"level": 0
+			},
 			"supports_routeinfo": true,
 			"name": "Sengkang LRT (West Loop)",
 			"patterns": [
