@@ -1,5 +1,5 @@
 const fs = require('fs');
-const polyline = require('polyline');
+const polyline = require('@mapbox/polyline');
 
 const wikipedia = require('../data/v2/wikipedia.json');
 const wikipediaHash = {};
@@ -12,7 +12,7 @@ const matchStopWikipedia = (stopName) => {
     const key = k.toLowerCase().trim();
     return name == key;
   })[0];
-  if (!result) console.warn(`NO MATCH FOUND: ${name}`);
+  if (!result) console.warn(`WIKIPEDIA - NO MATCH FOUND: ${name}`);
   const hash = wikipediaHash[result];
   return {
     ref: hash.codes.map(c => c.text).join(';'),
@@ -24,12 +24,50 @@ const matchStopWikipedia = (stopName) => {
   };
 };
 
+const stations = require('../data/v2/stations.geo.json');
+const stationsHash = {};
+stations.features.forEach(f => {
+  const { name, description } = f.properties;
+  let key = name.toLowerCase().trim();
+  // Clean up data
+  if (key == 'jelepang') key = 'jelapang';
+  if (key == 'sum kee') key = 'sam kee';
+  if (key == 'river valley station') key = 'fort canning';
+  if (key == 'kallang bahru station') key = 'geylang bahru';
+  if (key == 'jalan besar') key = 'bendemeer';
+  if (key == 'king abert park') key = 'king albert park';
+  if (key == 'nsle station') key = 'marina south pier';
+  if (key == 'null'){
+    const inc_crc = (description.match(/inc_crc<\/td>[^<>]*<td>([^<>]+)/i) || [,null])[1].toLowerCase();
+    if (inc_crc == '77802d2e905fe6c9') key = 'downtown';
+    if (inc_crc == '09851bbea57279cd') key = 'kaki bukit';
+    if (inc_crc == '7fe7f41c2dd8bd17') key = 'stevens';
+  }
+  // Strip off 3rd coordinate and flip the lat/lng
+  const coords = f.geometry.coordinates[0].map(c => [c[1], c[0]]);
+  stationsHash[key] = polyline.encode(coords);
+});
+const stationsKeys = Object.keys(stationsHash);
+
+const matchStationOutline = (stopName) => {
+  const name = stopName.toLowerCase().trim().replace(/\-/i, ' ');
+  const key = stationsKeys.filter(k => {
+    return name.includes(k) || k.includes(name);
+  })[0];
+  if (!key){
+    console.warn(`STATION - NO MATCH FOUND: ${name}`);
+    return;
+  }
+  return stationsHash[key];
+};
+
 fs.readdir('data/v2', (e, files) => {
   const allStopsHash = {}; // Use hash to prevent duplicates
   const allLines = [];
   const allRoutes = {};
 
-  files.map(f => {
+  files.forEach(f => {
+    if (!/\.json$/i.test(f)) return;
     const data = JSON.parse(fs.readFileSync(`data/v2/${f}`));
     const network = /^l\-/.test(f) ? 'lrt' : 'mrt';
     // STOPS
@@ -38,6 +76,7 @@ fs.readdir('data/v2', (e, files) => {
       stops.forEach(stop => {
         if (!stop.exits) console.info(`${stop.name} has NO EXITS!`);
         const wp = matchStopWikipedia(stop.name);
+        const station = matchStationOutline(stop.name);
         allStopsHash[stop.name] = {
           name: stop.name,
           coord: stop.coords,
@@ -52,6 +91,7 @@ fs.readdir('data/v2', (e, files) => {
             return 0;
           }),
           ...wp,
+          station,
         };
       });
     } else if (/^[lm]rt-/.test(f)) { // LINES

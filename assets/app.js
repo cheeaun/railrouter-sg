@@ -409,6 +409,19 @@ function init(){
       map: map,
     });
 
+    if (stop.station){
+      var paths =  google.maps.geometry.encoding.decodePath(stop.station);
+      var station = new google.maps.Polygon({
+        paths: paths,
+        strokeColor: '#00454d',
+        strokeOpacity: 0.25,
+        strokeWeight: 2,
+        fillColor: '#00454d',
+        fillOpacity: 0.15,
+        map: map,
+      });
+    }
+
     marker.addListener('click', function() {
       var html = '<div class="infowindow">';
       if (stop.wikipedia_image_url){
