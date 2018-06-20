@@ -26,7 +26,7 @@ const matchStopWikipedia = (stopName) => {
 
 const stations = require('../data/v2/stations.geo.json');
 const stationsHash = {};
-stations.features.forEach(f => {
+stations.features.forEach((f, i) => {
   const { name, description } = f.properties;
   let key = name.toLowerCase().trim();
   // Clean up data
@@ -42,7 +42,11 @@ stations.features.forEach(f => {
     if (inc_crc == '77802d2e905fe6c9') key = 'downtown';
     if (inc_crc == '09851bbea57279cd') key = 'kaki bukit';
     if (inc_crc == '7fe7f41c2dd8bd17') key = 'stevens';
+    if (inc_crc == 'e70c9e1046c77634') key = 'chinatown';
+    if (inc_crc == '16771cd513bd9e17') key = 'newton';
+    if (inc_crc == 'acca83af47009e30') key = 'botanic gardens';
   }
+  if (stationsHash[key]) key += i;
   // Strip off 3rd coordinate and flip the lat/lng
   const coords = f.geometry.coordinates[0].map(c => [c[1], c[0]]);
   stationsHash[key] = polyline.encode(coords);
@@ -51,14 +55,14 @@ const stationsKeys = Object.keys(stationsHash);
 
 const matchStationOutline = (stopName) => {
   const name = stopName.toLowerCase().trim().replace(/\-/i, ' ');
-  const key = stationsKeys.filter(k => {
+  const keys = stationsKeys.filter(k => {
     return name.includes(k) || k.includes(name);
-  })[0];
-  if (!key){
+  });
+  if (!keys.length){
     console.warn(`STATION - NO MATCH FOUND: ${name}`);
     return;
   }
-  return stationsHash[key];
+  return keys.map(k => stationsHash[k])
 };
 
 fs.readdir('data/v2', (e, files) => {

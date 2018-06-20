@@ -409,20 +409,23 @@ function init(){
       map: map,
     });
 
-    if (stop.station){
-      var paths =  google.maps.geometry.encoding.decodePath(stop.station);
-      var station = new google.maps.Polygon({
-        paths: paths,
-        strokeColor: '#00454d',
-        strokeOpacity: 0.25,
-        strokeWeight: 2,
-        fillColor: '#00454d',
-        fillOpacity: 0.15,
-        map: map,
+    var outlines = [];
+    if (stop.station && stop.station.length){
+      outlines = stop.station.map(function(outline){
+        var paths = google.maps.geometry.encoding.decodePath(outline);
+        return new google.maps.Polygon({
+          paths: paths,
+          strokeColor: '#00454d',
+          strokeOpacity: 0.25,
+          strokeWeight: 2,
+          fillColor: '#00454d',
+          fillOpacity: 0.15,
+          map: map,
+        });
       });
     }
 
-    marker.addListener('click', function() {
+    var setInfoWindow = function() {
       var html = '<div class="infowindow">';
       if (stop.wikipedia_image_url){
         html += '<div class="infowindow-image" style="background-image: url(' + stop.wikipedia_image_url + ')"><a href="' + stop.wikipedia_url + '" target="_blank">Image from Wikipedia</a></div>'
@@ -451,6 +454,11 @@ function init(){
       infowindow.setContent(html);
       infowindow.setPosition(marker.getPosition());
       infowindow.open(map);
+    };
+
+    marker.addListener('click', setInfoWindow);
+    outlines.forEach(function(outline){
+      outline.addListener('click', setInfoWindow);
     });
 
     var stopExits = [];
