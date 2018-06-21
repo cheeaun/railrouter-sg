@@ -349,20 +349,25 @@ function init(){
   var exitLines = [];
   var zoom = map.getZoom();
   var visible = zoom >= 12;
+  var nonExistentLineCodes = /^(js|cg|te|je)/i;
   var markers = data.stops.map(function(stop){
     var codes = [];
     var ref = stop.ref || stop.asset_ref;
     var _codes = stop.codes;
     if (_codes){
-      codes = _codes.map(function(c){
+      codes = _codes.filter(function(c){
+        return !!c.text && !nonExistentLineCodes.test(c.text);
+      }).map(function(c){
         return {
           code: c.text,
           color: c.color,
         };
       });
     } else if (ref){
-      codes = ref.split(';').map(function(k){
-        var code = k.match(/^[a-z]{1,2}/i)[0].toLowerCase();
+      codes = ref.split(';').filter(function(r){
+        return !/^(js|cg|te|je)/i.test(r);
+      }).map(function(k){
+        var code = k.match(nonExistentLineCodes)[0].toLowerCase();
         if (data.routeMaps[code]) code = data.routeMaps[code];
         var route = data.routes[code];
         if (route){
