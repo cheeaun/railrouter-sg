@@ -112,7 +112,10 @@ function initMap(){
           locationMarker.setPosition(pos);
           locationMarker.setRadius(coords.accuracy);
           locationMarker.setVisible(true);
-          if (!watching) map.panTo(pos);
+          if (!watching){
+            if (map.getZoom() < 16) map.setZoom(16);
+            map.panTo(pos);
+          }
           watching = true;
           sessionStorage['railrouter-sg:watch-location'] = 1;
 
