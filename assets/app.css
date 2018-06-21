@@ -302,6 +302,27 @@ label input {
   cursor: pointer;
 }
 
+.arrival-times table {
+  width: 100%;
+  margin-top: .5em;
+}
+
+.arrival-times table tbody tr td:nth-child(2) {
+  text-align: center;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+.arrival-times table tbody tr td:last-child {
+  text-align: right;
+}
+
+.arrival-times tfoot {
+  opacity: .65;
+}
+.arrival-times tfoot td {
+  padding-top: .5em;
+}
+
 .inline-block {
   display: inline-block;
 }

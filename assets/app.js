@@ -291,6 +291,67 @@ var stationMiniCanvas = function(colors){
   };
 };
 
+function formatArriveTime(str){
+  if (/\d/.test(str)){
+    return str + ' min' + (str == '1' ? '' : 's');
+  }
+  return str;
+};
+
+var arrivalTimeout;
+function renderArrivalTimes(){
+  if (!('fetch' in window)) return;
+  clearTimeout(arrivalTimeout);
+  var infowindow = document.querySelector('.infowindow[id]');
+  if (!infowindow) return;
+  var ref = infowindow.id;
+  var stop = data.stops.filter(function(stop){
+    return stop.ref == ref;
+  })[0];
+  fetch('https://connectv3.smrt.wwprojects.com/smrt/api/train_arrival_time_by_id/?station=' + encodeURIComponent(stop.name))
+    .then(function(res){ return res.json(); })
+    .then(function(res){
+      var results = res.results;
+      if (results.length){
+        var html = results.filter(function(result, pos, arr){
+          // Filter weird destination names
+          if (/do not board/i.test(result.next_train_destination)) return false;
+          return arr.findIndex(function(r){ return r.next_train_destination == result.next_train_destination }) == pos;
+        }).map(function(result){
+          var arrow = '⇢';
+          var isWeirdName = /do not board/i.test(result.next_train_destination);
+          if (result.next_train_destination == result.mrt){
+            arrow = '⇠';
+          }
+          var dest = result.next_train_destination;
+          if (isWeirdName){
+            if (/do not board/i.test(result.subseq_train_destination)){
+              // Weird name again
+              dest = result.mrt;
+              arrow = '⇠';
+            } else {
+              dest = result.subseq_train_destination;
+            }
+          }
+          return '<tr>'
+            + '<td>' + arrow + ' ' + dest + '</td>'
+            + '<td>' + result.next_train_arr + '</td>'
+            + '<td>' + formatArriveTime(result.subseq_train_arr) + '</td>'
+            + '</tr>';
+        }).join('');
+        infowindow.querySelector('.arrival-times').innerHTML = '<table><tbody>'
+          + html
+          + '</tbody>'
+          + '<tfoot><tr><td colspan="3"><small>Arrival times powered by <a href="https://www.smrttrains.com.sg/" target="_blank">SMRT Trains Ltd.</a></small></td></tr>'
+        + '</table></tfoot>';
+      }
+    })
+    .catch(function(e){});
+  arrivalTimeout = setTimeout(function(){
+    requestAnimationFrame(renderArrivalTimes);
+  }, 30*1000); // every 30 seconds
+};
+
 function init(){
   var infoWidth = 250;
   var InfoBox = _InfoBox(google);
@@ -300,6 +361,8 @@ function init(){
     pixelOffset: new google.maps.Size(-infoWidth/2, -5),
     infoBoxClearance: new google.maps.Size(10, 10),
   });
+  infowindow.addListener('domready', renderArrivalTimes);
+  infowindow.addListener('content_changed', renderArrivalTimes);
   map.addListener('click', function(){
     infowindow.close();
   });
@@ -434,7 +497,7 @@ function init(){
     }
 
     var setInfoWindow = function() {
-      var html = '<div class="infowindow">';
+      var html = '<div class="infowindow" id="' + stop.ref +'">';
       if (stop.wikipedia_image_url){
         html += '<div class="infowindow-image" style="background-image: url(' + stop.wikipedia_image_url + ')"><a href="' + stop.wikipedia_url + '" target="_blank">Image from Wikipedia</a></div>'
       };
@@ -457,6 +520,7 @@ function init(){
         html += '</div>';
         html += '</div>';
       }
+      html += '<div class="arrival-times"></div>'
       html += '</div>';
       html += '</div>';
       infowindow.setContent(html);
