@@ -514,8 +514,17 @@ function init(){
         var s = (count != 1 ? 's' : '');
         html += '<div><span class="exit-info"><b>' + count + '</b> entrance' + s + '/exit' + s + '</span>&nbsp;&nbsp;';
         html += '<div class="inline-block">';
+        stop.exits.sort(function(a, b) {
+          if (!a.exit) return 1;
+          if (!b.exit) return -1;
+          var va = a.exit.toLowerCase();
+          var vb = b.exit.toLowerCase();
+          if (va < vb) return -1;
+          if (va > vb) return 1;
+          return 0;
+        });
         stop.exits.forEach(function(exit){
-          html += '<a class="exit-label" onclick="zoomTo(' + exit.coord.join(',') + ')">' + (exit.exit || '&nbsp;&nbsp;') + '</a> ';
+          html += '<a class="exit-label" onclick="zoomTo(' + exit.coord.join(',') + ')">' + (exit.exit || '➔') + '</a> ';
         });
         html += '</div>';
         html += '</div>';
@@ -537,7 +546,7 @@ function init(){
     var stopLines = [];
     (stop.exits || []).forEach(function(exit){
       var label = exit.exit || '';
-      var eCanvas = exitCanvas(label);
+      var eCanvas = exitCanvas(label || '➔');
       var exitPosition = {lat: exit.coord[0], lng: exit.coord[1]};
       stopExits.push(new google.maps.Marker({
         icon: {
