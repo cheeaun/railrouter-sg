@@ -27,6 +27,13 @@ fs.readdir('data', function(e, files){
 
     var color = data.meta.colour || '#666';
 
+    // 1. Split to construction and non-construction "ways"
+    // 2. Merge all coords in both "ways"
+    // const wayCon = data.ways.filter(w => !!w.meta.construction);
+    // const wayNoCon = data.ways.filter(w => !w.meta.construction);
+    // console.log(wayCon.length, wayNoCon.length);
+    // return;
+
     data.ways.forEach(function(way){
       var line = {
         colour: color,
@@ -67,7 +74,7 @@ fs.readdir('data', function(e, files){
     });
 
     allData.routes[file.match(/\-([a-z]+)\./i)[1]] = {
-      name: data.meta.ref || data.meta['name:en'] || data.meta.name,
+      name: data.meta['name:en'] || data.meta.name || data.meta.ref,
       color: color,
       bounds: bounds,
     };
