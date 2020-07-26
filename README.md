@@ -52,6 +52,5 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 
 ## License
 
-Data: [© OpenStreetMap contributors](http://www.openstreetmap.org/copyright) and [OneMap](http://www.onemap.sg/home/).
-
-Everything else: [MIT](http://cheeaun.mit-license.org/)
+- Data: © [LTA](https://www.lta.gov.sg/content/ltagov/en/terms-of-use.html) © [Data.gov.sg](https://data.gov.sg/privacy-and-website-terms#site-terms) © [SMRT](https://www.smrt.com.sg/Terms-of-Use) © [SBS](https://www.sbstransit.com.sg/conditions-for-use)
+- Everything else: [MIT](http://cheeaun.mit-license.org/)
