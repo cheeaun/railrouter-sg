@@ -12,7 +12,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  /\.(?:js|css|geojson)$/,
+  /\.(?:js|css|geo.json)$/,
   new workbox.strategies.CacheFirst({
     cacheName: 'static-resources',
     plugins: [

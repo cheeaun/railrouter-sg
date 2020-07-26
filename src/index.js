@@ -24,7 +24,7 @@ $('logo').onclick = () => {
 
 import Fuse from 'fuse.js';
 let fuse, stationsData;
-const geojsonFetch = fetch(require('url:./sg-rail.geojson'));
+const geojsonFetch = fetch(require('./sg-rail.geo.json'));
 
 import mapboxgl from 'mapbox-gl';
 import stationsSprite from './stations.json';
@@ -624,13 +624,13 @@ const wikipedia = {
   });
 
   setTimeout(() => {
-    map.loadImage(require('url:./exit.png'), (e, img) => {
+    map.loadImage(require('./exit.png'), (e, img) => {
       map.addImage('exit', img);
     });
 
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    map.loadImage(require('url:./stations.png'), (e, img) => {
+    map.loadImage(require('./stations.png'), (e, img) => {
       if (!img) return;
       canvas.width = img.width;
       canvas.height = img.height;
