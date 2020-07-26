@@ -17,12 +17,13 @@
   "scripts": {
     "start": "parcel serve ./src/index.html --no-autoinstall",
     "start-https": "parcel serve ./src/index.html --no-autoinstall --https",
-    "build": "parcel build ./src/index.html",
+    "build": "parcel build ./src/index.html --no-cache",
     "postbuild": "cpy public/* dist"
   },
   "dependencies": {
     "fuse.js": "~6.4.0",
-    "mapbox-gl": "~1.11.1"
+    "mapbox-gl": "~1.11.1",
+    "regenerator-runtime": "~0.13.7"
   },
   "devDependencies": {
     "cpy-cli": "~3.1.1",

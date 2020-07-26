@@ -1,3 +1,6 @@
+// https://github.com/parcel-bundler/parcel/issues/3375#issuecomment-599160200
+import 'regenerator-runtime/runtime';
+
 const $ = (id) => document.getElementById(id);
 const $home = $('home');
 const $btnCloseHome = $('btn-close-home');
