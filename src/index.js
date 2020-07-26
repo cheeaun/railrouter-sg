@@ -270,7 +270,11 @@ const arrivalTimes = {
 const wikipedia = {
   mount: (slug) => {
     const $wikipedia = $station.querySelector('.wikipedia');
-    fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${slug}`)
+    fetch(
+      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+        slug,
+      )}`,
+    )
       .then((res) => res.json())
       .then((res) => {
         const {
