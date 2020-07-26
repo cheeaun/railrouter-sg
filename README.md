@@ -1,46 +1,56 @@
-RailRouter SG
-===
+# RailRouter SG
+
+![Screenshot of RailRouter SG](screenshots/screenshot-5.png)
+
+![Screenshot of RailRouter SG](screenshots/screenshot-6.png)
+
+**RailRouter SG** is a **progressive web app** that lets you explore MRT and LRT rail routes in Singapore.
+
+It was built to [scratch my curiosity itch](https://twitter.com/cheeaun/status/683495506031448064) for comparing the _real_ route lines VS the lines shown on Google Maps, which I personally find too _straight_ and skews the perception of how trains actually travel in the real world.
+
+Available features:
+
+- **Real** rail route lines, for all train routes.
+- Show station names in Chinese and Tamil, besides English.
+- Show station building structures, both underground and aboveground.
+- Show location of exits (a.k.a. entrances) for (almost) all stations.
+- Show train arrival times for _some_ stations.
+- Possibly, **works offline**.
+
+## Previously
 
 ![Screenshot of RailRouter SG](screenshots/screenshot-2.png)
 
-Yes I know, weird name. Following the same mistake I did for [BusRouter.SG](https://github.com/cheeaun/busrouter-sg).
+This is the first version, using Google Maps.
 
-**RailRouter SG** is a **progressive web app** that lets you explore MRT and LRT rail routes in Singapore. Powered by [**Service Worker**](http://www.html5rocks.com/en/tutorials/service-worker/introduction/) and **works offline**.
+## Technicalities
 
-It's meant to [scratch my curiosity itch](https://twitter.com/cheeaun/status/683495506031448064) for comparing the *real* route lines VS the lines shown on Google Maps, which I personally find too *straight* and skews the perception of how trains actually travel in the real world. Yeah, kind of like the feeling of being trolled by Google Maps. Get it?
+### For development
 
-Anyway, these are awesome features available:
+- `npm i` - install dependencies
+- `npm start` - starts the server
+- `npm run build` - builds the production assets for deployment
 
-- **Real** rail route lines, for all train routes, *including* Sentosa Express line and Changi Line.
-- Checkbox to show Google's own transit layer, so that you can compare.
-- Show station names in Chinese and Tamil if available, besides English.
-- Show location of exits (aka entrances) for almost all stations.
-- Let me repeat, **works offline**.
+### Data source
 
-That's it.
+From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata)**.
 
-Technicalities
----
+### Generating station code markers
 
-The *real* route lines come from OpenStreetMap here: http://wiki.openstreetmap.org/wiki/Mass_Rapid_Transit_%28Singapore%29
+1. Go to https://codepen.io/cheeaun/full/pogQjgV
+2. Paste all the train codes.
+3. Click "Generate Images" button to download ZIP file of SVG images.
+4. Extract files from the ZIP file.
+5. Go to https://www.facetstudios.com/sprite-generator
+6. Drag/Upload all SVG files to the site.
+7. Uncheck "Export for retina". Check "Generate JSON".
+8. Click "Download Files" button.
+9. Extract files from ZIP file.
+10. Move & rename sprite image to `src/stations.png`. Optimize the image with [TinyPNG](https://tinypng.com/).
+11. Move & rename sprite JSON to `src/sprite.json`.
+12. Run `node scripts/gen-stations-sprite.js` which will generate `src/stations.json`.
 
-The JSON files are in `data` folder. `all.json` is for *all* routes and stops, while other files are individual lines.
-
-Here's a sprinkle of yarn magic:
-
-- `yarn` - install everything
-- `yarn run lines` - scrape the lines from OpenStreetMap
-- `yarn run lines-all` - generate `all.json` from the scraped lines
-- `yarn run exits-all` - scrape exits fron OneMap.sg and regenerate `all.json`
-- `yarn run wikipedia-all` - fetch data from Wikipedia and regenerate `all.json`
-- `yarn run all` - run `lines`, `lines-all`, `exits-all` and `wikipedia-all`
-- `yarn run inliner` - inline all assets from `_index.html` to `index.html`
-- `yarn run watch` - watch files and run `inliner` when files changed
-- `yarn run serve` - run a local server
-- `yarn start` - runs both `watch` and `serve`
-
-License
----
+## License
 
 Data: [© OpenStreetMap contributors](http://www.openstreetmap.org/copyright) and [OneMap](http://www.onemap.sg/home/).
 

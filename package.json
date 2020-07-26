@@ -1,6 +1,6 @@
 {
   "name": "railrouter-sg",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Explore MRT and LRT rail routes in Singapore",
   "keywords": [
     "singapore",
@@ -9,38 +9,24 @@
     "train",
     "metro",
     "subway",
-    "map"
+    "map",
+    "transport"
   ],
   "author": "Lim Chee Aun <cheeaun@gmail.com> (http://cheeaun.com/)",
   "license": "MIT",
   "scripts": {
-    "serve": "serve",
-    "citymapper-routes": "node scripts/fetch-citymapper-routes",
-    "citymapper-stops": "node scripts/fetch-citymapper-stops",
-    "wikipedia": "node scripts/fetch-wikipedia",
-    "compile-all": "node scripts/compile-all",
-    "all": "npm run citymapper-routes && npm run citymapper-stops && npm run wikipedia && npm run compile-all",
-    "_lines": "node scripts/fetch-lines.js",
-    "_lines-all": "node scripts/from-lines-compile-all.js",
-    "_exits": "node scripts/fetch-exits-citymapper.js",
-    "_exits-all": "node scripts/fetch-onemap-exits-recompile-all.js",
-    "_wikipedia-all": "node scripts/fetch-wikipedia-recompile-all.js",
-    "_smrt": "node scripts/fetch-smrt.js",
-    "inliner": "node scripts/inliner.js _index.html index.html",
-    "watch": "chokidar '_index.html' 'assets/*.js' 'assets/*.css' 'data/v2/all.json' -c 'npm run inliner' -d 1000",
-    "start": "run-p watch serve",
-    "deploy": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
+    "start": "parcel serve ./src/index.html --no-autoinstall",
+    "start-https": "parcel serve ./src/index.html --no-autoinstall --https",
+    "build": "parcel build ./src/index.html",
+    "postbuild": "cpy public/* dist"
+  },
+  "dependencies": {
+    "fuse.js": "~6.4.0",
+    "mapbox-gl": "~1.11.1"
   },
   "devDependencies": {
-    "cheerio": "~0.22.0",
-    "chokidar-cli": "~1.2.0",
-    "clean-css": "~4.1.11",
-    "got": "~8.3.1",
-    "json5": "~1.0.1",
-    "npm-run-all": "^4.1.3",
-    "@mapbox/polyline": "~1.0.0",
-    "serve": "^9.0.0",
-    "uglify-js": "^3.4.0",
-    "xml2js": "~0.4.19"
-  }
+    "cpy-cli": "~3.1.1",
+    "parcel": "~2.0.0-beta.1"
+  },
+  "browserslist": "> 0.25%, not ie 11, not op_mini all"
 }
