@@ -3848,9 +3848,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS12"
-				]
+				"station_codes": "NS12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3867,9 +3865,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS12"
-				]
+				"station_codes": "NS12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3886,9 +3882,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS12"
-				]
+				"station_codes": "NS12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3905,9 +3899,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS12"
-				]
+				"station_codes": "NS12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3924,9 +3916,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NS12"
-				]
+				"station_codes": "NS12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3943,9 +3933,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "1",
-				"station_codes": [
-					"TE1"
-				]
+				"station_codes": "TE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3962,9 +3950,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "2",
-				"station_codes": [
-					"TE1"
-				]
+				"station_codes": "TE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -3981,9 +3967,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "1",
-				"station_codes": [
-					"TE3"
-				]
+				"station_codes": "TE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4000,9 +3984,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "2",
-				"station_codes": [
-					"TE3"
-				]
+				"station_codes": "TE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4019,9 +4001,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "3",
-				"station_codes": [
-					"TE3"
-				]
+				"station_codes": "TE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4038,9 +4018,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "4",
-				"station_codes": [
-					"TE3"
-				]
+				"station_codes": "TE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4057,9 +4035,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "5",
-				"station_codes": [
-					"TE3"
-				]
+				"station_codes": "TE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4076,9 +4052,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "1",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4095,9 +4069,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "2",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4114,9 +4086,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "3",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4133,9 +4103,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "4",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4152,9 +4120,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "5",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4171,9 +4137,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "6",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4190,9 +4154,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "7",
-				"station_codes": [
-					"TE2"
-				]
+				"station_codes": "NS9-TE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4209,9 +4171,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4228,9 +4188,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4247,9 +4205,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4266,9 +4222,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW22"
-				]
+				"station_codes": "EW22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4285,9 +4239,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW22"
-				]
+				"station_codes": "EW22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4304,9 +4256,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4323,9 +4273,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4342,9 +4290,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4361,9 +4307,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS2"
-				]
+				"station_codes": "NS2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4380,9 +4324,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW29"
-				]
+				"station_codes": "EW29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4399,9 +4341,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW29"
-				]
+				"station_codes": "EW29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4418,9 +4358,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS4"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4437,9 +4375,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS7"
-				]
+				"station_codes": "NS7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4456,9 +4392,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS8"
-				]
+				"station_codes": "NS8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4475,9 +4409,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS8"
-				]
+				"station_codes": "NS8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4494,10 +4426,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NE1",
-					"CC29"
-				]
+				"station_codes": "NE1-CC29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4514,10 +4443,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE1",
-					"CC29"
-				]
+				"station_codes": "NE1-CC29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4534,10 +4460,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE1",
-					"CC29"
-				]
+				"station_codes": "NE1-CC29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4554,9 +4477,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4573,9 +4494,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4592,9 +4511,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4611,9 +4528,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4630,9 +4545,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4649,9 +4562,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4668,9 +4579,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4687,9 +4596,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4706,9 +4613,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4725,9 +4630,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4744,9 +4647,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "I",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4763,9 +4664,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "H",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4782,9 +4681,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE9"
-				]
+				"station_codes": "NE9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4801,9 +4698,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE10"
-				]
+				"station_codes": "NE10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4820,9 +4715,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC5"
-				]
+				"station_codes": "CC5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4839,9 +4732,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT9"
-				]
+				"station_codes": "CC19-DT9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4858,9 +4749,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC20"
-				]
+				"station_codes": "CC20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4877,9 +4766,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC20"
-				]
+				"station_codes": "CC20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4896,9 +4783,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC21"
-				]
+				"station_codes": "CC21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4915,9 +4800,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC21"
-				]
+				"station_codes": "CC21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4934,10 +4817,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT16",
-					"CE1"
-				]
+				"station_codes": "DT16-CE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4954,10 +4834,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT16",
-					"CE1"
-				]
+				"station_codes": "DT16-CE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4974,9 +4851,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT5"
-				]
+				"station_codes": "DT5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -4993,9 +4868,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC15"
-				]
+				"station_codes": "NS17-CC15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5012,9 +4885,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC15"
-				]
+				"station_codes": "NS17-CC15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5031,9 +4902,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE9"
-				]
+				"station_codes": "NE9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5050,9 +4919,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE16"
-				]
+				"station_codes": "NE16-STC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5069,9 +4936,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE16"
-				]
+				"station_codes": "NE16-STC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5088,9 +4953,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE16"
-				]
+				"station_codes": "NE16-STC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5107,9 +4970,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE16"
-				]
+				"station_codes": "NE16-STC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5126,9 +4987,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE17"
-				]
+				"station_codes": "NE17-PTC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5145,9 +5004,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE17"
-				]
+				"station_codes": "NE17-PTC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5164,9 +5021,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE17"
-				]
+				"station_codes": "NE17-PTC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5183,9 +5038,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE17"
-				]
+				"station_codes": "NE17-PTC"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5202,9 +5055,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE15"
-				]
+				"station_codes": "NE15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5221,9 +5072,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE15"
-				]
+				"station_codes": "NE15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5240,9 +5089,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS13"
-				]
+				"station_codes": "NS13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5259,9 +5106,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS13"
-				]
+				"station_codes": "NS13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5278,9 +5123,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NS13"
-				]
+				"station_codes": "NS13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5297,9 +5140,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5316,9 +5157,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5335,9 +5174,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5354,9 +5191,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC11"
-				]
+				"station_codes": "CC11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5373,9 +5208,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW7"
-				]
+				"station_codes": "EW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5392,9 +5225,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS11"
-				]
+				"station_codes": "NS11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5411,9 +5242,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE14"
-				]
+				"station_codes": "NE14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5430,9 +5259,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CG2"
-				]
+				"station_codes": "CG2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5449,9 +5276,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CG2"
-				]
+				"station_codes": "CG2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5468,9 +5293,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5487,9 +5310,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5506,9 +5327,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5525,10 +5344,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5545,10 +5361,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "J",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5565,10 +5378,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5585,10 +5395,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "I",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5605,9 +5412,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5624,9 +5429,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5643,9 +5446,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5662,9 +5463,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "H",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5681,9 +5480,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5700,9 +5497,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5719,9 +5514,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5738,9 +5531,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT15"
-				]
+				"station_codes": "CC4-DT15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5757,9 +5548,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC5"
-				]
+				"station_codes": "CC5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5776,9 +5565,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC6"
-				]
+				"station_codes": "CC6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5795,9 +5582,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC6"
-				]
+				"station_codes": "CC6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5814,9 +5599,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC7"
-				]
+				"station_codes": "CC7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5833,9 +5616,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC7"
-				]
+				"station_codes": "CC7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5852,9 +5633,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC8"
-				]
+				"station_codes": "CC8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5871,9 +5650,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC8"
-				]
+				"station_codes": "CC8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5890,9 +5667,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW8"
-				]
+				"station_codes": "EW8-CC9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5909,9 +5684,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW8"
-				]
+				"station_codes": "EW8-CC9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5928,9 +5701,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC10"
-				]
+				"station_codes": "CC10-DT26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5947,9 +5718,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC10"
-				]
+				"station_codes": "CC10-DT26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5966,9 +5735,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC10"
-				]
+				"station_codes": "CC10-DT26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -5985,9 +5752,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC11"
-				]
+				"station_codes": "CC11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6004,9 +5769,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC12"
-				]
+				"station_codes": "CC12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6023,9 +5786,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC12"
-				]
+				"station_codes": "CC12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6042,9 +5803,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "H",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6061,9 +5820,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6080,9 +5837,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6099,9 +5854,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6118,9 +5871,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"CC13"
-				]
+				"station_codes": "NE12-CC13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6137,9 +5888,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC14"
-				]
+				"station_codes": "CC14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6156,9 +5905,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC14"
-				]
+				"station_codes": "CC14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6175,9 +5922,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC16"
-				]
+				"station_codes": "CC16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6194,9 +5939,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC16"
-				]
+				"station_codes": "CC16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6213,9 +5956,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6232,9 +5973,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC17"
-				]
+				"station_codes": "CC17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6251,9 +5990,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC17"
-				]
+				"station_codes": "CC17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6270,9 +6007,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6289,9 +6024,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6308,9 +6041,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS10"
-				]
+				"station_codes": "NS10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6327,9 +6058,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS10"
-				]
+				"station_codes": "NS10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6346,9 +6075,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS16"
-				]
+				"station_codes": "NS16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6365,10 +6092,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT16",
-					"CE1"
-				]
+				"station_codes": "DT16-CE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6385,10 +6109,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"DT16",
-					"CE1"
-				]
+				"station_codes": "DT16-CE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6405,10 +6126,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT16",
-					"CE1"
-				]
+				"station_codes": "DT16-CE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6425,9 +6143,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6444,9 +6160,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE14"
-				]
+				"station_codes": "NE14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6463,9 +6177,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE14"
-				]
+				"station_codes": "NE14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6482,9 +6194,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE13"
-				]
+				"station_codes": "NE13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6501,9 +6211,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE13"
-				]
+				"station_codes": "NE13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6520,9 +6228,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE13"
-				]
+				"station_codes": "NE13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6539,9 +6245,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW7"
-				]
+				"station_codes": "EW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6558,9 +6262,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW7"
-				]
+				"station_codes": "EW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6577,9 +6279,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW6"
-				]
+				"station_codes": "EW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6596,9 +6296,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW6"
-				]
+				"station_codes": "EW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6615,9 +6313,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW5"
-				]
+				"station_codes": "EW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6634,9 +6330,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW5"
-				]
+				"station_codes": "EW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6653,9 +6347,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS16"
-				]
+				"station_codes": "NS16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6672,9 +6364,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS16"
-				]
+				"station_codes": "NS16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6691,9 +6381,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC15"
-				]
+				"station_codes": "NS17-CC15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6710,9 +6398,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CC15"
-				]
+				"station_codes": "NS17-CC15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6729,9 +6415,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC15"
-				]
+				"station_codes": "NS17-CC15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6748,9 +6432,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS18"
-				]
+				"station_codes": "NS18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6767,9 +6449,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS18"
-				]
+				"station_codes": "NS18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6786,9 +6466,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS18"
-				]
+				"station_codes": "NS18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6805,9 +6483,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS19"
-				]
+				"station_codes": "NS19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6824,9 +6500,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS19"
-				]
+				"station_codes": "NS19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6843,9 +6517,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS20"
-				]
+				"station_codes": "NS20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6862,9 +6534,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS20"
-				]
+				"station_codes": "NS20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6881,9 +6551,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS19"
-				]
+				"station_codes": "NS19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6900,9 +6568,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE11"
-				]
+				"station_codes": "NE11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6919,9 +6585,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE11"
-				]
+				"station_codes": "NE11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6938,9 +6602,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE11"
-				]
+				"station_codes": "NE11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6957,9 +6619,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE9"
-				]
+				"station_codes": "NE9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6976,9 +6636,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE10"
-				]
+				"station_codes": "NE10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -6995,9 +6653,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE10"
-				]
+				"station_codes": "NE10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7014,9 +6670,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS23"
-				]
+				"station_codes": "NS23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7033,9 +6687,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC23"
-				]
+				"station_codes": "CC23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7052,9 +6704,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC2"
-				]
+				"station_codes": "CC2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7071,9 +6721,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC2"
-				]
+				"station_codes": "CC2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7090,9 +6738,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC2"
-				]
+				"station_codes": "CC2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7109,9 +6755,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC2"
-				]
+				"station_codes": "CC2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7128,9 +6772,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CC2"
-				]
+				"station_codes": "CC2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7147,9 +6789,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC3"
-				]
+				"station_codes": "CC3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7166,9 +6806,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS2"
-				]
+				"station_codes": "NS2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7185,9 +6823,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7204,9 +6840,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS2"
-				]
+				"station_codes": "NS2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7223,9 +6857,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS2"
-				]
+				"station_codes": "NS2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7242,9 +6874,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS3"
-				]
+				"station_codes": "NS3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7261,9 +6891,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS3"
-				]
+				"station_codes": "NS3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7280,9 +6908,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS3"
-				]
+				"station_codes": "NS3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7299,9 +6925,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7318,9 +6942,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7337,9 +6959,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW27"
-				]
+				"station_codes": "EW27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7356,9 +6976,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW26"
-				]
+				"station_codes": "EW26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7375,9 +6993,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW26"
-				]
+				"station_codes": "EW26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7394,9 +7010,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS7"
-				]
+				"station_codes": "NS7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7413,9 +7027,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS7"
-				]
+				"station_codes": "NS7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7432,9 +7044,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS7"
-				]
+				"station_codes": "NS7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7451,9 +7061,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS8"
-				]
+				"station_codes": "NS8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7470,9 +7078,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS8"
-				]
+				"station_codes": "NS8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7489,9 +7095,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW8"
-				]
+				"station_codes": "EW8-CC9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7508,9 +7112,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW8"
-				]
+				"station_codes": "EW8-CC9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7527,9 +7129,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS15"
-				]
+				"station_codes": "NS15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7546,9 +7146,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS15"
-				]
+				"station_codes": "NS15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7565,9 +7163,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS15"
-				]
+				"station_codes": "NS15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7584,9 +7180,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS10"
-				]
+				"station_codes": "NS10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7603,9 +7197,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS10"
-				]
+				"station_codes": "NS10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7622,9 +7214,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS11"
-				]
+				"station_codes": "NS11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7641,9 +7231,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS11"
-				]
+				"station_codes": "NS11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7660,9 +7248,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS13"
-				]
+				"station_codes": "NS13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7679,9 +7265,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS13"
-				]
+				"station_codes": "NS13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7698,9 +7282,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS14"
-				]
+				"station_codes": "NS14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7717,9 +7299,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS14"
-				]
+				"station_codes": "NS14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7736,9 +7316,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS14"
-				]
+				"station_codes": "NS14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7755,9 +7333,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS11"
-				]
+				"station_codes": "NS11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7774,9 +7350,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW1"
-				]
+				"station_codes": "EW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7793,9 +7367,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW1"
-				]
+				"station_codes": "EW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7812,9 +7384,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7831,9 +7401,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7850,9 +7418,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS4"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7869,9 +7435,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS4"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7888,9 +7452,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS22"
-				]
+				"station_codes": "NS22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7907,9 +7469,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS22"
-				]
+				"station_codes": "NS22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7926,9 +7486,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS23"
-				]
+				"station_codes": "NS23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7945,9 +7503,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7964,9 +7520,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -7983,9 +7537,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8002,9 +7554,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8021,9 +7571,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT14"
-				]
+				"station_codes": "EW12-DT14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8040,10 +7588,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW13",
-					"NS25"
-				]
+				"station_codes": "NS25-EW13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8060,10 +7605,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW13",
-					"NS25"
-				]
+				"station_codes": "NS25-EW13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8080,9 +7622,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT14"
-				]
+				"station_codes": "EW12-DT14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8099,9 +7639,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT14"
-				]
+				"station_codes": "EW12-DT14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8118,9 +7656,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8137,9 +7673,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8156,9 +7690,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8175,9 +7707,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8194,9 +7724,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8213,9 +7741,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8232,9 +7758,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS27"
-				]
+				"station_codes": "NS27-CE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8251,10 +7775,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "H",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8271,10 +7792,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8291,10 +7809,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8311,10 +7826,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8331,10 +7843,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8351,10 +7860,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW14",
-					"NS26"
-				]
+				"station_codes": "NS26-EW14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8371,9 +7877,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS24"
-				]
+				"station_codes": "NS24-NE6-CC1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8390,9 +7894,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "H",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8409,9 +7911,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8428,9 +7928,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"NE3"
-				]
+				"station_codes": "EW16-NE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8447,9 +7945,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8466,9 +7962,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8485,9 +7979,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8504,9 +7996,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NE5"
-				]
+				"station_codes": "NE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8523,9 +8013,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8542,9 +8030,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS4"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8561,9 +8047,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8580,9 +8064,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW19"
-				]
+				"station_codes": "EW19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8599,9 +8081,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW18"
-				]
+				"station_codes": "EW18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8618,9 +8098,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW18"
-				]
+				"station_codes": "EW18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8637,9 +8115,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW20"
-				]
+				"station_codes": "EW20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8656,9 +8132,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW20"
-				]
+				"station_codes": "EW20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8675,9 +8149,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW17"
-				]
+				"station_codes": "EW17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8694,9 +8166,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW17"
-				]
+				"station_codes": "EW17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8713,10 +8183,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NE1",
-					"CC29"
-				]
+				"station_codes": "NE1-CC29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8733,10 +8200,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE1",
-					"CC29"
-				]
+				"station_codes": "NE1-CC29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8753,9 +8217,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NS22"
-				]
+				"station_codes": "NS22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8772,9 +8234,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS22"
-				]
+				"station_codes": "NS22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8791,9 +8251,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT11"
-				]
+				"station_codes": "NS21-DT11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8810,9 +8268,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT11"
-				]
+				"station_codes": "NS21-DT11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8829,9 +8285,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS22"
-				]
+				"station_codes": "NS22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8848,9 +8302,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW11"
-				]
+				"station_codes": "EW11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8867,9 +8319,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW11"
-				]
+				"station_codes": "EW11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8886,9 +8336,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW10"
-				]
+				"station_codes": "EW10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8905,9 +8353,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW10"
-				]
+				"station_codes": "EW10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8924,9 +8370,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW9"
-				]
+				"station_codes": "EW9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8943,9 +8387,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW9"
-				]
+				"station_codes": "EW9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8962,9 +8404,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -8981,9 +8421,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9000,9 +8438,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9019,9 +8455,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"NE8"
-				]
+				"station_codes": "NE8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9038,9 +8472,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT15"
-				]
+				"station_codes": "CC4-DT15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9057,9 +8489,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS19"
-				]
+				"station_codes": "NS19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9076,9 +8506,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW26"
-				]
+				"station_codes": "EW26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9095,9 +8523,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW25"
-				]
+				"station_codes": "EW25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9114,9 +8540,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW25"
-				]
+				"station_codes": "EW25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9133,9 +8557,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW25"
-				]
+				"station_codes": "EW25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9152,10 +8574,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW24",
-					"NS1"
-				]
+				"station_codes": "NS1-EW24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9172,10 +8591,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW24",
-					"NS1"
-				]
+				"station_codes": "NS1-EW24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9192,10 +8608,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW24",
-					"NS1"
-				]
+				"station_codes": "NS1-EW24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9212,9 +8625,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS5"
-				]
+				"station_codes": "NS5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9231,9 +8642,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS5"
-				]
+				"station_codes": "NS5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9250,9 +8659,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS5"
-				]
+				"station_codes": "NS5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9269,9 +8676,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS5"
-				]
+				"station_codes": "NS5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9288,9 +8693,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS3"
-				]
+				"station_codes": "NS3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9307,9 +8710,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP3"
-				]
+				"station_codes": "BP3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9326,9 +8727,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP4"
-				]
+				"station_codes": "BP4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9345,9 +8744,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP5"
-				]
+				"station_codes": "BP5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9364,9 +8761,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP7"
-				]
+				"station_codes": "BP7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9383,9 +8778,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP8"
-				]
+				"station_codes": "BP8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9402,9 +8795,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP9"
-				]
+				"station_codes": "BP9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9421,9 +8812,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP10"
-				]
+				"station_codes": "BP10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9440,9 +8829,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP11"
-				]
+				"station_codes": "BP11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9459,9 +8846,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP13"
-				]
+				"station_codes": "BP13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9478,9 +8863,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP6"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9497,9 +8880,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"BP6"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9516,9 +8897,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW4"
-				]
+				"station_codes": "PW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9535,9 +8914,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW4"
-				]
+				"station_codes": "PW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9554,9 +8931,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW2"
-				]
+				"station_codes": "PW2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9573,9 +8948,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW2"
-				]
+				"station_codes": "PW2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9592,9 +8965,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW1"
-				]
+				"station_codes": "PW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9611,9 +8982,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW1"
-				]
+				"station_codes": "PW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9630,9 +8999,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE7"
-				]
+				"station_codes": "PE7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9649,9 +9016,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE6"
-				]
+				"station_codes": "PE6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9668,9 +9033,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE5"
-				]
+				"station_codes": "PE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9687,9 +9050,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE4"
-				]
+				"station_codes": "PE4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9706,9 +9067,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE4"
-				]
+				"station_codes": "PE4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9725,9 +9084,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE3"
-				]
+				"station_codes": "PE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9744,9 +9101,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE3"
-				]
+				"station_codes": "PE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9763,9 +9118,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE1"
-				]
+				"station_codes": "PE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9782,9 +9135,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW5"
-				]
+				"station_codes": "SW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9801,9 +9152,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"BP6"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9820,9 +9169,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"BP6"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9839,9 +9186,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW4"
-				]
+				"station_codes": "EW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9858,9 +9203,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9877,9 +9220,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT24"
-				]
+				"station_codes": "DT24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9896,9 +9237,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT33"
-				]
+				"station_codes": "DT33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9915,9 +9254,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT28"
-				]
+				"station_codes": "DT28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9934,9 +9271,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT30"
-				]
+				"station_codes": "DT30"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9953,9 +9288,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT21"
-				]
+				"station_codes": "DT21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9972,9 +9305,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT21"
-				]
+				"station_codes": "DT21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -9991,9 +9322,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT28"
-				]
+				"station_codes": "DT28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10010,9 +9339,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT31"
-				]
+				"station_codes": "DT31"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10029,9 +9356,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT22"
-				]
+				"station_codes": "DT22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10048,9 +9373,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT23"
-				]
+				"station_codes": "DT23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10067,9 +9390,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT29"
-				]
+				"station_codes": "DT29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10086,9 +9407,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT34"
-				]
+				"station_codes": "DT34"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10105,9 +9424,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT24"
-				]
+				"station_codes": "DT24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10124,9 +9441,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10143,9 +9458,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10162,9 +9475,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10181,9 +9492,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT30"
-				]
+				"station_codes": "DT30"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10200,9 +9509,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT21"
-				]
+				"station_codes": "DT21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10219,9 +9526,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10238,9 +9543,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT33"
-				]
+				"station_codes": "DT33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10257,9 +9560,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT25"
-				]
+				"station_codes": "DT25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10276,9 +9577,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"EW2"
-				]
+				"station_codes": "EW2-DT32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10295,9 +9594,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT34"
-				]
+				"station_codes": "DT34"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10314,9 +9611,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT33"
-				]
+				"station_codes": "DT33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10333,9 +9628,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT22"
-				]
+				"station_codes": "DT22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10352,9 +9645,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT29"
-				]
+				"station_codes": "DT29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10371,9 +9662,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT34"
-				]
+				"station_codes": "DT34"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10390,9 +9679,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT29"
-				]
+				"station_codes": "DT29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10409,9 +9696,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT23"
-				]
+				"station_codes": "DT23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10428,9 +9713,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT31"
-				]
+				"station_codes": "DT31"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10447,9 +9730,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CC10"
-				]
+				"station_codes": "CC10-DT26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10466,9 +9747,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT27"
-				]
+				"station_codes": "DT27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10485,9 +9764,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT20"
-				]
+				"station_codes": "DT20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10504,9 +9781,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT29"
-				]
+				"station_codes": "DT29"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10523,9 +9798,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10542,9 +9815,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT25"
-				]
+				"station_codes": "DT25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10561,9 +9832,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC10"
-				]
+				"station_codes": "CC10-DT26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10580,9 +9849,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT20"
-				]
+				"station_codes": "DT20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10599,9 +9866,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT27"
-				]
+				"station_codes": "DT27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10618,9 +9883,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10637,9 +9900,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT34"
-				]
+				"station_codes": "DT34"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10656,9 +9917,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT34"
-				]
+				"station_codes": "DT34"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10675,9 +9934,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10694,9 +9951,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT33"
-				]
+				"station_codes": "DT33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10713,9 +9968,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"CG1"
-				]
+				"station_codes": "DT35-CG1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10732,9 +9985,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW4"
-				]
+				"station_codes": "EW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10751,9 +10002,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW23"
-				]
+				"station_codes": "EW23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10770,9 +10019,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW23"
-				]
+				"station_codes": "EW23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10789,9 +10036,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW21"
-				]
+				"station_codes": "EW21-CC22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10808,9 +10053,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW21"
-				]
+				"station_codes": "EW21-CC22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10827,9 +10070,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW21"
-				]
+				"station_codes": "EW21-CC22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10846,9 +10087,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW19"
-				]
+				"station_codes": "EW19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10865,9 +10104,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW1"
-				]
+				"station_codes": "SW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10884,9 +10121,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW1"
-				]
+				"station_codes": "SW1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10903,9 +10138,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW4"
-				]
+				"station_codes": "SW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10922,9 +10155,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW4"
-				]
+				"station_codes": "SW4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10941,9 +10172,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW3"
-				]
+				"station_codes": "SW3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10960,9 +10189,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW3"
-				]
+				"station_codes": "SW3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10979,9 +10206,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW2"
-				]
+				"station_codes": "SW2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -10998,9 +10223,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW2"
-				]
+				"station_codes": "SW2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11017,9 +10240,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW6"
-				]
+				"station_codes": "SW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11036,9 +10257,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW6"
-				]
+				"station_codes": "SW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11055,9 +10274,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW7"
-				]
+				"station_codes": "SW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11074,9 +10291,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW7"
-				]
+				"station_codes": "SW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11093,9 +10308,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SW8"
-				]
+				"station_codes": "SW8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11112,9 +10325,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SW8"
-				]
+				"station_codes": "SW8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11131,9 +10342,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SE5"
-				]
+				"station_codes": "SE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11150,9 +10359,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SE5"
-				]
+				"station_codes": "SE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11169,9 +10376,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SE4"
-				]
+				"station_codes": "SE4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11188,9 +10393,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SE4"
-				]
+				"station_codes": "SE4"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11207,9 +10410,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SE3"
-				]
+				"station_codes": "SE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11226,9 +10427,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SE3"
-				]
+				"station_codes": "SE3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11245,9 +10444,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SE2"
-				]
+				"station_codes": "SE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11264,9 +10461,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SE2"
-				]
+				"station_codes": "SE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11283,9 +10478,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"SE1"
-				]
+				"station_codes": "SE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11302,9 +10495,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"SE1"
-				]
+				"station_codes": "SE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11321,9 +10512,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW3"
-				]
+				"station_codes": "PW3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11340,9 +10529,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW3"
-				]
+				"station_codes": "PW3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11359,9 +10546,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW5"
-				]
+				"station_codes": "PW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11378,9 +10563,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW5"
-				]
+				"station_codes": "PW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11397,9 +10580,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW6"
-				]
+				"station_codes": "PW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11416,9 +10597,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW6"
-				]
+				"station_codes": "PW6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11435,9 +10614,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PW7"
-				]
+				"station_codes": "PW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11454,9 +10631,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PW7"
-				]
+				"station_codes": "PW7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11473,9 +10648,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE7"
-				]
+				"station_codes": "PE7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11492,9 +10665,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE6"
-				]
+				"station_codes": "PE6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11511,9 +10682,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE5"
-				]
+				"station_codes": "PE5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11530,9 +10699,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE2"
-				]
+				"station_codes": "PE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11549,9 +10716,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"PE2"
-				]
+				"station_codes": "PE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11568,9 +10733,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"PE1"
-				]
+				"station_codes": "PE1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11587,9 +10750,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP2"
-				]
+				"station_codes": "BP2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11606,9 +10767,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC21"
-				]
+				"station_codes": "CC21"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11625,9 +10784,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC23"
-				]
+				"station_codes": "CC23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11644,9 +10801,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC23"
-				]
+				"station_codes": "CC23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11663,9 +10818,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"CC24"
-				]
+				"station_codes": "CC24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11682,9 +10835,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC24"
-				]
+				"station_codes": "CC24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11701,9 +10852,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC25"
-				]
+				"station_codes": "CC25"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11720,9 +10869,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC26"
-				]
+				"station_codes": "CC26"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11739,9 +10886,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC27"
-				]
+				"station_codes": "CC27"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11758,9 +10903,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"CC28"
-				]
+				"station_codes": "CC28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11777,9 +10920,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT8"
-				]
+				"station_codes": "DT8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11796,9 +10937,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT2"
-				]
+				"station_codes": "DT2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11815,9 +10954,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT7"
-				]
+				"station_codes": "DT7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11834,9 +10971,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT6"
-				]
+				"station_codes": "DT6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11853,9 +10988,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT3"
-				]
+				"station_codes": "DT3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11872,9 +11005,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A1",
-				"station_codes": [
-					"DT1"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11891,9 +11022,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT13"
-				]
+				"station_codes": "DT13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11910,9 +11039,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11929,9 +11056,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT18"
-				]
+				"station_codes": "DT18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11948,9 +11073,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW28"
-				]
+				"station_codes": "EW28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11967,9 +11090,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW28"
-				]
+				"station_codes": "EW28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11986,9 +11107,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "I",
-				"station_codes": [
-					"EW15"
-				]
+				"station_codes": "EW15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12005,9 +11124,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW21"
-				]
+				"station_codes": "EW21-CC22"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12024,9 +11141,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT15"
-				]
+				"station_codes": "CC4-DT15"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12043,9 +11158,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS27"
-				]
+				"station_codes": "NS27-CE2"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12062,9 +11175,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS14"
-				]
+				"station_codes": "NS14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12081,9 +11192,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW3"
-				]
+				"station_codes": "EW3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12100,9 +11209,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW5"
-				]
+				"station_codes": "EW5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12119,9 +11226,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT14"
-				]
+				"station_codes": "EW12-DT14"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12138,10 +11243,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW13",
-					"NS25"
-				]
+				"station_codes": "NS25-EW13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12158,9 +11260,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW19"
-				]
+				"station_codes": "EW19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12177,9 +11277,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW19"
-				]
+				"station_codes": "EW19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12196,9 +11294,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW20"
-				]
+				"station_codes": "EW20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12215,9 +11311,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW20"
-				]
+				"station_codes": "EW20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12234,9 +11328,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW23"
-				]
+				"station_codes": "EW23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12253,9 +11345,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"EW23"
-				]
+				"station_codes": "EW23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12272,10 +11362,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"EW24",
-					"NS1"
-				]
+				"station_codes": "NS1-EW24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12292,9 +11379,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS16"
-				]
+				"station_codes": "NS16"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12311,9 +11396,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"NS23"
-				]
+				"station_codes": "NS23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12330,9 +11413,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"NS23"
-				]
+				"station_codes": "NS23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12349,9 +11430,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"NS28"
-				]
+				"station_codes": "NS28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12368,9 +11447,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"NS28"
-				]
+				"station_codes": "NS28"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12387,9 +11464,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "G",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12406,9 +11481,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"NE4"
-				]
+				"station_codes": "NE4-DT19"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12425,9 +11498,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT1"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12444,9 +11515,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT3"
-				]
+				"station_codes": "DT3"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12463,9 +11532,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT5"
-				]
+				"station_codes": "DT5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12482,9 +11549,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT5"
-				]
+				"station_codes": "DT5"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12501,9 +11566,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT6"
-				]
+				"station_codes": "DT6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12520,9 +11583,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT7"
-				]
+				"station_codes": "DT7"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12539,9 +11600,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT8"
-				]
+				"station_codes": "DT8"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12558,9 +11617,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT9"
-				]
+				"station_codes": "CC19-DT9"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12577,9 +11634,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT10"
-				]
+				"station_codes": "DT10"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12596,9 +11651,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT11"
-				]
+				"station_codes": "NS21-DT11"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12615,9 +11668,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "F",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12634,9 +11685,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT13"
-				]
+				"station_codes": "DT13"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12653,9 +11702,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12672,9 +11719,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12691,9 +11736,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12710,9 +11753,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12729,9 +11770,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT17"
-				]
+				"station_codes": "DT17"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12748,9 +11787,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"DT18"
-				]
+				"station_codes": "DT18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12767,9 +11804,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"DT18"
-				]
+				"station_codes": "DT18"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12786,9 +11821,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC23"
-				]
+				"station_codes": "CC23"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12805,9 +11838,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"CC24"
-				]
+				"station_codes": "CC24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12824,9 +11855,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"CC24"
-				]
+				"station_codes": "CC24"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12843,9 +11872,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"DT12"
-				]
+				"station_codes": "NE7-DT12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12862,9 +11889,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A2",
-				"station_codes": [
-					"DT1"
-				]
+				"station_codes": "DT1-BP6"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12881,9 +11906,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"BP1"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12900,9 +11923,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"BP1"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12919,9 +11940,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "C",
-				"station_codes": [
-					"BP1"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12938,9 +11957,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "D",
-				"station_codes": [
-					"BP1"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12957,9 +11974,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "E",
-				"station_codes": [
-					"BP1"
-				]
+				"station_codes": "NS4-BP1"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12976,9 +11991,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW30"
-				]
+				"station_codes": "EW30"
 			},
 			"geometry": {
 				"type": "Point",
@@ -12995,9 +12008,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW30"
-				]
+				"station_codes": "EW30"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13014,9 +12025,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					"EW33"
-				]
+				"station_codes": "EW33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13033,9 +12042,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					"EW33"
-				]
+				"station_codes": "EW33"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13052,9 +12059,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					""
-				]
+				"station_codes": "BP12"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13071,9 +12076,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					""
-				]
+				"station_codes": "EW31"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13090,9 +12093,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					""
-				]
+				"station_codes": "EW31"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13109,9 +12110,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "A",
-				"station_codes": [
-					""
-				]
+				"station_codes": "EW32"
 			},
 			"geometry": {
 				"type": "Point",
@@ -13128,9 +12127,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "B",
-				"station_codes": [
-					""
-				]
+				"station_codes": "EW32"
 			},
 			"geometry": {
 				"type": "Point",
