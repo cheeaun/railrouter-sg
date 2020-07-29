@@ -658,6 +658,103 @@ const wikipedia = {
         },
       ],
     });
+
+    map.addSource('walks', {
+      type: 'geojson',
+      data: require('./sg-rail-walks.geo.json'),
+      buffer: 0,
+    });
+    map.addLayer(
+      {
+        id: 'walks-case',
+        source: 'walks',
+        filter: ['==', ['geometry-type'], 'LineString'],
+        type: 'line',
+        minzoom: 14,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-width': ['interpolate', ['linear'], ['zoom'], 15, 3, 22, 15],
+          'line-color': 'rgba(255, 255, 255, .75)',
+        },
+      },
+      'building-extrusion',
+    );
+    map.addLayer(
+      {
+        id: 'walks',
+        source: 'walks',
+        filter: ['==', ['geometry-type'], 'LineString'],
+        type: 'line',
+        minzoom: 14,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-width': ['interpolate', ['linear'], ['zoom'], 15, 1, 22, 5],
+          'line-color': 'skyblue',
+          'line-dasharray': [0.5, 2],
+        },
+      },
+      'building-extrusion',
+    );
+    map.addLayer(
+      {
+        id: 'walks-label',
+        source: 'walks',
+        filter: ['==', ['geometry-type'], 'Point'],
+        type: 'symbol',
+        minzoom: 15.5,
+        layout: {
+          'text-field': ['concat', ['get', 'duration_min'], ' mins'],
+          'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 15, 12, 22, 16],
+          'text-anchor': 'top',
+          'text-offset': [0, 0.8],
+          'icon-image': 'walk',
+          'icon-size': 0.5,
+        },
+        paint: {
+          'text-color': 'dodgerblue',
+          'text-halo-color': 'rgba(255,255,255,.75)',
+          'text-halo-width': 2,
+          'icon-halo-color': 'rgba(255,255,255,.75)',
+          'icon-halo-width': 2,
+        },
+      },
+      'exits-label',
+    );
+    map.on('mouseenter', 'walks-label', () => {
+      mapCanvas.style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'walks-label', () => {
+      mapCanvas.style.cursor = '';
+    });
+    map.on('click', 'walks-label', (e) => {
+      const f = e.features[0];
+      const {
+        duration_min,
+        station_codes_1,
+        station_codes_2,
+        exit_name_1,
+        exit_name_2,
+      } = f.properties;
+      const station1 = stationsData.find(
+        (d) => d.properties.station_codes === station_codes_1,
+      );
+      const station2 = stationsData.find(
+        (d) => d.properties.station_codes === station_codes_2,
+      );
+      alert(
+        `${duration_min}-min walk between ${station1.properties.name} (Exit ${exit_name_1}) and ${station2.properties.name} (Exit ${exit_name_2})`,
+      );
+    });
+    map.loadImage(require('./walk.png'), (e, img) => {
+      map.addImage('walk', img);
+    });
   }, 300);
 })();
 
