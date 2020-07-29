@@ -688,18 +688,31 @@ class SearchControl {
     this._map = undefined;
   }
 }
+function focusSearchField() {
+  $search.hidden = false;
+  $searchField.focus();
+  setTimeout(() => {
+    $searchField.focus();
+  }, 1500);
+}
 map.addControl(
   new SearchControl({
-    onClick: () => {
-      $search.hidden = false;
-      $searchField.focus();
-      setTimeout(() => {
-        $searchField.focus();
-      }, 1500);
-    },
+    onClick: focusSearchField,
   }),
   'bottom-right',
 );
+document.onkeydown = (e) => {
+  if (/(input|textarea|select)/i.test(e.target.tagName)) return;
+  if (
+    e.code.toLowerCase() === 'slash' ||
+    e.key === '/' ||
+    e.keyCode === 191 ||
+    e.which === 191
+  ) {
+    e.preventDefault();
+    focusSearchField();
+  }
+};
 
 $searchField.oninput = () => {
   if (!fuse) return;
