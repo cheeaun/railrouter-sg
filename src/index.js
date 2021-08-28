@@ -110,7 +110,7 @@ const stationView = {
     $station.classList.remove('min');
 
     const zoom = map.getZoom();
-    const isScreenLarge = window.innerWidth >= 800;
+    const isScreenLarge = window.innerWidth >= 640;
     const padding = isScreenLarge
       ? { left: 320 }
       : { bottom: window.innerHeight / 2 };
@@ -118,14 +118,14 @@ const stationView = {
       map.jumpTo({
         center: geometry.coordinates,
         zoom: 16.5,
-        pitch: 60,
+        pitch: 70,
         padding,
       });
     } else {
       map.easeTo({
         center: geometry.coordinates,
         zoom: 16.5,
-        pitch: 60,
+        pitch: 70,
         padding,
         duration: 500,
       });
