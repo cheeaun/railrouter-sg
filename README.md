@@ -1,6 +1,6 @@
 # RailRouter SG
 
-![Screenshot of RailRouter SG](screenshots/screenshot-5.png)
+![Screenshot of RailRouter SG](screenshots/screenshot-9.png)
 
 ![Screenshot of RailRouter SG](screenshots/screenshot-6.png)
 
@@ -34,6 +34,8 @@ This is the first version, using Google Maps.
 ### Data source
 
 From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata)**.
+
+⚠️ NOTE: All feature `id`s are removed from `sg-rail.geo.json` in this repo, due to a strange bug in Mapbox GL JS. If the `id` number is too large, errors occur.
 
 ### Generating station code markers
 
