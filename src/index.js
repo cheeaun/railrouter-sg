@@ -40,7 +40,8 @@ const bounds = [lowerLong, lowerLat, upperLong, upperLat];
 
 const map = (window.$map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/cheeaun/ckco69aw60l811irt3iwr7vvg?optimize=true',
+  // style: 'mapbox://styles/cheeaun/ckco69aw60l811irt3iwr7vvg/draft',
+  style: 'mapbox://styles/cheeaun/ckco69aw60l811irt3iwr7vvg',
   center,
   bounds,
   renderWorldCopies: false,
@@ -487,8 +488,8 @@ const wikipedia = {
         {},
         ['get', 'name_ta'],
         {
-          // 'text-font': ['literal', ['Noto Sans Tamil Medium']],
-          'font-scale': 1.1, // Slightly larger text size for Tamil
+          'text-font': ['literal', ['Noto Sans Tamil Medium']],
+          // 'font-scale': 1.1, // Slightly larger text size for Tamil
         },
       ],
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
