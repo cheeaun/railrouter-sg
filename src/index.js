@@ -487,8 +487,8 @@ const wikipedia = {
         {},
         ['get', 'name_ta'],
         {
-          'text-font': ['literal', ['Noto Sans Tamil Medium']],
-          // 'font-scale': 1.1, // Slightly larger text size for Tamil
+          // 'text-font': ['literal', ['Noto Sans Tamil Medium']],
+          'font-scale': 1.1, // Slightly larger text size for Tamil
         },
       ],
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
