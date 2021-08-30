@@ -1,6 +1,6 @@
 {
   "name": "railrouter-sg",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Explore MRT and LRT rail routes in Singapore",
   "keywords": [
     "singapore",
@@ -21,6 +21,7 @@
     "postbuild": "cpy public/* dist"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-language": "~1.0.0",
     "fuse.js": "~6.4.6",
     "mapbox-gl": "~2.4.1",
     "regenerator-runtime": "~0.13.9",

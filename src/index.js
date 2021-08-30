@@ -27,6 +27,7 @@ let fuse, stationsData;
 const geojsonFetch = fetch(require('./sg-rail.geo.json'));
 
 import mapboxgl from 'mapbox-gl';
+import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import stationsSprite from './stations.json';
 mapboxgl.accessToken =
   'pk.eyJ1IjoiY2hlZWF1biIsImEiOiJja2NydG83cWMwaGJsMnBqdjR5aHc3MzdlIn0.YGTZpi7JQMquEOv9E8K_bg';
@@ -52,6 +53,47 @@ const map = (window.$map = new mapboxgl.Map({
 }));
 const mapCanvas = map.getCanvas();
 map.touchZoomRotate.disableRotation();
+
+const supportedLanguages = [
+  'ar',
+  'de',
+  'en',
+  'es',
+  'fr',
+  'it',
+  'ja',
+  'ko',
+  'mul',
+  'pt',
+  'ru',
+  'vi',
+  'zh-Hans',
+  'zh-Hant',
+];
+function browserLanguage() {
+  const language = navigator.languages
+    ? navigator.languages[0]
+    : navigator.language || navigator.userLanguage;
+  const parts = language && language.split('-');
+  let languageCode = language;
+  if (parts.length > 1) {
+    languageCode = parts[0];
+  }
+  if (supportedLanguages.indexOf(languageCode) > -1) {
+    return languageCode;
+  }
+  const closestLanguageCode = supportedLanguages.find((l) => {
+    return l.startsWith(languageCode);
+  });
+  if (closestLanguageCode) return closestLanguageCode;
+  return null;
+}
+
+map.addControl(
+  new MapboxLanguage({
+    defaultLanguage: browserLanguage(),
+  }),
+);
 
 map.addControl(
   new mapboxgl.GeolocateControl({
