@@ -15,27 +15,27 @@
   "author": "Lim Chee Aun <cheeaun@gmail.com> (http://cheeaun.com/)",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve ./src/index.html",
-    "start-https": "parcel serve ./src/index.html --https",
+    "start": "parcel serve ./src/index.html --no-hmr",
+    "start-https": "parcel serve ./src/index.html --no-hmr --https",
     "build": "parcel build ./src/index.html --no-cache",
     "postbuild": "cpy public/* dist"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "~1.0.0",
     "fuse.js": "~6.4.6",
-    "mapbox-gl": "~2.4.1",
+    "mapbox-gl": "~2.5.1",
     "regenerator-runtime": "~0.13.9",
-    "workbox-cacheable-response": "~6.2.4",
-    "workbox-expiration": "~6.2.4",
-    "workbox-google-analytics": "~6.2.4",
-    "workbox-routing": "~6.2.4",
-    "workbox-strategies": "~6.2.4"
+    "workbox-cacheable-response": "~6.3.0",
+    "workbox-expiration": "~6.3.0",
+    "workbox-google-analytics": "~6.3.0",
+    "workbox-routing": "~6.3.0",
+    "workbox-strategies": "~6.3.0"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "~2.0.0-rc.0",
-    "@parcel/transformer-webmanifest": "~2.0.0-rc.0",
+    "@parcel/packager-raw-url": "~2.0.0",
+    "@parcel/transformer-webmanifest": "~2.0.0",
     "cpy-cli": "~3.1.1",
-    "parcel": "~2.0.0-rc.0"
+    "parcel": "~2.0.0"
   },
   "browserslist": [
     ">0.25%",
