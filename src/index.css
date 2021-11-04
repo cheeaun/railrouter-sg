@@ -567,6 +567,7 @@ abbr {
 #legend summary {
   font-weight: bold;
   outline: 0;
+  cursor: pointer;
 }
 #legend summary ~ div {
   vertical-align: middle;
