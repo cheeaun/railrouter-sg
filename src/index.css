@@ -495,6 +495,97 @@ abbr {
   }
 } */
 
+.crowd-marker {
+  pointer-events: none;
+}
+.crowd-marker:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: orangered;
+  border-radius: 50%;
+  animation: pulsing-h 2s infinite ease-out backwards;
+  will-change: transform, opacity, width, height, margin;
+}
+.crowd-marker.large:after {
+  width: 200%;
+  height: 200%;
+  margin: -50%;
+}
+.crowd-marker.larger:after {
+  width: 400%;
+  height: 400%;
+  margin: -150%;
+}
+.crowd-marker-m:after {
+  transform: scale(0.5);
+  background-color: goldenrod;
+  animation-name: pulsing-m;
+  animation-duration: 5s;
+}
+@keyframes pulsing-m {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes pulsing-h {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+.crowd-marker:nth-child(even):after {
+  animation-delay: 0.5s;
+}
+
+#legend {
+  position: fixed;
+  z-index: 1;
+  bottom: 40px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.6em;
+  border-radius: 12px;
+  max-width: calc(100% - 100px);
+  backdrop-filter: blur(20px) saturate(3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#legend summary {
+  font-weight: bold;
+  outline: 0;
+}
+#legend summary ~ div {
+  vertical-align: middle;
+  margin-top: 0.25em;
+}
+
+#legend img {
+  vertical-align: middle;
+}
+#legend .crowd-marker {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 @media (min-width: 640px) {
   .sheet {
     width: 320px;

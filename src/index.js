@@ -799,6 +799,67 @@ const wikipedia = {
       map.addImage('walk', img);
     });
   }, 300);
+
+  let markers = [];
+  map.on('zoomend', () => {
+    const zoom = map.getZoom();
+    const large = zoom >= 12;
+    const larger = zoom >= 15;
+    markers.forEach((m) => {
+      m.getElement().classList.toggle('large', large);
+      m.getElement().classList.toggle('larger', larger);
+    });
+  });
+  const renderCrowd = () => {
+    markers.forEach((m) => {
+      m.remove();
+    });
+
+    fetch('https://sg-rail-crowd.cheeaun.workers.dev/')
+      .then((res) => res.json())
+      .then((results) => {
+        const zoom = map.getZoom();
+        const large = zoom >= 12;
+        const larger = zoom >= 15;
+        const crowdedData = [];
+        results.data.forEach((r) => {
+          const { station, crowdLevel } = r;
+          if (!crowdLevel || crowdLevel === 'l') return;
+          const f = data.features.find((f) =>
+            f.properties.station_codes.split('-').includes(station),
+          );
+
+          if (!f) return;
+
+          crowdedData.push(r);
+
+          // const markerCrowdLabel = Math.random() < 0.5 ? 'h' : 'm';
+          const markerCrowdLabel = crowdLevel;
+
+          const el = document.createElement('div');
+          const width = 50;
+          const height = 50;
+          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${
+            large ? 'large' : ''
+          } ${larger ? 'larger' : ''}`;
+          el.style.width = `${width}px`;
+          el.style.height = `${height}px`;
+
+          // Add markers to the map.
+          const marker = new mapboxgl.Marker(el)
+            .setLngLat(f.geometry.coordinates)
+            .addTo(map);
+          markers.push(marker);
+        });
+
+        console.log({ crowdedData });
+
+        setTimeout(() => {
+          requestAnimationFrame(renderCrowd);
+        }, 1000 * 60 * 2.5); // 2.5 minutes
+      });
+  };
+  renderCrowd();
 })();
 
 class SearchControl {
