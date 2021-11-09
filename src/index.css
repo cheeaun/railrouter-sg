@@ -523,14 +523,14 @@ abbr {
 }
 .crowd-marker-m:after {
   transform: scale(0.5);
-  background-color: goldenrod;
+  background-color: orange;
   animation-name: pulsing-m;
   animation-duration: 5s;
 }
 @keyframes pulsing-m {
   0% {
     transform: scale(0);
-    opacity: 0.5;
+    opacity: 0.75;
   }
   100% {
     transform: scale(0.8);
@@ -540,7 +540,7 @@ abbr {
 @keyframes pulsing-h {
   0% {
     transform: scale(0);
-    opacity: 0.5;
+    opacity: 0.75;
   }
   100% {
     transform: scale(1);
