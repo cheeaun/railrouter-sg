@@ -856,7 +856,7 @@ const wikipedia = {
 
         setTimeout(() => {
           requestAnimationFrame(renderCrowd);
-        }, 1000 * 60 * 2.5); // 2.5 minutes
+        }, 1000 * 60); // 1 minute
       });
   };
   renderCrowd();
