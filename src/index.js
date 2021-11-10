@@ -866,24 +866,34 @@ const formatTime = (datetime, showAMPM = false) => {
           markers.push(marker);
         });
 
-        const startTime = formatTime(crowdedData[0].startTime);
-        const endTime = formatTime(crowdedData[0].endTime);
+        if (crowdedData.length) {
+          const startTime = formatTime(crowdedData[0].startTime);
+          const endTime = formatTime(crowdedData[0].endTime);
 
-        console.log({
-          startTime,
-          endTime,
-        });
-        console.table(
-          crowdedData.map((d) => ({
-            station: d.station,
-            crowdLevel: d.crowdLevel,
-          })),
-        );
+          console.log({
+            startTime,
+            endTime,
+          });
+          console.table(
+            crowdedData.map((d) => ({
+              station: d.station,
+              crowdLevel: d.crowdLevel,
+            })),
+          );
+        }
 
-        $crowdedTiming.innerHTML = `Crowded time interval: <b>${formatTime(
-          crowdedData[0].startTime,
-        )} - ${formatTime(crowdedData[0].endTime, true)}</b>`;
-
+        if (results.data.length) {
+          $crowdedTiming.innerHTML = `Crowded time interval: <b>${formatTime(
+            results.data[0].startTime,
+          )} - ${formatTime(results.data[0].endTime, true)}</b>`;
+        } else {
+          $crowdedTiming.innerHTML = 'Crowded time interval: N/A';
+        }
+      })
+      .catch((e) => {
+        $crowedTiming.innerHTML = 'Crowded time interval: N/A';
+      })
+      .finally(() => {
         setTimeout(() => {
           requestAnimationFrame(renderCrowd);
         }, 1000 * 60); // 1 minute
