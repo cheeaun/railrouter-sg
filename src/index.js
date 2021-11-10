@@ -9,6 +9,7 @@ const $search = $('search');
 const $searchField = $('search-field');
 const $searchCancel = $('search-cancel');
 const $searchResults = $('search-results');
+const $crowdedTiming = $('crowded-timing');
 
 $btnCloseHome.onclick = (e) => {
   e.preventDefault();
@@ -335,6 +336,19 @@ const wikipedia = {
         $wikipedia.innerHTML = html;
       });
   },
+};
+
+// format HH:MM for startTime and endTime
+const formatTime = (datetime, showAMPM = false) => {
+  const date = new Date(datetime);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const strTime = `${hours}:${minutes}${showAMPM ? ampm : ''}`;
+  return strTime;
 };
 
 (async () => {
@@ -852,7 +866,23 @@ const wikipedia = {
           markers.push(marker);
         });
 
-        console.log({ crowdedData });
+        const startTime = formatTime(crowdedData[0].startTime);
+        const endTime = formatTime(crowdedData[0].endTime);
+
+        console.log({
+          startTime,
+          endTime,
+        });
+        console.table(
+          crowdedData.map((d) => ({
+            station: d.station,
+            crowdLevel: d.crowdLevel,
+          })),
+        );
+
+        $crowdedTiming.innerHTML = `Crowded time interval: <b>${formatTime(
+          crowdedData[0].startTime,
+        )} - ${formatTime(crowdedData[0].endTime, true)}</b>`;
 
         setTimeout(() => {
           requestAnimationFrame(renderCrowd);

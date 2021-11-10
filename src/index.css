@@ -587,6 +587,16 @@ abbr {
   border-radius: 50%;
 }
 
+#crowded-timing {
+  font-size: 11px;
+  text-transform: uppercase;
+  margin: 3px;
+  color: #666;
+}
+#crowded-timing b {
+  display: inline-block;
+}
+
 @media (min-width: 640px) {
   .sheet {
     width: 320px;
