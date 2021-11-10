@@ -58,7 +58,7 @@ registerRoute(
         purgeOnQuotaError: true,
       }),
       new CacheableResponsePlugin({
-        statuses: [200],
+        statuses: [0, 200],
       }),
     ],
   }),
@@ -74,7 +74,7 @@ registerRoute(
         purgeOnQuotaError: true,
       }),
       new CacheableResponsePlugin({
-        statuses: [200],
+        statuses: [0, 200],
       }),
     ],
   }),
