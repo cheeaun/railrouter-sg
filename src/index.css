@@ -561,6 +561,7 @@ abbr {
   border-radius: 12px;
   max-width: calc(100% - 100px);
   backdrop-filter: blur(20px) saturate(3);
+  -webkit-backdrop-filter: blur(20px) saturate(3);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
