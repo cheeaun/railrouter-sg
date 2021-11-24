@@ -838,7 +838,7 @@ const formatTime = (datetime, showAMPM = false) => {
         const crowdedData = [];
         results.data.forEach((r) => {
           const { station, crowdLevel } = r;
-          if (!crowdLevel || crowdLevel === 'l') return;
+          if (!crowdLevel || (crowdLevel !== 'h' && crowdLevel !== 'm')) return;
           const f = data.features.find((f) =>
             f.properties.station_codes.split('-').includes(station),
           );
