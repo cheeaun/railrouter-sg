@@ -14,7 +14,7 @@ Available features:
 - Show station names in Chinese and Tamil, besides English.
 - Show station building structures, both underground and aboveground.
 - Show location of exits (a.k.a. entrances) for (almost) all stations.
-- Show train arrival times for _some_ stations.
+- ~~Show train arrival times for _some_ stations.~~
 - Possibly, **works offline**.
 
 ## Previously
