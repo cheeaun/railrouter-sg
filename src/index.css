@@ -164,7 +164,7 @@ abbr {
   font-size: 1em;
 }
 
-.sheet button {
+.sheet .btn {
   cursor: pointer;
   background-color: teal;
   color: #fff;
@@ -178,7 +178,7 @@ abbr {
   font-family: inherit;
   outline: 0;
 }
-.sheet button:active {
+.sheet .btn:active {
   filter: brightness(0.8);
 }
 
@@ -357,6 +357,53 @@ abbr {
   text-align: right;
 }
 
+.exits {
+  margin-top: 12px;
+  border-radius: 3px;
+  background-color: #24201c;
+  color: #feff65;
+  padding: 12px;
+  text-align: center;
+  background-image: linear-gradient(180deg, #ffffff47, black);
+  border: 2px solid black;
+}
+.sheet .exits h3 {
+  color: #fffc;
+  text-transform: uppercase;
+  margin-top: -.5em;
+  font-size: .85em;
+}
+.exit-btn {
+  appearance: none;
+  display: inline-block;
+  margin: 3px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 3px;
+  color: #000;
+  background: #feff65 url(./exit.png) no-repeat;
+  background-size: 100%;
+  font-size: 16px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 34px;
+  cursor: pointer;
+}
+.exit-btn:hover {
+  filter: saturate(2);
+  transform: scale(1.1);
+}
+.exit-btn:active {
+  filter: brightness(0.8);
+  transform: scale(1);
+}
+.exits .note {
+  color: #fffc;
+  margin: .5em 0 0;
+  padding: 0;
+}
+
 .wikipedia {
   margin-top: 12px;
   border-radius: 12px;
@@ -365,6 +412,7 @@ abbr {
 }
 .wikipedia img {
   width: 100%;
+  height: auto;
 }
 .wikipedia .extract {
   padding: 12px;
@@ -432,6 +480,8 @@ abbr {
 }
 #search-field:focus {
   background-color: rgba(255, 255, 255, 0.5);
+  /* blue outline */
+  outline: 3px solid #007bffcc;
 }
 #search-cancel {
   border: 0;

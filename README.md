@@ -40,7 +40,7 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 ### Generating station code markers
 
 1. Go to https://codepen.io/cheeaun/full/pogQjgV
-2. Paste all the train codes.
+2. Paste all the train codes. (`/data/raw/sg-stations-codes.txt` from `sgraildata` repo)
 3. Click "Generate Images" button to download ZIP file of SVG images.
 4. Extract files from the ZIP file.
 5. Go to https://www.facetstudios.com/sprite-generator
@@ -49,7 +49,7 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 8. Click "Download Files" button.
 9. Extract files from ZIP file.
 10. Move & rename sprite image to `src/stations.png`. Optimize the image with [TinyPNG](https://tinypng.com/).
-11. Move & rename sprite JSON to `src/sprite.json`.
+11. Move & rename sprite JSON to `scripts/sprite.json`.
 12. Run `node scripts/gen-stations-sprite.js` which will generate `src/stations.json`.
 
 ## License

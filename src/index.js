@@ -24,7 +24,11 @@ $('logo').onclick = () => {
 };
 
 import Fuse from 'fuse.js';
-let fuse, stationsData;
+let fuse;
+
+let stationsData;
+const exitsData = {};
+
 const geojsonFetch = fetch(require('./sg-rail.geo.json'));
 
 import mapboxgl from 'mapbox-gl';
@@ -42,18 +46,17 @@ const bounds = [lowerLong, lowerLat, upperLong, upperLat];
 
 const map = (window.$map = new mapboxgl.Map({
   container: 'map',
-  // style: 'mapbox://styles/cheeaun/ckco69aw60l811irt3iwr7vvg/draft',
-  style: 'mapbox://styles/cheeaun/ckco69aw60l811irt3iwr7vvg',
+  // style: 'mapbox://styles/cheeaun/clagddy23000y14saafbh02a8/draft',
+  style: 'mapbox://styles/cheeaun/clagddy23000y14saafbh02a8',
   center,
   bounds,
   renderWorldCopies: false,
   boxZoom: false,
-  dragRotate: false,
+  bearingSnap: 15,
   localIdeographFontFamily:
     '"InaiMathi", "Tamil Sangam MN", "Nirmala UI", Latha, Bamini ,Roboto, Noto, "Noto Sans Tamil", sans-serif',
 }));
 const mapCanvas = map.getCanvas();
-map.touchZoomRotate.disableRotation();
 
 const supportedLanguages = [
   'ar',
@@ -138,9 +141,11 @@ function formatArriveTime(str) {
   return str;
 }
 
+const origTitle = document.title;
 let currentStation;
 const stationView = {
   mount: (feature) => {
+    // set title
     const { properties, geometry } = feature;
     const {
       name,
@@ -150,6 +155,8 @@ const stationView = {
       station_colors,
       wikipedia_slug,
     } = properties;
+
+    document.title = `${name} / ${name_zh_Hans} / ${name_ta} (${station_codes}) – RailRouter SG`;
 
     $station.classList.remove('min');
 
@@ -174,7 +181,6 @@ const stationView = {
         duration: 500,
       });
     }
-    map.touchZoomRotate.enableRotation();
 
     if (station_codes === currentStation) return;
 
@@ -195,20 +201,25 @@ const stationView = {
         </span>
         <h2>
           ${name}<br>
-          <small lang="zh" class="ib">${name_zh_Hans}</small>&nbsp;&nbsp;&nbsp;
-          <small lang="ta" class="ib">${name_ta}</small>
+          <span lang="zh" class="ib">${name_zh_Hans}</span>&nbsp;&nbsp;&nbsp;
+          <span lang="ta" class="ib">${name_ta}</span>
         </h2>
       </header>
       <div class="scrollable">
-        <div class="arrivals"><h3>Arrival times</h3><p>Loading&hellip;</p></div>
+        ${
+          /* <div class="arrivals"><h3>Arrival times</h3><p>Loading&hellip;</p></div> */ ''
+        }
+        <div class="exits"></div>
         <div class="wikipedia"></div>
       </div>
       `;
     $station.classList.add('open');
-    arrivalTimes.mount(name);
+    // arrivalTimes.mount(name);
+    stationsExits.mount(exitsData[station_codes], feature);
     wikipedia.mount(wikipedia_slug);
   },
   unmount: () => {
+    document.title = origTitle;
     currentStation = null;
     $station.classList.remove('open');
     $station.classList.remove('min');
@@ -222,7 +233,6 @@ const stationView = {
       padding: isScreenLarge ? { left: 0 } : { bottom: 0 },
       duration: 500,
     });
-    map.touchZoomRotate.disableRotation();
   },
 };
 
@@ -326,15 +336,89 @@ const wikipedia = {
             desktop: { page },
           },
           extract_html,
-          thumbnail: { source },
+          thumbnail: { source, width, height },
         } = res;
         const html = `<div>
-          <img src="${source.replace(/\d{3,}px/i, '640px')}" alt="">
+          <img src="${source.replace(
+            /\d{3,}px/i,
+            '640px',
+          )}" width="${width}" height="${height}" style="aspect-ratio: ${width} / ${height}" alt="">
           <div class="extract">${extract_html}</div>
           <div class="more"><a href="${page}" target="_blank">Read more on Wikipedia</a></div>
         </div>`;
         $wikipedia.innerHTML = html;
       });
+  },
+};
+
+const stationsExits = {
+  onExitClick: (e) => {
+    const $exit = e.target.closest('.exit-btn');
+    if (!$exit) return;
+    const coords = $exit.dataset.coords.split(',').map(parseFloat);
+    const angle = $exit.dataset.angle;
+    map.flyTo({
+      center: coords,
+      zoom: 20,
+      bearing: angle,
+    });
+  },
+  mount: (exits, feature) => {
+    const $exits = $station.querySelector('.exits');
+    const sortedExits = exits.sort((a, b) => {
+      if (isNaN(a.properties.name)) {
+        if (a.properties.name < b.properties.name) return -1;
+        if (a.properties.name > b.properties.name) return 1;
+        return 0;
+      }
+      return a.properties.name - b.properties.name;
+    });
+    const { coordinates: stationCoords } = feature.geometry;
+    const hasDups = sortedExits.some(
+      (exit, i) => exit.properties.name == sortedExits[i + 1]?.properties.name,
+    );
+
+    // check missing exits by comparing total exits to last exit number, only for numbered exits
+    const hasMissingExits =
+      !isNaN(sortedExits[0].properties.name) &&
+      sortedExits.length < sortedExits[sortedExits.length - 1].properties.name;
+
+    const html = sortedExits
+      .map(({ properties: { name }, geometry: { coordinates } }) => {
+        // angle between stationCoords and coordinates, relative to north, in degrees
+        const angle = Math.atan2(
+          stationCoords[0] - coordinates[0],
+          stationCoords[1] - coordinates[1],
+        );
+        const angleDeg = (angle * 180) / Math.PI;
+        return `
+          <button type="button" data-coords="${coordinates.join(
+            ',',
+          )}" data-angle="${angleDeg}" class="exit-btn">${name}</button>
+        `;
+      })
+      .join('');
+    $exits.innerHTML = `<h3>${exits.length} Exit${
+      exits.length === 1 ? '' : 's'
+    }</h3>
+      <div class="exits-container">
+      ${html}
+      </div>
+      ${
+        hasDups
+          ? '<p class="note"><small>Note: The data unfortunately contains duplicated exits. Please check your surroundings before proceeding.</small></p>'
+          : ''
+      }
+      ${
+        hasMissingExits
+          ? '<p class="note"><small>Note: The data unfortunately contains missing exits. They could also be under construction or not opened yet.</small></p>'
+          : ''
+      }
+      `;
+    $station.addEventListener('click', stationsExits.onExitClick);
+  },
+  unmount: () => {
+    $station.removeEventListener('click', stationsExits.onExitClick);
   },
 };
 
@@ -361,6 +445,18 @@ const formatTime = (datetime, showAMPM = false) => {
   ).id;
 
   const data = await geojsonFetch.then((res) => res.json());
+  const exitsFeatures = data.features.filter((f) => {
+    return f.properties.stop_type === 'entrance';
+  });
+  // Group entrances by station_codes
+  exitsFeatures.forEach((f) => {
+    const {
+      properties: { station_codes },
+    } = f;
+    if (!exitsData[station_codes]) exitsData[station_codes] = [];
+    exitsData[station_codes].push(f);
+  });
+
   map.addSource('rail', {
     type: 'geojson',
     data,
@@ -651,12 +747,38 @@ const formatTime = (datetime, showAMPM = false) => {
   // map.on('sourcedata', handleSource);
 
   map.on('click', 'stations-label', (e) => {
-    stationView.mount(e.features[0]);
+    location.hash = `stations/${e.features[0].properties.name}`;
+    // stationView.mount(e.features[0]);
   });
+
+  // Handle onhashchange
+  const onHashChange = () => {
+    // hash looks like this "stations/[NAME]", get the NAME, find it in the geojson and show it
+    const name = decodeURIComponent(location.hash.split('/')[1] || '');
+    const stationData =
+      name &&
+      data.features.find((f) => {
+        const { name: fName, station_codes } = f.properties;
+        const hasName = (fName || '').toLowerCase() === name.toLowerCase();
+        if (hasName) return true;
+        // Also works if "stations/[CODE]" e.g. "stations/NS1"
+        const codes = station_codes.split('-');
+        // Array.includes but case-insensitive
+        return codes.some((c) => c.toLowerCase() === name.toLowerCase());
+      });
+    if (stationData) {
+      stationView.mount(stationData);
+    } else {
+      stationView.unmount();
+    }
+  };
+  window.addEventListener('hashchange', onHashChange);
+  requestAnimationFrame(onHashChange);
 
   document.querySelector('.sheet-close').onclick = (e) => {
     e.preventDefault();
-    stationView.unmount();
+    location.hash = '';
+    // stationView.unmount();
   };
 
   map.on('movestart', (e) => {
@@ -686,7 +808,9 @@ const formatTime = (datetime, showAMPM = false) => {
     });
 
     const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', {
+      willReadFrequently: true,
+    });
     map.loadImage(require('./stations.png'), (e, img) => {
       if (!img) return;
       canvas.width = img.width;
@@ -710,7 +834,10 @@ const formatTime = (datetime, showAMPM = false) => {
         'properties.name_zh-Hans',
         'properties.name_ta',
         {
-          name: 'properties.station_codes',
+          name: 'station_codes',
+          getFn: (obj) => {
+            return obj.properties.station_codes.split('-');
+          },
           weight: 0.5,
         },
       ],
@@ -1025,3 +1152,11 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+map.addControl(
+  new mapboxgl.NavigationControl({
+    showZoom: false,
+    visualizePitch: true,
+  }),
+  'bottom-right',
+);
