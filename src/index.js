@@ -1094,25 +1094,27 @@ $searchField.oninput = () => {
         matches,
       } = r;
       const firstNameMatch = matches.find((m) => /name/i.test(m.key));
-      const { station_codes, station_colors } = properties;
+      const { name: stationName, station_codes, station_colors } = properties;
       const name =
         properties[
           firstNameMatch ? firstNameMatch.key.replace(/.+\./, '') : 'name'
         ];
       const html = `<li data-codes="${station_codes}" tabindex="-1">
-      <span class="pill mini">
-        ${station_codes
-          .split('-')
-          .map(
-            (c, i) =>
-              `<span class="${station_colors.split('-')[i]}">${c.replace(
-                /^([a-z]+)/i,
-                '$1 ',
-              )}</span>`,
-          )
-          .join('')}
-      </span>
-      ${name}
+      <a href="#stations/${stationName}">
+        <span class="pill mini">
+          ${station_codes
+            .split('-')
+            .map(
+              (c, i) =>
+                `<span class="${station_colors.split('-')[i]}">${c.replace(
+                  /^([a-z]+)/i,
+                  '$1 ',
+                )}</span>`,
+            )
+            .join('')}
+        </span>
+        ${name}
+      </a>
     </li>`;
       return html;
     })
@@ -1123,7 +1125,7 @@ $searchField.onkeydown = (e) => {
   // Enter
   if (e.code.toLowerCase() === 'enter' || e.keyCode === 13 || e.which === 13) {
     $searchField.blur();
-    $searchResults.querySelector('li')?.click();
+    $searchResults.querySelector('a')?.click();
   }
 };
 
@@ -1133,13 +1135,13 @@ $searchCancel.onclick = () => {
 };
 
 $searchResults.onclick = (e) => {
-  const { target } = e;
-  if (target.tagName.toLowerCase() !== 'li') return;
-  const { codes } = target.dataset;
-  const feature = stationsData.find(
-    (d) => d.properties.station_codes === codes,
-  );
-  stationView.mount(feature);
+  // const { target } = e;
+  // if (target.tagName.toLowerCase() !== 'li') return;
+  // const { codes } = target.dataset;
+  // const feature = stationsData.find(
+  //   (d) => d.properties.station_codes === codes,
+  // );
+  // stationView.mount(feature);
   $search.hidden = true;
   $searchField.value = '';
   document.body.scrollTo(0, 0);

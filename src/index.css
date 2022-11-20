@@ -503,24 +503,31 @@ abbr {
 }
 
 #search-results li {
-  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+#search-results li a {
+  color: inherit;
+  display: block;
   padding: 16px;
   font-weight: bold;
   position: relative;
+  background-image: none;
   transition: background-color 0.3s;
   outline: 0;
 }
 
-#search-results li:first-child {
+#search-results li a:first-child {
   background-color: rgba(255, 255, 255, 0.5);
 }
-#search-results li * {
+#search-results li a * {
   pointer-events: none;
 }
-#search-results li:hover {
+#search-results li a:hover {
   background-color: #fff;
 }
-#search-results li:after {
+#search-results li a:after {
   content: '';
   display: block;
   width: calc(100% - 32px);
