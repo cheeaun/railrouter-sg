@@ -942,13 +942,14 @@ const formatTime = (datetime, showAMPM = false) => {
   }, 300);
 
   let markers = [];
-  map.on('zoomend', () => {
+  map.on('zoom', () => {
     const zoom = map.getZoom();
     const large = zoom >= 12;
     const larger = zoom >= 15;
     markers.forEach((m) => {
       m.getElement().classList.toggle('large', large);
       m.getElement().classList.toggle('larger', larger);
+      m.getElement().style.cursor = zoom >= 13 ? 'pointer' : '';
     });
   });
   const renderCrowd = () => {
