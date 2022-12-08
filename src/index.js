@@ -942,7 +942,7 @@ const formatTime = (datetime, showAMPM = false) => {
   }, 300);
 
   let markers = [];
-  map.on('zoom', () => {
+  map.on('zoomend', () => {
     const zoom = map.getZoom();
     const large = zoom >= 12;
     const larger = zoom >= 15;
