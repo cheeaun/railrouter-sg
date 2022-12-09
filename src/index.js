@@ -949,6 +949,7 @@ const formatTime = (datetime, showAMPM = false) => {
     markers.forEach((m) => {
       m.getElement().classList.toggle('large', large);
       m.getElement().classList.toggle('larger', larger);
+      m.getElement().style.cursor = zoom >= 13 ? 'pointer' : '';
     });
   });
   const renderCrowd = () => {
