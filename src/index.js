@@ -1019,7 +1019,7 @@ const formatTime = (datetime, showAMPM = false) => {
         }
       })
       .catch((e) => {
-        $crowedTiming.innerHTML = 'Crowded time interval: N/A';
+        $crowdedTiming.innerHTML = 'Crowded time interval: N/A';
       })
       .finally(() => {
         setTimeout(() => {
