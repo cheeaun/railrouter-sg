@@ -52,6 +52,12 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 11. Move & rename sprite JSON to `scripts/sprite.json`.
 12. Run `node scripts/gen-stations-sprite.js` which will generate `src/stations.json`.
 
+### Tamil characters rendering
+
+This is done with [maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text).
+
+Related issue: [Tamil characters rendered wrongly](https://github.com/mapbox/mapbox-gl-js/issues/9894).
+
 ## License
 
 - Data: © [LTA](https://www.lta.gov.sg/content/ltagov/en/terms-of-use.html) © [Data.gov.sg](https://data.gov.sg/privacy-and-website-terms#site-terms) © [SMRT](https://www.smrt.com.sg/Terms-of-Use) © [SBS](https://www.sbstransit.com.sg/conditions-for-use)

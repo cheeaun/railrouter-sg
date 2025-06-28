@@ -44,6 +44,11 @@ const lowerLat = 1.23,
   upperLong = 104.05;
 const bounds = [lowerLong, lowerLat, upperLong, upperLat];
 
+mapboxgl.setRTLTextPlugin(
+    "https://wipfli.github.io/maplibre-gl-complex-text/dist/maplibre-gl-complex-text.js",
+    false
+);
+
 const map = (window.$map = new mapboxgl.Map({
   container: 'map',
   // style: 'mapbox://styles/cheeaun/clagddy23000y14saafbh02a8/draft',
@@ -53,8 +58,22 @@ const map = (window.$map = new mapboxgl.Map({
   renderWorldCopies: false,
   boxZoom: false,
   bearingSnap: 15,
-  localIdeographFontFamily:
-    '"InaiMathi", "Tamil Sangam MN", "Nirmala UI", Latha, Bamini ,Roboto, Noto, "Noto Sans Tamil", sans-serif',
+  // localIdeographFontFamily:
+  //   '"InaiMathi", "Tamil Sangam MN", "Nirmala UI", Latha, Bamini ,Roboto, Noto, "Noto Sans Tamil", sans-serif',
+  transformRequest: (url, resourceType) => {
+    if (resourceType === "Glyphs") {
+        const match = url.match(/(\d+)-(\d+)\.pbf/);
+        if (match) {
+            const start = parseInt(match[1], 10);
+            const end = parseInt(match[2], 10);
+            const encodedRangeStarts = [63488, 63232, 62976, 62720, 62464, 62208, 61952, 61696, 61440, 61184, 60928, 60672, 60416, 60160, 59904, 59648, 59392, 59136, 58880, 58624, 58368, 58112, 57856, 57600, 3072, 2816, 2560, 2304, 10240, 10752];
+            if (encodedRangeStarts.includes(start)) {
+                return { url: `https://wipfli.github.io/pgf-glyph-ranges/font/NotoSansMultiscript-Regular-v1/${start}-${end}.pbf` };
+            }
+        }
+    }
+    return undefined;
+  }
 }));
 const mapCanvas = map.getCanvas();
 
@@ -640,7 +659,7 @@ const formatTime = (datetime, showAMPM = false) => {
         {},
         ['get', 'name_ta'],
         {
-          'text-font': ['literal', ['Noto Sans Tamil Medium']],
+          // 'text-font': ['literal', ['Noto Sans Tamil Medium']],
           // 'font-scale': 1.1, // Slightly larger text size for Tamil
         },
       ],
