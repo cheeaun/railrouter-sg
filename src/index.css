@@ -11,8 +11,15 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji;
   color: #333;
   font-size: 15px;
   overflow: hidden;
@@ -255,12 +262,7 @@ abbr {
 #station header {
   position: relative;
   text-align: center;
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    transparent 50%,
-    #fff 50%
-  );
+  background-image: linear-gradient(to bottom, transparent, transparent 50%, #fff 50%);
   overflow: hidden;
   box-shadow: 0 8px 8px #fff;
 }
@@ -290,7 +292,9 @@ abbr {
   border-radius: 5px/50%;
   overflow: hidden;
   word-spacing: -0.2em;
-  box-shadow: 0 0 0 1px #fff, 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 0 1px #fff,
+    0 2px 4px 1px rgba(0, 0, 0, 0.2);
   text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
 }
 .pill.mini {
@@ -323,11 +327,7 @@ abbr {
   background-color: #fa9e0d;
   color: #000;
   text-shadow: 0 -1px rgba(255, 255, 255, 0.5);
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.3),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
 }
 .pill span.brown {
   background-color: #9d5b25;
@@ -370,8 +370,8 @@ abbr {
 .sheet .exits h3 {
   color: #fffc;
   text-transform: uppercase;
-  margin-top: -.5em;
-  font-size: .85em;
+  margin-top: -0.5em;
+  font-size: 0.85em;
 }
 .exit-btn {
   appearance: none;
@@ -401,7 +401,7 @@ abbr {
 }
 .exits .note {
   color: #fffc;
-  margin: .5em 0 0;
+  margin: 0.5em 0 0;
   padding: 0;
 }
 

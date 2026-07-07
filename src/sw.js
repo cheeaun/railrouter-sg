@@ -1,9 +1,5 @@
 import { registerRoute } from 'workbox-routing';
-import {
-  NetworkFirst,
-  StaleWhileRevalidate,
-  CacheFirst,
-} from 'workbox-strategies';
+import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import * as googleAnalytics from 'workbox-google-analytics';
@@ -18,8 +14,7 @@ registerRoute(
 );
 
 registerRoute(
-  ({ request }) =>
-    request.destination === 'style' || request.destination === 'script',
+  ({ request }) => request.destination === 'style' || request.destination === 'script',
   new StaleWhileRevalidate({
     cacheName: 'static-resources',
     plugins: [
