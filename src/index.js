@@ -212,15 +212,15 @@ const stationView = {
       <header>
         <span class="pill">
           ${station_codes
-            .split('-')
-            .map(
-              (c, i) =>
-                `<span class="${station_colors.split('-')[i]}">${c.replace(
-                  /^([a-z]+)/i,
-                  '$1 ',
-                )}</span>`,
-            )
-            .join('')}
+        .split('-')
+        .map(
+          (c, i) =>
+            `<span class="${station_colors.split('-')[i]}">${c.replace(
+              /^([a-z]+)/i,
+              '$1 ',
+            )}</span>`,
+        )
+        .join('')}
         </span>
         <h2>
           ${name}<br>
@@ -347,13 +347,17 @@ const wikipedia = {
             desktop: { page },
           },
           extract_html,
-          thumbnail: { source, width, height },
+          thumbnail,
+          originalimage,
         } = res;
+        const imageSource = thumbnail?.source || originalimage?.source || '';
+        const imageWidth = thumbnail?.width || originalimage?.width || '';
+        const imageHeight = thumbnail?.height || originalimage?.height || '';
+        const imgHtml = imageSource
+          ? `<img src="${imageSource}" width="${imageWidth}" height="${imageHeight}" style="aspect-ratio: ${imageWidth} / ${imageHeight}" alt="">`
+          : '';
         const html = `<div>
-          <img src="${source.replace(
-            /\d{3,}px/i,
-            '640px',
-          )}" width="${width}" height="${height}" style="aspect-ratio: ${width} / ${height}" alt="">
+          ${imgHtml}
           <div class="extract">${extract_html}</div>
           <div class="more"><a href="${page}" target="_blank">Read more on Wikipedia</a></div>
         </div>`;
@@ -404,8 +408,8 @@ const stationsExits = {
         const angleDeg = (angle * 180) / Math.PI;
         return `
           <button type="button" data-coords="${coordinates.join(
-            ',',
-          )}" data-angle="${angleDeg}" class="exit-btn">${name}</button>
+          ',',
+        )}" data-angle="${angleDeg}" class="exit-btn">${name}</button>
         `;
       })
       .join('');
@@ -413,15 +417,13 @@ const stationsExits = {
       <div class="exits-container">
       ${html}
       </div>
-      ${
-        hasDups
-          ? '<p class="note"><small>Note: The data unfortunately contains duplicated exits. Please check your surroundings before proceeding.</small></p>'
-          : ''
+      ${hasDups
+        ? '<p class="note"><small>Note: The data unfortunately contains duplicated exits. Please check your surroundings before proceeding.</small></p>'
+        : ''
       }
-      ${
-        hasMissingExits
-          ? '<p class="note"><small>Note: The data unfortunately contains missing exits. They could also be under construction or not opened yet.</small></p>'
-          : ''
+      ${hasMissingExits
+        ? '<p class="note"><small>Note: The data unfortunately contains missing exits. They could also be under construction or not opened yet.</small></p>'
+        : ''
       }
       `;
     $station.addEventListener('click', stationsExits.onExitClick);
@@ -967,9 +969,8 @@ const formatTime = (datetime, showAMPM = false) => {
           const el = document.createElement('div');
           const width = 50;
           const height = 50;
-          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${
-            large ? 'large' : ''
-          } ${larger ? 'larger' : ''}`;
+          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${large ? 'large' : ''
+            } ${larger ? 'larger' : ''}`;
           el.style.width = `${width}px`;
           el.style.height = `${height}px`;
 
@@ -1016,7 +1017,7 @@ const formatTime = (datetime, showAMPM = false) => {
 
 class SearchControl {
   options = {
-    onClick: () => {},
+    onClick: () => { },
   };
 
   constructor(options) {
@@ -1080,15 +1081,15 @@ $searchField.oninput = () => {
       <a href="#stations/${stationName}">
         <span class="pill mini">
           ${station_codes
-            .split('-')
-            .map(
-              (c, i) =>
-                `<span class="${station_colors.split('-')[i]}">${c.replace(
-                  /^([a-z]+)/i,
-                  '$1 ',
-                )}</span>`,
-            )
-            .join('')}
+          .split('-')
+          .map(
+            (c, i) =>
+              `<span class="${station_colors.split('-')[i]}">${c.replace(
+                /^([a-z]+)/i,
+                '$1 ',
+              )}</span>`,
+          )
+          .join('')}
         </span>
         ${name}
       </a>
