@@ -45,8 +45,8 @@ const lowerLat = 1.23,
 const bounds = [lowerLong, lowerLat, upperLong, upperLat];
 
 mapboxgl.setRTLTextPlugin(
-    "https://wipfli.github.io/maplibre-gl-complex-text/dist/maplibre-gl-complex-text.js",
-    false
+  'https://wipfli.github.io/maplibre-gl-complex-text/dist/maplibre-gl-complex-text.js',
+  false,
 );
 
 const map = (window.$map = new mapboxgl.Map({
@@ -61,19 +61,25 @@ const map = (window.$map = new mapboxgl.Map({
   // localIdeographFontFamily:
   //   '"InaiMathi", "Tamil Sangam MN", "Nirmala UI", Latha, Bamini ,Roboto, Noto, "Noto Sans Tamil", sans-serif',
   transformRequest: (url, resourceType) => {
-    if (resourceType === "Glyphs") {
-        const match = url.match(/(\d+)-(\d+)\.pbf/);
-        if (match) {
-            const start = parseInt(match[1], 10);
-            const end = parseInt(match[2], 10);
-            const encodedRangeStarts = [63488, 63232, 62976, 62720, 62464, 62208, 61952, 61696, 61440, 61184, 60928, 60672, 60416, 60160, 59904, 59648, 59392, 59136, 58880, 58624, 58368, 58112, 57856, 57600, 3072, 2816, 2560, 2304, 10240, 10752];
-            if (encodedRangeStarts.includes(start)) {
-                return { url: `https://wipfli.github.io/pgf-glyph-ranges/font/NotoSansMultiscript-Regular-v1/${start}-${end}.pbf` };
-            }
+    if (resourceType === 'Glyphs') {
+      const match = url.match(/(\d+)-(\d+)\.pbf/);
+      if (match) {
+        const start = parseInt(match[1], 10);
+        const end = parseInt(match[2], 10);
+        const encodedRangeStarts = [
+          63488, 63232, 62976, 62720, 62464, 62208, 61952, 61696, 61440, 61184, 60928, 60672, 60416,
+          60160, 59904, 59648, 59392, 59136, 58880, 58624, 58368, 58112, 57856, 57600, 3072, 2816,
+          2560, 2304, 10240, 10752,
+        ];
+        if (encodedRangeStarts.includes(start)) {
+          return {
+            url: `https://wipfli.github.io/pgf-glyph-ranges/font/NotoSansMultiscript-Regular-v1/${start}-${end}.pbf`,
+          };
         }
+      }
     }
     return undefined;
-  }
+  },
 }));
 const mapCanvas = map.getCanvas();
 
@@ -232,15 +238,15 @@ const stationView = {
       <header>
         <span class="pill">
           ${station_codes
-            .split('-')
-            .map(
-              (c, i) =>
-                `<span class="${station_colors.split('-')[i]}">${c.replace(
-                  /^([a-z]+)/i,
-                  '$1 ',
-                )}</span>`,
-            )
-            .join('')}
+        .split('-')
+        .map(
+          (c, i) =>
+            `<span class="${station_colors.split('-')[i]}">${c.replace(
+              /^([a-z]+)/i,
+              '$1 ',
+            )}</span>`,
+        )
+        .join('')}
         </span>
         <h2>
           ${name}<br>
@@ -249,9 +255,7 @@ const stationView = {
         </h2>
       </header>
       <div class="scrollable">
-        ${
-          /* <div class="arrivals"><h3>Arrival times</h3><p>Loading&hellip;</p></div> */ ''
-        }
+        ${/* <div class="arrivals"><h3>Arrival times</h3><p>Loading&hellip;</p></div> */ ''}
         <div class="exits"></div>
         <div class="wikipedia"></div>
       </div>
@@ -297,20 +301,14 @@ const arrivalTimes = {
         const html = results
           .filter((result, pos, arr) => {
             // Filter weird destination names
-            if (/do not board/i.test(result.next_train_destination))
-              return false;
+            if (/do not board/i.test(result.next_train_destination)) return false;
             return (
-              arr.findIndex(
-                (r) =>
-                  r.next_train_destination == result.next_train_destination,
-              ) == pos
+              arr.findIndex((r) => r.next_train_destination == result.next_train_destination) == pos
             );
           })
           .map((result) => {
             let arrow = '⇢';
-            const isWeirdName = /do not board/i.test(
-              result.next_train_destination,
-            );
+            const isWeirdName = /do not board/i.test(result.next_train_destination);
             if (result.next_train_destination == result.mrt) {
               arrow = '⇠';
             }
@@ -368,11 +366,7 @@ const arrivalTimes = {
 const wikipedia = {
   mount: (slug) => {
     const $wikipedia = $station.querySelector('.wikipedia');
-    fetch(
-      `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
-        slug,
-      )}`,
-    )
+    fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`)
       .then((res) => res.json())
       .then((res) => {
         const {
@@ -380,13 +374,17 @@ const wikipedia = {
             desktop: { page },
           },
           extract_html,
-          thumbnail: { source, width, height },
+          thumbnail,
+          originalimage,
         } = res;
+        const imageSource = thumbnail?.source || originalimage?.source || '';
+        const imageWidth = thumbnail?.width || originalimage?.width || '';
+        const imageHeight = thumbnail?.height || originalimage?.height || '';
+        const imgHtml = imageSource
+          ? `<img src="${imageSource}" width="${imageWidth}" height="${imageHeight}" style="aspect-ratio: ${imageWidth} / ${imageHeight}" alt="">`
+          : '';
         const html = `<div>
-          <img src="${source.replace(
-            /\d{3,}px/i,
-            '640px',
-          )}" width="${width}" height="${height}" style="aspect-ratio: ${width} / ${height}" alt="">
+          ${imgHtml}
           <div class="extract">${extract_html}</div>
           <div class="more"><a href="${page}" target="_blank">Read more on Wikipedia</a></div>
         </div>`;
@@ -437,26 +435,22 @@ const stationsExits = {
         const angleDeg = (angle * 180) / Math.PI;
         return `
           <button type="button" data-coords="${coordinates.join(
-            ',',
-          )}" data-angle="${angleDeg}" class="exit-btn">${name}</button>
+          ',',
+        )}" data-angle="${angleDeg}" class="exit-btn">${name}</button>
         `;
       })
       .join('');
-    $exits.innerHTML = `<h3>${exits.length} Exit${
-      exits.length === 1 ? '' : 's'
-    }</h3>
+    $exits.innerHTML = `<h3>${exits.length} Exit${exits.length === 1 ? '' : 's'}</h3>
       <div class="exits-container">
       ${html}
       </div>
-      ${
-        hasDups
-          ? '<p class="note"><small>Note: The data unfortunately contains duplicated exits. Please check your surroundings before proceeding.</small></p>'
-          : ''
+      ${hasDups
+        ? '<p class="note"><small>Note: The data unfortunately contains duplicated exits. Please check your surroundings before proceeding.</small></p>'
+        : ''
       }
-      ${
-        hasMissingExits
-          ? '<p class="note"><small>Note: The data unfortunately contains missing exits. They could also be under construction or not opened yet.</small></p>'
-          : ''
+      ${hasMissingExits
+        ? '<p class="note"><small>Note: The data unfortunately contains missing exits. They could also be under construction or not opened yet.</small></p>'
+        : ''
       }
       `;
     $station.addEventListener('click', stationsExits.onExitClick);
@@ -484,9 +478,7 @@ const formatTime = (datetime, showAMPM = false) => {
   const layers = map.getStyle().layers;
   // console.log(layers);
 
-  const labelLayerId = layers.find(
-    (l) => l.type === 'symbol' && l.layout['text-field'],
-  ).id;
+  const labelLayerId = layers.find((l) => l.type === 'symbol' && l.layout['text-field']).id;
 
   const data = await geojsonFetch.then((res) => res.json());
   const exitsFeatures = data.features.filter((f) => {
@@ -639,26 +631,14 @@ const formatTime = (datetime, showAMPM = false) => {
     maxzoom: 14,
     layout: {
       'icon-image': ['get', 'station_colors'],
-      'icon-size': [
-        'interpolate',
-        ['exponential', 2],
-        ['zoom'],
-        10,
-        0.2,
-        14,
-        1,
-      ],
+      'icon-size': ['interpolate', ['exponential', 2], ['zoom'], 10, 0.2, 14, 1],
       'icon-allow-overlap': true,
     },
   });
   map.addLayer({
     id: 'stations-point-label',
     source: 'rail',
-    filter: [
-      'all',
-      ['==', ['get', 'stop_type'], 'station'],
-      ['in', '-', ['get', 'station_codes']],
-    ],
+    filter: ['all', ['==', ['get', 'stop_type'], 'station'], ['in', '-', ['get', 'station_codes']]],
     type: 'symbol',
     minzoom: 10,
     maxzoom: 13,
@@ -750,11 +730,7 @@ const formatTime = (datetime, showAMPM = false) => {
     {
       id: 'buildings-underground',
       source: 'rail',
-      filter: [
-        'all',
-        ['==', ['get', 'type'], 'subway'],
-        ['==', ['get', 'underground'], true],
-      ],
+      filter: ['all', ['==', ['get', 'type'], 'subway'], ['==', ['get', 'underground'], true]],
       type: 'fill',
       minzoom: 14,
       paint: {
@@ -769,11 +745,7 @@ const formatTime = (datetime, showAMPM = false) => {
     {
       id: 'buildings-aboveground',
       source: 'rail',
-      filter: [
-        'all',
-        ['==', ['get', 'type'], 'subway'],
-        ['==', ['get', 'underground'], false],
-      ],
+      filter: ['all', ['==', ['get', 'type'], 'subway'], ['==', ['get', 'underground'], false]],
       type: 'fill-extrusion',
       minzoom: 14,
       paint: {
@@ -984,19 +956,10 @@ const formatTime = (datetime, showAMPM = false) => {
     });
     map.on('click', 'walks-label', (e) => {
       const f = e.features[0];
-      const {
-        duration_min,
-        station_codes_1,
-        station_codes_2,
-        exit_name_1,
-        exit_name_2,
-      } = f.properties;
-      const station1 = stationsData.find(
-        (d) => d.properties.station_codes === station_codes_1,
-      );
-      const station2 = stationsData.find(
-        (d) => d.properties.station_codes === station_codes_2,
-      );
+      const { duration_min, station_codes_1, station_codes_2, exit_name_1, exit_name_2 } =
+        f.properties;
+      const station1 = stationsData.find((d) => d.properties.station_codes === station_codes_1);
+      const station2 = stationsData.find((d) => d.properties.station_codes === station_codes_2);
       alert(
         `${duration_min}-min walk between ${station1.properties.name} (Exit ${exit_name_1}) and ${station2.properties.name} (Exit ${exit_name_2})`,
       );
@@ -1029,8 +992,16 @@ const formatTime = (datetime, showAMPM = false) => {
         const large = zoom >= 12;
         const larger = zoom >= 15;
         const crowdedData = [];
+        // TODO: Remove this temporary crowd data ignore after 2026-07-12 SGT
+        const crowdIgnoreUntil = new Date('2026-07-12T23:59:59+08:00');
+        const now = new Date();
         results.data.forEach((r) => {
           const { station, crowdLevel } = r;
+          if (
+            now < crowdIgnoreUntil &&
+            (station === 'CC30' || station === 'CC31' || station === 'CC32')
+          )
+            return;
           if (!crowdLevel || (crowdLevel !== 'h' && crowdLevel !== 'm')) return;
           const f = data.features.find((f) =>
             f.properties.station_codes.split('-').includes(station),
@@ -1046,16 +1017,13 @@ const formatTime = (datetime, showAMPM = false) => {
           const el = document.createElement('div');
           const width = 50;
           const height = 50;
-          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${
-            large ? 'large' : ''
-          } ${larger ? 'larger' : ''}`;
+          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${large ? 'large' : ''
+            } ${larger ? 'larger' : ''}`;
           el.style.width = `${width}px`;
           el.style.height = `${height}px`;
 
           // Add markers to the map.
-          const marker = new mapboxgl.Marker(el)
-            .setLngLat(f.geometry.coordinates)
-            .addTo(map);
+          const marker = new mapboxgl.Marker(el).setLngLat(f.geometry.coordinates).addTo(map);
           markers.push(marker);
         });
 
@@ -1097,7 +1065,7 @@ const formatTime = (datetime, showAMPM = false) => {
 
 class SearchControl {
   options = {
-    onClick: () => {},
+    onClick: () => { },
   };
 
   constructor(options) {
@@ -1137,12 +1105,7 @@ map.addControl(
 );
 document.onkeydown = (e) => {
   if (/(input|textarea|select)/i.test(e.target.tagName)) return;
-  if (
-    e.code.toLowerCase() === 'slash' ||
-    e.key === '/' ||
-    e.keyCode === 191 ||
-    e.which === 191
-  ) {
+  if (e.code.toLowerCase() === 'slash' || e.key === '/' || e.keyCode === 191 || e.which === 191) {
     e.preventDefault();
     focusSearchField();
   }
@@ -1161,23 +1124,20 @@ $searchField.oninput = () => {
       } = r;
       const firstNameMatch = matches.find((m) => /name/i.test(m.key));
       const { name: stationName, station_codes, station_colors } = properties;
-      const name =
-        properties[
-          firstNameMatch ? firstNameMatch.key.replace(/.+\./, '') : 'name'
-        ];
+      const name = properties[firstNameMatch ? firstNameMatch.key.replace(/.+\./, '') : 'name'];
       const html = `<li data-codes="${station_codes}" tabindex="-1">
       <a href="#stations/${stationName}">
         <span class="pill mini">
           ${station_codes
-            .split('-')
-            .map(
-              (c, i) =>
-                `<span class="${station_colors.split('-')[i]}">${c.replace(
-                  /^([a-z]+)/i,
-                  '$1 ',
-                )}</span>`,
-            )
-            .join('')}
+          .split('-')
+          .map(
+            (c, i) =>
+              `<span class="${station_colors.split('-')[i]}">${c.replace(
+                /^([a-z]+)/i,
+                '$1 ',
+              )}</span>`,
+          )
+          .join('')}
         </span>
         ${name}
       </a>
