@@ -117,7 +117,8 @@ abbr {
 .sheet.modal.open {
   box-shadow: 0 0 50vh rgba(0, 0, 0, 0.5);
 }
-.sheet.open ~ #map .mapboxgl-control-container {
+.sheet.open ~ #map .mapboxgl-control-container .mapboxgl-ctrl:has(button:not(.mapboxgl-ctrl-compass)),
+.sheet.open ~ #map .mapboxgl-control-container button:not(.mapboxgl-ctrl-compass) {
   display: none;
 }
 .sheet-cover {
