@@ -944,16 +944,8 @@ const formatTime = (datetime, showAMPM = false) => {
         const large = zoom >= 12;
         const larger = zoom >= 15;
         const crowdedData = [];
-        // TODO: Remove this temporary crowd data ignore after 2026-07-12 SGT
-        const crowdIgnoreUntil = new Date('2026-07-12T23:59:59+08:00');
-        const now = new Date();
         results.data.forEach((r) => {
           const { station, crowdLevel } = r;
-          if (
-            now < crowdIgnoreUntil &&
-            (station === 'CC30' || station === 'CC31' || station === 'CC32')
-          )
-            return;
           if (!crowdLevel || (crowdLevel !== 'h' && crowdLevel !== 'm')) return;
           const f = data.features.find((f) =>
             f.properties.station_codes.split('-').includes(station),

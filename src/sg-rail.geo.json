@@ -147,15 +147,15 @@
 		},
 		{
 			"type": "Feature",
-			"id": 2391404936,
+			"id": 1510603160,
 			"properties": {
 				"name": "Bayfront",
 				"name_zh-Hans": "海湾舫",
 				"name_ta": "பேஃபிரண்ட்",
 				"network": "singapore-mrt",
 				"network_count": 2,
-				"station_codes": "DT16-CE1",
-				"station_colors": "blue-yellow",
+				"station_codes": "CC34-DT16",
+				"station_colors": "yellow-blue",
 				"wikipedia": "en:Bayfront MRT station",
 				"wikipedia_slug": "Bayfront_MRT_station",
 				"stop_type": "station",
@@ -2259,14 +2259,14 @@
 		},
 		{
 			"type": "Feature",
-			"id": 839506234,
+			"id": 767296206,
 			"properties": {
 				"name": "Marina Bay",
 				"name_zh-Hans": "滨海湾",
 				"name_ta": "மரீனா பே",
 				"network": "singapore-mrt",
 				"network_count": 3,
-				"station_codes": "NS27-CE2-TE20",
+				"station_codes": "NS27-CC33-TE20",
 				"station_colors": "red-yellow-brown",
 				"wikipedia": "en:Marina Bay MRT station",
 				"wikipedia_slug": "Marina_Bay_MRT_station",
@@ -5592,6 +5592,91 @@
 		},
 		{
 			"type": "Feature",
+			"id": 32969516,
+			"properties": {
+				"stop_type": "entrance",
+				"network": "entrance",
+				"name": "C",
+				"station_codes": "CC34-DT16"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					103.859597,
+					1.282835
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 3036783021,
+			"properties": {
+				"stop_type": "entrance",
+				"network": "entrance",
+				"name": "B",
+				"station_codes": "CC34-DT16"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					103.859759,
+					1.282705
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 1992020014,
+			"properties": {
+				"stop_type": "entrance",
+				"network": "entrance",
+				"name": "A",
+				"station_codes": "CC34-DT16"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					103.858732,
+					1.280967
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 4255764010,
+			"properties": {
+				"stop_type": "entrance",
+				"network": "entrance",
+				"name": "E",
+				"station_codes": "CC34-DT16"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					103.858441,
+					1.281105
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 1136655787,
+			"properties": {
+				"stop_type": "entrance",
+				"network": "entrance",
+				"name": "D",
+				"station_codes": "CC34-DT16"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					103.859494,
+					1.282834
+				]
+			}
+		},
+		{
+			"type": "Feature",
 			"id": 2442512382,
 			"properties": {
 				"stop_type": "entrance",
@@ -6063,91 +6148,6 @@
 				"coordinates": [
 					103.853104,
 					1.304215
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 32969516,
-			"properties": {
-				"stop_type": "entrance",
-				"network": "entrance",
-				"name": "C",
-				"station_codes": "DT16-CE1"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.859597,
-					1.282835
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 3036783021,
-			"properties": {
-				"stop_type": "entrance",
-				"network": "entrance",
-				"name": "B",
-				"station_codes": "DT16-CE1"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.859759,
-					1.282705
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1992020014,
-			"properties": {
-				"stop_type": "entrance",
-				"network": "entrance",
-				"name": "A",
-				"station_codes": "DT16-CE1"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.858732,
-					1.280967
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 4255764010,
-			"properties": {
-				"stop_type": "entrance",
-				"network": "entrance",
-				"name": "E",
-				"station_codes": "DT16-CE1"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.858441,
-					1.281105
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1136655787,
-			"properties": {
-				"stop_type": "entrance",
-				"network": "entrance",
-				"name": "D",
-				"station_codes": "DT16-CE1"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.859494,
-					1.282834
 				]
 			}
 		},
@@ -11751,7 +11751,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "1",
-				"station_codes": "NS27-CE2-TE20"
+				"station_codes": "NS27-CC33-TE20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11768,7 +11768,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "5",
-				"station_codes": "NS27-CE2-TE20"
+				"station_codes": "NS27-CC33-TE20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11785,7 +11785,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "4",
-				"station_codes": "NS27-CE2-TE20"
+				"station_codes": "NS27-CC33-TE20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11802,7 +11802,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "3",
-				"station_codes": "NS27-CE2-TE20"
+				"station_codes": "NS27-CC33-TE20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -11819,7 +11819,7 @@
 				"stop_type": "entrance",
 				"network": "entrance",
 				"name": "2",
-				"station_codes": "NS27-CE2-TE20"
+				"station_codes": "NS27-CC33-TE20"
 			},
 			"geometry": {
 				"type": "Point",
@@ -37805,6 +37805,134 @@
 		},
 		{
 			"type": "Feature",
+			"id": 1909336414,
+			"properties": {
+				"station_codes": "CC34-DT16",
+				"underground": true,
+				"type": "subway"
+			},
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[
+							103.85952711,
+							1.28291083
+						],
+						[
+							103.85866655,
+							1.28156686
+						],
+						[
+							103.85870014,
+							1.28154507
+						],
+						[
+							103.85836502,
+							1.28102168
+						],
+						[
+							103.85856403,
+							1.28089259
+						],
+						[
+							103.85863028,
+							1.28099606
+						],
+						[
+							103.85868013,
+							1.28096372
+						],
+						[
+							103.85868208,
+							1.28096676
+						],
+						[
+							103.85873661,
+							1.28093139
+						],
+						[
+							103.8587572,
+							1.28096354
+						],
+						[
+							103.85909578,
+							1.28149233
+						],
+						[
+							103.85904125,
+							1.2815277
+						],
+						[
+							103.85906851,
+							1.28157027
+						],
+						[
+							103.85901866,
+							1.2816026
+						],
+						[
+							103.85925911,
+							1.28197813
+						],
+						[
+							103.85932701,
+							1.28193409
+						],
+						[
+							103.85926337,
+							1.28183469
+						],
+						[
+							103.8592983,
+							1.28181204
+						],
+						[
+							103.85947341,
+							1.28208551
+						],
+						[
+							103.85943847,
+							1.28210817
+						],
+						[
+							103.85939321,
+							1.28203747
+						],
+						[
+							103.85932531,
+							1.28208151
+						],
+						[
+							103.85952633,
+							1.28239547
+						],
+						[
+							103.85957771,
+							1.28236214
+						],
+						[
+							103.85980866,
+							1.28272283
+						],
+						[
+							103.85975434,
+							1.28275807
+						],
+						[
+							103.85975677,
+							1.28276186
+						],
+						[
+							103.85952711,
+							1.28291083
+						]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
 			"id": 2008150702,
 			"properties": {
 				"station_codes": "CC4-DT15",
@@ -40894,134 +41022,6 @@
 						[
 							103.85246868,
 							1.30415286
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1909336414,
-			"properties": {
-				"station_codes": "DT16-CE1",
-				"underground": true,
-				"type": "subway"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.85952711,
-							1.28291083
-						],
-						[
-							103.85866655,
-							1.28156686
-						],
-						[
-							103.85870014,
-							1.28154507
-						],
-						[
-							103.85836502,
-							1.28102168
-						],
-						[
-							103.85856403,
-							1.28089259
-						],
-						[
-							103.85863028,
-							1.28099606
-						],
-						[
-							103.85868013,
-							1.28096372
-						],
-						[
-							103.85868208,
-							1.28096676
-						],
-						[
-							103.85873661,
-							1.28093139
-						],
-						[
-							103.8587572,
-							1.28096354
-						],
-						[
-							103.85909578,
-							1.28149233
-						],
-						[
-							103.85904125,
-							1.2815277
-						],
-						[
-							103.85906851,
-							1.28157027
-						],
-						[
-							103.85901866,
-							1.2816026
-						],
-						[
-							103.85925911,
-							1.28197813
-						],
-						[
-							103.85932701,
-							1.28193409
-						],
-						[
-							103.85926337,
-							1.28183469
-						],
-						[
-							103.8592983,
-							1.28181204
-						],
-						[
-							103.85947341,
-							1.28208551
-						],
-						[
-							103.85943847,
-							1.28210817
-						],
-						[
-							103.85939321,
-							1.28203747
-						],
-						[
-							103.85932531,
-							1.28208151
-						],
-						[
-							103.85952633,
-							1.28239547
-						],
-						[
-							103.85957771,
-							1.28236214
-						],
-						[
-							103.85980866,
-							1.28272283
-						],
-						[
-							103.85975434,
-							1.28275807
-						],
-						[
-							103.85975677,
-							1.28276186
-						],
-						[
-							103.85952711,
-							1.28291083
 						]
 					]
 				]
@@ -64075,7 +64075,7 @@
 			"type": "Feature",
 			"id": 3343154375,
 			"properties": {
-				"station_codes": "NS27-CE2-TE20",
+				"station_codes": "NS27-CC33-TE20",
 				"underground": true,
 				"type": "subway"
 			},
@@ -64231,7 +64231,7 @@
 			"type": "Feature",
 			"id": 3343154375,
 			"properties": {
-				"station_codes": "NS27-CE2-TE20",
+				"station_codes": "NS27-CC33-TE20",
 				"underground": true,
 				"type": "subway"
 			},
@@ -64339,7 +64339,7 @@
 			"type": "Feature",
 			"id": 3343154375,
 			"properties": {
-				"station_codes": "NS27-CE2-TE20",
+				"station_codes": "NS27-CC33-TE20",
 				"underground": true,
 				"type": "subway"
 			},
@@ -64651,7 +64651,7 @@
 			"type": "Feature",
 			"id": 3343154375,
 			"properties": {
-				"station_codes": "NS27-CE2-TE20",
+				"station_codes": "NS27-CC33-TE20",
 				"underground": true,
 				"type": "subway"
 			},
