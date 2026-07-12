@@ -168,10 +168,12 @@ function formatArriveTime(str) {
 
 const origTitle = document.title;
 let currentStation;
+let exitFeature;
 const stationView = {
-  mount: (feature) => {
+  mount: (feature, isSameStation) => {
     // set title
     const { properties, geometry } = feature;
+    const exitProperties = exitFeature?.properties;
     const {
       name,
       'name_zh-Hans': name_zh_Hans,
@@ -185,29 +187,53 @@ const stationView = {
 
     $station.classList.remove('min');
 
-    const zoom = map.getZoom();
-    const isScreenLarge = window.innerWidth >= 640;
-    const padding = isScreenLarge ? { left: 320 } : { bottom: window.innerHeight / 2 };
-    if (zoom <= 13) {
-      map.jumpTo({
-        center: geometry.coordinates,
-        zoom: 16.5,
-        pitch: 70,
-        padding,
-      });
+    if (!exitProperties) {
+      const zoom = map.getZoom();
+      const isScreenLarge = window.innerWidth >= 640;
+      const padding = isScreenLarge
+        ? { left: 320 }
+        : { bottom: window.innerHeight / 2 };
+      if (zoom <= 13) {
+        map.jumpTo({
+          center: geometry.coordinates,
+          zoom: 16.5,
+          pitch: 70,
+          padding,
+        });
+      } else {
+        map.easeTo({
+          center: geometry.coordinates,
+          zoom: 16.5,
+          pitch: 70,
+          padding,
+          duration: 500,
+        });
+      }
     } else {
-      map.easeTo({
-        center: geometry.coordinates,
-        zoom: 16.5,
+      const stationCoords = geometry.coordinates;
+      const coords = exitsData[exitProperties.station_codes]
+        .find((d)=> d.properties.name == exitProperties.name)
+        .geometry
+        .coordinates;
+      const angle = Math.atan2(
+        stationCoords[0] - coords[0],
+        stationCoords[1] - coords[1],
+      );
+      const angleDeg = (angle * 180) / Math.PI;
+      map.flyTo({
+        center: coords,
+        zoom: 20,
         pitch: 70,
-        padding,
-        duration: 500,
+        bearing: angleDeg,
       });
     }
 
     if (station_codes === currentStation) return;
 
     currentStation = station_codes;
+
+    if (isSameStation) return;
+
     $station.innerHTML = `
       <header>
         <span class="pill">
@@ -242,6 +268,7 @@ const stationView = {
   unmount: () => {
     document.title = origTitle;
     currentStation = null;
+    exitFeature = null;
     $station.classList.remove('open');
     $station.classList.remove('min');
 
@@ -575,6 +602,24 @@ const formatTime = (datetime, showAMPM = false) => {
       ],
     },
   });
+  map.on('mouseenter', 'exits', () => {
+    mapCanvas.style.cursor = 'pointer';
+  });
+  map.on('mouseleave', 'exits', () => {
+    mapCanvas.style.cursor = '';
+  });
+  map.on('click', 'exits', (e) => {
+    exitFeature = e.features[0];
+    currentStation = stationsData.find(
+      (d) => d.properties.station_codes === exitFeature.properties.station_codes,
+    );
+    const previousHash = location.hash
+    const previousStationName = decodeURIComponent(previousHash.split('/')[1] || '');
+    location.hash = `stations/${currentStation.properties.name}`;
+    if (previousStationName === currentStation.properties.name) {
+      window.dispatchEvent(new HashChangeEvent("hashchange", {oldURL: previousHash}));
+    }
+  });
 
   // STATIONS
   map.addLayer({
@@ -741,9 +786,10 @@ const formatTime = (datetime, showAMPM = false) => {
   });
 
   // Handle onhashchange
-  const onHashChange = () => {
+  const onHashChange = (e) => {
     // hash looks like this "stations/[NAME]", get the NAME, find it in the geojson and show it
     const name = decodeURIComponent(location.hash.split('/')[1] || '');
+    const previousName = decodeURIComponent(e.oldURL.split('/')[1] || '');
     const stationData =
       name &&
       data.features.find((f) => {
@@ -756,7 +802,8 @@ const formatTime = (datetime, showAMPM = false) => {
         return codes.some((c) => c.toLowerCase() === name.toLowerCase());
       });
     if (stationData) {
-      stationView.mount(stationData);
+      const isSameStation = previousName === name;
+      stationView.mount(stationData, isSameStation);
     } else {
       stationView.unmount();
     }
@@ -772,6 +819,7 @@ const formatTime = (datetime, showAMPM = false) => {
 
   map.on('movestart', (e) => {
     if (!e.originalEvent) return; // Not initiated by humans
+    exitFeature = null;
     if (!currentStation) return;
     $station.classList.add('min');
   });
