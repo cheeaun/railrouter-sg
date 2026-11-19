@@ -1,6 +1,16 @@
 {
   "extends": "@parcel/config-default",
   "transformers": {
-    "*.{jpg,png,svg,geo.json}": ["@parcel/transformer-raw"]
+    "*.{jpg,png,svg,geo.json}": ["@parcel/transformer-raw"],
+    "*.html": [
+      {
+        "plugin": "@parcel/transformer-html",
+        "config": {
+          "optimize": {
+            "minifySvg": false
+          }
+        }
+      }
+    ]
   }
 }

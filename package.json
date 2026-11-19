@@ -17,13 +17,17 @@
   "scripts": {
     "start": "parcel serve ./src/index.html --no-hmr",
     "start-https": "parcel serve ./src/index.html --no-hmr --https",
-    "build": "parcel build ./src/index.html --no-cache",
-    "postbuild": "cpy public/* dist"
+    "build": "parcel build ./src/index.html",
+    "postbuild": "cpy public/* dist",
+    "postinstall": "node scripts/check-pgf-glyphs-update.mjs",
+    "fetch-glyphs": "node scripts/fetch-pgf-glyphs.mjs"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "~1.0.1",
-    "fuse.js": "~6.6.2",
-    "mapbox-gl": "~2.10.0",
+    "fuse.js": "~7.5.0",
+    "harfbuzzjs": "^1.6.4",
+    "mapbox-gl": "~3.35.1",
+    "process": "^0.11.10",
     "regenerator-runtime": "~0.14.1",
     "workbox-cacheable-response": "~7.4.1",
     "workbox-expiration": "~7.4.1",
@@ -32,10 +36,8 @@
     "workbox-strategies": "~7.4.1"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "~2.16.4",
-    "@parcel/transformer-webmanifest": "~2.16.4",
-    "cpy-cli": "~4.2.0",
-    "parcel": "~2.16.4"
+    "cpy-cli": "~7.0.0",
+    "parcel": "^3.0.0-0"
   },
   "browserslist": [
     ">0.25%",
@@ -45,11 +47,5 @@
     "not op_mini all",
     "not Android > 1",
     "not safari < 10"
-  ],
-  "allowScripts": {
-    "@parcel/watcher@2.5.6": true,
-    "@swc/core@1.15.43": true,
-    "lmdb@2.8.5": true,
-    "msgpackr-extract@3.0.4": true
-  }
+  ]
 }

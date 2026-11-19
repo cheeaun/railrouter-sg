@@ -54,7 +54,7 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 
 ### Tamil characters rendering
 
-This is done with [maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text).
+Mapbox GL JS v3 removed `setRTLTextPlugin` and its built-in shaper only handles RTL/Arabic scripts. Tamil station names are therefore shaped with HarfBuzz before they reach the label layer, using a port of [wipfli/maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text) (`src/complex-text/`). The two required glyph-range PBFs are self-hosted in `src/glyphs/`, pinned to an upstream commit in `scripts/pgf-glyphs-upstream.json` (`npm run fetch-glyphs -- --update` re-pins). `postinstall` warns if upstream changes or a file no longer matches its hash. Verify shaping with `node scripts/check-tamil-shaping.mjs`.
 
 Related issue: [Tamil characters rendered wrongly](https://github.com/mapbox/mapbox-gl-js/issues/9894).
 

@@ -1,3 +1,6 @@
+import { tamilShaper } from './complex-text/shaper.js';
+import pgfGlyph57600 from './glyphs/57600-57855.pbf' with {type: 'url'};
+import pgfGlyph57856 from './glyphs/57856-58111.pbf' with {type: 'url'};
 // https://github.com/parcel-bundler/parcel/issues/3375#issuecomment-599160200
 import 'regenerator-runtime/runtime';
 
@@ -24,12 +27,14 @@ $('logo').onclick = () => {
 };
 
 import Fuse from 'fuse.js';
+import geojsonUrl from './sg-rail.geo.json' with {type: 'url'};
+import walksGeojsonUrl from './sg-rail-walks.geo.json' with {type: 'url'};
 let fuse;
 
 let stationsData;
 const exitsData = {};
 
-const geojsonFetch = fetch(require('./sg-rail.geo.json'));
+const geojsonFetch = fetch(geojsonUrl);
 
 import mapboxgl from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
@@ -43,11 +48,6 @@ const lowerLat = 1.23,
   lowerLong = 103.59,
   upperLong = 104.05;
 const bounds = [lowerLong, lowerLat, upperLong, upperLat];
-
-mapboxgl.setRTLTextPlugin(
-  'https://wipfli.github.io/maplibre-gl-complex-text/dist/maplibre-gl-complex-text.js',
-  false,
-);
 
 const map = (window.$map = new mapboxgl.Map({
   container: 'map',
@@ -66,15 +66,12 @@ const map = (window.$map = new mapboxgl.Map({
       if (match) {
         const start = parseInt(match[1], 10);
         const end = parseInt(match[2], 10);
-        const encodedRangeStarts = [
-          63488, 63232, 62976, 62720, 62464, 62208, 61952, 61696, 61440, 61184, 60928, 60672, 60416,
-          60160, 59904, 59648, 59392, 59136, 58880, 58624, 58368, 58112, 57856, 57600, 3072, 2816,
-          2560, 2304, 10240, 10752,
-        ];
-        if (encodedRangeStarts.includes(start)) {
-          return {
-            url: `https://wipfli.github.io/pgf-glyph-ranges/font/NotoSansMultiscript-Regular-v1/${start}-${end}.pbf`,
-          };
+        const pgfGlyphs = {
+          57600: pgfGlyph57600,
+          57856: pgfGlyph57856,
+        };
+        if (end === start + 255 && pgfGlyphs[start]) {
+          return { url: pgfGlyphs[start] };
         }
       }
     }
@@ -454,6 +451,14 @@ const formatTime = (datetime, showAMPM = false) => {
   const labelLayerId = layers.find((l) => l.type === 'symbol' && l.layout['text-field']).id;
 
   const data = await geojsonFetch.then((res) => res.json());
+  // Mapbox GL JS v3 removed setRTLTextPlugin and only shapes Arabic/Hebrew,
+  // so pre-shape Tamil labels into the PGF glyph encoding ourselves.
+  const shaper = await tamilShaper;
+  data.features.forEach(({ properties }) => {
+    if (properties.name_ta) {
+      properties.name_ta_shaped = shaper.applyArabicShaping(properties.name_ta);
+    }
+  });
   const exitsFeatures = data.features.filter((f) => {
     return f.properties.stop_type === 'entrance';
   });
@@ -635,7 +640,7 @@ const formatTime = (datetime, showAMPM = false) => {
         {},
         '\n',
         {},
-        ['get', 'name_ta'],
+        ['get', 'name_ta_shaped'],
         {
           // 'text-font': ['literal', ['Noto Sans Tamil Medium']],
           // 'font-scale': 1.1, // Slightly larger text size for Tamil
@@ -834,7 +839,7 @@ const formatTime = (datetime, showAMPM = false) => {
 
     map.addSource('walks', {
       type: 'geojson',
-      data: require('./sg-rail-walks.geo.json'),
+      data: walksGeojsonUrl,
       buffer: 0,
     });
     map.addLayer(
