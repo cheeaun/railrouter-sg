@@ -44,6 +44,22 @@ registerRoute(
 );
 
 registerRoute(
+  ({ url }) => url.origin === self.location.origin && /\.(ttf|woff2)($|\?)/.test(url.pathname + url.search),
+  new CacheFirst({
+    cacheName: 'local-fonts',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 10,
+        purgeOnQuotaError: true,
+      }),
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  }),
+);
+
+registerRoute(
   /.*tiles\.openfreemap\.org\/fonts/,
   new CacheFirst({
     cacheName: 'openfreemap-fonts',

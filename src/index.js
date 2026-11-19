@@ -1,8 +1,6 @@
-import { tamilShaper } from './complex-text/shaper.js';
-import pgfGlyph57600 from './glyphs/57600-57855.pbf' with {type: 'url'};
-import pgfGlyph57856 from './glyphs/57856-58111.pbf' with {type: 'url'};
 import * as maplibregl from 'maplibre-gl';
 import style from './basemap-style.json';
+import tamilFont from './fonts/NotoSansTamil-Regular.woff2' with {type: 'url'};
 // Let Parcel bundle MapLibre's worker (with a hashed filename for caching).
 maplibregl.setWorkerUrl(
   new URL('../node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).toString(),
@@ -103,9 +101,20 @@ function localizeStyle(style, language) {
   };
 }
 
+// Rasterize Tamil a grapheme cluster at a time with the browser's own text
+// engine instead of pre-shaping labels with HarfBuzz into custom PGF glyphs.
+const tamilFace = { url: tamilFont, 'unicode-range': ['U+0B80-0BFF'] };
+
 const map = (window.$map = new maplibregl.Map({
   container: 'map',
-  style: localizeStyle(style, browserLanguage()),
+  style: {
+    ...localizeStyle(style, browserLanguage()),
+    'font-faces': {
+      'Noto Sans Regular': [tamilFace],
+      'Noto Sans Bold': [tamilFace],
+      'Noto Sans Italic': [tamilFace],
+    },
+  },
   center,
   bounds,
   renderWorldCopies: false,
@@ -113,26 +122,9 @@ const map = (window.$map = new maplibregl.Map({
   bearingSnap: 15,
   // Browser fallback for Chinese glyphs missing from the OFM font PBFs.
   // Covers Simplified + Traditional Chinese across macOS/iOS, Windows, Linux
-  // and Android; Tamil uses the self-hosted PGF ranges instead.
+  // and Android; Tamil is shaped by MapLibre's `font-faces` below.
   localIdeographFontFamily:
     '"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "WenQuanYi Micro Hei", "Droid Sans Fallback", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Noto Sans TC", sans-serif',
-  transformRequest: (url, resourceType) => {
-    if (resourceType === 'Glyphs') {
-      const match = url.match(/(\d+)-(\d+)\.pbf/);
-      if (match) {
-        const start = parseInt(match[1], 10);
-        const end = parseInt(match[2], 10);
-        const pgfGlyphs = {
-          57600: pgfGlyph57600,
-          57856: pgfGlyph57856,
-        };
-        if (end === start + 255 && pgfGlyphs[start]) {
-          return { url: pgfGlyphs[start] };
-        }
-      }
-    }
-    return undefined;
-  },
 }));
 const mapCanvas = map.getCanvas();
 
@@ -509,14 +501,6 @@ const formatTime = (datetime, showAMPM = false) => {
   const labelLayerId = layers.find((l) => l.type === 'symbol' && l.layout['text-field']).id;
 
   const data = await geojsonFetch.then((res) => res.json());
-  // Mapbox GL JS v3 removed setRTLTextPlugin and only shapes Arabic/Hebrew,
-  // so pre-shape Tamil labels into the PGF glyph encoding ourselves.
-  const shaper = await tamilShaper;
-  data.features.forEach(({ properties }) => {
-    if (properties.name_ta) {
-      properties.name_ta_shaped = shaper.applyArabicShaping(properties.name_ta);
-    }
-  });
   const exitsFeatures = data.features.filter((f) => {
     return f.properties.stop_type === 'entrance';
   });
@@ -698,11 +682,8 @@ const formatTime = (datetime, showAMPM = false) => {
         {},
         '\n',
         {},
-        ['get', 'name_ta_shaped'],
-        {
-          // 'text-font': ['literal', ['Noto Sans Tamil Medium']],
-          // 'font-scale': 1.1, // Slightly larger text size for Tamil
-        },
+        ['get', 'name_ta'],
+        {},
       ],
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
       'text-font': ['Noto Sans Bold'],

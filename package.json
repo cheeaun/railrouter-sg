@@ -19,15 +19,11 @@
     "start-https": "parcel serve ./src/index.html --no-hmr --https",
     "build": "parcel build ./src/index.html",
     "postbuild": "cpy 'public/*' dist",
-    "postinstall": "node scripts/check-pgf-glyphs-update.mjs",
-    "fetch-glyphs": "node scripts/fetch-pgf-glyphs.mjs",
     "gen-style": "node scripts/gen-basemap-style.mjs"
   },
   "dependencies": {
     "fuse.js": "~7.5.0",
-    "harfbuzzjs": "^1.6.4",
     "maplibre-gl": "~6.19.0",
-    "process": "^0.11.10",
     "workbox-cacheable-response": "~7.4.1",
     "workbox-expiration": "~7.4.1",
     "workbox-google-analytics": "~7.4.1",

@@ -56,9 +56,7 @@ Uses MapLibre GL JS with OpenFreeMap vector tiles — no API key. `src/basemap-s
 
 ### Tamil characters rendering
 
-Tamil station names are shaped with HarfBuzz before they reach the label layer, using a port of [wipfli/maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text) (`src/complex-text/`). The two required glyph-range PBFs are self-hosted in `src/glyphs/`, pinned to an upstream commit in `scripts/pgf-glyphs-upstream.json` (`npm run fetch-glyphs -- --update` re-pins). `postinstall` warns if upstream changes or a file no longer matches its hash. Verify shaping with `node scripts/check-tamil-shaping.mjs`.
-
-Related issue: [Tamil characters rendered wrongly](https://github.com/mapbox/mapbox-gl-js/issues/9894).
+Tamil station names use MapLibre's `font-faces` feature with a self-hosted Noto Sans Tamil font (`src/fonts/`), so the browser shapes and rasterizes each grapheme cluster natively. The font is licensed under the SIL Open Font License (`src/fonts/OFL.txt`).
 
 ## License
 
