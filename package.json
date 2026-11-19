@@ -1,6 +1,6 @@
 {
   "name": "railrouter-sg",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Explore MRT and LRT rail routes in Singapore",
   "keywords": [
     "singapore",
@@ -18,17 +18,16 @@
     "start": "parcel serve ./src/index.html --no-hmr",
     "start-https": "parcel serve ./src/index.html --no-hmr --https",
     "build": "parcel build ./src/index.html",
-    "postbuild": "cpy public/* dist",
+    "postbuild": "cpy 'public/*' dist",
     "postinstall": "node scripts/check-pgf-glyphs-update.mjs",
-    "fetch-glyphs": "node scripts/fetch-pgf-glyphs.mjs"
+    "fetch-glyphs": "node scripts/fetch-pgf-glyphs.mjs",
+    "gen-style": "node scripts/gen-basemap-style.mjs"
   },
   "dependencies": {
-    "@mapbox/mapbox-gl-language": "~1.0.1",
     "fuse.js": "~7.5.0",
     "harfbuzzjs": "^1.6.4",
-    "mapbox-gl": "~3.35.1",
+    "maplibre-gl": "~6.19.0",
     "process": "^0.11.10",
-    "regenerator-runtime": "~0.14.1",
     "workbox-cacheable-response": "~7.4.1",
     "workbox-expiration": "~7.4.1",
     "workbox-google-analytics": "~7.4.1",

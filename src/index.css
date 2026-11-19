@@ -1,4 +1,4 @@
-@import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
+@import '../node_modules/maplibre-gl/dist/maplibre-gl.css';
 
 html {
   position: fixed;
@@ -59,18 +59,18 @@ abbr {
   width: 100%;
 }
 
-.mapboxgl-ctrl-emoji {
+.maplibregl-ctrl-emoji {
   font-size: 18px;
 }
-.mapboxgl-map {
+.maplibregl-map {
   user-select: none;
   -webkit-user-select: none;
 }
-.mapboxgl-ctrl-group {
+.maplibregl-ctrl-group {
   border-radius: 123123px;
   overflow: hidden;
 }
-.mapboxgl-ctrl-group button {
+.maplibregl-ctrl-group button {
   width: 44px;
   height: 44px;
 }
@@ -117,8 +117,8 @@ abbr {
 .sheet.modal.open {
   box-shadow: 0 0 50vh rgba(0, 0, 0, 0.5);
 }
-.sheet.open ~ #map .mapboxgl-control-container .mapboxgl-ctrl:has(button:not(.mapboxgl-ctrl-compass)),
-.sheet.open ~ #map .mapboxgl-control-container button:not(.mapboxgl-ctrl-compass) {
+.sheet.open ~ #map .maplibregl-control-container .maplibregl-ctrl:has(button:not(.maplibregl-ctrl-compass)),
+.sheet.open ~ #map .maplibregl-control-container button:not(.maplibregl-ctrl-compass) {
   display: none;
 }
 .sheet-cover {

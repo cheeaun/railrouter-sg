@@ -44,12 +44,12 @@ registerRoute(
 );
 
 registerRoute(
-  /.*api\.mapbox\.com\/fonts/,
+  /.*tiles\.openfreemap\.org\/fonts/,
   new CacheFirst({
-    cacheName: 'mapbox-fonts',
+    cacheName: 'openfreemap-fonts',
     plugins: [
       new ExpirationPlugin({
-        maxEntries: 10,
+        maxEntries: 20,
         purgeOnQuotaError: true,
       }),
       new CacheableResponsePlugin({
@@ -60,9 +60,9 @@ registerRoute(
 );
 
 registerRoute(
-  /.*(?:tiles\.mapbox|api\.mapbox)\.com.*$/,
+  /.*tiles\.openfreemap\.org/,
   new StaleWhileRevalidate({
-    cacheName: 'mapbox',
+    cacheName: 'openfreemap',
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days

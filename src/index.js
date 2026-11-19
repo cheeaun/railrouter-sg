@@ -1,8 +1,12 @@
 import { tamilShaper } from './complex-text/shaper.js';
 import pgfGlyph57600 from './glyphs/57600-57855.pbf' with {type: 'url'};
 import pgfGlyph57856 from './glyphs/57856-58111.pbf' with {type: 'url'};
-// https://github.com/parcel-bundler/parcel/issues/3375#issuecomment-599160200
-import 'regenerator-runtime/runtime';
+import * as maplibregl from 'maplibre-gl';
+import style from './basemap-style.json';
+// Let Parcel bundle MapLibre's worker (with a hashed filename for caching).
+maplibregl.setWorkerUrl(
+  new URL('../node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).toString(),
+);
 
 const $ = (id) => document.getElementById(id);
 const $home = $('home');
@@ -36,11 +40,7 @@ const exitsData = {};
 
 const geojsonFetch = fetch(geojsonUrl);
 
-import mapboxgl from 'mapbox-gl';
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import stationsSprite from './stations.json';
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiY2hlZWF1biIsImEiOiJja2NydG83cWMwaGJsMnBqdjR5aHc3MzdlIn0.YGTZpi7JQMquEOv9E8K_bg';
 
 const center = [103.8475, 1.3011];
 const lowerLat = 1.23,
@@ -48,37 +48,6 @@ const lowerLat = 1.23,
   lowerLong = 103.59,
   upperLong = 104.05;
 const bounds = [lowerLong, lowerLat, upperLong, upperLat];
-
-const map = (window.$map = new mapboxgl.Map({
-  container: 'map',
-  // style: 'mapbox://styles/cheeaun/clagddy23000y14saafbh02a8/draft',
-  style: 'mapbox://styles/cheeaun/clagddy23000y14saafbh02a8',
-  center,
-  bounds,
-  renderWorldCopies: false,
-  boxZoom: false,
-  bearingSnap: 15,
-  // localIdeographFontFamily:
-  //   '"InaiMathi", "Tamil Sangam MN", "Nirmala UI", Latha, Bamini ,Roboto, Noto, "Noto Sans Tamil", sans-serif',
-  transformRequest: (url, resourceType) => {
-    if (resourceType === 'Glyphs') {
-      const match = url.match(/(\d+)-(\d+)\.pbf/);
-      if (match) {
-        const start = parseInt(match[1], 10);
-        const end = parseInt(match[2], 10);
-        const pgfGlyphs = {
-          57600: pgfGlyph57600,
-          57856: pgfGlyph57856,
-        };
-        if (end === start + 255 && pgfGlyphs[start]) {
-          return { url: pgfGlyphs[start] };
-        }
-      }
-    }
-    return undefined;
-  },
-}));
-const mapCanvas = map.getCanvas();
 
 const supportedLanguages = [
   'ar',
@@ -100,29 +69,75 @@ function browserLanguage() {
   const language = navigator.languages
     ? navigator.languages[0]
     : navigator.language || navigator.userLanguage;
-  const parts = language && language.split('-');
-  let languageCode = language;
-  if (parts.length > 1) {
-    languageCode = parts[0];
-  }
-  if (supportedLanguages.indexOf(languageCode) > -1) {
-    return languageCode;
-  }
-  const closestLanguageCode = supportedLanguages.find((l) => {
-    return l.startsWith(languageCode);
-  });
-  if (closestLanguageCode) return closestLanguageCode;
-  return null;
+  if (!language) return null;
+  if (supportedLanguages.includes(language)) return language;
+  const code = language.split('-')[0];
+  if (supportedLanguages.includes(code)) return code;
+  return supportedLanguages.find((l) => l.startsWith(code)) || null;
 }
 
-map.addControl(
-  new MapboxLanguage({
-    defaultLanguage: browserLanguage(),
-  }),
-);
+// OpenMapTiles labels carry `name:<lang>` fields. Prefer the browser language
+// with a fallback to the original label expression (replaces MapboxLanguage).
+function localizeStyle(style, language) {
+  if (!language || language === 'en' || language === 'mul') return style;
+  const nameKeys =
+    language === 'zh-Hans'
+      ? ['name:zh-Hans', 'name:zh']
+      : language === 'zh-Hant'
+        ? ['name:zh-Hant', 'name:zh']
+        : [`name:${language}`];
+  return {
+    ...style,
+    layers: style.layers.map((layer) => {
+      const field = layer.layout && layer.layout['text-field'];
+      if (layer.type !== 'symbol' || !field) return layer;
+      if (!JSON.stringify(field).includes('name')) return layer; // road shields use `ref`
+      return {
+        ...layer,
+        layout: {
+          ...layer.layout,
+          'text-field': ['coalesce', ...nameKeys.map((key) => ['get', key]), field],
+        },
+      };
+    }),
+  };
+}
+
+const map = (window.$map = new maplibregl.Map({
+  container: 'map',
+  style: localizeStyle(style, browserLanguage()),
+  center,
+  bounds,
+  renderWorldCopies: false,
+  boxZoom: false,
+  bearingSnap: 15,
+  // Browser fallback for Chinese glyphs missing from the OFM font PBFs.
+  // Covers Simplified + Traditional Chinese across macOS/iOS, Windows, Linux
+  // and Android; Tamil uses the self-hosted PGF ranges instead.
+  localIdeographFontFamily:
+    '"PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "SimHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "WenQuanYi Micro Hei", "Droid Sans Fallback", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", "Noto Sans TC", sans-serif',
+  transformRequest: (url, resourceType) => {
+    if (resourceType === 'Glyphs') {
+      const match = url.match(/(\d+)-(\d+)\.pbf/);
+      if (match) {
+        const start = parseInt(match[1], 10);
+        const end = parseInt(match[2], 10);
+        const pgfGlyphs = {
+          57600: pgfGlyph57600,
+          57856: pgfGlyph57856,
+        };
+        if (end === start + 255 && pgfGlyphs[start]) {
+          return { url: pgfGlyphs[start] };
+        }
+      }
+    }
+    return undefined;
+  },
+}));
+const mapCanvas = map.getCanvas();
 
 map.addControl(
-  new mapboxgl.GeolocateControl({
+  new maplibregl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
     },
@@ -445,6 +460,49 @@ const formatTime = (datetime, showAMPM = false) => {
 
 (async () => {
   await mapLoaded;
+
+  // MapLibre 6: loadImage() is promise-only and addImage() takes the image
+  // directly. Load the app's images before adding layers that reference them,
+  // otherwise MapLibre logs "Image ... could not be loaded" warnings at setup.
+  const addMapImage = (id, image) => {
+    if (map.hasImage(id)) return;
+    map.addImage(id, image); // HTMLImageElement or ImageData both work
+  };
+  await Promise.all([
+    (async () => {
+      try {
+        const { data: img } = await map.loadImage(require('./exit.png'));
+        addMapImage('exit', img);
+      } catch (e) {
+        console.warn('Could not load exit image', e);
+      }
+    })(),
+    (async () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        const { data: img } = await map.loadImage(require('./stations.png'));
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        stationsSprite.forEach((s) => {
+          const [code, ...args] = s;
+          addMapImage(code, ctx.getImageData(...args));
+        });
+      } catch (e) {
+        console.warn('Could not load station sprite', e);
+      }
+    })(),
+    (async () => {
+      try {
+        const { data: img } = await map.loadImage(require('./walk.png'));
+        addMapImage('walk', img);
+      } catch (e) {
+        console.warn('Could not load walk image', e);
+      }
+    })(),
+  ]);
+
   const layers = map.getStyle().layers;
   // console.log(layers);
 
@@ -496,7 +554,7 @@ const formatTime = (datetime, showAMPM = false) => {
         'line-blur': ['interpolate', ['linear'], ['zoom'], 10, 0, 22, 14],
       },
     },
-    'building-extrusion',
+    'building-3d',
   );
   map.addLayer(
     {
@@ -524,7 +582,7 @@ const formatTime = (datetime, showAMPM = false) => {
     layout: {
       'symbol-placement': 'line',
       'text-field': ['get', 'name'],
-      'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+      'text-font': ['Noto Sans Regular'],
       'text-letter-spacing': 0.1,
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 22, 16],
       'text-pitch-alignment': 'viewport',
@@ -561,7 +619,7 @@ const formatTime = (datetime, showAMPM = false) => {
     minzoom: 14,
     layout: {
       'text-field': ['get', 'name'],
-      'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+      'text-font': ['Noto Sans Regular'],
       'text-size': ['interpolate', ['linear'], ['zoom'], 14, 5, 17, 13],
       'text-ignore-placement': true,
       'text-allow-overlap': true,
@@ -606,7 +664,7 @@ const formatTime = (datetime, showAMPM = false) => {
       'symbol-avoid-edges': true,
       'text-field': ['get', 'name'],
       'text-size': ['interpolate', ['linear'], ['zoom'], 10, 10, 13, 12],
-      'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+      'text-font': ['Noto Sans Bold'],
       'text-variable-anchor': ['left', 'right'],
       'text-radial-offset': [
         'interpolate',
@@ -647,7 +705,7 @@ const formatTime = (datetime, showAMPM = false) => {
         },
       ],
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
-      'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+      'text-font': ['Noto Sans Bold'],
       'text-anchor': 'top',
       'text-offset': [0, 0.8],
       'text-max-width': 20,
@@ -668,7 +726,7 @@ const formatTime = (datetime, showAMPM = false) => {
     layout: {
       'text-field': ['get', 'name'],
       'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
-      'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+      'text-font': ['Noto Sans Bold'],
       'text-anchor': 'bottom',
       'text-offset': [0, -0.8],
       'text-max-width': 20,
@@ -699,7 +757,7 @@ const formatTime = (datetime, showAMPM = false) => {
         'fill-outline-color': '#d96659',
       },
     },
-    'building-extrusion',
+    'building-3d',
   );
   map.addLayer(
     {
@@ -714,7 +772,7 @@ const formatTime = (datetime, showAMPM = false) => {
         'fill-extrusion-opacity': 0.3,
       },
     },
-    'building-extrusion',
+    'building-3d',
   );
 
   // const handleSource = (e) => {
@@ -731,7 +789,7 @@ const formatTime = (datetime, showAMPM = false) => {
   //       properties: { name },
   //       geometry: { type, coordinates },
   //     } = l;
-  //     if (!linesBounds[name]) linesBounds[name] = new mapboxgl.LngLatBounds();
+  //     if (!linesBounds[name]) linesBounds[name] = new maplibregl.LngLatBounds();
   //     coordinates.flat(type === 'LineString' ? 0 : 1).forEach((c) => {
   //       linesBounds[name].extend(c);
   //     });
@@ -797,26 +855,6 @@ const formatTime = (datetime, showAMPM = false) => {
   });
 
   setTimeout(() => {
-    map.loadImage(require('./exit.png'), (e, img) => {
-      map.addImage('exit', img);
-    });
-
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d', {
-      willReadFrequently: true,
-    });
-    map.loadImage(require('./stations.png'), (e, img) => {
-      if (!img) return;
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      stationsSprite.forEach((s) => {
-        const [code, ...args] = s;
-        const imageData = ctx.getImageData(...args);
-        map.addImage(code, imageData);
-      });
-    });
-
     stationsData = data.features.filter((f) => {
       return f.properties.stop_type === 'station';
     });
@@ -858,7 +896,7 @@ const formatTime = (datetime, showAMPM = false) => {
           'line-color': 'rgba(255, 255, 255, .75)',
         },
       },
-      'building-extrusion',
+      'building-3d',
     );
     map.addLayer(
       {
@@ -877,7 +915,7 @@ const formatTime = (datetime, showAMPM = false) => {
           'line-dasharray': [0.5, 2],
         },
       },
-      'building-extrusion',
+      'building-3d',
     );
     map.addLayer(
       {
@@ -888,7 +926,7 @@ const formatTime = (datetime, showAMPM = false) => {
         minzoom: 15.5,
         layout: {
           'text-field': ['concat', ['get', 'duration_min'], ' mins'],
-          'text-font': ['DIN Pro Medium', 'Arial Unicode MS Regular'],
+          'text-font': ['Noto Sans Regular'],
           'text-size': ['interpolate', ['linear'], ['zoom'], 15, 12, 22, 16],
           'text-anchor': 'top',
           'text-offset': [0, 0.8],
@@ -921,9 +959,6 @@ const formatTime = (datetime, showAMPM = false) => {
         `${duration_min}-min walk between ${station1.properties.name} (Exit ${exit_name_1}) and ${station2.properties.name} (Exit ${exit_name_2})`,
       );
     });
-    map.loadImage(require('./walk.png'), (e, img) => {
-      map.addImage('walk', img);
-    });
   }, 300);
 
   let markers = [];
@@ -948,42 +983,50 @@ const formatTime = (datetime, showAMPM = false) => {
         const zoom = map.getZoom();
         const large = zoom >= 12;
         const larger = zoom >= 15;
-        const crowdedData = [];
+        // Interchange stations appear once per line code in the feed (e.g.
+        // EW16, NE3 and TE17), but share one feature/location. Keep one marker
+        // per station, using the highest crowd level reported for any of its
+        // codes, so markers don't stack on top of each other.
+        const byStation = new Map();
         results.data.forEach((r) => {
           const { station, crowdLevel } = r;
-          if (!crowdLevel || (crowdLevel !== 'h' && crowdLevel !== 'm')) return;
-          const f = data.features.find((f) =>
-            f.properties.station_codes.split('-').includes(station),
+          if (crowdLevel !== 'h' && crowdLevel !== 'm') return;
+          const f = data.features.find(
+            (f) => f.properties.station_codes && f.properties.station_codes.split('-').includes(station),
           );
-
           if (!f) return;
 
-          crowdedData.push(r);
+          const key = f.properties.station_codes;
+          const current = byStation.get(key);
+          if (!current || (current.crowdLevel === 'm' && crowdLevel === 'h')) {
+            byStation.set(key, { ...r, crowdLevel, feature: f });
+          }
+        });
 
-          // const markerCrowdLabel = Math.random() < 0.5 ? 'h' : 'm';
-          const markerCrowdLabel = crowdLevel;
-
+        const crowdedData = [...byStation.values()];
+        crowdedData.forEach(({ crowdLevel, feature }) => {
           const el = document.createElement('div');
           const width = 50;
           const height = 50;
-          el.className = `crowd-marker crowd-marker-${markerCrowdLabel} ${large ? 'large' : ''
-            } ${larger ? 'larger' : ''}`;
+          el.className = [
+            'crowd-marker',
+            `crowd-marker-${crowdLevel}`,
+            large && 'large',
+            larger && 'larger',
+          ].filter(Boolean).join(' ');
           el.style.width = `${width}px`;
           el.style.height = `${height}px`;
 
-          // Add markers to the map.
-          const marker = new mapboxgl.Marker(el).setLngLat(f.geometry.coordinates).addTo(map);
+          const marker = new maplibregl.Marker({ element: el })
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map);
           markers.push(marker);
         });
 
         if (crowdedData.length) {
           const startTime = formatTime(crowdedData[0].startTime);
           const endTime = formatTime(crowdedData[0].endTime);
-
-          console.log({
-            startTime,
-            endTime,
-          });
+          console.log({ startTime, endTime });
           console.table(
             crowdedData.map((d) => ({
               station: d.station,
@@ -1001,6 +1044,7 @@ const formatTime = (datetime, showAMPM = false) => {
         }
       })
       .catch((e) => {
+        console.warn('Could not load crowd data', e);
         $crowdedTiming.innerHTML = 'Crowded time interval: N/A';
       })
       .finally(() => {
@@ -1024,9 +1068,9 @@ class SearchControl {
   onAdd(map) {
     this._map = map;
     const container = document.createElement('div');
-    container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+    container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
     container.innerHTML = `
-      <button class="mapboxgl-ctrl-emoji" type="button">
+      <button class="maplibregl-ctrl-emoji" type="button">
         <span>🔍</span>
       </button>
     `;
@@ -1131,7 +1175,7 @@ if ('serviceWorker' in navigator) {
 }
 
 map.addControl(
-  new mapboxgl.NavigationControl({
+  new maplibregl.NavigationControl({
     showZoom: false,
     visualizePitch: true,
   }),

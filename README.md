@@ -35,8 +35,6 @@ This is the first version, using Google Maps.
 
 From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata)**.
 
-⚠️ NOTE: All feature `id`s are removed from `sg-rail.geo.json` in this repo, due to a strange bug in Mapbox GL JS. If the `id` number is too large, errors occur.
-
 ### Generating station code markers
 
 1. Go to https://codepen.io/cheeaun/full/pogQjgV
@@ -52,9 +50,13 @@ From my other repo: **[cheeaun/sgraildata](https://github.com/cheeaun/sgraildata
 11. Move & rename sprite JSON to `scripts/sprite.json`.
 12. Run `node scripts/gen-stations-sprite.js` which will generate `src/stations.json`.
 
+### Map & tiles
+
+Uses MapLibre GL JS with OpenFreeMap vector tiles — no API key. `src/basemap-style.json` is generated from OpenFreeMap's Bright style by `npm run gen-style` (`scripts/gen-basemap-style.mjs`).
+
 ### Tamil characters rendering
 
-Mapbox GL JS v3 removed `setRTLTextPlugin` and its built-in shaper only handles RTL/Arabic scripts. Tamil station names are therefore shaped with HarfBuzz before they reach the label layer, using a port of [wipfli/maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text) (`src/complex-text/`). The two required glyph-range PBFs are self-hosted in `src/glyphs/`, pinned to an upstream commit in `scripts/pgf-glyphs-upstream.json` (`npm run fetch-glyphs -- --update` re-pins). `postinstall` warns if upstream changes or a file no longer matches its hash. Verify shaping with `node scripts/check-tamil-shaping.mjs`.
+Tamil station names are shaped with HarfBuzz before they reach the label layer, using a port of [wipfli/maplibre-gl-complex-text](https://github.com/wipfli/maplibre-gl-complex-text) (`src/complex-text/`). The two required glyph-range PBFs are self-hosted in `src/glyphs/`, pinned to an upstream commit in `scripts/pgf-glyphs-upstream.json` (`npm run fetch-glyphs -- --update` re-pins). `postinstall` warns if upstream changes or a file no longer matches its hash. Verify shaping with `node scripts/check-tamil-shaping.mjs`.
 
 Related issue: [Tamil characters rendered wrongly](https://github.com/mapbox/mapbox-gl-js/issues/9894).
 
