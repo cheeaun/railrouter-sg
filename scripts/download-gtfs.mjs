@@ -622,7 +622,11 @@ for (const trip of trips) {
 }
 
 const output = {
-  generated: new Date().toISOString(),
+  // Deliberately no build timestamp: it changed on every run, so the CI job's
+  // "commit only if something changed" guard never fired and each refresh
+  // rewrote the whole 530 KB blob for a 24-character diff. Provenance lives in
+  // data/gtfs-meta.json instead (git-ignored), and the commit date records when
+  // the timetable last actually changed.
   agency: agencyRows.map((row) => row.agency_name).join(' / '),
   feed: { version: feedInfo.feed_version || '', start: feedInfo.feed_start_date || '', end: feedInfo.feed_end_date || '' },
   services,

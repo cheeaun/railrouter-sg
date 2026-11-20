@@ -47,7 +47,9 @@ The 🚆 button on the map animates every train on the published timetable.
   from the ZIP already cached in `data/` instead of downloading.
 - `.github/workflows/update-gtfs.yml` reruns it twice a month and commits the
   regenerated JSON, so only the built timetable lives in git. The 3.3 MB source
-  ZIP stays in the git-ignored `data/`.
+  ZIP stays in the git-ignored `data/`. The build is deterministic — no
+  timestamps — so an unchanged feed produces a byte-identical file and the
+  workflow skips the commit.
 
 `src/gtfs-trains.json` is a packed timetable, not raw GTFS: zig-zag varints over
 base64 for time deltas, a delta-of-delta chain for track coordinates, and trip
