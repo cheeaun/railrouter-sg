@@ -15,11 +15,13 @@
   "author": "Lim Chee Aun <cheeaun@gmail.com> (http://cheeaun.com/)",
   "license": "MIT",
   "scripts": {
-    "start": "parcel serve ./src/index.html --no-hmr",
-    "start-https": "parcel serve ./src/index.html --no-hmr --https",
+    "start": "parcel serve ./src/index.html --no-hmr --port 1987",
+    "start-https": "parcel serve ./src/index.html --no-hmr --https --port 1987",
     "build": "parcel build ./src/index.html",
     "postbuild": "cpy 'public/*' dist",
-    "gen-style": "node scripts/gen-basemap-style.mjs"
+    "gen-style": "node scripts/gen-basemap-style.mjs",
+    "gtfs": "node scripts/download-gtfs.mjs",
+    "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "fuse.js": "~7.5.0",

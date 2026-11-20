@@ -62,6 +62,16 @@ abbr {
 .maplibregl-ctrl-emoji {
   font-size: 18px;
 }
+/* MapLibre's own button rules use a translucent background and set the active
+   colour on hover, so the selected shade needs enough specificity to win
+   without a ring or icon filter. */
+.maplibregl-ctrl-group button.maplibregl-ctrl-emoji.active,
+.maplibregl-ctrl-group button.maplibregl-ctrl-emoji.active:hover {
+  background-color: #bfe6e3;
+}
+.maplibregl-ctrl-emoji:disabled {
+  opacity: 0.6;
+}
 .maplibregl-map {
   user-select: none;
   -webkit-user-select: none;
@@ -554,10 +564,17 @@ abbr {
   }
 } */
 
+/* While trains are playing or scrubbed off the real clock, the crowd markers
+   are hidden so the moving trains stay legible; they return when the view is
+   back on "now". MapLibre puts its own class on the marker element, so the
+   legend swatches (plain .crowd-marker) are left alone. */
+body.trains-busy .maplibregl-marker.crowd-marker {
+  display: none;
+}
+
 .crowd-marker {
   pointer-events: none;
-}
-.crowd-marker:after {
+}.crowd-marker:after {
   content: '';
   display: block;
   position: absolute;
@@ -610,15 +627,295 @@ abbr {
   animation-delay: 0.5s;
 }
 
-#legend {
+/* Legend and the trains scrubber sit together at the bottom-left, stacked
+   with the legend on top, so they never overlap at any viewport size. */
+#bottom-left {
   position: fixed;
-  z-index: 1;
-  bottom: 40px;
+  z-index: 2;
   left: 10px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: calc(100% - 100px);
+}
+
+#trains-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(3);
+  -webkit-backdrop-filter: blur(20px) saturate(3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Capped so the counts row wraps onto a second line instead of stretching
+     across the whole viewport on a wide screen. */
+  max-width: 500px;
+}
+#trains-time[hidden] {
+  display: none;
+}
+/* One control row that never wraps internally: the slider shrinks instead of
+   pushing the speed/Now group onto a second line. */
+#trains-time-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
+#trains-time-slider {
+  /* Shrinks first when the panel is tight, so the buttons stay on one row. */
+  flex: 0 1 180px;
+  width: 180px;
+  max-width: 40vw;
+  min-width: 60px;
+  margin: 0;
+  accent-color: teal;
+}
+#trains-time-field {
+  flex-shrink: 0;
+  font: inherit;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #00454d;
+  border: 1px solid rgba(0, 69, 77, 0.25);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2px 4px;
+  /* Wide enough for the localised value ("05:07 pm" in en-GB); a min-width
+     keeps the row from shifting as the digits change. */
+  width: 8.2em;
+  text-align: center;
+}
+#trains-time-speed {
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 69, 77, 0.25);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #00454d;
+  font: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 6px;
+  cursor: pointer;
+  min-width: 3.4em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+/* Speed is only meaningful while playing; dim it when it is not. */
+#trains-time-speed:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+#trains-time-speed:disabled:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+/* "Live" button. Default (following the real clock, or scrubbed back to it):
+   red text on white with a red outline. While playing: filled red. When there
+   are no trains at the shown time: the default look at 50% opacity. */
+#trains-time-now {
+  --live-red: #d93025;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1.5px solid var(--live-red);
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--live-red);
+  font: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+#trains-time-now.is-playing {
+  background-color: var(--live-red);
+  color: #fff;
+}
+/* Outside operation time: keep the outline style but fade it. */
+#trains-time-now.is-off {
+  opacity: 0.5;
+}
+/* Breathing "live" indicator: the label pulses only while following the real
+   clock — not while playing and not when faded out of operation time. */
+#trains-time-now .live-text {
+  display: inline-block;
+}
+#trains-time-now:not(.is-playing):not(.is-off) .live-text {
+  animation: live-breathe 2.4s ease-in-out infinite;
+}
+@keyframes live-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #trains-time-now .live-text {
+    animation: none;
+  }
+}
+#trains-time-now:active {
+  filter: brightness(0.92);
+}
+/* Disabled just means not clickable here; the colours still come from the
+   state classes above, so no grey or extra fade is applied. */
+#trains-time-now:disabled {
+  cursor: default;
+  filter: none;
+}
+#trains-time-play {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: teal;
+  color: #fff;
+  cursor: pointer;
+}
+#trains-time-play:active {
+  filter: brightness(0.85);
+}
+#trains-time-play svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+#trains-time-play svg.is-hidden {
+  display: none;
+}
+/* The play glyph is nudged right so its optical centre matches the button. */
+#trains-time-play .trains-icon-play {
+  margin-left: 1px;
+}
+
+/* Speed and Now share one group so they wrap together, never splitting. */
+#trains-time-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Per-line train counts, on their own row under the controls, left-aligned to
+   match the panel. */
+#trains-time-counts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px 6px;
+  font-size: 11px;
+  color: #00454d;
+  max-width: 100%;
+}
+#trains-time-counts:empty {
+  display: none;
+}
+.trains-count-total {
+  font-size: 13px;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  margin-right: 2px;
+}
+/* Each pill is the line's own colour; --line-fg is black or white depending on
+   that colour's luminance, set by the runtime. */
+.trains-count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 6px 1px 2px;
+  border-radius: 999px;
+  background-color: var(--line-color);
+  color: var(--line-fg, #fff);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+/* A line with no trains running stays in place, faded rather than removed. */
+.trains-count-pill.is-empty {
+  opacity: 0.5;
+}
+/* Inverted mini-badge naming the line, so the grey LRT loops are distinct. */
+.trains-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7em;
+  padding: 0 3px;
+  border-radius: 999px;
+  background-color: var(--line-fg, #fff);
+  color: var(--line-color);
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+/* Two-character width keeps a 1→2 digit change from resizing the pill. */
+.trains-count-value {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  /* Clear of the map controls on the right (44px wide) and of the
+     attribution at the bottom. */
+  #bottom-left {
+    right: 62px;
+    bottom: 60px;
+    max-width: none;
+  }
+  #trains-time {
+    align-self: stretch;
+  }
+  #trains-time-controls {
+    gap: 6px;
+  }
+  #trains-time-slider {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 360px) {
+  #trains-time {
+    gap: 4px;
+    padding: 5px 8px;
+  }
+  #trains-time-now {
+    padding: 4px 8px;
+  }
+  #trains-time-speed {
+    padding: 3px 2px;
+    font-size: 10px;
+  }
+  #trains-time-field {
+    width: 7.4em;
+  }
+}
+
+#legend {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.6em;
   border-radius: 12px;
-  max-width: calc(100% - 100px);
+  max-width: 100%;
   backdrop-filter: blur(20px) saturate(3);
   -webkit-backdrop-filter: blur(20px) saturate(3);
   border: 1px solid rgba(255, 255, 255, 0.25);

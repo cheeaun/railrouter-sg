@@ -2,3 +2,6 @@
 node_modules
 scripts/config.json
 dist
+# Raw GTFS feed: re-downloadable and rewritten every build, so it stays out of
+# git history. Only the generated src/gtfs-trains.json is committed.
+data/

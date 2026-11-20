@@ -14,6 +14,7 @@ Available features:
 - Show station names in Chinese and Tamil, besides English.
 - Show station building structures, both underground and aboveground.
 - Show location of exits (a.k.a. entrances) for (almost) all stations.
+- **Scheduled trains** animating along the tracks, from the published GTFS timetable.
 - ~~Show train arrival times for _some_ stations.~~
 - Possibly, **works offline**.
 
@@ -28,8 +29,40 @@ This is the first version, using Google Maps.
 ### For development
 
 - `npm i` - install dependencies
-- `npm start` - starts the server
+- `npm start` - starts the server on http://localhost:1987
+- `npm start-https` - same, over HTTPS
 - `npm run build` - builds the production assets for deployment
+- `npm test` - runs the unit tests
+
+The port is pinned to **1987**, the year Singapore's MRT opened, rather than
+Parcel's default.
+
+### Scheduled trains
+
+The 🚆 button on the map animates every train on the published timetable.
+
+- `npm run gtfs` downloads LTA DataMall's GTFS Schedule (Train) feed and rebuilds
+  `src/gtfs-trains.json`. It needs an account key in `LTA_ACCOUNT_KEY` or in
+  `scripts/config.json` as `{ "accountKey": "..." }`. `GTFS_OFFLINE=1` rebuilds
+  from the ZIP already cached in `data/` instead of downloading.
+- `.github/workflows/update-gtfs.yml` reruns it twice a month and commits the
+  regenerated JSON, so only the built timetable lives in git. The 3.3 MB source
+  ZIP stays in the git-ignored `data/`.
+
+`src/gtfs-trains.json` is a packed timetable, not raw GTFS: zig-zag varints over
+base64 for time deltas, a delta-of-delta chain for track coordinates, and trip
+polylines simplified to a 3 m tolerance with every stop vertex pinned. Codec
+encode/decode lives in `src/gtfs-codec.mjs` and is shared by both the builder
+and the app, so the two sides cannot drift; `src/gtfs-codec.test.mjs` covers the
+round trips. The file is 530 KB raw but ~106 KB gzipped, and it is always served
+compressed — that is the number to watch, not the raw size.
+
+The trains themselves (`src/live-trains.js`) are drawn by one instanced WebGL
+layer: the shader paints a rounded car per instance, so the CPU only writes a
+small float buffer per frame and there is no GeoJSON source to parse or tile.
+Movement comes from each path's cumulative distances and the trip's
+arrival/departure profile, so trains dwell at stations and run between them at
+the timetable's speed. Add `?trainsdebug` to the URL for per-frame timing.
 
 ### Data source
 

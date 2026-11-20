@@ -1,4 +1,5 @@
 import * as maplibregl from 'maplibre-gl';
+import { createLiveTrains } from './live-trains';
 import style from './basemap-style.json';
 import tamilFont from './fonts/NotoSansTamil-Regular.woff2' with {type: 'url'};
 // Let Parcel bundle MapLibre's worker (with a hashed filename for caching).
@@ -1071,12 +1072,55 @@ function focusSearchField() {
     $searchField.focus();
   }, 1500);
 }
-map.addControl(
-  new SearchControl({
-    onClick: focusSearchField,
-  }),
-  'bottom-right',
-);
+const searchControl = new SearchControl({
+  onClick: focusSearchField,
+});
+map.addControl(searchControl, 'bottom-right');
+
+const liveTrains = createLiveTrains(map);
+
+class TrainsControl {
+  constructor(options) {
+    this.options = { onClick: () => {}, ...options };
+  }
+
+  onAdd(map) {
+    this._map = map;
+    const container = document.createElement('div');
+    container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'maplibregl-ctrl-emoji';
+    button.title = 'Show trains on the published timetable';
+    button.setAttribute('aria-label', button.title);
+    button.setAttribute('aria-pressed', 'false');
+    button.innerHTML = '<span>🚆</span>';
+    button.onclick = async () => {
+      button.disabled = true;
+      try {
+        const active = await liveTrains.toggle();
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      } catch (error) {
+        console.warn('Could not load the train timetable', error);
+      } finally {
+        button.disabled = false;
+      }
+    };
+    container.appendChild(button);
+    this._container = container;
+    return this._container;
+  }
+
+  onRemove() {
+    this._container.parentNode.removeChild(this._container);
+    this._map = undefined;
+  }
+}
+const trainsControl = new TrainsControl();
+map.addControl(trainsControl, 'bottom-right');
+// Keep the trains toggle directly below the search button.
+searchControl._container.after(trainsControl._container);
 document.onkeydown = (e) => {
   if (/(input|textarea|select)/i.test(e.target.tagName)) return;
   if (e.code.toLowerCase() === 'slash' || e.key === '/' || e.keyCode === 191 || e.which === 191) {
