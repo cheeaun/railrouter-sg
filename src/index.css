@@ -716,9 +716,9 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 #trains-time-speed:disabled:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
-/* "Live" button. Default (following the real clock, or scrubbed back to it):
-   red text on white with a red outline. While playing: filled red. When there
-   are no trains at the shown time: the default look at 50% opacity. */
+/* "Live" button. Two looks: following the real clock is filled red with white
+   text; every other state is white with black text and a red outline. When
+   there are no trains at the shown time, the outline look is faded. */
 #trains-time-now {
   --live-red: #d93025;
   appearance: none;
@@ -726,7 +726,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   border: 1.5px solid var(--live-red);
   border-radius: 999px;
   background-color: #fff;
-  color: var(--live-red);
+  color: #000;
   font: inherit;
   font-size: 12px;
   font-weight: bold;
@@ -734,7 +734,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   padding: 3px 10px;
   cursor: pointer;
 }
-#trains-time-now.is-playing {
+#trains-time-now.is-live {
   background-color: var(--live-red);
   color: #fff;
 }
@@ -742,12 +742,11 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 #trains-time-now.is-off {
   opacity: 0.5;
 }
-/* Breathing "live" indicator: the label pulses only while following the real
-   clock — not while playing and not when faded out of operation time. */
+/* Breathing indicator: the text fades in and out only while actually live. */
 #trains-time-now .live-text {
   display: inline-block;
 }
-#trains-time-now:not(.is-playing):not(.is-off) .live-text {
+#trains-time-now.is-live .live-text {
   animation: live-breathe 2.4s ease-in-out infinite;
 }
 @keyframes live-breathe {
@@ -827,6 +826,15 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 }
 #trains-time-counts:empty {
   display: none;
+}
+/* Footnote: the trains follow the published timetable, not a live feed. Pulled
+   up so it reads as a caption for the counts rather than a new block. */
+#trains-time-note {
+  margin: -8px 0 0;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.3;
+  color: #666;
 }
 .trains-count-total {
   font-size: 13px;

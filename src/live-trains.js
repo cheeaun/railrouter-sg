@@ -494,10 +494,10 @@ export function createLiveTrains(map) {
       : state.nowHasTrains
         ? 'Back to live trains'
         : 'No trains are running right now';
-    // Visual state: playing (filled red) wins; otherwise, off-hours fades the
-    // outline; the default is the red-outline "live" look.
-    ui.reset.classList.toggle('is-playing', playing);
-    ui.reset.classList.toggle('is-off', !playing && !state.nowHasTrains);
+    // Visual state: live is a filled red button; every other state is the
+    // white button with a red outline. Off-hours additionally fades it.
+    ui.reset.classList.toggle('is-live', atNow);
+    ui.reset.classList.toggle('is-off', !atNow && !state.nowHasTrains);
     // Speed only matters while the day is playing back; disable it otherwise.
     if (ui.speed) ui.speed.disabled = !playing;
     if (playIcons) {
