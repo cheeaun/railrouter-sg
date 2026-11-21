@@ -558,6 +558,11 @@ export function createLiveTrains(map) {
     const totalEl = document.createElement('span');
     totalEl.className = 'trains-count-total';
     fragment.append(totalEl);
+    const colorCounts = new Map();
+    for (const key of keys) {
+      const color = lines[key].color;
+      colorCounts.set(color, (colorCounts.get(color) || 0) + 1);
+    }
     const pills = new Map();
     for (const key of keys) {
       const line = lines[key];
@@ -565,14 +570,18 @@ export function createLiveTrains(map) {
       pill.className = 'trains-count-pill';
       pill.style.setProperty('--line-color', line.color);
       pill.style.setProperty('--line-fg', contrastInk(line.color));
-      // A small inverted badge names the line, since the LRT loops all share
-      // the same grey and the count alone does not say which is which.
-      const badge = document.createElement('span');
-      badge.className = 'trains-count-badge';
-      badge.textContent = line.code;
       const value = document.createElement('span');
       value.className = 'trains-count-value';
-      pill.append(badge, value);
+      if (colorCounts.get(line.color) > 1) {
+        // Shared-colour lines need their names to distinguish otherwise
+        // identical count pills.
+        const badge = document.createElement('span');
+        badge.className = 'trains-count-badge';
+        badge.textContent = line.code;
+        pill.append(badge, value);
+      } else {
+        pill.append(value);
+      }
       fragment.append(pill);
       pills.set(key, { pill, value, last: -1 });
     }

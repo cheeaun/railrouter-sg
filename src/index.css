@@ -847,37 +847,34 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 .trains-count-pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 1px 6px 1px 2px;
+  padding: 1px;
   border-radius: 999px;
   background-color: var(--line-color);
   color: var(--line-fg, #fff);
-  font-weight: bold;
   font-variant-numeric: tabular-nums;
-  line-height: 1.5;
+  font-size: 10px;
+  position: relative;
 }
 /* A line with no trains running stays in place, faded rather than removed. */
 .trains-count-pill.is-empty {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 /* Inverted mini-badge naming the line, so the grey LRT loops are distinct. */
 .trains-count-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.7em;
-  padding: 0 3px;
-  border-radius: 999px;
-  background-color: var(--line-fg, #fff);
+  position: absolute;
+  bottom: -75%;
+  left: 0;
+  width: 100%;
+  text-align: center;
   color: var(--line-color);
-  font-size: 9px;
-  line-height: 1.6;
   letter-spacing: 0.02em;
+  font-size: 8px;
 }
 /* Two-character width keeps a 1→2 digit change from resizing the pill. */
 .trains-count-value {
   display: inline-block;
-  min-width: 2ch;
+  min-width: 3ch;
+  padding: 0 2px;
   text-align: center;
 }
 
