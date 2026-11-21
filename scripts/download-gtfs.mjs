@@ -265,9 +265,10 @@ const round = (value) => Math.round(value * 1e6) / 1e6;
 
 // Train polylines are simplified to this perpendicular tolerance before
 // encoding. The drawn track is the curated sg-rail.geo.json geometry, so this
-// only affects train positions, and 3m is well under a train's width at the
-// zooms where they are visible.
-const SIMPLIFY_TOLERANCE = 3;
+// only affects train positions. 1m keeps trains within a pixel or two of the
+// drawn line even at deep zoom (3m was visibly off at max zoom) for ~14KB more
+// gzipped, since the added vertices compress well.
+const SIMPLIFY_TOLERANCE = 1;
 
 // The encoders live in src/gtfs-codec.mjs, shared with the runtime decoders.
 
