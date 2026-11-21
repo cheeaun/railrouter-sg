@@ -27,7 +27,8 @@ before debugging your code.
 ## Layout
 
 - `src/index.js` — map setup, layers, stations/exits/search/crowd UI. Imports and wires `createLiveTrains`.
-- `src/live-trains.js` — the scheduled-trains feature: timetable decode, service-day clock, per-frame instance generation, one instanced WebGL layer, and the trains panel UI.
+- `src/live-trains.js` — the scheduled-trains feature: service-day clock, playback/mode state, active-trip list, the trains panel UI, and wiring for the GPU overlay.
+- `src/gpu-trains.js` — the GPU renderer: 10 m path resampling, baked headings, the stop/profile textures, the active-instance builder, and the separate overlay canvas.
 - `src/gtfs-codec.mjs` — encode/decode for the packed timetable. **Shared by both the build script and the browser app.** Must stay `Buffer`-free (`btoa`/`atob` only) or Parcel's bundle breaks.
 - `src/service-day.mjs` — maps a service date to weekday/Saturday/Sunday-and-holiday timetable, shared by the browser app and its tests.
 - `scripts/download-gtfs.mjs` — downloads the feed and writes `src/gtfs-trains.json`.
@@ -48,11 +49,12 @@ before debugging your code.
 ## live-trains.js gotchas
 
 - **Service day, not calendar day.** The clock returns seconds along a service day that rolls at 03:00 SGT (`SERVICE_DAY_CUTOFF`), so post-midnight trips run past 86400 and the date/weekday point at the previous day. `SERVICE_DAY_CUTOFF` is in **seconds** — compare it against seconds, not hours.
-- **Rotation is baked, not eased.** Per-vertex headings are pre-smoothed over an arc-length window (`HEADING_WINDOW`, ±22 m) at prepare time, and within that window of each vertex they are blended into the segment. The rest of a segment uses its exact bearing, so a train on a straight is aligned with the line rather than still easing out of the previous curve. Short segments (≤ 2 × window) rotate vertex-to-vertex. Do not reintroduce temporal heading easing: it lags the rotation behind the position and reads as a pivot around the rear of the car. Headings are stored in shader radians (`bearing - 90`).
-- **The GPU does the drawing.** One instanced quad per train, shader-painted; there is no GeoJSON source. Keep per-frame CPU work to writing the instance buffer — the loop is deliberately allocation-free (scratch module vars for position/heading, reused `counts`/active arrays, a flat `paths` list built once in `prepare`). A previous GeoJSON `?trains=symbol` fallback was removed because it cost ~2× the CPU.
-- **Fades need the step cap.** `FADE_MAX_STEP_MS` bounds how far one frame may advance a fade; without it the first frame after a pause jumps straight to fully visible.
-- **Frame rate tiers by zoom** in `now` mode (10 / 30 / 60 fps). Fades are deliberately excluded from that decision — with ~200 trains one is always fading, which would pin the loop at 30 fps.
-- **Per-frame DOM writes are guarded.** The scrubber/time field only update when the whole minute changes; the count pills are built once and updated in place (rebuilding them churned thousands of DOM nodes a second). `map.triggerRepaint()` also creates an `AbortController` + `abort` listener inside MapLibre on every call — that is balanced per frame, not a leak, so ignore it in DevTools' listener counter.
+- **Rotation is baked, not eased.** `gpu-trains.js` resamples each path at 10 m and reads its heading from a ±30 m chord, so corners swing over a short arc instead of snapping at a vertex. Do not reintroduce temporal heading easing: it lags the rotation behind the position.
+- **The GPU resolves the timetable.** Three static RGBA32F textures hold path vertices/headings, per-pool metadata and stop profiles. The vertex shader walks the profile from `uTime`; the CPU writes one time uniform per frame and refills the active-trip instance list at most once per simulated second (10×/s at high playback, with the look-ahead scaled to match). Never rebuild or upload per-train data per frame.
+- **The trains are a separate canvas.** `createTrainOverlay` appends a transparent WebGL2 canvas over the map (`pointer-events: none`, `z-index: 1`), so moving trains never make MapLibre repaint the basemap. Camera sync is a homography fitted from four public `map.project()` samples around the centre; it is exact for the Mercator plane with bearing and pitch, and is recomputed only when the camera or canvas size changes. The map is not redrawn for train movement, so do not call `triggerRepaint()` from the train loop.
+- **Fades are simulated-time.** The shader fades over `uFade` seconds of simulated time, so playback scales it by `PLAY_SPEED * speed` to stay ~0.7 s wall-clock. Modes with a frozen clock use a near-zero fade, otherwise trains would freeze half-transparent. Turning the layer on uses `uReveal` to fade the whole fleet in.
+- **Frame rate tiers by zoom** in `now` mode (10 / 30 / 60 fps); playback and scrubbing draw every frame. The loop stops entirely in `manual` mode and while paused; the overlay still redraws on pan/zoom itself.
+- **Per-frame DOM writes are guarded.** The scrubber/time field only update when the whole minute changes; the count pills are built once and updated in place.
 
 ## UI conventions
 
@@ -69,6 +71,6 @@ before debugging your code.
 
 `npm test` and `npm run build` must both pass. For anything touching train
 positions, rotation, or the render loop, also load the page, toggle the 🚆
-button, and check the trains actually animate — `?trainsdebug` prints the
-per-frame update time and `window.$trainsGL.getDebug()` exposes the instance
-buffer.
+button, and check the trains animate and stay on the lines while panning and
+zooming — `?trainsdebug` prints the update time and
+`window.$trainsGL.getDebug()` exposes counts, textures and the camera key.

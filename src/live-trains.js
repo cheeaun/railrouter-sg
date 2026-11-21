@@ -1,7 +1,7 @@
 import trainsUrl from './gtfs-trains.json' with { type: 'url' };
 import holidaysUrl from './public-holidays.json' with { type: 'url' };
-import { decodeCoords, decodeInts, decodeProfile } from './gtfs-codec.mjs';
 import { scheduledDayType, serviceWeekday } from './service-day.mjs';
+import { prepare, buildInstances, createTrainOverlay, FADE, INSTANCE_STRIDE } from './gpu-trains';
 
 // GTFS times are Singapore local time, which has no daylight saving.
 const SGT_OFFSET = 8 * 3600 * 1000;
@@ -10,15 +10,13 @@ const SGT_OFFSET = 8 * 3600 * 1000;
 // them as 24:xx, 25:xx…), so anything before this cutoff is served by
 // yesterday's services.
 const SERVICE_DAY_CUTOFF = 3 * 3600;
-const EARTH_RADIUS = 6371000;
-const RAD = Math.PI / 180;
-// Redraw rate while playing or scrubbing; playing at speed covers a lot of
-// ground per tick, so it needs the smooth rate.
-const TICK_MS = 1000 / 30;
+// Redraw rate while playing or scrubbing. The overlay draw is cheap, so
+// playback uses the display rate.
+const TICK_MS = 1000 / 60;
 // Following the real clock, a train's per-tick pixel step depends on zoom: a
 // fixed ~12 m/s is well under a pixel per tick zoomed out but many pixels
 // zoomed in. The live view therefore picks its rate from zoom so the step
-// stays roughly constant and invisible, while avoiding full-map repaints the
+// stays roughly constant and invisible, while avoiding compositing work the
 // eye cannot see at low zoom.
 const NOW_FAST_MS = 1000 / 60; // zoomed right in
 const NOW_MID_MS = 1000 / 30; // mid zoom
@@ -32,54 +30,13 @@ const PLAY_SPEED = 60;
 const END_HOLD_MS = 1500;
 
 const DEBUG_TRAINS = new URLSearchParams(location.search).has('trainsdebug');
-const GL_LAYER = 'trains-gl';
-// Per train: [mercatorX, mercatorY, angle, r, g, b, alpha, scale].
-const INSTANCE_STRIDE = 8;
-
-// How long a train takes to fade/scale in or out when it enters or leaves the
-// timetable, in wall-clock milliseconds. Long and eased on purpose: a short
-// linear fade reads as a pop at the low real-time frame rate.
-const TRAIN_FADE_MS = 700;
-// Largest time step a single frame may advance a fade by. It must stay below
-// the fade duration: after the loop has been paused (scrub, tab background),
-// the first frame's elapsed time is huge, and without this cap every new train
-// would jump straight to fully visible instead of fading.
-const FADE_MAX_STEP_MS = 120;
-// Trains enter and leave slightly scaled down, not from nothing; a large size
-// change is what makes the fade feel abrupt even when the alpha is smooth.
-const TRAIN_MIN_GROW = 0.85;
-// Half-width, in metres, of the arc-length window over which a vertex's
-// smoothed heading is blended. A corner therefore turns over ~2x this much
-// track, so a sharp 90-degree bend reads as a gradual swing at any playback
-// speed. Away from the window, a segment uses its own exact bearing, so a train
-// on a straight sits exactly on the line's angle.
-const HEADING_WINDOW = 22;
-
-// Local mercator origin. Train positions are uploaded relative to this so the
-// GPU only ever sees small numbers: absolute lng/lat in float32 is ~2m jitter
-// at Singapore's longitude, which is visible at max zoom.
-const ORIGIN_LNG = 103.82;
-const ORIGIN_LAT = 1.35;
-const ORIGIN_X = (ORIGIN_LNG + 180) / 360;
-const ORIGIN_SIN = Math.sin(ORIGIN_LAT * RAD);
-const ORIGIN_Y = 0.5 - Math.log((1 + ORIGIN_SIN) / (1 - ORIGIN_SIN)) / (4 * Math.PI);
-
-// Scratch results written by pointAt and localMercator. Both run once per train
-// per frame (~35k times a second with ~390 trains), so returning a fresh array
-// or object from each call churned through short-lived allocations and GC.
-let pointLng = 0;
-let pointLat = 0;
-let pointHeading = 0;
-let mercX = 0;
-let mercY = 0;
-
-// Writes into mercX/mercY rather than returning a pair, since this runs for
-// every train on every frame.
-function localMercator(lng, lat) {
-  const sin = Math.sin(lat * RAD);
-  mercX = (lng + 180) / 360 - ORIGIN_X;
-  mercY = 0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI) - ORIGIN_Y;
-}
+// Wall-clock interval between overlay active-trip list rebuilds.
+const REBUILD_MS = 100;
+// Trains fade in when the layer is first shown.
+const REVEAL_MS = 700;
+// When the clock is frozen (paused/scrubbed) there is no time for a fade to
+// play in, so use a fade this short: trains are either present or not.
+const STATIC_FADE = 0.05;
 
 function toRgb(hex) {
   const n = parseInt(hex.slice(1), 16);
@@ -93,13 +50,6 @@ function contrastInk(hex) {
   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return luminance > 0.35 ? '#111' : '#fff';
 }
-
-const metres = (a, b) => {
-  const dLat = (b[1] - a[1]) * RAD;
-  const dLon = (b[0] - a[0]) * RAD;
-  const lat = ((a[1] + b[1]) / 2) * RAD;
-  return Math.hypot(dLat, dLon * Math.cos(lat)) * EARTH_RADIUS;
-};
 
 // The moment in Singapore, measured in seconds along the current service day.
 // Before the cutoff the clock is still counting up yesterday's timetable, so
@@ -149,262 +99,11 @@ function runningServices(services, { day, weekday }) {
   return active;
 }
 
-// Distance along the track at a given moment of a trip: dwells at stations and
-// moves at the timetable's speed between them.
-function progressAt(path, profile, elapsed) {
-  const stops = path.stops;
-  if (elapsed <= profile[0][1]) return stops[0];
-  for (let i = 1; i < profile.length; i++) {
-    const [arrival, departure] = profile[i];
-    if (elapsed < arrival) {
-      const previousDeparture = profile[i - 1][1];
-      const span = arrival - previousDeparture || 1;
-      const t = Math.min(1, Math.max(0, (elapsed - previousDeparture) / span));
-      return stops[i - 1] + (stops[i] - stops[i - 1]) * t;
-    }
-    if (elapsed <= departure) return stops[i];
-  }
-  return stops[stops.length - 1];
-}
-
-// The decoders live in src/gtfs-codec.mjs, shared with the build script.
-
-function prepare(data) {
-  // Every service carries its own numeric index; trust that rather than the
-  // JSON key order, which a feed with numeric-looking ids could reorder.
-  const services = data.services;
-  const serviceCount = Object.keys(services).length;
-  const serviceOrder = new Array(serviceCount);
-  for (const [id, service] of Object.entries(services)) {
-    serviceOrder[service.i] = id;
-  }
-  const lines = {};
-  // The scrubber spans the timetable itself: first departure to last arrival.
-  let first = Infinity;
-  let last = -Infinity;
-  for (const [key, line] of Object.entries(data.lines)) {
-    // Paths share their track geometry; decode each distinct polyline once.
-    const coordsPool = line.coords.map(decodeCoords);
-    lines[key] = {
-      name: line.name,
-      code: line.code || key,
-      order: line.order ?? 99,
-      color: line.color,
-      rgb: toRgb(line.color),
-      paths: line.paths.map((path) => {
-        const coords = coordsPool[path.c];
-        const cumulative = new Float64Array(coords.length);
-        for (let i = 1; i < coords.length; i++) {
-          cumulative[i] = cumulative[i - 1] + metres(coords[i - 1], coords[i]);
-        }
-        const profiles = path.p.map(decodeProfile);
-        const deltas = decodeInts(path.t);
-        const tripCodes = decodeInts(path.tp);
-        const trips = new Array(deltas.length);
-        // Start times in a flat array for binary search, plus the longest trip
-        // so a frame only has to look at trips that could still be running.
-        const starts = new Float64Array(deltas.length);
-        let maxDuration = 0;
-        let start = 0;
-        for (let i = 0; i < deltas.length; i++) {
-          start += deltas[i];
-          starts[i] = start;
-          const code = tripCodes[i];
-          const profile = Math.floor(code / serviceCount);
-          const service = code % serviceCount;
-          const minutes = profiles[profile];
-          const duration = minutes[minutes.length - 1][1];
-          if (duration > maxDuration) maxDuration = duration;
-          if (start < first) first = start;
-          const arrival = start + duration;
-          if (arrival > last) last = arrival;
-          trips[i] = { start, profile, service: serviceOrder[service] };
-        }
-        // Stop distances are stored as monotonic deltas.
-        const stopDeltas = decodeInts(path.s);
-        const stops = new Float64Array(stopDeltas.length);
-        let distanceAlong = 0;
-        for (let i = 0; i < stopDeltas.length; i++) {
-          distanceAlong += stopDeltas[i];
-          stops[i] = distanceAlong;
-        }
-        const headings = prepareHeadings(coords, cumulative);
-        return {
-          coords,
-          cumulative,
-          vertexHeading: headings.vertex,
-          segmentHeading: headings.segment,
-          stops,
-          profiles,
-          trips,
-          starts,
-          maxDuration,
-        };
-      }),
-    };
-  }
-  // Round inwards to whole minutes so both ends have a train on the move.
-  const window = {
-    start: Math.ceil(first / 60) * 60,
-    end: Math.floor(last / 60) * 60,
-  };
-  // A flat path list so a frame does not have to build an array of entries from
-  // the line map every time. Each path carries its line's key and colour, which
-  // is all the render loop needs.
-  const lineKeys = Object.keys(lines).sort((a, b) => lines[a].order - lines[b].order);
-  const paths = [];
-  for (const key of lineKeys) {
-    const line = lines[key];
-    for (const path of line.paths) {
-      path.key = key;
-      path.rgb = line.rgb;
-      paths.push(path);
-    }
-  }
-  return { serviceOrder, lines, lineKeys, paths, window };
-}
-
-function bearingOf(a, b) {
-  const dLat = b[1] - a[1];
-  const dLon = (b[0] - a[0]) * Math.cos(((a[1] + b[1]) / 2) * RAD);
-  return (Math.atan2(dLon, dLat) / RAD + 360) % 360;
-}
-
-const TWO_PI = Math.PI * 2;
-
-// Signed shortest turn from one angle to another, so interpolating across the
-// ±180° wrap takes the short way round.
-function shortestAngle(from, to) {
-  let diff = (to - from) % TWO_PI;
-  if (diff > Math.PI) diff -= TWO_PI;
-  if (diff < -Math.PI) diff += TWO_PI;
-  return diff;
-}
-
-// Heading at every vertex, smoothed over an arc-length window, plus each
-// segment's own bearing. The train reads its orientation from these instead of
-// computing a tangent from a short chord: a chord over a fixed distance still
-// jumps the moment it crosses a corner vertex, whereas a pre-smoothed vertex
-// heading changes gradually through the bend. Keeping the segment bearing as
-// well stops that smoothing from leaking out of a bend: a long straight must
-// use its exact bearing, not a chord smeared by the curve it followed.
-function prepareHeadings(coords, cumulative) {
-  const n = coords.length;
-  const vertex = new Float64Array(n);
-  for (let i = 0; i < n; i++) {
-    const before = positionAtCum(coords, cumulative, Math.max(0, cumulative[i] - HEADING_WINDOW));
-    const after = positionAtCum(coords, cumulative, Math.min(cumulative[n - 1], cumulative[i] + HEADING_WINDOW));
-    // The car is drawn with its nose on +X, so east (bearing 90°) is 0 rad.
-    vertex[i] = (bearingOf(before, after) - 90) * RAD;
-  }
-  const segment = new Float64Array(Math.max(0, n - 1));
-  for (let i = 0; i < n - 1; i++) {
-    segment[i] = (bearingOf(coords[i], coords[i + 1]) - 90) * RAD;
-  }
-  return { vertex, segment };
-}
-
-// Position at an arc length, given raw coords and their cumulative distances.
-function positionAtCum(coords, cumulative, distance) {
-  const last = coords.length - 1;
-  if (distance <= 0) return coords[0];
-  if (distance >= cumulative[last]) return coords[last];
-  let low = 0;
-  let high = last;
-  while (high - low > 1) {
-    const mid = (low + high) >> 1;
-    if (cumulative[mid] <= distance) low = mid;
-    else high = mid;
-  }
-  const span = cumulative[high] - cumulative[low] || 1;
-  const t = (distance - cumulative[low]) / span;
-  const a = coords[low];
-  const b = coords[high];
-  return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-}
-
-// Point plus an interpolated heading (radians in the shader's convention: the
-// car lies flat with its nose on +X, so east is 0). The angle is continuous
-// across every vertex, including the ±180° wrap.
-//
-// Within HEADING_WINDOW of a vertex the heading eases toward that vertex's
-// smoothed chord, so bends turn gradually. Beyond the windows it is the
-// segment's exact bearing: interpolating the two vertex headings across a long
-// straight would keep the train badly rotated for hundreds of metres after a
-// bend, which reads as drifting off the line's angle.
-//
-// The position and heading share one segment lookup rather than each searching
-// the cumulative array; the result is written to pointLng/pointLat/pointHeading.
-function pointAt(path, distance) {
-  const { coords, cumulative, vertexHeading, segmentHeading } = path;
-  const last = coords.length - 1;
-  let low;
-  let high;
-  let t;
-  if (distance <= 0) {
-    low = 0;
-    high = 1;
-    t = 0;
-  } else if (distance >= cumulative[last]) {
-    low = last - 1;
-    high = last;
-    t = 1;
-  } else {
-    low = 0;
-    high = last;
-    while (high - low > 1) {
-      const mid = (low + high) >> 1;
-      if (cumulative[mid] <= distance) low = mid;
-      else high = mid;
-    }
-    const span = cumulative[high] - cumulative[low] || 1;
-    t = (distance - cumulative[low]) / span;
-  }
-  const a = coords[low];
-  const b = coords[high];
-  pointLng = a[0] + (b[0] - a[0]) * t;
-  pointLat = a[1] + (b[1] - a[1]) * t;
-  const ha = vertexHeading[low];
-  const hb = vertexHeading[Math.min(low + 1, last)];
-  const length = cumulative[high] - cumulative[low];
-  if (length <= HEADING_WINDOW * 2) {
-    // Too short to have a straight middle: rotate straight from one smoothed
-    // vertex heading to the next, which is the whole of the bend.
-    pointHeading = ha + shortestAngle(ha, hb) * t;
-  } else {
-    const base = segmentHeading[low];
-    const s = t * length;
-    pointHeading =
-      base + shortestAngle(base, ha) * vertexWeight(s) + shortestAngle(base, hb) * vertexWeight(length - s);
-  }
-}
-
-// 1 at a vertex, easing to 0 at HEADING_WINDOW away with zero slope at both
-// ends, so the smoothed heading joins the segment bearing without a kink.
-function vertexWeight(distance) {
-  if (distance >= HEADING_WINDOW) return 0;
-  const t = 1 - distance / HEADING_WINDOW;
-  return t * t * (3 - 2 * t);
-}
-
-// The car is drawn procedurally by the shader: a rounded body in the line
-// colour with a dark border and a black window near the nose, lying flat with
-// its nose on +X (east).
-const CAR_LENGTH = 38;
-const CAR_THICKNESS = 16;
-
 export function createLiveTrains(map) {
-  let layersReady = false;
-  let glLayer = null;
-  // One instance per train: [mercatorX, mercatorY, angle, r, g, b].
-  let instanceData = new Float32Array(1024 * INSTANCE_STRIDE);
+  let overlay = null;
+  // Active trips written by buildInstances, 8 floats each.
+  let instanceData = new Float32Array(4096 * INSTANCE_STRIDE);
   let instanceCount = 0;
-  const growInstances = (needed) => {
-    if (needed * INSTANCE_STRIDE <= instanceData.length) return;
-    const next = new Float32Array(Math.max(needed, (instanceData.length / INSTANCE_STRIDE) * 2) * INSTANCE_STRIDE);
-    next.set(instanceData);
-    instanceData = next;
-  };
   const state = {
     visible: false,
     loading: null,
@@ -436,6 +135,13 @@ export function createLiveTrains(map) {
     speed: 1,
     // True while not following the real clock; drives hiding of crowd markers.
     busy: false,
+    // Wall-clock start of the reveal fade when the layer is shown.
+    revealStart: 0,
+    // When the overlay's active-trip list was last rebuilt (sim second and
+    // wall clock), so the loop does not rebuild it every frame.
+    rebuildSecond: -1,
+    rebuildAt: 0,
+    lastFade: -1,
   };
 
   const ui = {
@@ -492,16 +198,14 @@ export function createLiveTrains(map) {
 
   // Is anything running right now? Checked once a minute, not on every frame.
   const hasTrainsAt = (seconds) => {
-    for (const line of Object.values(state.prepared.lines)) {
-      for (const path of line.paths) {
-        const last = lastStartedIndex(path.starts, seconds);
-        const first = lastStartedIndex(path.starts, seconds - path.maxDuration);
-        for (let i = first + 1; i <= last; i++) {
-          const trip = path.trips[i];
-          if (!state.services.has(trip.service)) continue;
-          const profile = path.profiles[trip.profile];
-          if (seconds - trip.start <= profile[profile.length - 1][1]) return true;
-        }
+    for (const path of state.prepared.paths) {
+      const last = lastStartedIndex(path.starts, seconds);
+      if (last < 0) continue;
+      const first = lastStartedIndex(path.starts, seconds - path.maxDuration);
+      for (let i = first + 1; i <= last; i++) {
+        const trip = path.trips[i];
+        if (!state.services.has(trip.service)) continue;
+        if (seconds - trip.start <= trip.duration) return true;
       }
     }
     return false;
@@ -567,28 +271,13 @@ export function createLiveTrains(map) {
     }
   };
 
-  const addLayers = () => {
-    if (map.getLayer(GL_LAYER)) return;
-    glLayer = createInstancedTrainLayer(map);
-    map.addLayer(glLayer);
-  };
-
-  // The toggle can be pressed before the basemap has finished loading, and a
-  // source cannot be added to a style that is not there yet.
-  const ensureLayers = () => {
-    if (layersReady) return;
-    layersReady = true;
-    if (map.isStyleLoaded()) {
-      addLayers();
-      return;
-    }
-    // isStyleLoaded() also waits for the basemap's sources, so it can be false
-    // long after the style itself is ready to accept a layer. Try now, and
-    // keep the style.load fallback for the case where it really is too early.
-    map.once('style.load', addLayers);
-    try {
-      addLayers();
-    } catch {}
+  // The overlay owns its own canvas inside the map container, so it does not
+  // depend on the style being loaded and, crucially, never makes MapLibre
+  // repaint the basemap for train movement.
+  const ensureOverlay = () => {
+    if (overlay) return;
+    overlay = createTrainOverlay(map, state.prepared);
+    if (DEBUG_TRAINS) window.$trainsGL = overlay;
   };
 
   // Per-line train counts as coloured pills next to the scrubber, with the
@@ -668,121 +357,59 @@ export function createLiveTrains(map) {
     }
   };
 
-  // Trips drawn last frame, so any that vanish can be faded out where they
-  // were. Animation state lives on each trip record and is stamped with a
-  // frame counter, so a steady frame allocates nothing and finds departures
-  // in O(1) (the stamp no longer matches).
-  let activeTrips = [];
-  // Holds the frame being built, then swaps with activeTrips at the end of the
-  // frame. Reusing the two arrays keeps the render loop allocation-free.
-  let spareActive = [];
-  let lastRenderAt = 0;
-  let frameGen = 0;
-
-  // Eased 0..1 curve. Trains fade on this so motion starts and ends gently
-  // instead of the linear ramp a per-frame step produces.
-  const smoothstep = (t) => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
-
-  const renderFrame = (seconds, counts) => {
-    const now = performance.now();
-    // Wall-clock ms since the last frame, capped so a paused loop or a
-    // backgrounded tab cannot jump a fade straight to its end in one step.
-    const elapsedMs = lastRenderAt ? Math.min(now - lastRenderAt, FADE_MAX_STEP_MS) : 0;
-    lastRenderAt = now;
-    frameGen++;
-
-    let settling = false;
-    let count = 0;
-    const draw = (anim) => {
-      if (anim.enter < 1 || anim.leave > 0) settling = true;
-      if (anim.alpha <= 0) return;
-      if ((count + 1) * INSTANCE_STRIDE > instanceData.length) growInstances(count + 1);
-      const offset = count * INSTANCE_STRIDE;
-      localMercator(anim.lng, anim.lat);
-      instanceData[offset] = mercX;
-      instanceData[offset + 1] = mercY;
-      instanceData[offset + 2] = anim.heading;
-      instanceData[offset + 3] = anim.rgb[0];
-      instanceData[offset + 4] = anim.rgb[1];
-      instanceData[offset + 5] = anim.rgb[2];
-      instanceData[offset + 6] = anim.alpha;
-      instanceData[offset + 7] = anim.grow;
-      count++;
-    };
-
-    // Reuse the previous frame's array as this frame's output buffer, so a
-    // steady frame allocates nothing for the train lists either.
-    const nextActive = spareActive;
-    nextActive.length = 0;
-    for (const key of state.prepared.lineKeys) counts[key] = 0;
-    for (const path of state.prepared.paths) {
-      // Only trips that have started and are still within one trip's
-      // duration of now can be running; the rest are skipped.
-      const last = lastStartedIndex(path.starts, seconds);
-      const first = lastStartedIndex(path.starts, seconds - path.maxDuration);
-      for (let tripIndex = first + 1; tripIndex <= last; tripIndex++) {
-        const trip = path.trips[tripIndex];
-        if (!state.services.has(trip.service)) continue;
-        const elapsed = seconds - trip.start;
-        const profile = path.profiles[trip.profile];
-        if (elapsed > profile[profile.length - 1][1]) continue;
-        pointAt(path, progressAt(path, profile, elapsed));
-        let anim = trip.anim;
-        if (!anim) {
-          // Enter at its current heading (no spin-in) and full size, then
-          // fade in with a gentle scale swell.
-          anim = trip.anim = { enter: 0, leave: 0, lng: 0, lat: 0, rgb: path.rgb, heading: 0 };
-        }
-        // The heading is already continuous in space (exact segment bearings
-        // with the smoothed vertex chords blended in near each vertex), so it
-        // follows the track directly. Easing it in time would lag the rotation
-        // behind the moving body, reading as an off-centre pivot.
-        anim.heading = pointHeading;
-        // Coming back after a fade-out, reverse it from wherever it got to
-        // rather than restarting at zero.
-        anim.enter = Math.min(1, anim.enter + elapsedMs / TRAIN_FADE_MS);
-        anim.leave = Math.max(0, anim.leave - elapsedMs / TRAIN_FADE_MS);
-        anim.alpha = smoothstep(anim.enter) * (1 - smoothstep(anim.leave));
-        anim.grow = TRAIN_MIN_GROW + (1 - TRAIN_MIN_GROW) * anim.enter;
-        anim.lng = pointLng;
-        anim.lat = pointLat;
-        anim.rgb = path.rgb;
-        anim.gen = frameGen;
-        nextActive.push(trip);
-        counts[path.key]++;
-        draw(anim);
-      }
-    }
-
-    // Trains in the previous frame that were not refreshed this one fade out
-    // where they last were, then are forgotten. Each still-fading trip has to
-    // be carried into nextActive; otherwise the next frame's activeTrips no
-    // longer holds it and the fade stops after a single step.
-    for (const trip of activeTrips) {
-      const anim = trip.anim;
-      if (!anim || anim.gen === frameGen) continue;
-      anim.leave = Math.min(1, anim.leave + elapsedMs / TRAIN_FADE_MS);
-      anim.alpha = smoothstep(anim.enter) * (1 - smoothstep(anim.leave));
-      if (anim.leave >= 1) {
-        trip.anim = null;
-        continue;
-      }
-      anim.grow = TRAIN_MIN_GROW + (1 - TRAIN_MIN_GROW) * (1 - smoothstep(anim.leave));
-      draw(anim);
-      nextActive.push(trip);
-    }
-
-    // The array just walked as activeTrips is now free to be rebuilt next frame.
-    spareActive = activeTrips;
-    activeTrips = nextActive;
-    instanceCount = count;
-    if (glLayer) glLayer.setInstances(instanceData, instanceCount);
-    map.triggerRepaint();
-    state.settling = settling;
-  };
-
-  // Reused across frames; renderFrame zeroes it before counting per line.
+  // Reused; buildInstances zeroes it before counting per line.
   const counts = {};
+
+  // Everything time-dependent is evaluated on the GPU. The CPU only refills
+  // the active-trip list when it can change, and hands the overlay a time
+  // uniform plus a fade duration each frame.
+  const renderAt = (seconds) => {
+    if (!overlay) return;
+    const now = performance.now();
+    const speedFactor = state.mode === 'playing' ? PLAY_SPEED * state.speed : 1;
+    // Fades are wall-clock in this app; the shader works in simulated seconds,
+    // so scale by the playback rate. With a frozen clock there is no fade time
+    // to spend, so make fades effectively instant.
+    const fadeSeconds =
+      state.mode === 'now' ? FADE : state.mode === 'playing' ? FADE * speedFactor : STATIC_FADE;
+    overlay.setTime(seconds, fadeSeconds);
+    if (fadeSeconds !== state.lastFade) {
+      // A different playback rate changes how long a finished trip has to stay
+      // resident for its fade, so refill the list.
+      state.lastFade = fadeSeconds;
+      state.rebuildSecond = -1;
+      state.rebuildAt = 0;
+    }
+
+    if (state.revealStart) {
+      const reveal = Math.min(1, (now - state.revealStart) / REVEAL_MS);
+      overlay.setReveal(reveal);
+      if (reveal >= 1) state.revealStart = 0;
+    }
+
+    const second = Math.floor(seconds);
+    const rebuildInterval = Math.max(REBUILD_MS, 1000 / speedFactor);
+    if (
+      state.mode === 'manual' ||
+      state.rebuildSecond !== second ||
+      now - state.rebuildAt >= rebuildInterval
+    ) {
+      state.rebuildSecond = second;
+      state.rebuildAt = now;
+      const prefetch = speedFactor * (rebuildInterval / 1000) + 1;
+      instanceCount = buildInstances(
+        state.prepared,
+        seconds,
+        state.services,
+        instanceData,
+        fadeSeconds,
+        prefetch,
+        counts,
+      );
+      overlay.setInstances(instanceData, instanceCount);
+    }
+    overlay.draw();
+  };
 
   const update = (time, seconds) => {
     const dayType = state.dayOverride || scheduledDayType(time.day, time.weekday, state.holidays);
@@ -796,9 +423,11 @@ export function createLiveTrains(map) {
       state.dayType = dayType;
       // The live "anything running now?" check follows the selected timetable.
       state.nowMinute = -1;
+      state.rebuildSecond = -1;
+      state.rebuildAt = 0;
       syncDayUi();
     }
-    renderFrame(seconds, counts);
+    renderAt(seconds);
     renderCounts(counts);
     state.rendered = state.mode === 'manual' ? seconds : null;
   };
@@ -841,18 +470,15 @@ export function createLiveTrains(map) {
   const tick = () => {
     if (!state.visible) return;
     const now = performance.now();
-    if (state.mode === 'manual' && state.rendered !== null && !state.settling) {
+    if (state.mode === 'manual' && state.rendered !== null) {
       // Nothing changes until the user scrubs or presses play/now; those
-      // handlers redraw and restart the loop themselves. Keep going while
-      // trains are still fading in or out.
+      // handlers redraw and restart the loop themselves. The overlay still
+      // tracks pan/zoom on its own while the loop is stopped.
       state.raf = 0;
       return;
     }
     // Live mode picks its rate from zoom (coarse steps are invisible zoomed
-    // out, obvious zoomed in); play/scrub always need the smooth rate. Fades
-    // deliberately do not boost the rate: over 200 trains one is almost always
-    // entering or leaving, so a settling-triggered boost would pin the loop at
-    // 30fps and erase the saving.
+    // out, obvious zoomed in); play/scrub always use the display rate.
     let interval = TICK_MS;
     if (state.mode === 'now') {
       const zoom = map.getZoom();
@@ -1021,11 +647,12 @@ export function createLiveTrains(map) {
     state.shownMinute = -1;
     state.busy = false;
     document.body.classList.remove('trains-busy');
-    // Start from a clean animation frame so the first render fades in.
-    activeTrips = [];
-    lastRenderAt = 0;
-    // Adds the source and layer now, or as soon as the style is ready.
-    ensureLayers();
+    // Start with a short reveal fade so the whole fleet does not pop in.
+    ensureOverlay();
+    state.revealStart = performance.now();
+    overlay.setReveal(0);
+    state.rebuildSecond = -1;
+    state.rebuildAt = 0;
     redraw();
     return true;
   };
@@ -1041,14 +668,14 @@ export function createLiveTrains(map) {
     document.body.classList.remove('trains-busy');
     cancelAnimationFrame(state.raf);
     state.raf = 0;
-    for (const trip of activeTrips) if (trip.anim) trip.anim = null;
-    activeTrips = [];
-    lastRenderAt = 0;
-    state.settling = false;
     state.shownMinute = -1;
     instanceCount = 0;
-    if (glLayer) glLayer.setInstances(instanceData, 0);
-    map.triggerRepaint();
+    state.revealStart = 0;
+    if (overlay) {
+      overlay.remove();
+      overlay = null;
+    }
+    if (DEBUG_TRAINS && window.$trainsGL) delete window.$trainsGL;
     if (ui.panel) ui.panel.hidden = true;
     return false;
   };
@@ -1063,254 +690,3 @@ export function createLiveTrains(map) {
   };
 }
 
-// Column-major 4x4 multiply: out = a * b.
-function multiplyMat4(out, a, b) {
-  for (let c = 0; c < 4; c++) {
-    const b0 = b[c * 4];
-    const b1 = b[c * 4 + 1];
-    const b2 = b[c * 4 + 2];
-    const b3 = b[c * 4 + 3];
-    out[c * 4 + 0] = a[0] * b0 + a[4] * b1 + a[8] * b2 + a[12] * b3;
-    out[c * 4 + 1] = a[1] * b0 + a[5] * b1 + a[9] * b2 + a[13] * b3;
-    out[c * 4 + 2] = a[2] * b0 + a[6] * b1 + a[10] * b2 + a[14] * b3;
-    out[c * 4 + 3] = a[3] * b0 + a[7] * b1 + a[11] * b2 + a[15] * b3;
-  }
-  return out;
-}
-
-const TRAIN_VERTEX_SHADER = `#version 300 es
-precision highp float;
-
-in vec2 aCorner;
-in vec2 aCenter;
-in float aAngle;
-in vec3 aColor;
-in float aAlpha;
-in float aGrow;
-
-uniform mat4 uMatrix;
-uniform float uUnitsPerPixel;
-uniform float uScale;
-uniform vec2 uBaseSize;
-
-out vec2 vLocal;
-out vec3 vColor;
-out float vAlpha;
-
-void main() {
-  vec2 local = aCorner * uBaseSize;
-  float c = cos(aAngle);
-  float s = sin(aAngle);
-  vec2 rotated = vec2(local.x * c - local.y * s, local.x * s + local.y * c);
-  vec2 pos = aCenter + rotated * uScale * aGrow * uUnitsPerPixel;
-  gl_Position = uMatrix * vec4(pos, 0.0, 1.0);
-  vLocal = local;
-  vColor = aColor;
-  vAlpha = aAlpha;
-}`;
-
-const TRAIN_FRAGMENT_SHADER = `#version 300 es
-precision highp float;
-
-in vec2 vLocal;
-in vec3 vColor;
-in float vAlpha;
-out vec4 outColor;
-
-float sdRoundBox(vec2 p, vec2 b, float r) {
-  vec2 q = abs(p) - b + r;
-  return min(max(q.x, q.y), 0.0) + length(max(q, 0.0)) - r;
-}
-
-void main() {
-  // Base geometry in icon pixels; uScale handles zoom, so these stay fixed.
-  const float W = 38.0;
-  const float H = 16.0;
-  const float R = 5.0;
-  const float STROKE = 2.0;
-  const float WIN_FROM_NOSE = 4.0;
-  const float WIN_LEN = 6.0;
-  const float WIN_THICK = 8.0;
-  const float WIN_R = 2.0;
-
-  vec2 p = vLocal;
-  float aa = max(fwidth(p.x), 0.0001);
-
-  float dOuter = sdRoundBox(p, vec2(W, H) * 0.5, R + STROKE * 0.5);
-  float dInner = sdRoundBox(
-    p,
-    vec2(W - STROKE * 2.0, H - STROKE * 2.0) * 0.5,
-    max(R - STROKE * 0.5, 0.5)
-  );
-  float outer = 1.0 - smoothstep(-aa, aa, dOuter);
-  float inner = 1.0 - smoothstep(-aa, aa, dInner);
-
-  vec2 winCenter = vec2(W * 0.5 - WIN_FROM_NOSE - WIN_LEN * 0.5, 0.0);
-  float dWin = sdRoundBox(p - winCenter, vec2(WIN_LEN, WIN_THICK) * 0.5, WIN_R);
-  float win = 1.0 - smoothstep(-aa, aa, dWin);
-
-  vec3 color = mix(vec3(0.0667), vColor, inner);
-  color = mix(color, vec3(0.0), win * inner);
-  // MapLibre's blend expects premultiplied alpha.
-  float alpha = outer * vAlpha;
-  outColor = vec4(color * alpha, alpha);
-}`;
-
-// Draws every train as one instanced, procedurally shaded quad. The CPU only
-// writes ~400 instances per frame and MapLibre draws them in a single call;
-// there is no GeoJSON source, so no per-frame parsing or tiling.
-function createInstancedTrainLayer(map) {
-  let gl = null;
-  let program = null;
-  let vao = null;
-  let quadBuffer = null;
-  let instanceBuffer = null;
-  let capacity = 0;
-  let count = 0;
-  let data = null;
-  let dirty = false;
-  let uniforms = null;
-  const mvp = new Float32Array(16);
-  // Relative-to-origin view-projection: mainMatrix * translate(origin).
-  const translation = new Float64Array(16);
-  translation[0] = translation[5] = translation[10] = translation[15] = 1;
-  translation[12] = ORIGIN_X;
-  translation[13] = ORIGIN_Y;
-
-  const compile = (type, source) => {
-    const shader = gl.createShader(type);
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-      const log = gl.getShaderInfoLog(shader);
-      gl.deleteShader(shader);
-      throw new Error(`Train shader failed: ${log}`);
-    }
-    return shader;
-  };
-
-  const grow = (needed) => {
-    if (needed <= capacity) return;
-    capacity = Math.max(needed, Math.max(256, capacity * 2));
-    gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, capacity * INSTANCE_STRIDE * 4, gl.DYNAMIC_DRAW);
-  };
-
-  const layer = {
-    id: GL_LAYER,
-    type: 'custom',
-    renderingMode: '2d',
-
-    // Debug hook used by ?trainsdebug to check the GPU transform against
-    // map.project().
-    getDebug() {
-      return { count, data, mvp, capacity };
-    },
-
-    onAdd(_map, context) {
-      gl = context;
-      const vertex = compile(gl.VERTEX_SHADER, TRAIN_VERTEX_SHADER);
-      const fragment = compile(gl.FRAGMENT_SHADER, TRAIN_FRAGMENT_SHADER);
-      program = gl.createProgram();
-      gl.attachShader(program, vertex);
-      gl.attachShader(program, fragment);
-      gl.linkProgram(program);
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        throw new Error(`Train program failed: ${gl.getProgramInfoLog(program)}`);
-      }
-
-      uniforms = {
-        matrix: gl.getUniformLocation(program, 'uMatrix'),
-        unitsPerPixel: gl.getUniformLocation(program, 'uUnitsPerPixel'),
-        scale: gl.getUniformLocation(program, 'uScale'),
-        baseSize: gl.getUniformLocation(program, 'uBaseSize'),
-      };
-
-      quadBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5]), gl.STATIC_DRAW);
-
-      instanceBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
-      capacity = 1024;
-      gl.bufferData(gl.ARRAY_BUFFER, capacity * INSTANCE_STRIDE * 4, gl.DYNAMIC_DRAW);
-
-      vao = gl.createVertexArray();
-      gl.bindVertexArray(vao);
-
-      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-      gl.enableVertexAttribArray(0);
-      gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-
-      gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
-      const stride = INSTANCE_STRIDE * 4;
-      gl.enableVertexAttribArray(1);
-      gl.vertexAttribPointer(1, 2, gl.FLOAT, false, stride, 0);
-      gl.vertexAttribDivisor(1, 1);
-      gl.enableVertexAttribArray(2);
-      gl.vertexAttribPointer(2, 1, gl.FLOAT, false, stride, 8);
-      gl.vertexAttribDivisor(2, 1);
-      gl.enableVertexAttribArray(3);
-      gl.vertexAttribPointer(3, 3, gl.FLOAT, false, stride, 12);
-      gl.vertexAttribDivisor(3, 1);
-      gl.enableVertexAttribArray(4);
-      gl.vertexAttribPointer(4, 1, gl.FLOAT, false, stride, 24);
-      gl.vertexAttribDivisor(4, 1);
-      gl.enableVertexAttribArray(5);
-      gl.vertexAttribPointer(5, 1, gl.FLOAT, false, stride, 28);
-      gl.vertexAttribDivisor(5, 1);
-
-      gl.bindVertexArray(null);
-    },
-
-    setInstances(nextData, nextCount) {
-      data = nextData;
-      count = nextCount;
-      dirty = true;
-    },
-
-    render(context, args) {
-      if (!program || !count || !data) return;
-      gl = context;
-      grow(count);
-
-      gl.useProgram(program);
-      if (dirty) {
-        gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
-        gl.bufferSubData(gl.ARRAY_BUFFER, 0, data.subarray(0, count * INSTANCE_STRIDE));
-        dirty = false;
-      }
-
-      // Match the old symbol layer's icon-size curve: 0.34 at zoom 10,
-      // 1.1 at zoom 17.5.
-      const zoom = map.getZoom();
-      const t = Math.min(1, Math.max(0, (zoom - 10) / 7.5));
-      const scale = 0.34 + t * 0.76;
-
-      multiplyMat4(mvp, args.defaultProjectionData.mainMatrix, translation);
-      gl.uniformMatrix4fv(uniforms.matrix, false, mvp);
-      gl.uniform1f(uniforms.scale, scale);
-      gl.uniform1f(uniforms.unitsPerPixel, 1 / (512 * Math.pow(2, zoom)));
-      gl.uniform2f(uniforms.baseSize, CAR_LENGTH, CAR_THICKNESS);
-
-      gl.enable(gl.BLEND);
-      gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-      gl.disable(gl.DEPTH_TEST);
-      gl.bindVertexArray(vao);
-      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, count);
-      gl.bindVertexArray(null);
-    },
-
-    onRemove() {
-      if (program) gl.deleteProgram(program);
-      if (quadBuffer) gl.deleteBuffer(quadBuffer);
-      if (instanceBuffer) gl.deleteBuffer(instanceBuffer);
-      if (vao) gl.deleteVertexArray(vao);
-      program = quadBuffer = instanceBuffer = vao = null;
-    },
-  };
-  if (DEBUG_TRAINS) window.$trainsGL = layer;
-  return layer;
-}
