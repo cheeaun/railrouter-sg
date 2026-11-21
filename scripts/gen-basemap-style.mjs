@@ -49,6 +49,7 @@ const drop = (id) => {
     || low.startsWith('boundary_')
     || low.startsWith('highway-shield')
     || low.startsWith('label_country_')
+    || low === 'label_city_capital'
     // Old style had no casings on regular roads — only bridge-case-simple.
     || (low.startsWith('highway-') && low.endsWith('-casing'))
     || low === 'road_shield_us'
@@ -58,6 +59,12 @@ const drop = (id) => {
 
 s.layers = s.layers.filter((l) => !drop(l.id));
 let layers = byId();
+
+const labelOther = layers.label_other;
+if (labelOther?.filter?.[0] === 'match' && Array.isArray(labelOther.filter[2])) {
+  // Remove country/capital-like places from the catch-all place label layer.
+  labelOther.filter[2] = labelOther.filter[2].filter((value) => value !== 'country');
+}
 
 // Base colours
 for (const layer of s.layers) {
@@ -216,11 +223,9 @@ setLabel('label_other', {
 });
 const minorSize = ['interpolate', ['cubic-bezier', 0.2, 0, 0.9, 1], ['zoom'], 3, 10, 6, 12, 8, 12, 13, 12];
 const majorSize = ['interpolate', ['cubic-bezier', 0.2, 0, 0.9, 1], ['zoom'], 3, 11, 6, 16, 8, 16, 15, 16];
-const capitalSize = ['interpolate', ['cubic-bezier', 0.2, 0, 0.9, 1], ['zoom'], 3, 12, 6, 18, 8, 18, 15, 18];
 setLabel('label_town', { minzoom: 2, maxzoom: 13, size: minorSize, icon: '' });
 setLabel('label_village', { minzoom: 2, maxzoom: 13, size: minorSize, icon: '' });
 setLabel('label_city', { minzoom: 2, maxzoom: 15, size: majorSize, icon: '' });
-setLabel('label_city_capital', { minzoom: 2, maxzoom: 15, size: capitalSize, icon: '' });
 setLabel('label_state', {
   minzoom: 3, maxzoom: 9,
   size: ['interpolate', ['cubic-bezier', 0.85, 0.7, 0.65, 1], ['zoom'], 4, 8, 9, 14],

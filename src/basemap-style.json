@@ -5556,7 +5556,6 @@
         [
           "city",
           "continent",
-          "country",
           "state",
           "town",
           "village"
@@ -5979,105 +5978,6 @@
           16,
           15,
           16
-        ]
-      },
-      "paint": {
-        "text-color": "rgb(62, 77, 119)",
-        "text-halo-blur": 1,
-        "text-halo-color": "#fff",
-        "text-halo-width": 1
-      },
-      "maxzoom": 15
-    },
-    {
-      "id": "label_city_capital",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "minzoom": 2,
-      "filter": [
-        "all",
-        [
-          "==",
-          [
-            "get",
-            "class"
-          ],
-          "city"
-        ],
-        [
-          "==",
-          [
-            "get",
-            "capital"
-          ],
-          2
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": true,
-        "icon-image": "",
-        "icon-optional": false,
-        "icon-size": 0.5,
-        "text-anchor": "bottom",
-        "text-field": [
-          "case",
-          [
-            "has",
-            "name:nonlatin"
-          ],
-          [
-            "concat",
-            [
-              "get",
-              "name:latin"
-            ],
-            "\n",
-            [
-              "get",
-              "name:nonlatin"
-            ]
-          ],
-          [
-            "coalesce",
-            [
-              "get",
-              "name_en"
-            ],
-            [
-              "get",
-              "name"
-            ]
-          ]
-        ],
-        "text-font": [
-          "Noto Sans Bold"
-        ],
-        "text-max-width": 8,
-        "text-offset": [
-          0,
-          -0.2
-        ],
-        "text-size": [
-          "interpolate",
-          [
-            "cubic-bezier",
-            0.2,
-            0,
-            0.9,
-            1
-          ],
-          [
-            "zoom"
-          ],
-          3,
-          12,
-          6,
-          18,
-          8,
-          18,
-          15,
-          18
         ]
       },
       "paint": {
