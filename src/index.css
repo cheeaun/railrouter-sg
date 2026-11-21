@@ -67,7 +67,7 @@ abbr {
    without a ring or icon filter. */
 .maplibregl-ctrl-group button.maplibregl-ctrl-emoji.active,
 .maplibregl-ctrl-group button.maplibregl-ctrl-emoji.active:hover {
-  background-color: #bfe6e3;
+  background-color: teal;
 }
 .maplibregl-ctrl-emoji:disabled {
   opacity: 0.6;
@@ -645,8 +645,8 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  padding: 12px;
+  gap: 8px;
+  padding: 16px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px) saturate(3);
@@ -659,21 +659,43 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 #trains-time[hidden] {
   display: none;
 }
-/* One control row that never wraps internally: the slider shrinks instead of
-   pushing the speed/Now group onto a second line. */
-#trains-time-controls {
+/* Day picker and exact time share the first row, above playback. The select
+   is only as wide as its longest option but shrinks before the time field. */
+#trains-time-day-row {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   min-width: 0;
   max-width: 100%;
 }
+#trains-time-day {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 8em;
+  font: inherit;
+  color: #00454d;
+  border: 1px solid rgba(0, 69, 77, 0.25);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4px;
+  cursor: pointer;
+  field-sizing: content;
+}
+/* Playback row: the slider takes the space left by the play and speed
+   buttons, so the row spans the panel instead of leaving a gap. */
+#trains-time-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: stretch;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+}
 #trains-time-slider {
-  /* Shrinks first when the panel is tight, so the buttons stay on one row. */
-  flex: 0 1 180px;
-  width: 180px;
-  max-width: 40vw;
+  flex: 1 1 auto;
+  width: auto;
+  max-width: none;
   min-width: 60px;
   margin: 0;
   accent-color: teal;
@@ -682,16 +704,11 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   flex-shrink: 0;
   font: inherit;
   font-weight: bold;
-  font-variant-numeric: tabular-nums;
   color: #00454d;
   border: 1px solid rgba(0, 69, 77, 0.25);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 2px 4px;
-  /* Wide enough for the localised value ("05:07 pm" in en-GB); a min-width
-     keeps the row from shifting as the digits change. */
-  width: 8.2em;
-  text-align: center;
+  padding: 4px;
 }
 #trains-time-speed {
   flex-shrink: 0;
@@ -723,8 +740,8 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   --live-red: #d93025;
   appearance: none;
   -webkit-appearance: none;
-  border: 1.5px solid var(--live-red);
-  border-radius: 999px;
+  border: 1.5px solid rgba(0, 69, 77, 0.25);
+  border-radius: 8px;
   background-color: #fff;
   color: #000;
   font: inherit;
@@ -745,6 +762,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 /* Breathing indicator: the text fades in and out only while actually live. */
 #trains-time-now .live-text {
   display: inline-block;
+  text-transform: uppercase;
 }
 #trains-time-now.is-live .live-text {
   animation: live-breathe 2.4s ease-in-out infinite;
@@ -819,7 +837,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  gap: 4px 6px;
+  gap: 4px;
   font-size: 11px;
   color: #00454d;
   max-width: 100%;
@@ -830,7 +848,8 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 /* Footnote: the trains follow the published timetable, not a live feed. Pulled
    up so it reads as a caption for the counts rather than a new block. */
 #trains-time-note {
-  margin: -8px 0 0;
+  margin: 0;
+  padding: 0;
   font-size: 10px;
   font-style: italic;
   line-height: 1.3;
@@ -889,13 +908,9 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   #trains-time {
     align-self: stretch;
   }
-  #trains-time-controls {
+  #trains-time-controls,
+  #trains-time-day-row {
     gap: 6px;
-  }
-  #trains-time-slider {
-    flex: 1 1 auto;
-    width: auto;
-    max-width: none;
   }
 }
 
@@ -903,6 +918,9 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   #trains-time {
     gap: 4px;
     padding: 5px 8px;
+  }
+  #trains-time-day-row {
+    gap: 4px;
   }
   #trains-time-now {
     padding: 4px 8px;

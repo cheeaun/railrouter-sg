@@ -87,6 +87,21 @@
   </div>
 </details>
 <div id="trains-time" hidden>
+  <div id="trains-time-day-row">
+    <select id="trains-time-day" aria-label="Timetable day" title="Timetable day">
+      <option value="weekdays">Weekdays</option>
+      <option value="saturdays">Saturdays</option>
+      <option value="holidays">Sundays &amp; Public Holidays</option>
+    </select>
+    <input
+      id="trains-time-field"
+      type="time"
+      step="60"
+      value="00:00"
+      aria-label="Selected time"
+    />
+    <button type="button" id="trains-time-now" disabled><span class="live-text">Live</span></button>
+  </div>
   <div id="trains-time-controls">
     <button type="button" id="trains-time-play" title="Play" aria-label="Play">
       <svg class="trains-icon-play" viewBox="0 0 24 24" aria-hidden="true">
@@ -105,16 +120,8 @@
       value="0"
       aria-label="Time of day"
     />
-    <input
-      id="trains-time-field"
-      type="time"
-      step="60"
-      value="00:00"
-      aria-label="Selected time"
-    />
     <div id="trains-time-actions">
       <button type="button" id="trains-time-speed" title="Playback speed" disabled>1x</button>
-      <button type="button" id="trains-time-now" disabled><span class="live-text">Live</span></button>
     </div>
   </div>
   <div id="trains-time-counts" aria-live="polite"></div>

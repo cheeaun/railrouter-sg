@@ -1,5 +1,7 @@
 import trainsUrl from './gtfs-trains.json' with { type: 'url' };
+import holidaysUrl from './public-holidays.json' with { type: 'url' };
 import { decodeCoords, decodeInts, decodeProfile } from './gtfs-codec.mjs';
+import { scheduledDayType, serviceWeekday } from './service-day.mjs';
 
 // GTFS times are Singapore local time, which has no daylight saving.
 const SGT_OFFSET = 8 * 3600 * 1000;
@@ -377,7 +379,12 @@ export function createLiveTrains(map) {
     data: null,
     prepared: null,
     services: new Set(),
-    day: '',
+    holidays: new Set(),
+    // The timetable day currently shown ('weekdays', 'saturdays' or
+    // 'holidays'), and a user override that wins over the calendar.
+    dayType: '',
+    dayOverride: null,
+    serviceKey: '',
     raf: 0,
     nextTick: 0,
     // 'now' follows the clock, 'manual' stays put, 'playing' advances on its
@@ -402,11 +409,17 @@ export function createLiveTrains(map) {
   const ui = {
     panel: document.getElementById('trains-time'),
     slider: document.getElementById('trains-time-slider'),
+    day: document.getElementById('trains-time-day'),
     field: document.getElementById('trains-time-field'),
     reset: document.getElementById('trains-time-now'),
     play: document.getElementById('trains-time-play'),
     speed: document.getElementById('trains-time-speed'),
     counts: document.getElementById('trains-time-counts'),
+  };
+
+  const syncDayUi = () => {
+    if (!ui.day || !state.dayType) return;
+    if (ui.day.value !== state.dayType) ui.day.value = state.dayType;
   };
 
   const syncSpeedButton = () => {
@@ -484,20 +497,23 @@ export function createLiveTrains(map) {
       state.nowHasTrains = hasTrainsAt(time.seconds);
     }
     const playing = state.mode === 'playing';
-    const atNow = state.mode === 'now';
+    const atNow = state.mode === 'now' && !state.dayOverride;
     // The "Live" button stays in the layout so the row never shifts. It is
     // disabled when already live, or when nothing runs at the real current
-    // time (there is no live service to switch to).
-    ui.reset.disabled = atNow || !state.nowHasTrains;
+    // time (there is no live service to switch to). A day override always
+    // leaves it enabled so the user can get back to the live timetable.
+    ui.reset.disabled = atNow || (!state.dayOverride && !state.nowHasTrains);
     ui.reset.title = atNow
       ? 'Showing live trains'
-      : state.nowHasTrains
-        ? 'Back to live trains'
-        : 'No trains are running right now';
+      : state.dayOverride
+        ? 'Back to the live timetable'
+        : state.nowHasTrains
+          ? 'Back to live trains'
+          : 'No trains are running right now';
     // Visual state: live is a filled red button; every other state is the
     // white button with a red outline. Off-hours additionally fades it.
     ui.reset.classList.toggle('is-live', atNow);
-    ui.reset.classList.toggle('is-off', !atNow && !state.nowHasTrains);
+    ui.reset.classList.toggle('is-off', !atNow && !state.nowHasTrains && !state.dayOverride);
     // Speed only matters while the day is playing back; disable it otherwise.
     if (ui.speed) ui.speed.disabled = !playing;
     if (playIcons) {
@@ -734,9 +750,18 @@ export function createLiveTrains(map) {
   const counts = {};
 
   const update = (time, seconds) => {
-    if (time.day !== state.day) {
-      state.day = time.day;
-      state.services = runningServices(state.data.services, time);
+    const dayType = state.dayOverride || scheduledDayType(time.day, time.weekday, state.holidays);
+    const serviceKey = `${time.day}:${dayType}`;
+    if (serviceKey !== state.serviceKey) {
+      state.serviceKey = serviceKey;
+      state.services = runningServices(state.data.services, {
+        day: time.day,
+        weekday: serviceWeekday(dayType, time.weekday),
+      });
+      state.dayType = dayType;
+      // The live "anything running now?" check follows the selected timetable.
+      state.nowMinute = -1;
+      syncDayUi();
     }
     renderFrame(seconds, counts);
     renderCounts(counts);
@@ -856,8 +881,20 @@ export function createLiveTrains(map) {
     };
     ui.field.addEventListener('change', pick);
   }
+  if (ui.day) {
+    ui.day.addEventListener('change', () => {
+      const dayType = ui.day.value;
+      if (dayType !== 'weekdays' && dayType !== 'saturdays' && dayType !== 'holidays') return;
+      state.dayOverride = dayType;
+      state.serviceKey = '';
+      state.rendered = null;
+      redraw();
+    });
+  }
   if (ui.reset) {
     ui.reset.addEventListener('click', () => {
+      state.dayOverride = null;
+      state.serviceKey = '';
       state.mode = 'now';
       state.rendered = null;
       redraw();
@@ -889,20 +926,38 @@ export function createLiveTrains(map) {
 
   const load = () => {
     if (!state.loading) {
-      state.loading = fetch(trainsUrl)
-        .then((response) => {
+      state.loading = Promise.all([
+        fetch(trainsUrl).then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
-        })
-        .then((data) => {
+        }),
+        // Holidays are an overlay, not a hard dependency: if the file is
+        // missing the timetable still runs, just without weekday holidays.
+        fetch(holidaysUrl)
+          .then((response) => (response.ok ? response.json() : null))
+          .catch(() => null),
+      ])
+        .then(([data, holidays]) => {
           state.data = data;
           state.prepared = prepare(data);
+          const holidayDates =
+            holidays && Array.isArray(holidays.dates)
+              ? holidays.dates
+                  .map((date) => String(date).replace(/-/g, ''))
+                  .filter((date) => /^\d{8}$/.test(date))
+              : [];
+          state.holidays = new Set(holidayDates);
+          if (holidayDates.length === 0) {
+            console.warn('Public holidays unavailable; only Sundays use the Sunday timetable.');
+          }
           const feedEnd = data.feed && data.feed.end;
           if (feedEnd && feedEnd < clock().day) {
             console.warn(`Timetable expired on ${feedEnd}; trains are no longer current.`);
           }
           state.window = state.prepared.window;
-          state.day = '';
+          state.serviceKey = '';
+          state.dayType = '';
+          state.dayOverride = null;
           state.picked = state.window.start;
           if (ui.slider) {
             ui.slider.min = String(Math.floor(state.window.start / 60));
@@ -924,6 +979,9 @@ export function createLiveTrains(map) {
     state.visible = true;
     state.mode = 'now';
     state.rendered = null;
+    state.dayOverride = null;
+    state.serviceKey = '';
+    state.dayType = '';
     state.nowMinute = -1;
     state.shownMinute = -1;
     state.busy = false;
@@ -941,6 +999,8 @@ export function createLiveTrains(map) {
     state.visible = false;
     state.rendered = null;
     state.mode = 'now';
+    state.dayOverride = null;
+    state.serviceKey = '';
     state.nowMinute = -1;
     state.busy = false;
     document.body.classList.remove('trains-busy');

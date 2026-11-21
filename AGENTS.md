@@ -11,6 +11,7 @@ npm start        # dev server on http://localhost:1987 (port is pinned, do not c
 npm run build    # production build into dist/
 npm test         # node --test scripts/*.test.mjs
 npm run gtfs     # rebuild src/gtfs-trains.json from LTA's GTFS feed
+npm run holidays # rebuild src/public-holidays.json from data.gov.sg
 npm run gen-style # regenerate src/basemap-style.json from OpenFreeMap's Bright style
 ```
 
@@ -28,16 +29,19 @@ before debugging your code.
 - `src/index.js` — map setup, layers, stations/exits/search/crowd UI. Imports and wires `createLiveTrains`.
 - `src/live-trains.js` — the scheduled-trains feature: timetable decode, service-day clock, per-frame instance generation, one instanced WebGL layer, and the trains panel UI.
 - `src/gtfs-codec.mjs` — encode/decode for the packed timetable. **Shared by both the build script and the browser app.** Must stay `Buffer`-free (`btoa`/`atob` only) or Parcel's bundle breaks.
+- `src/service-day.mjs` — maps a service date to weekday/Saturday/Sunday-and-holiday timetable, shared by the browser app and its tests.
 - `scripts/download-gtfs.mjs` — downloads the feed and writes `src/gtfs-trains.json`.
+- `scripts/download-holidays.mjs` — downloads Singapore public holidays from data.gov.sg and writes `src/public-holidays.json`.
 - `scripts/gtfs-codec.test.mjs` — codec round-trip tests.
 - `src/gtfs-trains.json` — **generated, but committed.** Never hand-edit; rerun `npm run gtfs`.
 
 ## Data pipeline
 
 - `data/` is git-ignored. It holds the 3.3 MB raw `gtfs-schedule.zip`, which is re-downloadable. Only the built `src/gtfs-trains.json` is committed.
-- `.github/workflows/update-gtfs.yml` reruns the builder twice a month, commits only the JSON, and needs the `LTA_ACCOUNT_KEY` secret.
+- `.github/workflows/update-gtfs.yml` reruns the builders twice a month, commits both JSON files, and needs the `LTA_ACCOUNT_KEY` secret.
 - **The build must stay deterministic.** A build carries no timestamp, so an unchanged feed produces a byte-identical JSON and the CI job's `git diff --staged --quiet` guard skips the commit. Adding anything time- or run-dependent to the output breaks that guard and rewrites the whole 530 KB blob every run. Provenance goes in `data/gtfs-meta.json` (git-ignored), and the commit date says when the timetable last changed. Verify with two `GTFS_OFFLINE=1 npm run gtfs` runs and `cmp`.
 - Locally, the account key comes from `LTA_ACCOUNT_KEY` or `scripts/config.json` (`{ "accountKey": "..." }`, git-ignored). `GTFS_OFFLINE=1` rebuilds from the cached ZIP with no network.
+- `src/public-holidays.json` is also generated and committed. The browser overlays holiday dates on the GTFS calendar at runtime: a holiday service date uses the Sunday/PH timetable, including observed Monday holidays. The output has no timestamp so reruns stay byte-identical.
 - **Judge size by the compressed size, not the raw size.** The file is always served gzip/brotli: ~530 KB raw but ~106 KB gzipped. Optimisations that shrink raw JSON while adding many small unique strings (profile dedup, time quantisation) have previously made gzip *worse* — they were prototyped and reverted. Do not relitigate without measuring gzip.
 - Trip polylines are Douglas-Peucker simplified at 3 m with every stop vertex pinned, then stop distances are recomputed and delta-encoded. The drawn track comes from a different source (`src/sg-rail.geo.json`), so simplification only affects train positions, and sub-3 m deviation is safe.
 
