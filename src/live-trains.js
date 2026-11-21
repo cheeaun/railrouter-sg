@@ -48,9 +48,11 @@ const FADE_MAX_STEP_MS = 120;
 // Trains enter and leave slightly scaled down, not from nothing; a large size
 // change is what makes the fade feel abrupt even when the alpha is smooth.
 const TRAIN_MIN_GROW = 0.85;
-// Half-width, in metres, of the arc-length window used to smooth each vertex's
-// heading. A corner therefore turns over ~2x this much track, so a sharp
-// 90-degree bend reads as a gradual swing at any playback speed.
+// Half-width, in metres, of the arc-length window over which a vertex's
+// smoothed heading is blended. A corner therefore turns over ~2x this much
+// track, so a sharp 90-degree bend reads as a gradual swing at any playback
+// speed. Away from the window, a segment uses its own exact bearing, so a train
+// on a straight sits exactly on the line's angle.
 const HEADING_WINDOW = 22;
 
 // Local mercator origin. Train positions are uploaded relative to this so the
@@ -226,10 +228,12 @@ function prepare(data) {
           distanceAlong += stopDeltas[i];
           stops[i] = distanceAlong;
         }
+        const headings = prepareHeadings(coords, cumulative);
         return {
           coords,
           cumulative,
-          vertexHeading: prepareHeadings(coords, cumulative),
+          vertexHeading: headings.vertex,
+          segmentHeading: headings.segment,
           stops,
           profiles,
           trips,
@@ -277,22 +281,27 @@ function shortestAngle(from, to) {
   return diff;
 }
 
-// Heading at every vertex, smoothed over an arc-length window, plus the
-// heading along each segment (a blend of its two end vertices' headings). The
-// train reads its orientation by lerping these instead of computing a tangent
-// from a short chord: a chord over a fixed distance still jumps the moment it
-// crosses a corner vertex, whereas a pre-smoothed vertex heading changes
-// gradually through the bend.
+// Heading at every vertex, smoothed over an arc-length window, plus each
+// segment's own bearing. The train reads its orientation from these instead of
+// computing a tangent from a short chord: a chord over a fixed distance still
+// jumps the moment it crosses a corner vertex, whereas a pre-smoothed vertex
+// heading changes gradually through the bend. Keeping the segment bearing as
+// well stops that smoothing from leaking out of a bend: a long straight must
+// use its exact bearing, not a chord smeared by the curve it followed.
 function prepareHeadings(coords, cumulative) {
   const n = coords.length;
-  const vertexHeading = new Float64Array(n);
+  const vertex = new Float64Array(n);
   for (let i = 0; i < n; i++) {
     const before = positionAtCum(coords, cumulative, Math.max(0, cumulative[i] - HEADING_WINDOW));
     const after = positionAtCum(coords, cumulative, Math.min(cumulative[n - 1], cumulative[i] + HEADING_WINDOW));
     // The car is drawn with its nose on +X, so east (bearing 90°) is 0 rad.
-    vertexHeading[i] = (bearingOf(before, after) - 90) * RAD;
+    vertex[i] = (bearingOf(before, after) - 90) * RAD;
   }
-  return vertexHeading;
+  const segment = new Float64Array(Math.max(0, n - 1));
+  for (let i = 0; i < n - 1; i++) {
+    segment[i] = (bearingOf(coords[i], coords[i + 1]) - 90) * RAD;
+  }
+  return { vertex, segment };
 }
 
 // Position at an arc length, given raw coords and their cumulative distances.
@@ -315,14 +324,19 @@ function positionAtCum(coords, cumulative, distance) {
 }
 
 // Point plus an interpolated heading (radians in the shader's convention: the
-// car lies flat with its nose on +X, so east is 0). The segment's two vertex
-// headings are blended by the along-segment fraction, which keeps the angle
-// continuous across every vertex including the ±180° wrap.
+// car lies flat with its nose on +X, so east is 0). The angle is continuous
+// across every vertex, including the ±180° wrap.
+//
+// Within HEADING_WINDOW of a vertex the heading eases toward that vertex's
+// smoothed chord, so bends turn gradually. Beyond the windows it is the
+// segment's exact bearing: interpolating the two vertex headings across a long
+// straight would keep the train badly rotated for hundreds of metres after a
+// bend, which reads as drifting off the line's angle.
 //
 // The position and heading share one segment lookup rather than each searching
 // the cumulative array; the result is written to pointLng/pointLat/pointHeading.
 function pointAt(path, distance) {
-  const { coords, cumulative, vertexHeading } = path;
+  const { coords, cumulative, vertexHeading, segmentHeading } = path;
   const last = coords.length - 1;
   let low;
   let high;
@@ -352,7 +366,25 @@ function pointAt(path, distance) {
   pointLat = a[1] + (b[1] - a[1]) * t;
   const ha = vertexHeading[low];
   const hb = vertexHeading[Math.min(low + 1, last)];
-  pointHeading = ha + shortestAngle(ha, hb) * t;
+  const length = cumulative[high] - cumulative[low];
+  if (length <= HEADING_WINDOW * 2) {
+    // Too short to have a straight middle: rotate straight from one smoothed
+    // vertex heading to the next, which is the whole of the bend.
+    pointHeading = ha + shortestAngle(ha, hb) * t;
+  } else {
+    const base = segmentHeading[low];
+    const s = t * length;
+    pointHeading =
+      base + shortestAngle(base, ha) * vertexWeight(s) + shortestAngle(base, hb) * vertexWeight(length - s);
+  }
+}
+
+// 1 at a vertex, easing to 0 at HEADING_WINDOW away with zero slope at both
+// ends, so the smoothed heading joins the segment bearing without a kink.
+function vertexWeight(distance) {
+  if (distance >= HEADING_WINDOW) return 0;
+  const t = 1 - distance / HEADING_WINDOW;
+  return t * t * (3 - 2 * t);
 }
 
 // The car is drawn procedurally by the shader: a rounded body in the line
@@ -701,10 +733,10 @@ export function createLiveTrains(map) {
           // fade in with a gentle scale swell.
           anim = trip.anim = { enter: 0, leave: 0, lng: 0, lat: 0, rgb: path.rgb, heading: 0 };
         }
-        // The heading is already continuous in space (smoothed vertex
-        // chords), so it follows the track directly. Easing it in time would
-        // lag the rotation behind the moving body, reading as an off-centre
-        // pivot.
+        // The heading is already continuous in space (exact segment bearings
+        // with the smoothed vertex chords blended in near each vertex), so it
+        // follows the track directly. Easing it in time would lag the rotation
+        // behind the moving body, reading as an off-centre pivot.
         anim.heading = pointHeading;
         // Coming back after a fade-out, reverse it from wherever it got to
         // rather than restarting at zero.
