@@ -755,7 +755,9 @@ export function createLiveTrains(map) {
     }
 
     // Trains in the previous frame that were not refreshed this one fade out
-    // where they last were, then are forgotten.
+    // where they last were, then are forgotten. Each still-fading trip has to
+    // be carried into nextActive; otherwise the next frame's activeTrips no
+    // longer holds it and the fade stops after a single step.
     for (const trip of activeTrips) {
       const anim = trip.anim;
       if (!anim || anim.gen === frameGen) continue;
@@ -767,6 +769,7 @@ export function createLiveTrains(map) {
       }
       anim.grow = TRAIN_MIN_GROW + (1 - TRAIN_MIN_GROW) * (1 - smoothstep(anim.leave));
       draw(anim);
+      nextActive.push(trip);
     }
 
     // The array just walked as activeTrips is now free to be rebuilt next frame.
