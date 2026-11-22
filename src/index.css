@@ -831,7 +831,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   font-weight: bold;
   padding: 3px 6px;
   cursor: pointer;
-  min-width: 3.4em;
+  min-width: 3.9em;
   text-align: center;
   font-variant-numeric: tabular-nums;
 }

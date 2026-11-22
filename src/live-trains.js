@@ -24,22 +24,28 @@ const NOW_SLOW_MS = 1000 / 10; // zoomed out
 const NOW_MID_ZOOM = 15; // below this, 10fps is imperceptible
 const NOW_FAST_ZOOM = 18; // above this, 60fps keeps the step under a pixel
 
-// Playback speed in simulated seconds per real second. 60 = one simulated
-// minute per real second, 30 = half that pace.
+// Playback speed in simulated seconds per real second. 1 = real time, 60 = one
+// simulated minute per real second, 30 = half that pace. The cycle climbs the
+// list and wraps back to real time.
+const PLAY_SPEED_REALTIME = 1;
 const PLAY_SPEED_SLOW = 30;
 const PLAY_SPEED_MEDIUM = 60;
 const PLAY_SPEED_FAST = 120;
 const PLAY_SPEED_FASTER = 240;
+const PLAY_SPEED_FASTEST = 480;
+const PLAY_SPEEDS = [
+  PLAY_SPEED_REALTIME,
+  PLAY_SPEED_SLOW,
+  PLAY_SPEED_MEDIUM,
+  PLAY_SPEED_FAST,
+  PLAY_SPEED_FASTER,
+  PLAY_SPEED_FASTEST,
+];
 const END_HOLD_MS = 1500;
 
 function nextPlaySpeed(speed) {
-  return speed === PLAY_SPEED_SLOW
-    ? PLAY_SPEED_MEDIUM
-    : speed === PLAY_SPEED_MEDIUM
-      ? PLAY_SPEED_FAST
-      : speed === PLAY_SPEED_FAST
-        ? PLAY_SPEED_FASTER
-        : PLAY_SPEED_SLOW;
+  const index = PLAY_SPEEDS.indexOf(speed);
+  return PLAY_SPEEDS[(index + 1) % PLAY_SPEEDS.length];
 }
 
 const DEBUG_TRAINS = new URLSearchParams(location.search).has('trainsdebug');
