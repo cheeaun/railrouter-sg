@@ -657,7 +657,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  padding: .6em;
+  padding: .6em .6em 1em;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px) saturate(3);
@@ -674,7 +674,6 @@ body.trains-busy .maplibregl-marker.crowd-marker {
    is only as wide as its longest option but shrinks before the time field. */
 #trains-time-day-row {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   min-width: 0;
@@ -882,7 +881,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   --live-red: #d93025;
   appearance: none;
   -webkit-appearance: none;
-  border: 1.5px solid rgba(0, 69, 77, 0.25);
+  border: 1px solid rgba(0, 69, 77, 0.25);
   border-radius: 4px;
   background-color: #fff;
   color: #000;
@@ -890,7 +889,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   font-size: 12px;
   font-weight: bold;
   line-height: 1.2;
-  padding: 3px 5px;
+  padding: 3px;
   cursor: pointer;
 }
 #trains-time-now.is-live {
@@ -1081,26 +1080,6 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 @media (min-width: 640px) {
   #trains-time {
     width: 500px;
-  }
-}
-
-@media (max-width: 360px) {
-  #trains-time {
-    gap: 4px;
-    padding: 5px 8px;
-  }
-  #trains-time-day-row {
-    gap: 4px;
-  }
-  #trains-time-now {
-    padding: 4px 8px;
-  }
-  #trains-time-speed {
-    padding: 3px 2px;
-    font-size: 10px;
-  }
-  #trains-time-field {
-    width: 9.4em;
   }
 }
 
