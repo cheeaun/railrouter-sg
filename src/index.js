@@ -118,6 +118,7 @@ const map = (window.$map = new maplibregl.Map({
   },
   center,
   bounds,
+  maxZoom: 20,
   renderWorldCopies: false,
   boxZoom: false,
   bearingSnap: 15,
