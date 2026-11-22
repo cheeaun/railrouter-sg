@@ -32,8 +32,8 @@ const ATLAS_WIDTH = 4096;
 // under even the smallest MAX_TEXTURE_SIZE.
 const PROFILE_WIDTH = 1024;
 // floats per active trip: poolId, start, duration, profileRow,
-// stopCount, r, g, b
-export const INSTANCE_STRIDE = 8;
+// stopCount, r, g, b, handover
+export const INSTANCE_STRIDE = 9;
 // Active list look-ahead, in simulated seconds, used when the caller does not
 // supply one. It must exceed the rebuild interval plus FADE so a trip is
 // already resident while its alpha is still zero instead of popping in.
@@ -149,6 +149,8 @@ export function prepare(data) {
   const pools = [];
   const paths = [];
   const lines = {};
+  // First and last point of every coordinate pool, for terminal handovers.
+  const poolEnds = [];
   let row = 0;
   let vertexCount = 0;
   let firstStart = Infinity;
@@ -170,13 +172,15 @@ export function prepare(data) {
     };
 
     for (const encoded of line.coords) {
-      const pool = resample(decodeCoords(encoded));
+      const coords = decodeCoords(encoded);
+      const pool = resample(coords);
       const offset = vertexCount;
       for (let i = 0; i < pool.count; i++) {
         atlas.push(pool.x[i], pool.y[i], pool.cx[i], pool.cy[i]);
       }
       vertexCount += pool.count;
       pools.push(offset, pool.count, pool.length, 0);
+      poolEnds.push(coords[0], coords[coords.length - 1]);
     }
 
     for (const path of line.paths) {
@@ -238,9 +242,13 @@ export function prepare(data) {
         trips,
         maxDuration,
         rgb,
+        first: poolEnds[(poolBase + path.c) * 2],
+        last: poolEnds[(poolBase + path.c) * 2 + 1],
       });
     }
   }
+
+  const handovers = linkTerminals(paths);
 
   // Pad the atlas to whole rows: texImage2D wants the full rectangle.
   const atlasRows = Math.max(1, Math.ceil(vertexCount / ATLAS_WIDTH));
@@ -262,12 +270,82 @@ export function prepare(data) {
     paths,
     lines,
     lineKeys,
+    handovers,
     // Round inwards to whole minutes so both ends have a train on the move.
     window: {
       start: Math.ceil(firstStart / 60) * 60,
       end: Math.floor(lastEnd / 60) * 60,
     },
   };
+}
+
+// Neither `block_id` nor anything else in the packed timetable says which train
+// turns back into which, but it does not have to: a terminus is a single point
+// shared by both directions, and both platform stops sit on it, so the trip that
+// arrives there and the trip that leaves from there minutes later are the same
+// vehicle. Pair them one departure per arrival, newest waiting train first, so
+// the overlay can hold that train at the platform instead of fading it out and
+// fading its successor in on the same spot.
+const HANDOVER_GAP = 600;
+
+function linkTerminals(paths) {
+  const terminalKey = (point) => `${point[0].toFixed(5)},${point[1].toFixed(5)}`;
+  const terminals = new Map();
+  const terminalAt = (point) => {
+    const key = terminalKey(point);
+    let terminal = terminals.get(key);
+    if (!terminal) terminals.set(key, (terminal = { arrivals: [], departures: [] }));
+    return terminal;
+  };
+  for (const path of paths) {
+    const end = terminalAt(path.last);
+    const start = terminalAt(path.first);
+    for (const trip of path.trips) {
+      end.arrivals.push(trip);
+      start.departures.push(trip);
+    }
+  }
+
+  let handovers = 0;
+  for (const { arrivals, departures } of terminals.values()) {
+    if (!arrivals.length || !departures.length) continue;
+    const endOf = (trip) => trip.start + trip.duration;
+    arrivals.sort((a, b) => endOf(a) - endOf(b));
+    departures.sort((a, b) => a.start - b.start);
+    // Trains standing at the platform that no departure has claimed yet, oldest
+    // first, so the newest one is the nearest match.
+    const waiting = new Map();
+    let next = 0;
+    for (const departure of departures) {
+      while (next < arrivals.length && endOf(arrivals[next]) <= departure.start) {
+        const arrival = arrivals[next++];
+        const queue = waiting.get(arrival.service);
+        if (queue) queue.push(arrival);
+        else waiting.set(arrival.service, [arrival]);
+      }
+      const queue = waiting.get(departure.service);
+      if (!queue) continue;
+      while (queue.length && departure.start - endOf(queue[queue.length - 1]) > HANDOVER_GAP) {
+        queue.pop();
+      }
+      const arrival = queue.pop();
+      if (!arrival) continue;
+      arrival.next = departure.start;
+      departure.prev = true;
+      handovers++;
+    }
+  }
+
+  // Held trips are on screen for longer than their own duration, so the active
+  // list's look-back has to cover the whole span.
+  for (const path of paths) {
+    for (const trip of path.trips) {
+      if (trip.next && trip.next - trip.start > path.maxDuration) {
+        path.maxDuration = trip.next - trip.start;
+      }
+    }
+  }
+  return handovers;
 }
 
 // Last index whose start is <= seconds, or -1.
@@ -309,7 +387,14 @@ export function buildInstances(
       const trip = path.trips[i];
       if (!services.has(trip.service)) continue;
       const elapsed = seconds - trip.start;
-      if (elapsed > trip.duration + fadeSeconds) continue;
+      // A train that hands over to another trip stands at the platform until
+      // that trip departs; the next one takes over at the same point with no
+      // fade on either side. Everything else fades out after its own duration.
+      // Both spans are inclusive, so the handover second draws both at the
+      // same spot (the counts count both trips for that second, as the
+      // timetable does) and neither is ever missing.
+      const until = trip.next ? trip.next - trip.start : trip.duration + fadeSeconds;
+      if (elapsed > until) continue;
       if (count >= capacity) return count;
       const o = count * INSTANCE_STRIDE;
       out[o] = path.poolId;
@@ -320,6 +405,7 @@ export function buildInstances(
       out[o + 5] = path.rgb[0];
       out[o + 6] = path.rgb[1];
       out[o + 7] = path.rgb[2];
+      out[o + 8] = (trip.prev ? 1 : 0) | (trip.next ? 2 : 0);
       count++;
       if (counts && elapsed >= 0 && elapsed <= trip.duration) {
         counts[path.key] = (counts[path.key] || 0) + 1;
@@ -337,6 +423,7 @@ precision highp sampler2D;
 layout(location = 0) in vec2 aCorner;
 layout(location = 1) in vec4 aTrip;  // poolId, start, duration, profileRow
 layout(location = 2) in vec4 aTrip2; // stopCount, r, g, b
+layout(location = 3) in float aHandover; // 1 continues from, 2 continues into
 
 uniform mat3 uProjection;
 uniform vec2 uCenter;
@@ -387,6 +474,13 @@ void main() {
   float elapsed = uTime - aTrip.y;
   float enter = clamp(elapsed / uFade, 0.0, 1.0);
   float leave = clamp((elapsed - aTrip.z) / uFade, 0.0, 1.0);
+  // At a terminus the same train turns back into the next trip: hold it at the
+  // platform at full size and let the successor carry on from that point, with
+  // no fade out here and no fade in there. The successor is only prefetched a
+  // little early, so it still stays invisible until its own departure.
+  int handover = int(aHandover + 0.5);
+  if ((handover & 1) != 0 && elapsed >= 0.0) enter = 1.0;
+  if ((handover & 2) != 0) leave = 0.0;
   float alpha = smoothstep(0.0, 1.0, enter) * (1.0 - smoothstep(0.0, 1.0, leave));
   alpha *= smoothstep(0.0, 1.0, uReveal);
 
@@ -729,6 +823,9 @@ export function createTrainOverlay(map, prepared) {
     gl.enableVertexAttribArray(2);
     gl.vertexAttribPointer(2, 4, gl.FLOAT, false, stride, 16);
     gl.vertexAttribDivisor(2, 1);
+    gl.enableVertexAttribArray(3);
+    gl.vertexAttribPointer(3, 1, gl.FLOAT, false, stride, 32);
+    gl.vertexAttribDivisor(3, 1);
 
     gl.bindVertexArray(null);
     gl.bindTexture(gl.TEXTURE_2D, null);
@@ -899,6 +996,7 @@ export function createTrainOverlay(map, prepared) {
           maxStops: prepared.maxStops,
         },
         maxInstances: capacity,
+        handovers: prepared.handovers,
       };
     },
   };
