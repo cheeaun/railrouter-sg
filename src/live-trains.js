@@ -70,6 +70,19 @@ function contrastInk(hex) {
   return luminance > 0.35 ? '#111' : '#fff';
 }
 
+// The five LRT loops share #748477. A low-chroma line colour like that gets a
+// single chart band, so the five indistinguishable grays don't stack five times.
+function isGrayColor(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  const r = (n >> 16) & 255;
+  const g = (n >> 8) & 255;
+  const b = n & 255;
+  const max = Math.max(r, g, b);
+  return max === 0 || (max - Math.min(r, g, b)) / max < 0.2;
+}
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
 // The moment in Singapore, measured in seconds along the current service day.
 // Before the cutoff the clock is still counting up yesterday's timetable, so
 // seconds runs past 86400 and the date/weekday point at yesterday.
@@ -173,6 +186,7 @@ export function createLiveTrains(map) {
     panel: document.getElementById('trains-time'),
     slider: document.getElementById('trains-time-slider'),
     sliderWrap: document.getElementById('trains-time-slider-wrap'),
+    sliderChart: document.getElementById('trains-time-slider-chart'),
     sliderLabels: document.getElementById('trains-time-slider-labels'),
     day: document.getElementById('trains-time-day'),
     field: document.getElementById('trains-time-field'),
@@ -195,12 +209,101 @@ export function createLiveTrains(map) {
     return max > min ? { min, max } : null;
   };
 
-  // Fill the played part of the rail. `--fill` is read by the track gradient.
-  const syncSliderFill = (minute) => {
-    const bounds = sliderBounds();
-    if (!ui.slider || !bounds) return;
-    const percent = ((minute - bounds.min) / (bounds.max - bounds.min)) * 100;
-    ui.slider.style.setProperty('--fill', `${Math.min(100, Math.max(0, percent))}%`);
+  // Draw the day's running-train profile behind the scale. Trips are bucketed
+  // per minute into a difference array, then accumulated into stacked bands
+  // (one per line, with the gray LRT loops merged) so the chart's top edge is
+  // the fleet total at that minute.
+  const buildSliderChart = () => {
+    const chart = ui.sliderChart;
+    if (!chart || !state.prepared) return;
+    const { start, end } = state.window;
+    const minutes = Math.max(1, Math.round((end - start) / 60));
+
+    const groups = new Map();
+    for (const key of state.prepared.lineKeys) {
+      const line = state.prepared.lines[key];
+      const groupKey = isGrayColor(line.color) ? 'gray' : key;
+      const group = groups.get(groupKey);
+      if (group) {
+        group.order = Math.min(group.order, line.order);
+      } else {
+        groups.set(groupKey, {
+          color: line.color,
+          order: line.order,
+          values: new Float32Array(minutes + 1),
+        });
+      }
+    }
+
+    const offsetMinutes = start / 60;
+    for (const path of state.prepared.paths) {
+      const line = state.prepared.lines[path.key];
+      if (!line) continue;
+      const group = groups.get(isGrayColor(line.color) ? 'gray' : path.key);
+      if (!group) continue;
+      for (const trip of path.trips) {
+        if (!state.services.has(trip.service)) continue;
+        const from = Math.max(0, Math.min(minutes, Math.floor(trip.start / 60 - offsetMinutes)));
+        const to = Math.max(
+          0,
+          Math.min(minutes, Math.ceil((trip.start + trip.duration) / 60 - offsetMinutes)),
+        );
+        if (to <= from) continue;
+        group.values[from] += 1;
+        group.values[to] -= 1;
+      }
+    }
+
+    const series = [...groups.values()].sort((a, b) => a.order - b.order);
+    const totals = new Float32Array(minutes + 1);
+    for (const group of series) {
+      let running = 0;
+      for (let i = 0; i <= minutes; i++) {
+        running += group.values[i];
+        group.values[i] = running;
+        totals[i] += running;
+      }
+    }
+    let peak = 0;
+    for (let i = 0; i <= minutes; i++) if (totals[i] > peak) peak = totals[i];
+    if (!peak) {
+      chart.replaceChildren();
+      return;
+    }
+
+    // About sixty samples is plenty for a strip this wide; keeping the path
+    // coordinates whole numbers keeps the markup compact.
+    const stride = Math.max(1, Math.round(minutes / 60));
+    const xs = [];
+    for (let x = 0; x < minutes; x += stride) xs.push(x);
+    xs.push(minutes);
+
+    const height = 100;
+    const headroom = 6;
+    const y = (value) => Math.round(height - (value / peak) * (height - headroom));
+    const fragment = document.createDocumentFragment();
+    const below = new Float32Array(minutes + 1);
+    const above = new Float32Array(minutes + 1);
+    for (const group of series) {
+      let banded = false;
+      for (let i = 0; i <= minutes; i++) {
+        above[i] = below[i] + group.values[i];
+        if (group.values[i]) banded = true;
+      }
+      if (banded) {
+        let d = '';
+        for (const x of xs) d += `${d ? 'L' : 'M'}${x},${y(above[x])}`;
+        for (let i = xs.length - 1; i >= 0; i--) d += `L${xs[i]},${y(below[xs[i]])}`;
+        const area = document.createElementNS(SVG_NS, 'path');
+        area.setAttribute('d', `${d}Z`);
+        area.setAttribute('fill', group.color);
+        area.setAttribute('fill-opacity', '0.5');
+        fragment.append(area);
+      }
+      below.set(above);
+    }
+    chart.setAttribute('viewBox', `0 0 ${minutes} ${height}`);
+    chart.replaceChildren(fragment);
   };
 
   // A clock-time label for the scale, e.g. "5am", "12pm" or "6:30pm".
@@ -213,7 +316,7 @@ export function createLiveTrains(map) {
     return mins === 0 ? `${hour12}${suffix}` : `${hour12}:${String(mins).padStart(2, '0')}${suffix}`;
   };
 
-  // The scale under the rail: the timetable window's ends plus noon, 6pm and
+  // The scale inside the bar: the timetable window's ends plus noon, 6pm and
   // midnight when they fall inside it. Labels are placed by value, so they
   // move with the window if the feed changes.
   const buildSliderLabels = () => {
@@ -263,7 +366,9 @@ export function createLiveTrains(map) {
     if (!container || !container.getBoundingClientRect().width) return;
     const kept = [];
     for (const el of [...container.children]) {
-      const rect = el.getBoundingClientRect();
+      // Marks are zero-width anchors; the label holds the visible width.
+      const label = el.querySelector('.trains-slider-label') || el;
+      const rect = label.getBoundingClientRect();
       while (kept.length && rect.left < kept[kept.length - 1].rect.right + 4) {
         if (el.classList.contains('is-end')) kept.pop().el.remove();
         else {
@@ -273,17 +378,6 @@ export function createLiveTrains(map) {
       }
       if (el.isConnected) kept.push({ el, rect });
     }
-  };
-
-  // Set the range value from a horizontal position, in the range's own units.
-  const seekToX = (clientX) => {
-    const bounds = sliderBounds();
-    if (!ui.slider || !bounds) return;
-    const rect = ui.slider.getBoundingClientRect();
-    if (!rect.width) return;
-    const fraction = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
-    ui.slider.value = String(Math.round(bounds.min + fraction * (bounds.max - bounds.min)));
-    ui.slider.dispatchEvent(new Event('input', { bubbles: true }));
   };
 
   const syncSpeedButton = () => {
@@ -348,7 +442,6 @@ export function createLiveTrains(map) {
     if (shownMinute !== state.shownMinute) {
       state.shownMinute = shownMinute;
       ui.slider.value = String(shownMinute);
-      syncSliderFill(shownMinute);
     }
     const shownSecond = Math.floor(seconds);
     if (shownSecond !== state.shownSecond) {
@@ -557,6 +650,7 @@ export function createLiveTrains(map) {
       state.nowMinute = -1;
       state.rebuildSecond = -1;
       state.rebuildAt = 0;
+      buildSliderChart();
       syncDayUi();
     }
     renderAt(seconds);
@@ -647,20 +741,24 @@ export function createLiveTrains(map) {
     state.raf = requestAnimationFrame(tick);
   };
 
+  // Freeze the clock at the time on screen. Picking a day or starting to edit
+  // the time field should not let the value move underneath the user; the Live
+  // button is the way back to the real clock. Returns whether anything changed;
+  // callers redraw once with their new state.
+  const pausePlayback = () => {
+    if (state.mode === 'manual') return false;
+    if (state.mode === 'now') state.picked = clock().seconds;
+    state.mode = 'manual';
+    state.rendered = null;
+    return true;
+  };
+
   if (ui.slider) {
     ui.slider.addEventListener('input', () => {
       state.mode = 'manual';
       state.picked = Number(ui.slider.value) * 60;
       state.rendered = null;
       redraw();
-    });
-  }
-  // The tick labels sit over the lower part of the slider, so a tap there can
-  // seek instead of hitting a dead zone.
-  if (ui.sliderLabels) {
-    ui.sliderLabels.addEventListener('pointerdown', (event) => {
-      event.preventDefault();
-      seekToX(event.clientX);
     });
   }
   // Pick a time directly. The field covers 00:00–23:59 while the timetable
@@ -682,11 +780,17 @@ export function createLiveTrains(map) {
       redraw();
     };
     ui.field.addEventListener('change', pick);
+    // Focusing the field means the user is about to change the time; stop the
+    // clock first so the value they are editing stays put.
+    ui.field.addEventListener('focus', () => {
+      if (pausePlayback()) redraw();
+    });
   }
   if (ui.day) {
     ui.day.addEventListener('change', () => {
       const dayType = ui.day.value;
       if (dayType !== 'weekdays' && dayType !== 'saturdays' && dayType !== 'holidays') return;
+      pausePlayback();
       state.dayOverride = dayType;
       state.serviceKey = '';
       state.rendered = null;
@@ -766,7 +870,6 @@ export function createLiveTrains(map) {
             ui.slider.max = String(Math.ceil(state.window.end / 60));
           }
           buildSliderLabels();
-          syncSliderFill(Math.floor(state.window.start / 60));
           return data;
         })
         .catch((error) => {

@@ -694,8 +694,8 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   cursor: pointer;
   field-sizing: content;
 }
-/* Playback row: the slider takes the space left by the play and speed
-   buttons, so the row spans the panel instead of leaving a gap. */
+/* Playback row: the slider takes the space left by the play/speed column, so
+   the row spans the panel instead of leaving a gap. */
 #trains-time-controls {
   display: flex;
   flex-wrap: wrap;
@@ -705,111 +705,141 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   min-width: 0;
   max-width: 100%;
 }
-/* The slider and its scale share one box: the range fills it, and the tick
-   labels are overlaid on its lower edge, so a tap anywhere on the scale still
-   seeks (the label layer forwards the pointer to the range). */
+/* The slider is a single square bar: the range fills the box, the scale and
+   the day's train profile are drawn inside it, and the thumb is a playhead
+   line that spans the full height. The edge ticks act as side borders. */
 #trains-time-slider-wrap {
+  --slider-height: 52px;
   position: relative;
   flex: 1 1 auto;
   min-width: 90px;
-  display: flex;
-  align-items: center;
+  height: var(--slider-height);
+  overflow: hidden;
+}
+/* Stacked area chart of running trains per line, drawn behind the scale. Each
+   band is the line colour at half opacity; the gray LRT loops share one band. */
+#trains-time-slider-chart {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 #trains-time-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  height: 34px;
+  height: 100%;
   margin: 0;
   padding: 0;
+  border: 0;
   background: transparent;
   cursor: pointer;
 }
-/* Track: a thin rail with the played portion filled in teal. --fill is set by
-   the runtime whenever the selected minute changes. */
+/* The track is invisible: the chart and the edge ticks define the bar. */
 #trains-time-slider::-webkit-slider-runnable-track {
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    teal var(--fill, 0%),
-    rgba(0, 69, 77, 0.15) var(--fill, 0%)
-  );
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
 }
 #trains-time-slider::-moz-range-track {
-  height: 4px;
-  border-radius: 999px;
-  background-color: rgba(0, 69, 77, 0.15);
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
 }
 #trains-time-slider::-moz-range-progress {
-  height: 4px;
-  border-radius: 999px;
-  background-color: teal;
+  height: 100%;
+  background: transparent;
 }
-/* Thumb: a single caret-like vertical line instead of a knob. */
+/* Thumb: a single full-height playhead line. */
 #trains-time-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 3px;
-  height: 16px;
-  margin-top: -6px;
+  width: 2px;
+  height: var(--slider-height);
+  margin-top: 0;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   background-color: #00454d;
 }
 #trains-time-slider::-moz-range-thumb {
-  width: 3px;
-  height: 16px;
+  width: 2px;
+  height: var(--slider-height);
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   background-color: #00454d;
 }
+/* Focus the whole bar where :has is supported; browsers without it still get
+   an outline on the range itself. */
 #trains-time-slider:focus-visible {
   outline: 2px solid rgba(0, 128, 128, 0.5);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 0;
 }
-/* Tick scale under the rail. It sits inside the range's hit area, so tapping
-   a label seeks to that point rather than doing nothing. */
+#trains-time-slider-wrap:has(#trains-time-slider:focus-visible) {
+  outline: 2px solid rgba(0, 128, 128, 0.5);
+  outline-offset: 2px;
+}
+#trains-time-slider-wrap:has(#trains-time-slider:focus-visible) #trains-time-slider {
+  outline: none;
+}
+/* Tick scale inside the bar. Marks are zero-width anchors at their minute:
+   the tick runs the full height and the label sits at the bottom. Taps fall
+   through to the range beneath, so clicking anywhere on the bar seeks. */
 #trains-time-slider-labels {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 12px;
-  cursor: pointer;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
   font-size: 9px;
   line-height: 1;
-  color: #777;
+  color: #00454d;
   user-select: none;
   -webkit-user-select: none;
 }
 .trains-slider-mark {
   position: absolute;
   top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  transform: translateX(-50%);
-}
-/* Edge labels hug the ends instead of overhanging the panel. */
-.trains-slider-mark.is-start {
-  align-items: flex-start;
-  transform: none;
-}
-.trains-slider-mark.is-end {
-  align-items: flex-end;
-  transform: translateX(-100%);
+  bottom: 0;
+  width: 0;
 }
 .trains-slider-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
   width: 1px;
-  height: 3px;
-  background-color: rgba(0, 69, 77, 0.35);
+  background-color: rgba(0, 69, 77, 0.5);
+}
+/* Edge ticks sit on the box's edges and act as its side borders. */
+.trains-slider-mark.is-start .trains-slider-tick {
+  left: 0;
+}
+.trains-slider-mark.is-end .trains-slider-tick {
+  left: -1px;
 }
 .trains-slider-label {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  transform: translateX(-50%);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+}
+/* Edge labels hug the ends instead of overhanging the panel. */
+.trains-slider-mark.is-start .trains-slider-label {
+  left: 4px;
+  transform: none;
+}
+.trains-slider-mark.is-end .trains-slider-label {
+  right: 4px;
+  left: auto;
+  transform: none;
 }
 #trains-time-field {
   flex-shrink: 0;
@@ -941,11 +971,14 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   margin-left: 1px;
 }
 
-/* Speed and Now share one group so they wrap together, never splitting. */
+/* Play and speed stack in one column, using the taller slider's height instead
+   of leaving dead space beside the controls. */
 #trains-time-actions {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 3px;
   flex-shrink: 0;
 }
 
