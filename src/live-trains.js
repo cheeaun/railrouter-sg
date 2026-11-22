@@ -24,10 +24,23 @@ const NOW_SLOW_MS = 1000 / 10; // zoomed out
 const NOW_MID_ZOOM = 15; // below this, 10fps is imperceptible
 const NOW_FAST_ZOOM = 18; // above this, 60fps keeps the step under a pixel
 
-// Playback speed, in simulated seconds per real second. 60 = one simulated
-// minute per real second, so a full day takes 24 real minutes.
-const PLAY_SPEED = 60;
+// Playback speed in simulated seconds per real second. 60 = one simulated
+// minute per real second, 30 = half that pace.
+const PLAY_SPEED_SLOW = 30;
+const PLAY_SPEED_MEDIUM = 60;
+const PLAY_SPEED_FAST = 120;
+const PLAY_SPEED_FASTER = 240;
 const END_HOLD_MS = 1500;
+
+function nextPlaySpeed(speed) {
+  return speed === PLAY_SPEED_SLOW
+    ? PLAY_SPEED_MEDIUM
+    : speed === PLAY_SPEED_MEDIUM
+      ? PLAY_SPEED_FAST
+      : speed === PLAY_SPEED_FAST
+        ? PLAY_SPEED_FASTER
+        : PLAY_SPEED_SLOW;
+}
 
 const DEBUG_TRAINS = new URLSearchParams(location.search).has('trainsdebug');
 // Wall-clock interval between overlay active-trip list rebuilds.
@@ -131,8 +144,8 @@ export function createLiveTrains(map) {
     shownMinute: -1,
     nowHasTrains: true,
     window: { start: 0, end: 86400 },
-    // Multiplier on PLAY_SPEED; 1x is the default pace.
-    speed: 1,
+    // Simulated seconds per real second; 30x is the default pace.
+    speed: PLAY_SPEED_SLOW,
     // True while not following the real clock; drives hiding of crowd markers.
     busy: false,
     // Wall-clock start of the reveal fade when the layer is shown.
@@ -162,8 +175,8 @@ export function createLiveTrains(map) {
 
   const syncSpeedButton = () => {
     if (!ui.speed) return;
-    ui.speed.textContent = state.speed === 0.5 ? '0.5x' : '1x';
-    const title = state.speed === 0.5 ? 'Switch to 1x speed' : 'Switch to 0.5x speed';
+    ui.speed.textContent = `${state.speed}x`;
+    const title = `Switch to ${nextPlaySpeed(state.speed)}x speed`;
     ui.speed.title = title;
     ui.speed.setAttribute('aria-label', title);
   };
@@ -366,7 +379,7 @@ export function createLiveTrains(map) {
   const renderAt = (seconds) => {
     if (!overlay) return;
     const now = performance.now();
-    const speedFactor = state.mode === 'playing' ? PLAY_SPEED * state.speed : 1;
+    const speedFactor = state.mode === 'playing' ? state.speed : 1;
     // Fades are wall-clock in this app; the shader works in simulated seconds,
     // so scale by the playback rate. With a frozen clock there is no fade time
     // to spend, so make fades effectively instant.
@@ -453,7 +466,7 @@ export function createLiveTrains(map) {
     const delta = Math.min((now - state.lastAdvance) / 1000, 0.5);
     state.lastAdvance = now;
     if (state.mode === 'playing') {
-      state.picked += delta * PLAY_SPEED * state.speed;
+      state.picked += delta * state.speed;
       if (state.picked >= state.window.end) {
         state.picked = state.window.end;
         state.mode = 'holding';
@@ -564,7 +577,7 @@ export function createLiveTrains(map) {
   if (ui.speed) {
     ui.speed.addEventListener('click', () => {
       if (state.mode !== 'playing') return;
-      state.speed = state.speed === 1 ? 0.5 : 1;
+      state.speed = nextPlaySpeed(state.speed);
       syncSpeedButton();
     });
   }
