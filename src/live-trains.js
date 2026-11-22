@@ -80,21 +80,25 @@ function clock() {
   };
 }
 
-// Service-day seconds -> "HH:MM" on a 24-hour clock. Times past midnight
-// (a service day runs on to ~25:00) wrap, so 24:30 renders as "00:30".
+// Service-day seconds -> "HH:MM:SS" on a 24-hour clock. Times past midnight
+// (a service day runs on to ~25:00) wrap, so 24:30:15 renders as "00:30:15".
 function toTimeValue(seconds) {
-  const minutes = Math.round(seconds / 60) % (24 * 60);
-  return `${String(Math.floor(minutes / 60)).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+  const total = Math.round(seconds) % (24 * 60 * 60);
+  const hours = Math.floor(total / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 }
 
-// "HH:MM" from an <input type="time"> -> service-day seconds. The service day
-// starts just after midnight, so early-morning wall-clock times belong to the
-// same (previous) service day and count past 86400, exactly like the clock.
+// "HH:MM" or "HH:MM:SS" from an <input type="time"> -> service-day seconds.
+// The service day starts just after midnight, so early-morning wall-clock
+// times belong to the same (previous) service day and count past 86400, exactly
+// like the clock.
 function fromTimeValue(value) {
-  const [hours, minutes] = value.split(':').map(Number);
-  const seconds = hours * 3600 + minutes * 60;
+  const [hours, minutes, seconds = 0] = value.split(':').map(Number);
+  const total = hours * 3600 + minutes * 60 + seconds;
   // SERVICE_DAY_CUTOFF is in seconds; compare in the same unit.
-  return seconds < SERVICE_DAY_CUTOFF ? seconds + 86400 : seconds;
+  return total < SERVICE_DAY_CUTOFF ? total + 86400 : total;
 }
 
 function runningServices(services, { day, weekday }) {
@@ -139,9 +143,11 @@ export function createLiveTrains(map) {
     lastAdvance: 0,
     holdUntil: 0,
     nowMinute: -1,
-    // Last whole-minute value written to the scrubber/label, so per-frame
-    // frames do not touch the DOM when the minute has not changed.
+    // Last whole-minute value written to the scrubber and last whole-second
+    // value written to the time field, so per-frame updates do not touch the
+    // DOM when the displayed value has not changed.
     shownMinute: -1,
+    shownSecond: -1,
     nowHasTrains: true,
     window: { start: 0, end: 86400 },
     // Simulated seconds per real second; 30x is the default pace.
@@ -160,6 +166,8 @@ export function createLiveTrains(map) {
   const ui = {
     panel: document.getElementById('trains-time'),
     slider: document.getElementById('trains-time-slider'),
+    sliderWrap: document.getElementById('trains-time-slider-wrap'),
+    sliderLabels: document.getElementById('trains-time-slider-labels'),
     day: document.getElementById('trains-time-day'),
     field: document.getElementById('trains-time-field'),
     reset: document.getElementById('trains-time-now'),
@@ -172,6 +180,104 @@ export function createLiveTrains(map) {
   const syncDayUi = () => {
     if (!ui.day || !state.dayType) return;
     if (ui.day.value !== state.dayType) ui.day.value = state.dayType;
+  };
+
+  const sliderBounds = () => {
+    if (!ui.slider) return null;
+    const min = Number(ui.slider.min);
+    const max = Number(ui.slider.max);
+    return max > min ? { min, max } : null;
+  };
+
+  // Fill the played part of the rail. `--fill` is read by the track gradient.
+  const syncSliderFill = (minute) => {
+    const bounds = sliderBounds();
+    if (!ui.slider || !bounds) return;
+    const percent = ((minute - bounds.min) / (bounds.max - bounds.min)) * 100;
+    ui.slider.style.setProperty('--fill', `${Math.min(100, Math.max(0, percent))}%`);
+  };
+
+  // A clock-time label for the scale, e.g. "5am", "12pm" or "6:30pm".
+  const formatMark = (minutes) => {
+    const total = minutes % (24 * 60);
+    const hours = Math.floor(total / 60);
+    const mins = total % 60;
+    const hour12 = hours % 12 === 0 ? 12 : hours % 12;
+    const suffix = hours < 12 ? 'am' : 'pm';
+    return mins === 0 ? `${hour12}${suffix}` : `${hour12}:${String(mins).padStart(2, '0')}${suffix}`;
+  };
+
+  // The scale under the rail: the timetable window's ends plus noon, 6pm and
+  // midnight when they fall inside it. Labels are placed by value, so they
+  // move with the window if the feed changes.
+  const buildSliderLabels = () => {
+    if (!ui.sliderLabels) return;
+    const bounds = sliderBounds();
+    if (!bounds) {
+      ui.sliderLabels.replaceChildren();
+      return;
+    }
+    const span = bounds.max - bounds.min;
+    const marks = [];
+    const add = (minute, edge) => {
+      if (minute < bounds.min || minute > bounds.max) return;
+      const percent = ((minute - bounds.min) / span) * 100;
+      // Skip a label that would collide with one already placed.
+      if (marks.some((mark) => Math.abs(mark.percent - percent) < 3)) return;
+      marks.push({ percent, label: formatMark(minute), edge });
+    };
+    add(bounds.min, 'start');
+    add(bounds.max, 'end');
+    add(12 * 60);
+    add(18 * 60);
+    add(24 * 60);
+    marks.sort((a, b) => a.percent - b.percent);
+    const fragment = document.createDocumentFragment();
+    for (const mark of marks) {
+      const el = document.createElement('span');
+      el.className = 'trains-slider-mark';
+      el.style.left = `${mark.percent}%`;
+      if (mark.edge) el.classList.add(`is-${mark.edge}`);
+      const tick = document.createElement('i');
+      tick.className = 'trains-slider-tick';
+      const label = document.createElement('span');
+      label.className = 'trains-slider-label';
+      label.textContent = mark.label;
+      el.append(tick, label);
+      fragment.append(el);
+    }
+    ui.sliderLabels.replaceChildren(fragment);
+    cullOverlappingMarks();
+  };
+
+  // Once laid out, drop labels that would overlap a neighbour. The window's
+  // ends win: a fixed mark next to an edge label is the one removed.
+  const cullOverlappingMarks = () => {
+    const container = ui.sliderLabels;
+    if (!container || !container.getBoundingClientRect().width) return;
+    const kept = [];
+    for (const el of [...container.children]) {
+      const rect = el.getBoundingClientRect();
+      while (kept.length && rect.left < kept[kept.length - 1].rect.right + 4) {
+        if (el.classList.contains('is-end')) kept.pop().el.remove();
+        else {
+          el.remove();
+          break;
+        }
+      }
+      if (el.isConnected) kept.push({ el, rect });
+    }
+  };
+
+  // Set the range value from a horizontal position, in the range's own units.
+  const seekToX = (clientX) => {
+    const bounds = sliderBounds();
+    if (!ui.slider || !bounds) return;
+    const rect = ui.slider.getBoundingClientRect();
+    if (!rect.width) return;
+    const fraction = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+    ui.slider.value = String(Math.round(bounds.min + fraction * (bounds.max - bounds.min)));
+    ui.slider.dispatchEvent(new Event('input', { bubbles: true }));
   };
 
   const syncSpeedButton = () => {
@@ -229,12 +335,18 @@ export function createLiveTrains(map) {
     if (!ui.panel) return;
     ui.panel.hidden = !state.visible;
     if (!state.visible) return;
-    // The slider and time field only show whole minutes, so writing them every
-    // frame is wasted layout/paint work; update only when the minute changes.
+    // The slider only moves in whole minutes, while the time field shows
+    // seconds, so each is updated on its own boundary. Writing every frame is
+    // wasted layout/paint work.
     const shownMinute = Math.floor(seconds / 60);
     if (shownMinute !== state.shownMinute) {
       state.shownMinute = shownMinute;
       ui.slider.value = String(shownMinute);
+      syncSliderFill(shownMinute);
+    }
+    const shownSecond = Math.floor(seconds);
+    if (shownSecond !== state.shownSecond) {
+      state.shownSecond = shownSecond;
       const value = toTimeValue(seconds);
       // Do not clobber a field the user is editing.
       if (ui.field && ui.field.value !== value && ui.field !== document.activeElement) {
@@ -535,13 +647,21 @@ export function createLiveTrains(map) {
       redraw();
     });
   }
+  // The tick labels sit over the lower part of the slider, so a tap there can
+  // seek instead of hitting a dead zone.
+  if (ui.sliderLabels) {
+    ui.sliderLabels.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      seekToX(event.clientX);
+    });
+  }
   // Pick a time directly. The field covers 00:00–23:59 while the timetable
   // window is only part of that, so an out-of-hours (or blank/invalid) value
   // is clamped to the nearest end the slider can actually reach.
   if (ui.field) {
     const pick = () => {
       const value = ui.field.value;
-      const valid = /^\d{2}:\d{2}$/.test(value);
+      const valid = /^\d{2}:\d{2}(:\d{2})?$/.test(value);
       const raw = valid ? fromTimeValue(value) : clock().seconds;
       const clamped = Math.min(state.window.end, Math.max(state.window.start, raw));
       state.mode = 'manual';
@@ -549,6 +669,7 @@ export function createLiveTrains(map) {
       // Force the next sync to repaint the slider and field, even if the whole
       // minute happens to match the last one shown.
       state.shownMinute = -1;
+      state.shownSecond = -1;
       state.rendered = null;
       redraw();
     };
@@ -636,6 +757,8 @@ export function createLiveTrains(map) {
             ui.slider.min = String(Math.floor(state.window.start / 60));
             ui.slider.max = String(Math.ceil(state.window.end / 60));
           }
+          buildSliderLabels();
+          syncSliderFill(Math.floor(state.window.start / 60));
           return data;
         })
         .catch((error) => {
@@ -657,6 +780,7 @@ export function createLiveTrains(map) {
     state.dayType = '';
     state.nowMinute = -1;
     state.shownMinute = -1;
+    state.shownSecond = -1;
     state.busy = false;
     document.body.classList.remove('trains-busy');
     // Start with a short reveal fade so the whole fleet does not pop in.
@@ -666,6 +790,8 @@ export function createLiveTrains(map) {
     state.rebuildSecond = -1;
     state.rebuildAt = 0;
     redraw();
+    // The panel is visible now, so labels can be measured and de-overlapped.
+    buildSliderLabels();
     return true;
   };
 
@@ -681,6 +807,7 @@ export function createLiveTrains(map) {
     cancelAnimationFrame(state.raf);
     state.raf = 0;
     state.shownMinute = -1;
+    state.shownSecond = -1;
     instanceCount = 0;
     state.revealStart = 0;
     if (overlay) {

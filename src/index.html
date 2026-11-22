@@ -96,8 +96,8 @@
     <input
       id="trains-time-field"
       type="time"
-      step="60"
-      value="00:00"
+      step="1"
+      value="00:00:00"
       aria-label="Selected time"
     />
     <button type="button" id="trains-time-now" disabled><span class="live-text">Live</span></button>
@@ -111,15 +111,18 @@
         <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
       </svg>
     </button>
-    <input
-      id="trains-time-slider"
-      type="range"
-      min="0"
-      max="1439"
-      step="1"
-      value="0"
-      aria-label="Time of day"
-    />
+    <div id="trains-time-slider-wrap">
+      <input
+        id="trains-time-slider"
+        type="range"
+        min="0"
+        max="1439"
+        step="1"
+        value="0"
+        aria-label="Time of day"
+      />
+      <div id="trains-time-slider-labels" aria-hidden="true"></div>
+    </div>
     <div id="trains-time-actions">
       <button type="button" id="trains-time-speed" title="Playback speed" disabled>30x</button>
     </div>

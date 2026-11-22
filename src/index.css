@@ -703,20 +703,119 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   min-width: 0;
   max-width: 100%;
 }
-#trains-time-slider {
+/* The slider and its scale share one box: the range fills it, and the tick
+   labels are overlaid on its lower edge, so a tap anywhere on the scale still
+   seeks (the label layer forwards the pointer to the range). */
+#trains-time-slider-wrap {
+  position: relative;
   flex: 1 1 auto;
-  width: auto;
-  max-width: none;
-  min-width: 60px;
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+}
+#trains-time-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 34px;
   margin: 0;
-  accent-color: teal;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+/* Track: a thin rail with the played portion filled in teal. --fill is set by
+   the runtime whenever the selected minute changes. */
+#trains-time-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    teal var(--fill, 0%),
+    rgba(0, 69, 77, 0.15) var(--fill, 0%)
+  );
+}
+#trains-time-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background-color: rgba(0, 69, 77, 0.15);
+}
+#trains-time-slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background-color: teal;
+}
+/* Thumb: a single caret-like vertical line instead of a knob. */
+#trains-time-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 3px;
+  height: 16px;
+  margin-top: -6px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00454d;
+}
+#trains-time-slider::-moz-range-thumb {
+  width: 3px;
+  height: 16px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00454d;
+}
+#trains-time-slider:focus-visible {
+  outline: 2px solid rgba(0, 128, 128, 0.5);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+/* Tick scale under the rail. It sits inside the range's hit area, so tapping
+   a label seeks to that point rather than doing nothing. */
+#trains-time-slider-labels {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  cursor: pointer;
+  font-size: 9px;
+  line-height: 1;
+  color: #777;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.trains-slider-mark {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transform: translateX(-50%);
+}
+/* Edge labels hug the ends instead of overhanging the panel. */
+.trains-slider-mark.is-start {
+  align-items: flex-start;
+  transform: none;
+}
+.trains-slider-mark.is-end {
+  align-items: flex-end;
+  transform: translateX(-100%);
+}
+.trains-slider-tick {
+  width: 1px;
+  height: 3px;
+  background-color: rgba(0, 69, 77, 0.35);
+}
+.trains-slider-label {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 #trains-time-field {
   flex-shrink: 0;
   font: inherit;
   font-weight: bold;
+  font-variant-numeric: tabular-nums;
   color: #00454d;
-  border: 1px solid rgba(0, 69, 77, 0.25);
+  border: 0;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 4px;
@@ -953,7 +1052,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
     font-size: 10px;
   }
   #trains-time-field {
-    width: 7.4em;
+    width: 9.4em;
   }
 }
 
