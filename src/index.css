@@ -907,14 +907,21 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-sizing: border-box;
   width: 28px;
   height: 28px;
   padding: 0;
-  border: 0;
+  /* Idle: white chip with a teal outline and glyph. */
+  border: 1.5px solid teal;
   border-radius: 50%;
+  background-color: #fff;
+  color: teal;
+  cursor: pointer;
+}
+/* Playing: filled teal chip with a white glyph. */
+#trains-time-play.is-playing {
   background-color: teal;
   color: #fff;
-  cursor: pointer;
 }
 #trains-time-play:active {
   filter: brightness(0.85);

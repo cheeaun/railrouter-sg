@@ -383,6 +383,8 @@ export function createLiveTrains(map) {
       playIcons.play.classList.toggle('is-hidden', playing);
       playIcons.pause.classList.toggle('is-hidden', !playing);
     }
+    // Idle is a white chip with a teal glyph; playing flips to a filled chip.
+    if (ui.play) ui.play.classList.toggle('is-playing', playing);
     const playTitle = playing ? 'Pause' : 'Play through the day';
     if (ui.play.title !== playTitle) {
       ui.play.title = playTitle;
