@@ -639,6 +639,11 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   align-items: flex-start;
   gap: 8px;
   max-width: calc(100% - 100px);
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
 }
 
 #trains-time {
@@ -671,7 +676,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
 #trains-time-day {
   flex: 0 1 auto;
   min-width: 0;
-  max-width: 8em;
+  /* max-width: 8em; */
   font: inherit;
   color: #00454d;
   border: 1px solid rgba(0, 69, 77, 0.25);
