@@ -1082,7 +1082,7 @@ const liveTrains = createLiveTrains(map);
 
 class TrainsControl {
   constructor(options) {
-    this.options = { onClick: () => {}, ...options };
+    this.options = { onToggle: async () => false, ...options };
   }
 
   onAdd(map) {
@@ -1099,9 +1099,7 @@ class TrainsControl {
     button.onclick = async () => {
       button.disabled = true;
       try {
-        const active = await liveTrains.toggle();
-        button.classList.toggle('active', active);
-        button.setAttribute('aria-pressed', String(active));
+        this.setActive(await this.options.onToggle());
       } catch (error) {
         console.warn('Could not load the train timetable', error);
       } finally {
@@ -1109,19 +1107,42 @@ class TrainsControl {
       }
     };
     container.appendChild(button);
+    this._button = button;
     this._container = container;
     return this._container;
+  }
+
+  setActive(active) {
+    if (!this._button) return;
+    this._button.classList.toggle('active', active);
+    this._button.setAttribute('aria-pressed', String(active));
   }
 
   onRemove() {
     this._container.parentNode.removeChild(this._container);
     this._map = undefined;
+    this._button = undefined;
   }
 }
-const trainsControl = new TrainsControl();
+const trainsControl = new TrainsControl({
+  onToggle: () => liveTrains.toggle(),
+});
 map.addControl(trainsControl, 'bottom-right');
 // Keep the trains toggle directly below the search button.
 searchControl._container.after(trainsControl._container);
+
+// `/#trains` opens the layer straight away, so the URL can be shared or
+// bookmarked into the trains view.
+const enableTrainsFromHash = async () => {
+  if (liveTrains.visible || location.hash.replace(/^#/, '') !== 'trains') return;
+  try {
+    trainsControl.setActive(await liveTrains.enable());
+  } catch (error) {
+    console.warn('Could not load the train timetable', error);
+  }
+};
+window.addEventListener('hashchange', enableTrainsFromHash);
+enableTrainsFromHash();
 document.onkeydown = (e) => {
   if (/(input|textarea|select)/i.test(e.target.tagName)) return;
   if (e.code.toLowerCase() === 'slash' || e.key === '/' || e.keyCode === 191 || e.which === 191) {

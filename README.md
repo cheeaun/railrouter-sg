@@ -39,7 +39,8 @@ Parcel's default.
 
 ### Scheduled trains
 
-The 🚆 button on the map animates every train on the published timetable.
+The 🚆 button on the map animates every train on the published timetable, and
+`/#trains` opens the layer directly for sharing or bookmarking.
 
 - `npm run gtfs` downloads LTA DataMall's GTFS Schedule (Train) feed and rebuilds
   `src/gtfs-trains.json`. It needs an account key in `LTA_ACCOUNT_KEY` or in
