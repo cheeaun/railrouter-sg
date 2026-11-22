@@ -164,6 +164,12 @@ abbr {
   transform: translateY(-100px) rotate(-90deg);
   opacity: 1;
 }
+/* The station sheet rises from the bottom edge and covers the trains scrubber,
+   so drop the scrubber while the sheet is open instead of leaving it peeking
+   out or fighting the sheet for the same corner. */
+#station.open ~ #bottom-left #trains-time {
+  display: none;
+}
 .sheet h1 {
   color: teal;
   padding: 0;
