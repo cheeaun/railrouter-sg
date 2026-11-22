@@ -372,6 +372,17 @@ vec4 profileAt(int row, int stop) {
   return texelFetch(uProfiles, ivec2(index % PROFILE_W, index / PROFILE_W), 0);
 }
 
+// True when a projected anchor is behind the camera or so far outside the
+// viewport that its quad cannot be visible. Far outside also covers a quad
+// hovering just in front of the horizon, whose tiny positive w lets a corner
+// cross w = 0.
+bool offscreen(vec3 anchor) {
+  if (anchor.z <= 0.0) return true;
+  vec2 css = anchor.xy / anchor.z;
+  return css.x < -uViewport.x || css.x > uViewport.x * 2.0 ||
+         css.y < -uViewport.y || css.y > uViewport.y * 2.0;
+}
+
 void main() {
   float elapsed = uTime - aTrip.y;
   float enter = clamp(elapsed / uFade, 0.0, 1.0);
@@ -441,6 +452,20 @@ void main() {
   vec4 vb = atlasAt(int(offset) + i0 + 1);
   vec2 pos = mix(va.xy, vb.xy, k);
   vec2 dir = normalize(mix(va.zw, vb.zw, k) + vec2(1e-5, 0.0));
+
+  // A pitched camera tilts the ground plane, so everything beyond the horizon
+  // is behind the viewer and its homography w turns negative. Dividing by a
+  // near-zero w mirrors the quad across the screen and stretches it into a
+  // viewport-filling bar; dividing by a negative one flips it. Every corner of
+  // an instance shares the same anchor position, so one test culls all four,
+  // the way MapLibre culls symbols past the horizon. At low pitch or low zoom
+  // the horizon is beyond the network and this never triggers.
+  if (offscreen(uProjection * vec3(pos - uCenter, 1.0))) {
+    gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
+    vLocal = vec2(0.0);
+    vAlpha = 0.0;
+    return;
+  }
 
   vec2 local = aCorner * uBaseSize;
   vec2 rotated = vec2(local.x * dir.x - local.y * dir.y,
