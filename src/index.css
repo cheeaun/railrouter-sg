@@ -1078,6 +1078,12 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   }
 }
 
+@media (min-width: 640px) {
+  #trains-time {
+    width: 500px;
+  }
+}
+
 @media (max-width: 360px) {
   #trains-time {
     gap: 4px;
