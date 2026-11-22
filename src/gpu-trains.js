@@ -415,22 +415,118 @@ export function buildInstances(
   return count;
 }
 
+// The car model, in icon pixels: x runs along the car, y across it and z up
+// from the track point. It is an extruded rounded rectangle, so the roof, the
+// flanks and the nose/tail each take one flat cel tone.
+const CAR_LENGTH = 38;
+const CAR_WIDTH = 16;
+const CAR_HEIGHT = 11;
+const CAR_RADIUS = 4.5;
+const CAR_ARC_STEPS = 6;
+// Screen thickness of the black rim, in icon pixels.
+const CAR_OUTLINE = 2.0;
+
+function buildCarMesh() {
+  const arcX = CAR_LENGTH / 2 - CAR_RADIUS;
+  const arcY = CAR_WIDTH / 2 - CAR_RADIUS;
+  const ring = [];
+  for (let corner = 0; corner < 4; corner++) {
+    const signX = corner === 1 || corner === 2 ? -1 : 1;
+    const signY = corner >= 2 ? -1 : 1;
+    for (let i = 0; i <= CAR_ARC_STEPS; i++) {
+      const angle = ((corner * 90 + (90 * i) / CAR_ARC_STEPS) * Math.PI) / 180;
+      const nx = Math.cos(angle);
+      const ny = Math.sin(angle);
+      ring.push([signX * arcX + nx * CAR_RADIUS, signY * arcY + ny * CAR_RADIUS, nx, ny]);
+    }
+  }
+
+  const data = [];
+  // Outline vertices move along the angle-averaged normal so the expanded
+  // shell stays watertight where the roof meets the wall.
+  const hull = (nx, ny) => {
+    const length = Math.hypot(nx, ny, 1);
+    return [nx / length, ny / length, 1 / length];
+  };
+  // The bottom ring expands down as well as out, mirroring the roof ring. With
+  // only the lateral component the underside rim is a ground-plane offset, and
+  // a pitched camera foreshortens that by sin(pitch); it came out thinner than
+  // the other three sides instead of matching them.
+  const hullDown = (nx, ny) => {
+    const length = Math.hypot(nx, ny, 1);
+    return [nx / length, ny / length, -1 / length];
+  };
+  const vertex = (x, y, z, nx, ny, nz, hx, hy, hz) => {
+    data.push(x, y, z, nx, ny, nz, hx, hy, hz);
+    return data.length / 9 - 1;
+  };
+
+  // Shared vertices plus an index list. The vertex shader does the whole
+  // per-trip job (stop-profile walk, atlas fetch, homography) once per vertex,
+  // so letting the roof fan, the wall top and the wall bottom reuse corners
+  // drops that from 252 runs per car to 85; the GPU's post-transform cache
+  // collapses the repeated indices.
+  const count = ring.length;
+  const roof = ring.map((p) => vertex(p[0], p[1], CAR_HEIGHT, 0, 0, 1, ...hull(p[2], p[3])));
+  const top = ring.map((p) => vertex(p[0], p[1], CAR_HEIGHT, p[2], p[3], 0, ...hull(p[2], p[3])));
+  const bottom = ring.map((p) => vertex(p[0], p[1], 0, p[2], p[3], 0, ...hullDown(p[2], p[3])));
+  const centre = vertex(0, 0, CAR_HEIGHT, 0, 0, 1, 0, 0, 1);
+
+  const index = [];
+  for (let i = 0; i < count; i++) {
+    const j = (i + 1) % count;
+    // Roof fan, then the two wall triangles. Culling is off and the projection
+    // keeps these faces on the outside at every pitch; the wall normals are
+    // per-vertex so the rounded ends shade smooth.
+    index.push(centre, roof[j], roof[i]);
+    index.push(top[i], bottom[j], bottom[i]);
+    index.push(top[i], top[j], bottom[j]);
+  }
+  return { data: new Float32Array(data), index: new Uint16Array(index), count: index.length };
+}
+
+// The flat icon used while the camera is level: one quad, larger than the car
+// so the black ring has room. It is kept in the same buffer as the model so a
+// single VAO can draw either of them.
+const FLAT_QUAD = (() => {
+  const data = [];
+  const vertex = (x, y) => data.push(x, y, 0, 0, 0, 1, 0, 0, 1);
+  vertex(-24, -16);
+  vertex(24, -16);
+  vertex(-24, 16);
+  vertex(24, 16);
+  return { data: new Float32Array(data), index: new Uint16Array([0, 1, 2, 2, 1, 3]), count: 6 };
+})();
+
+const CAR_MESH = buildCarMesh();
+const CAR_VERTICES = new Float32Array([...FLAT_QUAD.data, ...CAR_MESH.data]);
+// Indices address vertices, so the car's list shifts past the flat quad's four.
+const CAR_INDICES = new Uint16Array([
+  ...FLAT_QUAD.index,
+  ...CAR_MESH.index.map((i) => i + FLAT_QUAD.data.length / 9),
+]);
+// Byte offset of the car's indices inside CAR_INDICES.
+const CAR_INDEX_OFFSET = FLAT_QUAD.count * 2;
+
 const vertexShader = (maxStops) => `#version 300 es
 precision highp float;
 precision highp int;
 precision highp sampler2D;
 
-layout(location = 0) in vec2 aCorner;
-layout(location = 1) in vec4 aTrip;  // poolId, start, duration, profileRow
-layout(location = 2) in vec4 aTrip2; // stopCount, r, g, b
-layout(location = 3) in float aHandover; // 1 continues from, 2 continues into
+layout(location = 0) in vec3 aPosition;
+layout(location = 1) in vec3 aNormal;
+layout(location = 2) in vec3 aHullNormal;
+layout(location = 3) in vec4 aTrip;  // poolId, start, duration, profileRow
+layout(location = 4) in vec4 aTrip2; // stopCount, r, g, b
+layout(location = 5) in float aHandover; // 1 continues from, 2 continues into
 
 uniform mat3 uProjection;
 uniform vec2 uCenter;
 uniform vec2 uViewport;
 uniform float uUnitsPerPixel;
 uniform float uScale;
-uniform vec2 uBaseSize;
+uniform float uSinPitch;
+uniform float uHull;
 uniform float uTime;
 uniform float uFade;
 uniform float uAtlasWidth;
@@ -440,9 +536,11 @@ uniform sampler2D uAtlas;
 uniform sampler2D uPathMeta;
 uniform sampler2D uProfiles;
 
-out vec2 vLocal;
+out vec3 vLocal;
+out vec3 vNormal;
 out vec3 vColor;
 out float vAlpha;
+const float OUTLINE = ${CAR_OUTLINE.toFixed(1)};
 
 const float SPACING = ${SPACING.toFixed(1)};
 const int MAX_STOPS = ${maxStops};
@@ -484,7 +582,8 @@ void main() {
   float alpha = smoothstep(0.0, 1.0, enter) * (1.0 - smoothstep(0.0, 1.0, leave));
   alpha *= smoothstep(0.0, 1.0, uReveal);
 
-  vLocal = vec2(0.0);
+  vLocal = vec3(0.0);
+  vNormal = aNormal;
   vColor = aTrip2.yzw;
   vAlpha = 0.0;
   if (uSolid > 0.5) {
@@ -556,23 +655,49 @@ void main() {
   // the horizon is beyond the network and this never triggers.
   if (offscreen(uProjection * vec3(pos - uCenter, 1.0))) {
     gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
-    vLocal = vec2(0.0);
+    vLocal = vec3(0.0);
     vAlpha = 0.0;
     return;
   }
 
-  vec2 local = aCorner * uBaseSize;
-  vec2 rotated = vec2(local.x * dir.x - local.y * dir.y,
-                      local.x * dir.y + local.y * dir.x);
-  vec2 world = pos + rotated * uScale * grow * uUnitsPerPixel;
-  // uProjection is a homography from local Mercator offsets (relative to
-  // uCenter) to CSS pixels. Dividing by w handles pitch; the viewport size
-  // converts CSS pixels to clip space.
+  // The mesh is authored in icon pixels. uProjection is a homography from
+  // local Mercator offsets (relative to uCenter) to CSS pixels, so the XY of
+  // every vertex lands exactly where the ground under it lands. Height needs
+  // its own term: with no camera roll a raised point moves straight up the
+  // screen, and it foreshortens by sin(pitch) — 0 when looking straight down,
+  // where the car's roof is all you see. Dividing by the homography's w grades
+  // that lift with distance the same way the ground is graded.
+  vec3 local = aPosition + aHullNormal * (uHull * OUTLINE);
+  vec2 planar = local.xy * uScale * grow;
+  vec2 rotated = vec2(planar.x * dir.x - planar.y * dir.y, planar.x * dir.y + planar.y * dir.x);
+  vec2 world = pos + rotated * uUnitsPerPixel;
   vec3 screen = uProjection * vec3(world - uCenter, 1.0);
   vec2 css = screen.xy / screen.z;
-  gl_Position = vec4(css.x / uViewport.x * 2.0 - 1.0, 1.0 - css.y / uViewport.y * 2.0, 0.0, 1.0);
+  css.y -= local.z * uScale * grow * uSinPitch / screen.z;
+  // The homography's w is proportional to camera depth, so it doubles as the
+  // depth value that keeps the car's own faces in the right order. The ground
+  // point alone is not enough: every vertex of a car shares the same w, so the
+  // roof and the walls would test equal and paint in index order. For a ground
+  // point at horizontal distance r the camera depth is r*cos(pitch)+H*sin(pitch),
+  // so d(w)/dr is gradW (the homography's third row), and raising by h changes
+  // depth by -h*sin(pitch), giving d(w)/dh = -gradW * tan(pitch). This is exact,
+  // not a tuned fudge, and is zero at pitch 0 where height has no depth.
+  float sinPitch = uSinPitch;
+  float cosPitch = sqrt(max(1.0 - sinPitch * sinPitch, 1e-8));
+  float height = local.z * uScale * grow * uUnitsPerPixel;
+  float gradW = length(vec2(uProjection[0][2], uProjection[1][2]));
+  float w = screen.z - height * gradW * sinPitch / cosPitch;
+  // Map w monotonically into clip depth without the plateau a hard clamp gives:
+  // smaller w (nearer) maps smaller and so wins the LESS test.
+  float depth = clamp(1.0 - 2.0 / (max(w, 0.0) + 1.0), -1.0, 1.0);
+  gl_Position = vec4(
+    css.x / uViewport.x * 2.0 - 1.0,
+    1.0 - css.y / uViewport.y * 2.0,
+    depth,
+    1.0
+  );
 
-  vLocal = local;
+  vLocal = aPosition;
   vAlpha = alpha;
 }
 `;
@@ -580,9 +705,12 @@ void main() {
 const FRAGMENT_SHADER = `#version 300 es
 precision highp float;
 
-in vec2 vLocal;
+in vec3 vLocal;
+in vec3 vNormal;
 in vec3 vColor;
 in float vAlpha;
+uniform float uHull;
+uniform float uFlat;
 uniform float uSolid;
 out vec4 outColor;
 
@@ -591,9 +719,16 @@ float sdRoundBox(vec2 p, vec2 b, float r) {
   return min(max(q.x, q.y), 0.0) + length(max(q, 0.0)) - r;
 }
 
-void main() {
-  const float W = 38.0;
-  const float H = 16.0;
+const float LENGTH = 38.0;
+const float WIDTH = 16.0;
+const float HEIGHT = 11.0;
+// The roof is the car's lightest plane; the flat icon paints its body with the
+// same lift so the 2D/3D switch at 5 deg does not recolour every train.
+const float ROOF_LIFT = 1.18;
+
+// The flat icon drawn while the camera is level. Its body is exactly the car's
+// top-down footprint, and its dark bar at the nose is the model's front window.
+vec4 flatIcon(vec2 p) {
   const float R = 5.0;
   const float STROKE = 2.0;
   const float WIN_FROM_NOSE = 4.0;
@@ -601,30 +736,68 @@ void main() {
   const float WIN_THICK = 8.0;
   const float WIN_R = 2.0;
 
-  vec2 p = vLocal;
   float aa = max(fwidth(p.x), 0.0001);
 
-  float dOuter = sdRoundBox(p, vec2(W, H) * 0.5, R + STROKE * 0.5);
+  float dOuter = sdRoundBox(p, vec2(LENGTH, WIDTH) * 0.5, R + STROKE * 0.5);
   float dInner = sdRoundBox(
     p,
-    vec2(W - STROKE * 2.0, H - STROKE * 2.0) * 0.5,
+    vec2(LENGTH - STROKE * 2.0, WIDTH - STROKE * 2.0) * 0.5,
     max(R - STROKE * 0.5, 0.5)
   );
   float outer = 1.0 - smoothstep(-aa, aa, dOuter);
   float inner = 1.0 - smoothstep(-aa, aa, dInner);
 
-  vec2 winCenter = vec2(W * 0.5 - WIN_FROM_NOSE - WIN_LEN * 0.5, 0.0);
+  vec2 winCenter = vec2(LENGTH * 0.5 - WIN_FROM_NOSE - WIN_LEN * 0.5, 0.0);
   float dWin = sdRoundBox(p - winCenter, vec2(WIN_LEN, WIN_THICK) * 0.5, WIN_R);
   float win = 1.0 - smoothstep(-aa, aa, dWin);
 
-  vec3 color = mix(vec3(0.0667), vColor, inner);
+  vec3 color = mix(vec3(0.0667), vColor * ROOF_LIFT, inner);
   color = mix(color, vec3(0.0), win * inner);
   float alpha = outer * vAlpha;
+  return vec4(color * alpha, alpha);
+}
+
+void main() {
+  if (uFlat > 0.5) {
+    outColor = flatIcon(vLocal.xy);
+    return;
+  }
+
+  // Outline pass: the car mesh expanded along its vertex normals, filled black
+  // behind the body, so only a black rim outside the silhouette survives.
+  if (uHull > 0.5) {
+    outColor = vec4(vec3(0.045) * vAlpha, vAlpha);
+    return;
+  }
   if (uSolid > 0.5) {
     outColor = vec4(vColor, 1.0);
     return;
   }
-  outColor = vec4(color * alpha, alpha);
+
+  // Three flat tones fixed to the car's own frame instead of a sun: the roof
+  // is always the lightest plane, the flanks sit at the line colour and the
+  // nose and tail a shade darker. Any camera angle then shows at least two of
+  // them, so a tilted car never flattens into one tone.
+  vec3 n = normalize(vNormal);
+  float roof = clamp(n.z, 0.0, 1.0);
+  float end = abs(n.x);
+  vec3 paint = mix(vColor * mix(1.0, 0.8, end), vColor * ROOF_LIFT, roof);
+
+  // The dark bar of the flat icon becomes this windscreen: it covers the nose
+  // face only, leaving the roof a single clean colour.
+  vec2 q = vLocal.xy;
+  float glass =
+    step(LENGTH * 0.5 - 5.0, q.x) *
+    step(3.0, vLocal.z) *
+    step(vLocal.z, HEIGHT - 1.5);
+
+  float aa = max(fwidth(q.y), fwidth(vLocal.z));
+  float dGlint = sdRoundBox(vec2(q.y + 1.2, vLocal.z - 7.4), vec2(2.4, 1.2), 0.7);
+  float glint = (1.0 - smoothstep(-aa, aa, dGlint)) * glass;
+
+  paint = mix(paint, vec3(0.035), glass);
+  paint = mix(paint, vec3(0.68), glint * 0.45);
+  outColor = vec4(paint * vAlpha, vAlpha);
 }
 `;
 
@@ -682,7 +855,7 @@ const CONTEXT_OPTIONS = {
   alpha: true,
   premultipliedAlpha: true,
   antialias: false,
-  depth: false,
+  depth: true,
   stencil: false,
   powerPreference: 'high-performance',
 };
@@ -707,7 +880,8 @@ export function createTrainOverlay(map, prepared) {
 
   let program = null;
   let vao = null;
-  let quadBuffer = null;
+  let meshBuffer = null;
+  let indexBuffer = null;
   let instanceBuffer = null;
   let capacity = 0;
   let count = 0;
@@ -727,7 +901,28 @@ export function createTrainOverlay(map, prepared) {
   let centerY = 0;
   let cssWidth = 1;
   let cssHeight = 1;
-  let cameraKey = '';
+  const mapCanvas = map.getCanvas();
+  // clientWidth/clientHeight are layout reads, and asking for them every frame
+  // makes the browser flush pending layout work. The container only changes
+  // size on a resize, so sample them here and refresh on that event instead.
+  const measure = () => {
+    cssWidth = mapCanvas.clientWidth || 1;
+    cssHeight = mapCanvas.clientHeight || 1;
+  };
+  measure();
+  // Camera state of the last homography, compared field by field: this runs on
+  // every move event, and formatting a key string allocated one per call.
+  let camLng = NaN;
+  let camLat = NaN;
+  let camZoom = NaN;
+  let camBearing = NaN;
+  let camPitch = NaN;
+  let camCssWidth = 0;
+  let camCssHeight = 0;
+  // Derived from the camera once per change rather than once per frame.
+  let unitsPerPixel = 1 / (512 * Math.pow(2, 10));
+  let zoomScale = 0.34;
+  let sinPitchNow = 0;
 
   const compile = (type, source) => {
     const shader = gl.createShader(type);
@@ -778,7 +973,9 @@ export function createTrainOverlay(map, prepared) {
       viewport: gl.getUniformLocation(program, 'uViewport'),
       unitsPerPixel: gl.getUniformLocation(program, 'uUnitsPerPixel'),
       scale: gl.getUniformLocation(program, 'uScale'),
-      baseSize: gl.getUniformLocation(program, 'uBaseSize'),
+      sinPitch: gl.getUniformLocation(program, 'uSinPitch'),
+      hull: gl.getUniformLocation(program, 'uHull'),
+      flat: gl.getUniformLocation(program, 'uFlat'),
       time: gl.getUniformLocation(program, 'uTime'),
       fade: gl.getUniformLocation(program, 'uFade'),
       solid: gl.getUniformLocation(program, 'uSolid'),
@@ -795,13 +992,9 @@ export function createTrainOverlay(map, prepared) {
     profileTexture = uploadTexture(prepared.profileWidth, prepared.profileHeight, prepared.profiles);
     uploadMs = performance.now() - started;
 
-    quadBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5]),
-      gl.STATIC_DRAW,
-    );
+    meshBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, meshBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, CAR_VERTICES, gl.STATIC_DRAW);
 
     instanceBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
@@ -811,53 +1004,106 @@ export function createTrainOverlay(map, prepared) {
     vao = gl.createVertexArray();
     gl.bindVertexArray(vao);
 
-    gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+    // Bound while the VAO is bound so the element buffer is part of its state.
+    indexBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, CAR_INDICES, gl.STATIC_DRAW);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, meshBuffer);
+    const meshStride = 9 * 4;
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 3, gl.FLOAT, false, meshStride, 0);
+    gl.enableVertexAttribArray(1);
+    gl.vertexAttribPointer(1, 3, gl.FLOAT, false, meshStride, 12);
+    gl.enableVertexAttribArray(2);
+    gl.vertexAttribPointer(2, 3, gl.FLOAT, false, meshStride, 24);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, instanceBuffer);
     const stride = INSTANCE_STRIDE * 4;
-    gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 4, gl.FLOAT, false, stride, 0);
-    gl.vertexAttribDivisor(1, 1);
-    gl.enableVertexAttribArray(2);
-    gl.vertexAttribPointer(2, 4, gl.FLOAT, false, stride, 16);
-    gl.vertexAttribDivisor(2, 1);
     gl.enableVertexAttribArray(3);
-    gl.vertexAttribPointer(3, 1, gl.FLOAT, false, stride, 32);
+    gl.vertexAttribPointer(3, 4, gl.FLOAT, false, stride, 0);
     gl.vertexAttribDivisor(3, 1);
+    gl.enableVertexAttribArray(4);
+    gl.vertexAttribPointer(4, 4, gl.FLOAT, false, stride, 16);
+    gl.vertexAttribDivisor(4, 1);
+    gl.enableVertexAttribArray(5);
+    gl.vertexAttribPointer(5, 1, gl.FLOAT, false, stride, 32);
+    gl.vertexAttribDivisor(5, 1);
 
     gl.bindVertexArray(null);
-    gl.bindTexture(gl.TEXTURE_2D, null);
+
+    // Samplers, and the uniforms that never change, are set once. Nothing else
+    // draws into this context, so their state survives every frame.
+    gl.useProgram(program);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
+    gl.uniform1i(uniforms.atlas, 0);
+    gl.activeTexture(gl.TEXTURE1);
+    gl.bindTexture(gl.TEXTURE_2D, metaTexture);
+    gl.uniform1i(uniforms.pathMeta, 1);
+    gl.activeTexture(gl.TEXTURE2);
+    gl.bindTexture(gl.TEXTURE_2D, profileTexture);
+    gl.uniform1i(uniforms.profiles, 2);
+    gl.uniform1f(uniforms.atlasWidth, prepared.atlasWidth);
+    gl.uniform1f(uniforms.solid, SOLID ? 1 : 0);
+
+    gl.clearColor(0, 0, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    // The cars are real solids, so the depth buffer does the hidden-surface work
+    // and no face culling is needed.
+    gl.disable(gl.CULL_FACE);
+    // Flat cel tones have no gradient to dither; skipping it saves fill rate.
+    gl.disable(gl.DITHER);
+
     dirty = true;
-    cameraKey = '';
   };
 
   // The overlay must track the map's camera exactly: read the four corners of
   // a 400 px square around the map centre from the public project(), then fit
   // the homography. Only recomputed when the camera or canvas size changes.
   const updateCamera = () => {
-    const mapCanvas = map.getCanvas();
+    let resized = false;
     if (canvas.width !== mapCanvas.width || canvas.height !== mapCanvas.height) {
       canvas.width = mapCanvas.width;
       canvas.height = mapCanvas.height;
-      cameraKey = '';
+      measure();
+      resized = true;
     }
-    cssWidth = mapCanvas.clientWidth || 1;
-    cssHeight = mapCanvas.clientHeight || 1;
     gl.viewport(0, 0, canvas.width, canvas.height);
 
     const center = map.getCenter();
     const zoom = map.getZoom();
     const bearing = map.getBearing();
     const pitch = map.getPitch();
-    const key = `${center.lng},${center.lat},${zoom},${bearing},${pitch},${cssWidth},${cssHeight},${canvas.width}`;
-    if (key === cameraKey) return;
-    cameraKey = key;
+    if (
+      !resized &&
+      center.lng === camLng &&
+      center.lat === camLat &&
+      zoom === camZoom &&
+      bearing === camBearing &&
+      pitch === camPitch &&
+      cssWidth === camCssWidth &&
+      cssHeight === camCssHeight
+    ) {
+      return;
+    }
+    camLng = center.lng;
+    camLat = center.lat;
+    camZoom = zoom;
+    camBearing = bearing;
+    camPitch = pitch;
+    camCssWidth = cssWidth;
+    camCssHeight = cssHeight;
+
+    unitsPerPixel = 1 / (512 * Math.pow(2, zoom));
+    const t = Math.min(1, Math.max(0, (zoom - 10) / 7.5));
+    zoomScale = 0.34 + t * 0.76;
+    sinPitchNow = Math.sin((pitch * Math.PI) / 180);
 
     centerX = (center.lng + 180) / 360 - ORIGIN_X;
     centerY = localY(center.lat);
-    const step = 200 / (512 * Math.pow(2, zoom));
+    const step = 200 * unitsPerPixel;
     const src = [
       [-step, -step],
       [step, -step],
@@ -876,8 +1122,11 @@ export function createTrainOverlay(map, prepared) {
   const draw = () => {
     if (!gl || !program || gl.isContextLost()) return;
     updateCamera();
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    // A masked depth buffer (depthMask left false by a flat or SOLID frame) makes
+    // the depth clear a no-op, so a tilted frame would then test against stale
+    // depth. Unmask just for the clear; the outline pass re-masks below.
+    gl.depthMask(true);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     if (!count || !data) return;
 
     grow(count);
@@ -888,46 +1137,84 @@ export function createTrainOverlay(map, prepared) {
       dirty = false;
     }
 
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, atlasTexture);
-    gl.uniform1i(uniforms.atlas, 0);
-    gl.activeTexture(gl.TEXTURE1);
-    gl.bindTexture(gl.TEXTURE_2D, metaTexture);
-    gl.uniform1i(uniforms.pathMeta, 1);
-    gl.activeTexture(gl.TEXTURE2);
-    gl.bindTexture(gl.TEXTURE_2D, profileTexture);
-    gl.uniform1i(uniforms.profiles, 2);
-    gl.uniform1f(uniforms.atlasWidth, prepared.atlasWidth);
-
-    const zoom = map.getZoom();
-    const t = Math.min(1, Math.max(0, (zoom - 10) / 7.5));
-    const scale = 0.34 + t * 0.76;
-
     gl.uniformMatrix3fv(uniforms.projection, false, homography);
     gl.uniform2f(uniforms.center, centerX, centerY);
     gl.uniform2f(uniforms.viewport, cssWidth, cssHeight);
-    gl.uniform1f(uniforms.scale, scale);
-    gl.uniform1f(uniforms.unitsPerPixel, 1 / (512 * Math.pow(2, zoom)));
-    gl.uniform2f(uniforms.baseSize, 38, 16);
+    gl.uniform1f(uniforms.scale, zoomScale);
+    gl.uniform1f(uniforms.unitsPerPixel, unitsPerPixel);
+    gl.uniform1f(uniforms.sinPitch, sinPitchNow);
     gl.uniform1f(uniforms.time, seconds);
     gl.uniform1f(uniforms.fade, fadeSeconds);
-    gl.uniform1f(uniforms.solid, SOLID ? 1 : 0);
     gl.uniform1f(uniforms.reveal, reveal);
 
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    // The outline shell is drawn against the body's depth: only the rim that
+    // the body did not cover survives.
     gl.disable(gl.DEPTH_TEST);
+    gl.depthMask(false);
     gl.bindVertexArray(vao);
-    gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, count);
+    // The model only earns its keep once the camera is tilted. Level, the flat
+    // icon is the same drawing for a fraction of the fragments and lines up
+    // exactly with the model's footprint, so the switch at 5 deg is invisible.
+    const tilted = camPitch > 5;
+    if (SOLID) {
+      gl.uniform1f(uniforms.flat, 0);
+      gl.uniform1f(uniforms.hull, 0);
+      gl.drawElementsInstanced(gl.TRIANGLES, CAR_MESH.count, gl.UNSIGNED_SHORT, CAR_INDEX_OFFSET, count);
+    } else if (!tilted) {
+      gl.uniform1f(uniforms.flat, 1);
+      gl.uniform1f(uniforms.hull, 0);
+      gl.drawElementsInstanced(gl.TRIANGLES, FLAT_QUAD.count, gl.UNSIGNED_SHORT, 0, count);
+    } else {
+      // The black shell first, then the solid: the body paints over all of the
+      // shell except its thin rim, and depth settles which of the car's own
+      // faces are visible. Below roughly zoom 11.5 that rim is thinner than a
+      // pixel, so the whole second pass would draw nothing new.
+      if (zoomScale * CAR_OUTLINE >= 0.9) {
+        gl.uniform1f(uniforms.flat, 0);
+        gl.uniform1f(uniforms.hull, 1);
+        gl.drawElementsInstanced(
+          gl.TRIANGLES,
+          CAR_MESH.count,
+          gl.UNSIGNED_SHORT,
+          CAR_INDEX_OFFSET,
+          count,
+        );
+      }
+
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthFunc(gl.LESS);
+      gl.depthMask(true);
+      gl.uniform1f(uniforms.flat, 0);
+      gl.uniform1f(uniforms.hull, 0);
+      gl.drawElementsInstanced(
+        gl.TRIANGLES,
+        CAR_MESH.count,
+        gl.UNSIGNED_SHORT,
+        CAR_INDEX_OFFSET,
+        count,
+      );
+      gl.disable(gl.DEPTH_TEST);
+    }
     gl.bindVertexArray(null);
   };
 
+  // Draw straight from the event, never deferred to a later frame. MapLibre
+  // updates the transform and paints inside its own animation frame, so a draw
+  // queued from these listeners lands a frame late: the basemap shows the new
+  // bearing while the trains still show the old one, which reads as the cars
+  // sliding off their lines while the map rotates. A second draw in the same
+  // frame only costs the clear plus the (already resident) instance draw.
   const redraw = () => draw();
-  for (const event of ['move', 'zoom', 'rotate', 'pitch', 'resize']) map.on(event, redraw);
+  for (const event of ['move', 'resize']) map.on(event, redraw);
+
+  const resizeObserver =
+    typeof ResizeObserver === 'function' ? new ResizeObserver(measure) : null;
+  if (resizeObserver) resizeObserver.observe(mapCanvas);
+  else window.addEventListener('resize', measure);
 
   canvas.addEventListener('webglcontextlost', (event) => {
     event.preventDefault();
-    program = vao = quadBuffer = instanceBuffer = null;
+    program = vao = meshBuffer = indexBuffer = instanceBuffer = null;
     atlasTexture = metaTexture = profileTexture = null;
   });
   canvas.addEventListener('webglcontextrestored', () => {
@@ -940,18 +1227,21 @@ export function createTrainOverlay(map, prepared) {
   const remove = () => {
     if (removed) return;
     removed = true;
-    for (const event of ['move', 'zoom', 'rotate', 'pitch', 'resize']) map.off(event, redraw);
+    for (const event of ['move', 'resize']) map.off(event, redraw);
+    if (resizeObserver) resizeObserver.disconnect();
+    else window.removeEventListener('resize', measure);
     canvas.remove();
     if (gl && !gl.isContextLost()) {
       if (program) gl.deleteProgram(program);
-      if (quadBuffer) gl.deleteBuffer(quadBuffer);
+      if (meshBuffer) gl.deleteBuffer(meshBuffer);
+      if (indexBuffer) gl.deleteBuffer(indexBuffer);
       if (instanceBuffer) gl.deleteBuffer(instanceBuffer);
       if (atlasTexture) gl.deleteTexture(atlasTexture);
       if (metaTexture) gl.deleteTexture(metaTexture);
       if (profileTexture) gl.deleteTexture(profileTexture);
       if (vao) gl.deleteVertexArray(vao);
     }
-    program = vao = quadBuffer = instanceBuffer = null;
+    program = vao = meshBuffer = indexBuffer = instanceBuffer = null;
     atlasTexture = metaTexture = profileTexture = null;
   };
   map.once('remove', remove);
@@ -984,7 +1274,7 @@ export function createTrainOverlay(map, prepared) {
         fadeSeconds,
         uploadMs,
         canvas: { width: canvas.width, height: canvas.height, cssWidth, cssHeight },
-        cameraKey,
+        camera: { lng: camLng, lat: camLat, zoom: camZoom, bearing: camBearing, pitch: camPitch },
         homography: Array.from(homography),
         center: [centerX, centerY],
         atlas: { width: prepared.atlasWidth, height: prepared.atlasRows, vertices: prepared.vertexCount },
