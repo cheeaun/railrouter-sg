@@ -165,7 +165,8 @@ export function createLiveTrains(map) {
     reset: document.getElementById('trains-time-now'),
     play: document.getElementById('trains-time-play'),
     speed: document.getElementById('trains-time-speed'),
-    counts: document.getElementById('trains-time-counts'),
+    total: document.getElementById('trains-time-total'),
+    pills: document.getElementById('trains-time-pills'),
   };
 
   const syncDayUi = () => {
@@ -293,9 +294,10 @@ export function createLiveTrains(map) {
     if (DEBUG_TRAINS) window.$trainsGL = overlay;
   };
 
-  // Per-line train counts as coloured pills next to the scrubber, with the
-  // fleet total in front. Every line is always shown (a zero still renders,
-  // dimmed) so the row neither reflows nor hides a line that later wakes up.
+  // Per-line train counts as coloured pills on the rows under the fleet total,
+  // which shares its line with the timetable footnote. Every line is always
+  // shown (a zero still renders, dimmed) so the row neither reflows nor hides a
+  // line that later wakes up.
   // `counts` maps line key -> running count; missing keys read as 0.
   // The pill row is rebuilt only when the line set changes. Counts change every
   // frame while playing, and recreating ~7 nodes per line each time churned
@@ -305,9 +307,6 @@ export function createLiveTrains(map) {
   const buildCounts = (keys) => {
     const lines = state.prepared.lines;
     const fragment = document.createDocumentFragment();
-    const totalEl = document.createElement('span');
-    totalEl.className = 'trains-count-total';
-    fragment.append(totalEl);
     const colorCounts = new Map();
     for (const key of keys) {
       const color = lines[key].color;
@@ -335,12 +334,12 @@ export function createLiveTrains(map) {
       fragment.append(pill);
       pills.set(key, { pill, value, last: -1 });
     }
-    ui.counts.replaceChildren(fragment);
-    countPills = { totalEl, pills, keys, total: -1 };
+    ui.pills.replaceChildren(fragment);
+    countPills = { pills, keys, total: -1 };
   };
 
   const renderCounts = (counts) => {
-    if (!ui.counts) return;
+    if (!ui.pills || !ui.total) return;
     const lines = state.prepared.lines;
     const keys = Object.keys(lines).sort((a, b) => lines[a].order - lines[b].order);
     const sameSet =
@@ -366,7 +365,7 @@ export function createLiveTrains(map) {
     }
     if (countPills.total !== total) {
       countPills.total = total;
-      countPills.totalEl.textContent = `${total} ${total === 1 ? 'train' : 'trains'}`;
+      ui.total.textContent = `${total} ${total === 1 ? 'train' : 'trains'}`;
     }
   };
 

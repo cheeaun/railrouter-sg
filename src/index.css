@@ -841,23 +841,34 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   flex-shrink: 0;
 }
 
-/* Per-line train counts, on their own row under the controls, left-aligned to
-   match the panel. */
+/* Fleet total on its own line with the timetable footnote at its right end,
+   then the per-line count pills wrapping onto the rows below it. */
 #trains-time-counts {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-self: stretch;
   gap: 4px;
   font-size: 11px;
   color: #00454d;
   max-width: 100%;
 }
-#trains-time-counts:empty {
-  display: none;
+#trains-time-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 8px;
+  min-width: 0;
 }
-/* Footnote: the trains follow the published timetable, not a live feed. Pulled
-   up so it reads as a caption for the counts rather than a new block. */
+#trains-time-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+/* Footnote: the trains follow the published timetable, not a live feed. It sits
+   at the right end of the total's line so it reads as a caption on the counts
+   rather than a separate block. */
 #trains-time-note {
   margin: 0;
   padding: 0;
@@ -865,12 +876,13 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   font-style: italic;
   line-height: 1.3;
   color: #666;
+  text-align: right;
+  min-width: 0;
 }
 .trains-count-total {
   font-size: 13px;
   font-weight: bold;
   font-variant-numeric: tabular-nums;
-  margin-right: 2px;
 }
 /* Each pill is the line's own colour; --line-fg is black or white depending on
    that colour's luminance, set by the runtime. */
