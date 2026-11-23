@@ -803,7 +803,10 @@ const formatTime = (datetime, showAMPM = false) => {
       });
     if (stationData) {
       stationView.mount(stationData);
-    } else {
+    } else if (currentStation) {
+      // Only step back out when a station is actually open. Other hashes
+      // (`#trains`, an empty hash from toggling the layer) must not move the
+      // camera, otherwise each toggle zooms out.
       stationView.unmount();
     }
   };
@@ -1124,8 +1127,45 @@ class TrainsControl {
     this._button = undefined;
   }
 }
+const isTrainsHash = () => location.hash.replace(/^#/, '') === 'trains';
+
+// Keep the URL in sync with the layer, without stepping on the station hash
+// (`#stations/NAME`), which shares the same slot. Only write `#trains` when
+// the hash is free, and remember that we own it so turning the layer off
+// does not clear a hash another view has since taken over.
+let ownsTrainsHash = false;
+
+// `replaceState` keeps toggling out of the history stack and, unlike setting
+// `location.hash`, does not fire `hashchange`, so the station view is not
+// re-evaluated (and the camera is not moved) on every toggle.
+const setTrainsHash = (on) => {
+  history.replaceState(
+    null,
+    '',
+    on ? '#trains' : location.pathname + location.search,
+  );
+  ownsTrainsHash = on;
+};
+
+const syncTrainsHash = (active) => {
+  if (active) {
+    if (isTrainsHash()) {
+      ownsTrainsHash = true;
+    } else if (!location.hash || location.hash === '#') {
+      setTrainsHash(true);
+    }
+  } else if (ownsTrainsHash) {
+    ownsTrainsHash = false;
+    if (isTrainsHash()) setTrainsHash(false);
+  }
+};
+
 const trainsControl = new TrainsControl({
-  onToggle: () => liveTrains.toggle(),
+  onToggle: async () => {
+    const active = await liveTrains.toggle();
+    syncTrainsHash(active);
+    return active;
+  },
 });
 map.addControl(trainsControl, 'bottom-right');
 // Keep the trains toggle directly below the search button.
@@ -1134,15 +1174,25 @@ searchControl._container.after(trainsControl._container);
 // `/#trains` opens the layer straight away, so the URL can be shared or
 // bookmarked into the trains view.
 const enableTrainsFromHash = async () => {
-  if (liveTrains.visible || location.hash.replace(/^#/, '') !== 'trains') return;
+  if (liveTrains.visible || !isTrainsHash()) return;
   try {
     trainsControl.setActive(await liveTrains.enable());
+    ownsTrainsHash = true;
   } catch (error) {
     console.warn('Could not load the train timetable', error);
   }
 };
 window.addEventListener('hashchange', enableTrainsFromHash);
 enableTrainsFromHash();
+
+// Closing a station clears the hash while the trains layer may still be on.
+// Put `#trains` back so the URL keeps describing what is on screen.
+const restoreTrainsHash = () => {
+  if (!liveTrains.visible || isTrainsHash()) return;
+  if (location.hash && location.hash !== '#') return;
+  setTrainsHash(true);
+};
+window.addEventListener('hashchange', restoreTrainsHash);
 document.onkeydown = (e) => {
   if (/(input|textarea|select)/i.test(e.target.tagName)) return;
   if (e.code.toLowerCase() === 'slash' || e.key === '/' || e.keyCode === 191 || e.which === 191) {
