@@ -775,6 +775,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   margin-top: 0;
   border: 0;
   border-radius: 0;
+  box-shadow: none;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 52' preserveAspectRatio='none'%3E%3Cpath d='M7 0h10l-5 6z' fill='%2300454d'/%3E%3Crect x='11' y='5' width='2' height='47' fill='%2300454d'/%3E%3C/svg%3E");
   background-size: 100% 100%;
@@ -785,6 +786,7 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   height: var(--slider-height);
   border: 0;
   border-radius: 0;
+  box-shadow: none;
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 52' preserveAspectRatio='none'%3E%3Cpath d='M7 0h10l-5 6z' fill='%2300454d'/%3E%3Crect x='11' y='5' width='2' height='47' fill='%2300454d'/%3E%3C/svg%3E");
   background-size: 100% 100%;
