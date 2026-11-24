@@ -304,9 +304,9 @@ b3d.paint = {
   'fill-extrusion-color': 'rgb(208, 189, 161)',
   'fill-extrusion-height': ['get', 'render_height'],
   'fill-extrusion-base': ['get', 'render_min_height'],
-  'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 15, 0, 16, 0.2],
+  'fill-extrusion-opacity': ['interpolate', ['linear'], ['zoom'], 13, 0, 16, 0.2],
 };
-b3d.minzoom = 15;
+b3d.minzoom = 13;
 const pos = s.layers.findIndex((l) => l.type === 'symbol');
 s.layers.splice(pos, 0, b3d);
 

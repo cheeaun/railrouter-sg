@@ -4362,7 +4362,7 @@
       "type": "fill-extrusion",
       "source": "openmaptiles",
       "source-layer": "building",
-      "minzoom": 15,
+      "minzoom": 13,
       "filter": [
         "!",
         [
@@ -4388,7 +4388,7 @@
           [
             "zoom"
           ],
-          15,
+          13,
           0,
           16,
           0.2
