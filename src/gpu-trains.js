@@ -25,6 +25,13 @@ const RAD = Math.PI / 180;
 export const SPACING = 10;
 // Seconds a train takes to fade/scale in and out.
 export const FADE = 0.7;
+// Seconds a train spends pulling out of, or braking into, a platform at 1x.
+// Playback scales it so the ease lasts the same wall-clock time at any speed.
+export const RAMP = 15;
+// Ceiling on the ramp as a share of the leg at 1x. It rises toward a full
+// triangular profile at high playback, where the whole leg is under a second
+// and a fixed share is the only thing left that can keep the ease visible.
+export const RAMP_SHARE = 0.35;
 // Texels per atlas row. 4096 keeps every mobile GPU comfortably inside
 // MAX_TEXTURE_SIZE while still giving us ~74 rows for the whole network.
 const ATLAS_WIDTH = 4096;
@@ -529,6 +536,11 @@ uniform float uSinPitch;
 uniform float uHull;
 uniform float uTime;
 uniform float uFade;
+uniform float uRamp;
+uniform float uRampShare;
+uniform float uRampFrom;
+uniform float uRampShareFrom;
+uniform float uRampSwitchAt;
 uniform float uAtlasWidth;
 uniform float uSolid;
 uniform float uReveal;
@@ -545,6 +557,23 @@ const float OUTLINE = ${CAR_OUTLINE.toFixed(1)};
 const float SPACING = ${SPACING.toFixed(1)};
 const int MAX_STOPS = ${maxStops};
 const int PROFILE_W = ${PROFILE_WIDTH};
+
+// Fraction of the way along one stop-to-stop leg at t seconds into it.
+// Velocity ramps up, cruises, then ramps down over the same span, so trains
+// ease out of and into platforms instead of snapping between full speed and a
+// standstill. The ramp is scaled to playback but the cap keeps it inside the
+// leg, so short hops become triangular; the ease always starts and ends at zero
+// speed and hits k = 1.
+float legProgress(float t, float span, float ramp, float share) {
+  float a = max(min(ramp, span * share), 0.001);
+  float cruise = max(span - a, 0.001);
+  if (t <= a) return (t * t) / (2.0 * a * cruise);
+  if (t >= span - a) {
+    float remaining = span - t;
+    return 1.0 - (remaining * remaining) / (2.0 * a * cruise);
+  }
+  return (t - a * 0.5) / cruise;
+}
 
 vec4 atlasAt(int index) {
   int x = int(mod(float(index), uAtlasWidth));
@@ -614,7 +643,14 @@ void main() {
     vec4 stop = profileAt(row, i);
     if (t < stop.x) {
       float span = max(stop.x - prevDeparture, 0.001);
-      float k = clamp((t - prevDeparture) / span, 0.0, 1.0);
+      float leg = clamp(t - prevDeparture, 0.0, span);
+      // Use the ramp that was in force when this leg started, so changing
+      // playback speed never moves a train that is already under way; it only
+      // affects the legs that start afterwards.
+      bool switched = aTrip.y + prevDeparture < uRampSwitchAt;
+      float legRamp = switched ? uRampFrom : uRamp;
+      float legShare = switched ? uRampShareFrom : uRampShare;
+      float k = clamp(legProgress(leg, span, legRamp, legShare), 0.0, 1.0);
       distance = mix(prevDistance, stop.z, k);
       break;
     }
@@ -893,6 +929,11 @@ export function createTrainOverlay(map, prepared) {
   let profileTexture = null;
   let seconds = 0;
   let fadeSeconds = FADE;
+  let rampSeconds = RAMP;
+  let rampShare = RAMP_SHARE;
+  let rampFrom = RAMP;
+  let rampShareFrom = RAMP_SHARE;
+  let rampSwitchAt = 0;
   let reveal = 1;
   let uploadMs = 0;
 
@@ -978,6 +1019,11 @@ export function createTrainOverlay(map, prepared) {
       flat: gl.getUniformLocation(program, 'uFlat'),
       time: gl.getUniformLocation(program, 'uTime'),
       fade: gl.getUniformLocation(program, 'uFade'),
+      ramp: gl.getUniformLocation(program, 'uRamp'),
+      rampShare: gl.getUniformLocation(program, 'uRampShare'),
+      rampFrom: gl.getUniformLocation(program, 'uRampFrom'),
+      rampShareFrom: gl.getUniformLocation(program, 'uRampShareFrom'),
+      rampSwitchAt: gl.getUniformLocation(program, 'uRampSwitchAt'),
       solid: gl.getUniformLocation(program, 'uSolid'),
       reveal: gl.getUniformLocation(program, 'uReveal'),
       atlasWidth: gl.getUniformLocation(program, 'uAtlasWidth'),
@@ -1145,6 +1191,11 @@ export function createTrainOverlay(map, prepared) {
     gl.uniform1f(uniforms.sinPitch, sinPitchNow);
     gl.uniform1f(uniforms.time, seconds);
     gl.uniform1f(uniforms.fade, fadeSeconds);
+    gl.uniform1f(uniforms.ramp, rampSeconds);
+    gl.uniform1f(uniforms.rampShare, rampShare);
+    gl.uniform1f(uniforms.rampFrom, rampFrom);
+    gl.uniform1f(uniforms.rampShareFrom, rampShareFrom);
+    gl.uniform1f(uniforms.rampSwitchAt, rampSwitchAt);
     gl.uniform1f(uniforms.reveal, reveal);
 
     // The outline shell is drawn against the body's depth: only the rim that
@@ -1260,9 +1311,15 @@ export function createTrainOverlay(map, prepared) {
       count = nextCount;
       dirty = true;
     },
-    setTime(nextSeconds, nextFade = FADE) {
+    setTime(nextSeconds, nextFade = FADE, ease = null) {
       seconds = nextSeconds;
       fadeSeconds = nextFade;
+      if (!ease) return;
+      rampSeconds = ease.ramp;
+      rampShare = ease.share;
+      rampFrom = ease.fromRamp;
+      rampShareFrom = ease.fromShare;
+      rampSwitchAt = ease.switchAt;
     },
     setReveal(nextReveal) {
       reveal = nextReveal;
@@ -1272,6 +1329,11 @@ export function createTrainOverlay(map, prepared) {
         count,
         seconds,
         fadeSeconds,
+        rampSeconds,
+        rampShare,
+        rampFrom,
+        rampShareFrom,
+        rampSwitchAt,
         uploadMs,
         canvas: { width: canvas.width, height: canvas.height, cssWidth, cssHeight },
         camera: { lng: camLng, lat: camLat, zoom: camZoom, bearing: camBearing, pitch: camPitch },

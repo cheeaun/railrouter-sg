@@ -1,7 +1,15 @@
 import trainsUrl from './gtfs-trains.json' with { type: 'url' };
 import holidaysUrl from './public-holidays.json' with { type: 'url' };
 import { scheduledDayType, serviceWeekday } from './service-day.mjs';
-import { prepare, buildInstances, createTrainOverlay, FADE, INSTANCE_STRIDE } from './gpu-trains';
+import {
+  prepare,
+  buildInstances,
+  createTrainOverlay,
+  FADE,
+  RAMP,
+  RAMP_SHARE,
+  INSTANCE_STRIDE,
+} from './gpu-trains';
 
 // GTFS times are Singapore local time, which has no daylight saving.
 const SGT_OFFSET = 8 * 3600 * 1000;
@@ -41,6 +49,9 @@ const PLAY_SPEEDS = [
   PLAY_SPEED_FASTER,
   PLAY_SPEED_FASTEST,
 ];
+// Share of a leg the acceleration ramp may use once playback is too fast for a
+// wall-clock ramp to read at all. 0.5 is a full triangular profile.
+const RAMP_SHARE_MAX = 0.5;
 const END_HOLD_MS = 1500;
 
 function nextPlaySpeed(speed) {
@@ -180,6 +191,16 @@ export function createLiveTrains(map) {
     rebuildSecond: -1,
     rebuildAt: 0,
     lastFade: -1,
+    // Ramp profile for new legs, and the previous one that legs already under
+    // way keep using so a speed change never moves a train mid-leg.
+    ease: {
+      ramp: RAMP,
+      share: RAMP_SHARE,
+      fromRamp: RAMP,
+      fromShare: RAMP_SHARE,
+      switchAt: 0,
+    },
+    lastSeconds: 0,
   };
 
   const ui = {
@@ -597,7 +618,36 @@ export function createLiveTrains(map) {
     // to spend, so make fades effectively instant.
     const fadeSeconds =
       state.mode === 'now' ? FADE : state.mode === 'playing' ? FADE * speedFactor : STATIC_FADE;
-    overlay.setTime(seconds, fadeSeconds);
+    // Acceleration and braking are wall-clock too, otherwise the ease is over
+    // in a blink of simulated time at playback speeds. Past 2x the ramp starts
+    // eating the leg instead, so widen the share toward a triangular profile
+    // as the leg shortens in wall time. Pausing and scrubbing keep the
+    // playback pace so resuming does not retune the legs either.
+    const rampSpeed = state.mode === 'now' ? 1 : state.speed;
+    const rampTarget = RAMP * rampSpeed;
+    const shareTarget =
+      RAMP_SHARE +
+      (RAMP_SHARE_MAX - RAMP_SHARE) *
+        Math.min(1, Math.max(0, (rampSpeed - PLAY_SPEED_SLOW) / 90));
+    const ease = state.ease;
+    // A clock jump (switching back to live, a scrub) already repositions every
+    // train, so retune all legs at once rather than dragging the old ramp into
+    // the new timeline; otherwise only legs still in flight keep the old ramp.
+    const jumped = Math.abs(seconds - state.lastSeconds) > speedFactor * 0.5 + 1;
+    if (rampTarget !== ease.ramp || shareTarget !== ease.share) {
+      ease.fromRamp = jumped ? rampTarget : ease.ramp;
+      ease.fromShare = jumped ? shareTarget : ease.share;
+      ease.switchAt = jumped ? 0 : seconds;
+      ease.ramp = rampTarget;
+      ease.share = shareTarget;
+    } else if (jumped && ease.switchAt !== 0) {
+      // The jump can land a frame after the rate change; retune then too.
+      ease.fromRamp = ease.ramp;
+      ease.fromShare = ease.share;
+      ease.switchAt = 0;
+    }
+    state.lastSeconds = seconds;
+    overlay.setTime(seconds, fadeSeconds, ease);
     if (fadeSeconds !== state.lastFade) {
       // A different playback rate changes how long a finished trip has to stay
       // resident for its fade, so refill the list.
