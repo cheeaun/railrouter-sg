@@ -549,8 +549,6 @@ export function createLiveTrains(map) {
     // white button with a red outline. Off-hours additionally fades it.
     ui.reset.classList.toggle('is-live', atNow);
     ui.reset.classList.toggle('is-off', !atNow && !state.nowHasTrains && !state.dayOverride);
-    // Speed only matters while the day is playing back; disable it otherwise.
-    if (ui.speed) ui.speed.disabled = !playing;
     if (playIcons) {
       // `.hidden` is not reflected on SVG elements, so use a class.
       playIcons.play.classList.toggle('is-hidden', playing);
@@ -915,7 +913,6 @@ export function createLiveTrains(map) {
   }
   if (ui.speed) {
     ui.speed.addEventListener('click', () => {
-      if (state.mode !== 'playing') return;
       state.speed = nextPlaySpeed(state.speed);
       syncSpeedButton();
     });

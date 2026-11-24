@@ -890,14 +890,6 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   text-align: center;
   font-variant-numeric: tabular-nums;
 }
-/* Speed is only meaningful while playing; dim it when it is not. */
-#trains-time-speed:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-#trains-time-speed:disabled:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
 /* "Live" button. Two looks: following the real clock is filled red with white
    text; every other state is white with black text and a red outline. When
    there are no trains at the shown time, the outline look is faded. */
