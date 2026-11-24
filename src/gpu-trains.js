@@ -162,6 +162,9 @@ export function prepare(data) {
   let vertexCount = 0;
   let firstStart = Infinity;
   let lastEnd = -Infinity;
+  // Per-service extremes, so the scrubber can show only the part of the day the
+  // selected timetable actually runs.
+  const serviceWindows = new Map();
 
   const lineKeys = Object.keys(data.lines).sort(
     (a, b) => (data.lines[a].order ?? 99) - (data.lines[b].order ?? 99),
@@ -239,6 +242,14 @@ export function prepare(data) {
           profileRow: profileBase + profileIndex,
           service: serviceOrder[serviceIndex],
         };
+        const serviceId = serviceOrder[serviceIndex];
+        const extent = serviceWindows.get(serviceId);
+        if (extent) {
+          if (start < extent.first) extent.first = start;
+          if (end > extent.last) extent.last = end;
+        } else {
+          serviceWindows.set(serviceId, { first: start, last: end });
+        }
       }
 
       paths.push({
@@ -278,10 +289,14 @@ export function prepare(data) {
     lines,
     lineKeys,
     handovers,
-    // Round inwards to whole minutes so both ends have a train on the move.
+    serviceWindows,
+    // First departure and last arrival across the whole feed.
+    extent: { first: firstStart, last: lastEnd },
+    // Bleed a minute past the first departure and last arrival, to the minute
+    // either side, so both ends of the scrubber are an empty timetable.
     window: {
-      start: Math.ceil(firstStart / 60) * 60,
-      end: Math.floor(lastEnd / 60) * 60,
+      start: Math.ceil(firstStart / 60) * 60 - 60,
+      end: Math.floor(lastEnd / 60) * 60 + 60,
     },
   };
 }

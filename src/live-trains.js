@@ -180,6 +180,8 @@ export function createLiveTrains(map) {
     shownSecond: -1,
     nowHasTrains: true,
     window: { start: 0, end: 86400 },
+    // Minutes of the first departure and last arrival, for the scale labels.
+    endMarks: null,
     // Simulated seconds per real second; 30x is the default pace.
     speed: PLAY_SPEED_SLOW,
     // True while not following the real clock; drives hiding of crowd markers.
@@ -337,9 +339,9 @@ export function createLiveTrains(map) {
     return mins === 0 ? `${hour12}${suffix}` : `${hour12}:${String(mins).padStart(2, '0')}${suffix}`;
   };
 
-  // The scale inside the bar: the timetable window's ends plus noon, 6pm and
-  // midnight when they fall inside it. Labels are placed by value, so they
-  // move with the window if the feed changes.
+  // The scale inside the bar: the service's first and last train plus noon,
+  // 6pm and midnight when they fall inside it. Labels are placed by value, so
+  // they move with the window if the feed changes.
   const buildSliderLabels = () => {
     if (!ui.sliderLabels) return;
     const bounds = sliderBounds();
@@ -348,6 +350,7 @@ export function createLiveTrains(map) {
       return;
     }
     const span = bounds.max - bounds.min;
+    const ends = state.endMarks || { start: bounds.min, end: bounds.max };
     const marks = [];
     const add = (minute, edge) => {
       if (minute < bounds.min || minute > bounds.max) return;
@@ -356,8 +359,8 @@ export function createLiveTrains(map) {
       if (marks.some((mark) => Math.abs(mark.percent - percent) < 3)) return;
       marks.push({ percent, label: formatMark(minute), edge });
     };
-    add(bounds.min, 'start');
-    add(bounds.max, 'end');
+    add(ends.start, 'start');
+    add(ends.end, 'end');
     add(12 * 60);
     add(18 * 60);
     add(24 * 60);
@@ -378,6 +381,56 @@ export function createLiveTrains(map) {
     }
     ui.sliderLabels.replaceChildren(fragment);
     cullOverlappingMarks();
+  };
+
+  // The reachable part of the day for the services running on the selected
+  // timetable, as the raw first departure and last arrival. Different days
+  // have different first and last trains, so this cannot come from the whole
+  // feed.
+  const extentsFor = (services) => {
+    const prepared = state.prepared;
+    let first = Infinity;
+    let last = -Infinity;
+    for (const id of services) {
+      const extent = prepared.serviceWindows.get(id);
+      if (!extent) continue;
+      if (extent.first < first) first = extent.first;
+      if (extent.last > last) last = extent.last;
+    }
+    if (!Number.isFinite(first) || !Number.isFinite(last)) return prepared.extent;
+    return { first, last };
+  };
+
+  // Point the scrubber at the selected timetable's window and pull the picked
+  // time inside it. The window sits a minute either side of the real service
+  // ends so both ends start and finish with nothing running; the scale is
+  // labelled with the real ends, not the bleed.
+  const applyWindow = () => {
+    const { first, last } = extentsFor(state.services);
+    state.window = {
+      start: Math.ceil(first / 60) * 60 - 60,
+      end: Math.floor(last / 60) * 60 + 60,
+    };
+    if (state.window.end <= state.window.start) state.window = state.prepared.window;
+    // The scale marks the first departure and last arrival minutes, one minute
+    // inside the bleed the bar gives them.
+    state.endMarks = { start: Math.ceil(first / 60), end: Math.floor(last / 60) };
+    if (ui.slider) {
+      ui.slider.min = String(Math.floor(state.window.start / 60));
+      ui.slider.max = String(Math.ceil(state.window.end / 60));
+    }
+    if (state.picked < state.window.start || state.picked > state.window.end) {
+      state.picked = Math.min(state.window.end, Math.max(state.window.start, state.picked));
+      // The loop may already have drawn this frame from the old time, so paint
+      // the clamp straight to the controls and resync the next frame.
+      state.shownMinute = -1;
+      state.shownSecond = -1;
+      if (ui.slider) ui.slider.value = String(Math.floor(state.picked / 60));
+      if (ui.field && ui.field !== document.activeElement) {
+        ui.field.value = toTimeValue(state.picked);
+      }
+    }
+    buildSliderLabels();
   };
 
   // Once laid out, drop labels that would overlap a neighbour. The window's
@@ -700,12 +753,17 @@ export function createLiveTrains(map) {
       state.nowMinute = -1;
       state.rebuildSecond = -1;
       state.rebuildAt = 0;
+      applyWindow();
       buildSliderChart();
       syncDayUi();
+      // The clamp may have moved the picked time; the caller computed `seconds`
+      // before that, so recompute it now to keep this frame's UI in step.
+      seconds = currentSeconds(time);
     }
     renderAt(seconds);
     renderCounts(counts);
     state.rendered = state.mode === 'manual' ? seconds : null;
+    return seconds;
   };
 
   const currentSeconds = (time) => (state.mode === 'now' ? time.seconds : state.picked);
@@ -719,8 +777,7 @@ export function createLiveTrains(map) {
 
   const redraw = () => {
     const time = clock();
-    const seconds = currentSeconds(time);
-    update(time, seconds);
+    const seconds = update(time, currentSeconds(time));
     syncTimeUi(time, seconds);
     startLoop();
   };
@@ -772,9 +829,9 @@ export function createLiveTrains(map) {
       if (now - state.nextTick > interval * 4) state.nextTick = now + interval;
       advance(now);
       const time = clock();
-      const seconds = currentSeconds(time);
+      let seconds = currentSeconds(time);
       const started = DEBUG_TRAINS ? performance.now() : 0;
-      update(time, seconds);
+      seconds = update(time, seconds);
       syncTimeUi(time, seconds);
       if (DEBUG_TRAINS) {
         state.frameMs = (state.frameMs || 0) * 0.9 + (performance.now() - started) * 0.1;
@@ -915,11 +972,7 @@ export function createLiveTrains(map) {
           state.dayType = '';
           state.dayOverride = null;
           state.picked = state.window.start;
-          if (ui.slider) {
-            ui.slider.min = String(Math.floor(state.window.start / 60));
-            ui.slider.max = String(Math.ceil(state.window.end / 60));
-          }
-          buildSliderLabels();
+          applyWindow();
           return data;
         })
         .catch((error) => {
