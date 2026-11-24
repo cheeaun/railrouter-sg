@@ -1265,11 +1265,19 @@ $searchResults.onclick = (e) => {
 };
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register(new URL('./sw.js', import.meta.url), {
-      type: 'module',
+  if (process.env.NODE_ENV === 'development') {
+    // A worker left over from an earlier dev session would serve stale
+    // bundles through its caches, so drop it while Parcel is serving.
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((regs) => regs.forEach((reg) => reg.unregister()));
+  } else {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(new URL('./sw.js', import.meta.url), {
+        type: 'module',
+      });
     });
-  });
+  }
 }
 
 map.addControl(
