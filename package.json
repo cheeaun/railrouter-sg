@@ -21,6 +21,7 @@
     "gen-style": "node scripts/gen-basemap-style.mjs",
     "gtfs": "node scripts/download-gtfs.mjs",
     "holidays": "node scripts/download-holidays.mjs",
+    "links": "node scripts/build-station-links.mjs",
     "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {

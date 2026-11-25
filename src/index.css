@@ -553,6 +553,44 @@ abbr {
   text-align: right;
 }
 
+/* Deep links to the station on other sources, under the Wikipedia card. The
+   card only takes space when the station has at least one link. */
+.external-links:not(:empty) {
+  margin-top: 12px;
+  border-radius: 12px;
+  background-color: aliceblue;
+  padding: 12px 16px;
+}
+/* A plain black heading: teal would read as just another link. */
+.external-links h3 {
+  color: #000;
+}
+.external-links ul {
+  list-style: disc;
+  margin: 6px 0 0;
+  padding-left: 1.2em;
+}
+.external-links li + li {
+  margin-top: 4px;
+}
+
+/* A small up-right arrow hints that a link leaves the app. Masked so it takes
+   the link's colour (teal) like the text. */
+.external-links a::after,
+.wikipedia .more a::after {
+  content: '';
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.3em;
+  vertical-align: -0.03em;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M9 7h8v8'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M9 7h8v8'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
 #search {
   position: fixed;
   z-index: 400;

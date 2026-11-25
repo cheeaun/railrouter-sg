@@ -1,0 +1,936 @@
+{
+  "BP10": {
+    "ltg": "https://landtransportguru.net/fajar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP10",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/fajar/map/"
+  },
+  "BP11": {
+    "ltg": "https://landtransportguru.net/segar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP11",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/segar/map/"
+  },
+  "BP12": {
+    "ltg": "https://landtransportguru.net/jelapang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP12",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/jelapang/map/"
+  },
+  "BP13": {
+    "ltg": "https://landtransportguru.net/senja-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP13",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/senja/map/"
+  },
+  "BP2": {
+    "ltg": "https://landtransportguru.net/south-view-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP2",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/south%20view/map/"
+  },
+  "BP3": {
+    "ltg": "https://landtransportguru.net/keat-hong-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP3",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/keat%20hong/map/"
+  },
+  "BP4": {
+    "ltg": "https://landtransportguru.net/teck-whye-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP4",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/teck%20whye/map/"
+  },
+  "BP5": {
+    "ltg": "https://landtransportguru.net/phoenix-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP5",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/phoenix/map/"
+  },
+  "BP7": {
+    "ltg": "https://landtransportguru.net/petir-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP7",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/petir/map/"
+  },
+  "BP8": {
+    "ltg": "https://landtransportguru.net/pending-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP8",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/pending/map/"
+  },
+  "BP9": {
+    "ltg": "https://landtransportguru.net/bangkit-station/",
+    "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP9",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bangkit/map/"
+  },
+  "CC10-DT26": {
+    "ltg": "https://landtransportguru.net/macpherson-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC10",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=MPS",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/macpherson/map/"
+  },
+  "CC11": {
+    "ltg": "https://landtransportguru.net/tai-seng-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC11",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tai%20seng/map/"
+  },
+  "CC12": {
+    "ltg": "https://landtransportguru.net/bartley-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC12",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bartley/map/"
+  },
+  "CC14": {
+    "ltg": "https://landtransportguru.net/lorong-chuan-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC14",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/lorong%20chuan/map/"
+  },
+  "CC16": {
+    "ltg": "https://landtransportguru.net/marymount-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC16",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marymount/map/"
+  },
+  "CC17-TE9": {
+    "ltg": "https://landtransportguru.net/caldecott-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC17",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/caldecott/map/"
+  },
+  "CC19-DT9": {
+    "ltg": "https://landtransportguru.net/botanic-gardens-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC19",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BTN",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/botanic%20gardens/map/"
+  },
+  "CC2": {
+    "ltg": "https://landtransportguru.net/bras-basah-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC2",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bras%20basah/map/"
+  },
+  "CC20": {
+    "ltg": "https://landtransportguru.net/farrer-road-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC20",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/farrer%20road/map/"
+  },
+  "CC21": {
+    "ltg": "https://landtransportguru.net/holland-village-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC21",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/holland%20village/map/"
+  },
+  "CC23": {
+    "ltg": "https://landtransportguru.net/one-north-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC23",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/one-north/map/"
+  },
+  "CC24": {
+    "ltg": "https://landtransportguru.net/kent-ridge-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC24",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/kent%20ridge/map/"
+  },
+  "CC25": {
+    "ltg": "https://landtransportguru.net/haw-par-villa-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC25",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/haw%20par%20villa/map/"
+  },
+  "CC26": {
+    "ltg": "https://landtransportguru.net/pasir-panjang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC26",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/pasir%20panjang/map/"
+  },
+  "CC27": {
+    "ltg": "https://landtransportguru.net/labrador-park-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC27",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/labrador%20park/map/"
+  },
+  "CC28": {
+    "ltg": "https://landtransportguru.net/telok-blangah-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC28",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/telok%20blangah/map/"
+  },
+  "CC3": {
+    "ltg": "https://landtransportguru.net/esplanade-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC3",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/esplanade/map/"
+  },
+  "CC30": {
+    "ltg": "https://landtransportguru.net/keppel-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC30",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/keppel/map/"
+  },
+  "CC31": {
+    "ltg": "https://landtransportguru.net/cantonment-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC31",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/cantonment/map/"
+  },
+  "CC32": {
+    "ltg": "https://landtransportguru.net/prince-edward-road-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC32",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/prince%20edward%20road/map/"
+  },
+  "CC34-DT16": {
+    "ltg": "https://landtransportguru.net/bayfront-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC34",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BFT",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bayfront/map/"
+  },
+  "CC4-DT15": {
+    "ltg": "https://landtransportguru.net/promenade-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=PMN",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/promenade/map/"
+  },
+  "CC5": {
+    "ltg": "https://landtransportguru.net/nicoll-highway-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC5",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/nicoll%20highway/map/"
+  },
+  "CC6": {
+    "ltg": "https://landtransportguru.net/stadium-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC6",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/stadium/map/"
+  },
+  "CC7": {
+    "ltg": "https://landtransportguru.net/mountbatten-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC7",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/mountbatten/map/"
+  },
+  "CC8": {
+    "ltg": "https://landtransportguru.net/dakota-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ccl.html#CC8",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/dakota/map/"
+  },
+  "CG2": {
+    "ltg": "https://landtransportguru.net/changi-airport-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#CG2",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/changi%20airport/map/"
+  },
+  "DT1-BP6": {
+    "ltg": "https://landtransportguru.net/bukit-panjang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BKP",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bukit%20panjang/map/"
+  },
+  "DT10-TE11": {
+    "ltg": "https://landtransportguru.net/stevens-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT10",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=STV",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/stevens/map/"
+  },
+  "DT13": {
+    "ltg": "https://landtransportguru.net/rochor-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT13",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=RCR"
+  },
+  "DT17": {
+    "ltg": "https://landtransportguru.net/downtown-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT17",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=DTN"
+  },
+  "DT18": {
+    "ltg": "https://landtransportguru.net/telok-ayer-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT18",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TLA"
+  },
+  "DT2": {
+    "ltg": "https://landtransportguru.net/cashew-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=CSW"
+  },
+  "DT20": {
+    "ltg": "https://landtransportguru.net/fort-canning-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT20",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=FCN"
+  },
+  "DT21": {
+    "ltg": "https://landtransportguru.net/bencoolen-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT21",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BCL"
+  },
+  "DT22": {
+    "ltg": "https://landtransportguru.net/jalan-besar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT22",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=JLB"
+  },
+  "DT23": {
+    "ltg": "https://landtransportguru.net/bendemeer-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT23",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BDM"
+  },
+  "DT24": {
+    "ltg": "https://landtransportguru.net/geylang-bahru-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT24",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=GLB"
+  },
+  "DT25": {
+    "ltg": "https://landtransportguru.net/mattar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT25",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=MTR"
+  },
+  "DT27": {
+    "ltg": "https://landtransportguru.net/ubi-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT27",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=UBI"
+  },
+  "DT28": {
+    "ltg": "https://landtransportguru.net/kaki-bukit-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT28",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=KKB"
+  },
+  "DT29": {
+    "ltg": "https://landtransportguru.net/bedok-north-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT29",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BDN"
+  },
+  "DT3": {
+    "ltg": "https://landtransportguru.net/hillview-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT3",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=HVW"
+  },
+  "DT30": {
+    "ltg": "https://landtransportguru.net/bedok-reservoir-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT30",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BDR"
+  },
+  "DT31": {
+    "ltg": "https://landtransportguru.net/tampines-west-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT31",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TPW"
+  },
+  "DT33": {
+    "ltg": "https://landtransportguru.net/tampines-east-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT33",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TPE"
+  },
+  "DT34": {
+    "ltg": "https://landtransportguru.net/upper-changi-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT34",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=UPC"
+  },
+  "DT35-CG1": {
+    "ltg": "https://landtransportguru.net/expo-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT35",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=XPO",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/expo/map/"
+  },
+  "DT4": {
+    "ltg": "https://landtransportguru.net/hume-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=HUM"
+  },
+  "DT5": {
+    "ltg": "https://landtransportguru.net/beauty-world-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BTW"
+  },
+  "DT6": {
+    "ltg": "https://landtransportguru.net/king-albert-park-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT6",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=KAP"
+  },
+  "DT7": {
+    "ltg": "https://landtransportguru.net/sixth-avenue-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT7",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=SAV"
+  },
+  "DT8": {
+    "ltg": "https://landtransportguru.net/tan-kah-kee-station/",
+    "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT8",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TKK"
+  },
+  "EW1": {
+    "ltg": "https://landtransportguru.net/pasir-ris-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW1",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/pasir%20ris/map/"
+  },
+  "EW10": {
+    "ltg": "https://landtransportguru.net/kallang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW10",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/kallang/map/"
+  },
+  "EW11": {
+    "ltg": "https://landtransportguru.net/lavender-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW11",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/lavender/map/"
+  },
+  "EW12-DT14": {
+    "ltg": "https://landtransportguru.net/bugis-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW12",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=BGS",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bugis/map/"
+  },
+  "EW15": {
+    "ltg": "https://landtransportguru.net/tanjong-pagar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW15",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tanjong%20pagar/map/"
+  },
+  "EW16-NE3-TE17": {
+    "ltg": "https://landtransportguru.net/outram-park-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW16",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=OTP",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/outram%20park/map/"
+  },
+  "EW17": {
+    "ltg": "https://landtransportguru.net/tiong-bahru-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW17",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tiong%20bahru/map/"
+  },
+  "EW18": {
+    "ltg": "https://landtransportguru.net/redhill-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW18",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/redhill/map/"
+  },
+  "EW19": {
+    "ltg": "https://landtransportguru.net/queenstown-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW19",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/queenstown/map/"
+  },
+  "EW2-DT32": {
+    "ltg": "https://landtransportguru.net/tampines-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TAM",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tampines/map/"
+  },
+  "EW20": {
+    "ltg": "https://landtransportguru.net/commonwealth-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW20",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/commonwealth/map/"
+  },
+  "EW21-CC22": {
+    "ltg": "https://landtransportguru.net/buona-vista-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW21",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/buona%20vista/map/"
+  },
+  "EW22": {
+    "ltg": "https://landtransportguru.net/dover-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW22",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/dover/map/"
+  },
+  "EW23": {
+    "ltg": "https://landtransportguru.net/clementi-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW23",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/clementi/map/"
+  },
+  "EW25": {
+    "ltg": "https://landtransportguru.net/chinese-garden-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW25",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/chinese%20garden/map/"
+  },
+  "EW26": {
+    "ltg": "https://landtransportguru.net/lakeside-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW26",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/lakeside/map/"
+  },
+  "EW27": {
+    "ltg": "https://landtransportguru.net/boon-lay-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW27",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/boon%20lay/map/"
+  },
+  "EW28": {
+    "ltg": "https://landtransportguru.net/pioneer-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW28",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/pioneer/map/"
+  },
+  "EW29": {
+    "ltg": "https://landtransportguru.net/joo-koon-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW29",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/joo%20koon/map/"
+  },
+  "EW3": {
+    "ltg": "https://landtransportguru.net/simei-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW3",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/simei/map/"
+  },
+  "EW30": {
+    "ltg": "https://landtransportguru.net/gul-circle-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW30",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/gul%20circle/map/"
+  },
+  "EW31": {
+    "ltg": "https://landtransportguru.net/tuas-crescent-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW31",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tuas%20crescent/map/"
+  },
+  "EW32": {
+    "ltg": "https://landtransportguru.net/tuas-west-road-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW32",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tuas%20west%20road/map/"
+  },
+  "EW33": {
+    "ltg": "https://landtransportguru.net/tuas-link-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW33",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tuas%20link/map/"
+  },
+  "EW4-CG": {
+    "ltg": "https://landtransportguru.net/tanah-merah-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW4",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tanah%20merah/map/"
+  },
+  "EW5": {
+    "ltg": "https://landtransportguru.net/bedok-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW5",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bedok/map/"
+  },
+  "EW6": {
+    "ltg": "https://landtransportguru.net/kembangan-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW6",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/kembangan/map/"
+  },
+  "EW7": {
+    "ltg": "https://landtransportguru.net/eunos-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW7",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/eunos/map/"
+  },
+  "EW8-CC9": {
+    "ltg": "https://landtransportguru.net/paya-lebar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW8",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/paya%20lebar/map/"
+  },
+  "EW9": {
+    "ltg": "https://landtransportguru.net/aljunied-station/",
+    "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW9",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/aljunied/map/"
+  },
+  "NE1-CC29": {
+    "ltg": "https://landtransportguru.net/harbourfront-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=HBF",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/harbourfront/map/"
+  },
+  "NE10": {
+    "ltg": "https://landtransportguru.net/potong-pasir-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE10",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=PTP"
+  },
+  "NE11": {
+    "ltg": "https://landtransportguru.net/woodleigh-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE11",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=WLH"
+  },
+  "NE12-CC13": {
+    "ltg": "https://landtransportguru.net/serangoon-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE12",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=SER",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/serangoon/map/"
+  },
+  "NE13": {
+    "ltg": "https://landtransportguru.net/kovan-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE13",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=KVN"
+  },
+  "NE14": {
+    "ltg": "https://landtransportguru.net/hougang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE14",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=HGN"
+  },
+  "NE15": {
+    "ltg": "https://landtransportguru.net/buangkok-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE15",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=BGK"
+  },
+  "NE16-STC": {
+    "ltg": "https://landtransportguru.net/sengkang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE16",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=SKG"
+  },
+  "NE17-PTC": {
+    "ltg": "https://landtransportguru.net/punggol-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE17",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=PGL"
+  },
+  "NE18": {
+    "ltg": "https://landtransportguru.net/punggol-coast-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE18",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=PGC"
+  },
+  "NE4-DT19": {
+    "ltg": "https://landtransportguru.net/chinatown-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=CNT"
+  },
+  "NE5": {
+    "ltg": "https://landtransportguru.net/clarke-quay-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=CQY"
+  },
+  "NE7-DT12": {
+    "ltg": "https://landtransportguru.net/little-india-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE7",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=LTI"
+  },
+  "NE8": {
+    "ltg": "https://landtransportguru.net/farrer-park-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE8",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=FRP"
+  },
+  "NE9": {
+    "ltg": "https://landtransportguru.net/boon-keng-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nel.html#NE9",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=BNK"
+  },
+  "NS1-EW24": {
+    "ltg": "https://landtransportguru.net/jurong-east-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS1",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/jurong%20east/map/"
+  },
+  "NS10": {
+    "ltg": "https://landtransportguru.net/admiralty-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS10",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/admiralty/map/"
+  },
+  "NS11": {
+    "ltg": "https://landtransportguru.net/sembawang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS11",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/sembawang/map/"
+  },
+  "NS12": {
+    "ltg": "https://landtransportguru.net/canberra-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS12",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/canberra/map/"
+  },
+  "NS13": {
+    "ltg": "https://landtransportguru.net/yishun-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS13",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/yishun/map/"
+  },
+  "NS14": {
+    "ltg": "https://landtransportguru.net/khatib-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS14",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/khatib/map/"
+  },
+  "NS15": {
+    "ltg": "https://landtransportguru.net/yio-chu-kang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS15",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/yio%20chu%20kang/map/"
+  },
+  "NS16": {
+    "ltg": "https://landtransportguru.net/ang-mo-kio-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS16",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/ang%20mo%20kio/map/"
+  },
+  "NS17-CC15": {
+    "ltg": "https://landtransportguru.net/bishan-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS17",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bishan/map/"
+  },
+  "NS18": {
+    "ltg": "https://landtransportguru.net/braddell-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS18",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/braddell/map/"
+  },
+  "NS19": {
+    "ltg": "https://landtransportguru.net/toa-payoh-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS19",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/toa%20payoh/map/"
+  },
+  "NS2": {
+    "ltg": "https://landtransportguru.net/bukit-batok-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS2",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bukit%20batok/map/"
+  },
+  "NS20": {
+    "ltg": "https://landtransportguru.net/novena-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS20",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/novena/map/"
+  },
+  "NS21-DT11": {
+    "ltg": "https://landtransportguru.net/newton-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS21",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=NEW",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/newton/map/"
+  },
+  "NS22-TE14": {
+    "ltg": "https://landtransportguru.net/orchard-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS22",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/orchard/map/"
+  },
+  "NS23": {
+    "ltg": "https://landtransportguru.net/somerset-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS23",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/somerset/map/"
+  },
+  "NS24-NE6-CC1": {
+    "ltg": "https://landtransportguru.net/dhoby-ghaut-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS24",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=NEL&Station=DBG",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/dhoby%20ghaut/map/"
+  },
+  "NS25-EW13": {
+    "ltg": "https://landtransportguru.net/city-hall-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS25",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/city%20hall/map/"
+  },
+  "NS26-EW14": {
+    "ltg": "https://landtransportguru.net/raffles-place-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS26",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/raffles%20place/map/"
+  },
+  "NS27-CC33-TE20": {
+    "ltg": "https://landtransportguru.net/marina-bay-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS27",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marina%20bay/map/"
+  },
+  "NS28": {
+    "ltg": "https://landtransportguru.net/marina-south-pier-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS28",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marina%20south%20pier/map/"
+  },
+  "NS3": {
+    "ltg": "https://landtransportguru.net/bukit-gombak-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS3",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bukit%20gombak/map/"
+  },
+  "NS4-BP1": {
+    "ltg": "https://landtransportguru.net/choa-chu-kang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS4",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/choa%20chu%20kang/map/"
+  },
+  "NS5": {
+    "ltg": "https://landtransportguru.net/yew-tee-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS5",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/yew%20tee/map/"
+  },
+  "NS7": {
+    "ltg": "https://landtransportguru.net/kranji-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS7",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/kranji/map/"
+  },
+  "NS8": {
+    "ltg": "https://landtransportguru.net/marsiling-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS8",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marsiling/map/"
+  },
+  "NS9-TE2": {
+    "ltg": "https://landtransportguru.net/woodlands-station/",
+    "sgtrains": "https://www.sgtrains.com/network-nsl.html#NS9",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/woodlands/map/"
+  },
+  "PE1": {
+    "ltg": "https://landtransportguru.net/cove-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE1"
+  },
+  "PE2": {
+    "ltg": "https://landtransportguru.net/meridian-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE2"
+  },
+  "PE3": {
+    "ltg": "https://landtransportguru.net/coral-edge-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE3",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE3"
+  },
+  "PE4": {
+    "ltg": "https://landtransportguru.net/riviera-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE4"
+  },
+  "PE5": {
+    "ltg": "https://landtransportguru.net/kadaloor-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE5"
+  },
+  "PE6": {
+    "ltg": "https://landtransportguru.net/oasis-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE6",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE6"
+  },
+  "PE7": {
+    "ltg": "https://landtransportguru.net/damai-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PE7",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PE7"
+  },
+  "PW1": {
+    "ltg": "https://landtransportguru.net/sam-kee-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW1"
+  },
+  "PW2": {
+    "ltg": "https://landtransportguru.net/teck-lee-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW2"
+  },
+  "PW3": {
+    "ltg": "https://landtransportguru.net/punggol-point-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW3",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW3"
+  },
+  "PW4": {
+    "ltg": "https://landtransportguru.net/samudera-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW4"
+  },
+  "PW5": {
+    "ltg": "https://landtransportguru.net/nibong-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW5"
+  },
+  "PW6": {
+    "ltg": "https://landtransportguru.net/sumang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW6",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW6"
+  },
+  "PW7": {
+    "ltg": "https://landtransportguru.net/soo-teck-station/",
+    "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW7",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW7"
+  },
+  "SE1": {
+    "ltg": "https://landtransportguru.net/compassvale-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SE1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SE1"
+  },
+  "SE2": {
+    "ltg": "https://landtransportguru.net/rumbia-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SE2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SE2"
+  },
+  "SE3": {
+    "ltg": "https://landtransportguru.net/bakau-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SE3",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SE3"
+  },
+  "SE4": {
+    "ltg": "https://landtransportguru.net/kangkar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SE4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SE4"
+  },
+  "SE5": {
+    "ltg": "https://landtransportguru.net/ranggung-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SE5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SE5"
+  },
+  "SW1": {
+    "ltg": "https://landtransportguru.net/cheng-lim-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW1",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW1"
+  },
+  "SW2": {
+    "ltg": "https://landtransportguru.net/farmway-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW2",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW2"
+  },
+  "SW3": {
+    "ltg": "https://landtransportguru.net/kupang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW3",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW3"
+  },
+  "SW4": {
+    "ltg": "https://landtransportguru.net/thanggam-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW4",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW4"
+  },
+  "SW5": {
+    "ltg": "https://landtransportguru.net/fernvale-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW5",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW5"
+  },
+  "SW6": {
+    "ltg": "https://landtransportguru.net/layar-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW6",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW6"
+  },
+  "SW7": {
+    "ltg": "https://landtransportguru.net/tongkang-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW7",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW7"
+  },
+  "SW8": {
+    "ltg": "https://landtransportguru.net/renjong-station/",
+    "sgtrains": "https://www.sgtrains.com/network-sklrt.html#SW8",
+    "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=SKG+LRT&Station=SW8"
+  },
+  "TE1": {
+    "ltg": "https://landtransportguru.net/woodlands-north-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE1",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/woodlands%20north/map/"
+  },
+  "TE12": {
+    "ltg": "https://landtransportguru.net/napier-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE12",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/napier/map/"
+  },
+  "TE13": {
+    "ltg": "https://landtransportguru.net/orchard-boulevard-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE13",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/orchard%20boulevard/map/"
+  },
+  "TE15": {
+    "ltg": "https://landtransportguru.net/great-world-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE15",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/great%20world/map/"
+  },
+  "TE16": {
+    "ltg": "https://landtransportguru.net/havelock-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE16",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/havelock/map/"
+  },
+  "TE18": {
+    "ltg": "https://landtransportguru.net/maxwell-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE18",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/maxwell/map/"
+  },
+  "TE19": {
+    "ltg": "https://landtransportguru.net/shenton-way-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE19",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/shenton%20way/map/"
+  },
+  "TE22": {
+    "ltg": "https://landtransportguru.net/gardens-by-the-bay-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE22",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/gardens%20by%20the%20bay/map/"
+  },
+  "TE23": {
+    "ltg": "https://landtransportguru.net/tanjong-rhu-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE23",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tanjong%20rhu/map/"
+  },
+  "TE24": {
+    "ltg": "https://landtransportguru.net/katong-park-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE24",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/katong%20park/map/"
+  },
+  "TE25": {
+    "ltg": "https://landtransportguru.net/tanjong-katong-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE25",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/tanjong%20katong/map/"
+  },
+  "TE26": {
+    "ltg": "https://landtransportguru.net/marine-parade-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE26",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marine%20parade/map/"
+  },
+  "TE27": {
+    "ltg": "https://landtransportguru.net/marine-terrace-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE27",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/marine%20terrace/map/"
+  },
+  "TE28": {
+    "ltg": "https://landtransportguru.net/siglap-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE28",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/siglap/map/"
+  },
+  "TE29": {
+    "ltg": "https://landtransportguru.net/bayshore-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE29",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bayshore/map/"
+  },
+  "TE3": {
+    "ltg": "https://landtransportguru.net/woodlands-south-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE3",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/woodlands%20south/map/"
+  },
+  "TE4": {
+    "ltg": "https://landtransportguru.net/springleaf-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE4",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/springleaf/map/"
+  },
+  "TE5": {
+    "ltg": "https://landtransportguru.net/lentor-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE5",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/lentor/map/"
+  },
+  "TE6": {
+    "ltg": "https://landtransportguru.net/mayflower-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE6",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/mayflower/map/"
+  },
+  "TE7": {
+    "ltg": "https://landtransportguru.net/bright-hill-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE7",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/bright%20hill/map/"
+  },
+  "TE8": {
+    "ltg": "https://landtransportguru.net/upper-thomson-station/",
+    "sgtrains": "https://www.sgtrains.com/network-tel.html#TE8",
+    "smrt": "https://journey.smrt.com.sg/journey/station_info/upper%20thomson/map/"
+  }
+}

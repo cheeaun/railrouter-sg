@@ -55,6 +55,7 @@ geojsonFetch
   .catch(() => {});
 
 import stationsSprite from './stations.json';
+import stationLinks from './station-links.json';
 
 const center = [103.8475, 1.3011];
 const lowerLat = 1.23,
@@ -247,12 +248,14 @@ const stationView = {
         <div class="exits"></div>
         <div class="arrivals"></div>
         <div class="wikipedia"></div>
+        <div class="external-links"></div>
       </div>
       `;
     $station.classList.add('open');
     stationsExits.mount(exitsData[station_codes], feature);
     stationArrivals.mount(station_codes, stationNames);
     wikipedia.mount(wikipedia_slug);
+    externalLinks.mount(station_codes);
   },
   unmount: () => {
     document.title = origTitle;
@@ -300,6 +303,30 @@ const wikipedia = {
         </div>`;
         $wikipedia.innerHTML = html;
       });
+  },
+};
+
+// Deep links to the station's page on other reputable sources, built by
+// scripts/build-station-links.mjs. Only the sources that actually have a page
+// for the station are listed, so the section is left out when there are none.
+const EXTERNAL_LINK_SOURCES = [
+  ['ltg', 'Land Transport Guru'],
+  ['sgtrains', 'SGTrains'],
+  ['sbs', 'SBS Transit'],
+  ['smrt', 'SMRT'],
+];
+
+const externalLinks = {
+  mount: (stationCodes) => {
+    const $links = $station.querySelector('.external-links');
+    const links = stationLinks[stationCodes];
+    if (!links) return;
+    const items = EXTERNAL_LINK_SOURCES.filter(([key]) => links[key]).map(
+      ([key, label]) =>
+        `<li><a href="${links[key].replace(/&/g, '&amp;')}" target="_blank" rel="noopener noreferrer">${label}</a></li>`,
+    );
+    if (!items.length) return;
+    $links.innerHTML = `<h3>External links</h3><ul>${items.join('')}</ul>`;
   },
 };
 

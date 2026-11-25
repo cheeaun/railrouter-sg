@@ -13,6 +13,7 @@ npm test         # node --test scripts/*.test.mjs
 npm run gtfs     # rebuild src/gtfs-trains.json from LTA's GTFS feed
 npm run holidays # rebuild src/public-holidays.json from data.gov.sg
 npm run gen-style # regenerate src/basemap-style.json from OpenFreeMap's Bright style
+npm run links    # rebuild src/station-links.json from the external station pages
 ```
 
 There is no lint or format script wired up, even though `.oxfmtrc.json` exists
@@ -37,6 +38,7 @@ before debugging your code.
 - `src/line-color.mjs` — `contrastInk()`, the black-or-white ink for a line colour, shared by the trains panel and the arrival badges.
 - `scripts/download-gtfs.mjs` — downloads the feed and writes `src/gtfs-trains.json`.
 - `scripts/download-holidays.mjs` — downloads Singapore public holidays from data.gov.sg and writes `src/public-holidays.json`.
+- `scripts/build-station-links.mjs` — scrapes the external sources and writes `src/station-links.json`, keyed by `station_codes`. A station only gets a source when that source really has a page for it. SGTrains has no per-station pages: its line pages read the station from the URL hash (`network-<line>.html#<CODE>`), so that is the deep link. SBS Transit only covers the lines it operates (DTL/NEL/SK/PG LRT) and SMRT only its own (NS/EW/CC/TE/BP), so those two keys are absent for most stations.
 - `scripts/gtfs-codec.test.mjs` — codec round-trip tests.
 - `scripts/timetable-data.test.mjs` — arrival-board query tests.
 - `src/gtfs-trains.json` — **generated, but committed.** Never hand-edit; rerun `npm run gtfs`.
