@@ -103,7 +103,7 @@ function fromTimeValue(value) {
 
 export function createLiveTrains(map) {
   let overlay = null;
-  // Active trips written by buildInstances, 8 floats each.
+  // Active trips written by buildInstances, INSTANCE_STRIDE floats each.
   let instanceData = new Float32Array(4096 * INSTANCE_STRIDE);
   let instanceCount = 0;
   const state = {
