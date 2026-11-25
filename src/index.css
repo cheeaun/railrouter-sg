@@ -426,6 +426,7 @@ abbr {
   padding: 12px 16px;
 }
 .arrivals h3 {
+  color: #000;
   margin-bottom: 2px;
 }
 /* The timetable caveat sits directly under the heading, before the rows. */
