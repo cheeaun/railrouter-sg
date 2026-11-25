@@ -608,9 +608,13 @@ for (const trip of trips) {
   const key = `${trip.route_id}|${stopIds.join('>')}`;
   let pattern = patterns.get(key);
   if (!pattern) {
-    pattern = { routeId: trip.route_id, stopIds, profiles: new Map(), trips: [] };
+    pattern = { routeId: trip.route_id, stopIds, profiles: new Map(), trips: [], headsigns: new Map() };
     patterns.set(key, pattern);
   }
+  // One stop pattern can carry more than one headsign in the feed (the Circle
+  // Line loop mixes "Clockwise" with a terminus name). Tally them and keep the
+  // most common, so the label is stable and deterministic.
+  pattern.headsigns.set(trip.trip_headsign, (pattern.headsigns.get(trip.trip_headsign) || 0) + 1);
   const start = toSeconds(rows[0].departure_time);
   const profile = rows.map((row) => [toSeconds(row.arrival_time) - start, toSeconds(row.departure_time) - start]);
   const profileKey = profile.map((p) => p.join(':')).join(',');
@@ -622,6 +626,27 @@ for (const trip of trips) {
   pattern.trips.push([start, pattern.profiles.get(profileKey), service]);
 }
 
+// A trip's headsign names the direction a rider actually cares about, which the
+// terminus stop alone does not: northbound Thomson-East Coast trains terminate
+// at several stations along the way (Woodlands South, Gardens by the Bay, …),
+// yet they all head for Woodlands North. Grouping by headsign keeps one row per
+// real direction instead of one per terminus.
+const headsignFor = (pattern) =>
+  [...pattern.headsigns.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+
+// Station identity for the sidebar's departure board. Paths only carry stop
+// distances, which say nothing about which station a stop is, so the builder
+// also emits a sorted station table (combined station_codes keys) and, per
+// path, the station index at every stop. Sorted order keeps the output stable
+// for an unchanged feed.
+const stationKeys = [...new Set(stations.map((station) => station.properties.station_codes))].sort();
+const stationIndex = new Map(stationKeys.map((key, index) => [key, index]));
+
+// The distinct headsigns, sorted, as a table the per-path index points into.
+// Sorted so an unchanged feed produces a byte-identical file.
+const headsignKeys = [...new Set([...patterns.values()].map(headsignFor))].sort();
+const headsignIndex = new Map(headsignKeys.map((key, index) => [key, index]));
+
 const output = {
   // Deliberately no build timestamp: it changed on every run, so the CI job's
   // "commit only if something changed" guard never fired and each refresh
@@ -630,6 +655,8 @@ const output = {
   // the timetable last actually changed.
   agency: agencyRows.map((row) => row.agency_name).join(' / '),
   feed: { version: feedInfo.feed_version || '', start: feedInfo.feed_start_date || '', end: feedInfo.feed_end_date || '' },
+  stations: stationKeys,
+  headsigns: headsignKeys,
   services,
   lines: {},
 };
@@ -661,6 +688,7 @@ for (const pattern of patterns.values()) {
 
   const graph = graphFor(lineName);
   const stationPoints = [];
+  const pathStations = [];
   const missing = [];
   for (const stopId of pattern.stopIds) {
     const station = stationForStop(stopId);
@@ -676,6 +704,7 @@ for (const pattern of patterns.values()) {
     const lat = stop && Number(stop.stop_lat);
     const lng = stop && Number(stop.stop_lon);
     stationPoints.push(lat && lng ? [lng, lat] : station.geometry.coordinates);
+    pathStations.push(stationIndex.get(station.properties.station_codes));
   }
   // A profile has one entry per stop in the trip, so it only lines up with the
   // track if every stop resolved. Skipping the pattern beats animating a train
@@ -734,6 +763,12 @@ for (const pattern of patterns.values()) {
   line.paths.push({
     c: coordIndex,
     s: encodeInts(stopDeltas),
+    // Station index per stop, for the sidebar's departure board. Delta-coded
+    // like the stop distances: adjacent stops are often neighbours in the
+    // sorted table, so the deltas stay small.
+    st: encodeInts(pathStations.map((value, i) => (i ? value - pathStations[i - 1] : value))),
+    // The direction this pattern runs in, as an index into `headsigns`.
+    h: headsignIndex.get(headsignFor(pattern)),
     p: profiles.map(encodeProfile),
     t: encodeInts(starts),
     tp: encodeInts(tripCodes),

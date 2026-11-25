@@ -1,6 +1,3 @@
-import trainsUrl from './gtfs-trains.json' with { type: 'url' };
-import holidaysUrl from './public-holidays.json' with { type: 'url' };
-import { scheduledDayType, serviceWeekday } from './service-day.mjs';
 import {
   prepare,
   buildInstances,
@@ -10,14 +7,16 @@ import {
   RAMP_SHARE,
   INSTANCE_STRIDE,
 } from './gpu-trains';
+import { loadTimetable } from './timetable.mjs';
+import { contrastInk } from './line-color.mjs';
+import {
+  clock,
+  runningServices,
+  scheduledDayType,
+  serviceWeekday,
+  SERVICE_DAY_CUTOFF,
+} from './service-day.mjs';
 
-// GTFS times are Singapore local time, which has no daylight saving.
-const SGT_OFFSET = 8 * 3600 * 1000;
-// A service day starts before the first train and lasts past midnight. Times
-// after midnight still belong to the previous day's timetable (GTFS writes
-// them as 24:xx, 25:xx…), so anything before this cutoff is served by
-// yesterday's services.
-const SERVICE_DAY_CUTOFF = 3 * 3600;
 // Redraw rate while playing or scrubbing. The overlay draw is cheap, so
 // playback uses the display rate.
 const TICK_MS = 1000 / 60;
@@ -68,19 +67,6 @@ const REVEAL_MS = 700;
 // play in, so use a fade this short: trains are either present or not.
 const STATIC_FADE = 0.05;
 
-function toRgb(hex) {
-  const n = parseInt(hex.slice(1), 16);
-  return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
-}
-
-// Black or white, whichever reads better on a line colour. Uses relative
-// luminance so pale lines (orange, teal) get dark text instead of white.
-function contrastInk(hex) {
-  const [r, g, b] = toRgb(hex).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
-  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return luminance > 0.35 ? '#111' : '#fff';
-}
-
 // The five LRT loops share #748477. A low-chroma line colour like that gets a
 // single chart band, so the five indistinguishable grays don't stack five times.
 function isGrayColor(hex) {
@@ -93,22 +79,6 @@ function isGrayColor(hex) {
 }
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-
-// The moment in Singapore, measured in seconds along the current service day.
-// Before the cutoff the clock is still counting up yesterday's timetable, so
-// seconds runs past 86400 and the date/weekday point at yesterday.
-function clock() {
-  const milliseconds = Date.now() + SGT_OFFSET;
-  const secondsOfDay = (((milliseconds % 86400000) + 86400000) % 86400000) / 1000;
-  const serviceMs =
-    secondsOfDay < SERVICE_DAY_CUTOFF ? milliseconds - 86400000 : milliseconds;
-  const serviceDate = new Date(serviceMs);
-  return {
-    seconds: secondsOfDay < SERVICE_DAY_CUTOFF ? secondsOfDay + 86400 : secondsOfDay,
-    day: serviceDate.toISOString().slice(0, 10).replace(/-/g, ''),
-    weekday: serviceDate.getUTCDay(),
-  };
-}
 
 // Service-day seconds -> "HH:MM:SS" on a 24-hour clock. Times past midnight
 // (a service day runs on to ~25:00) wrap, so 24:30:15 renders as "00:30:15".
@@ -129,21 +99,6 @@ function fromTimeValue(value) {
   const total = hours * 3600 + minutes * 60 + seconds;
   // SERVICE_DAY_CUTOFF is in seconds; compare in the same unit.
   return total < SERVICE_DAY_CUTOFF ? total + 86400 : total;
-}
-
-function runningServices(services, { day, weekday }) {
-  const active = new Set();
-  for (const [id, service] of Object.entries(services)) {
-    const exception = service.exceptions[day];
-    const activeToday =
-      exception === 1
-        ? true
-        : exception === 2
-          ? false
-          : service.days[weekday] === 1 && day >= service.start && day <= service.end;
-    if (activeToday) active.add(id);
-  }
-  return active;
 }
 
 export function createLiveTrains(map) {
@@ -936,28 +891,12 @@ export function createLiveTrains(map) {
 
   const load = () => {
     if (!state.loading) {
-      state.loading = Promise.all([
-        fetch(trainsUrl).then((response) => {
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
-        }),
-        // Holidays are an overlay, not a hard dependency: if the file is
-        // missing the timetable still runs, just without weekday holidays.
-        fetch(holidaysUrl)
-          .then((response) => (response.ok ? response.json() : null))
-          .catch(() => null),
-      ])
-        .then(([data, holidays]) => {
+      state.loading = loadTimetable()
+        .then(({ data, holidays }) => {
           state.data = data;
           state.prepared = prepare(data);
-          const holidayDates =
-            holidays && Array.isArray(holidays.dates)
-              ? holidays.dates
-                  .map((date) => String(date).replace(/-/g, ''))
-                  .filter((date) => /^\d{8}$/.test(date))
-              : [];
-          state.holidays = new Set(holidayDates);
-          if (holidayDates.length === 0) {
+          state.holidays = holidays;
+          if (holidays.size === 0) {
             console.warn('Public holidays unavailable; only Sundays use the Sunday timetable.');
           }
           const feedEnd = data.feed && data.feed.end;

@@ -1,5 +1,6 @@
 import * as maplibregl from 'maplibre-gl';
 import { createLiveTrains } from './live-trains';
+import { stationArrivals } from './station-arrivals';
 import style from './basemap-style.json';
 import tamilFont from './fonts/NotoSansTamil-Regular.woff2' with {type: 'url'};
 // Let Parcel bundle MapLibre's worker (with a hashed filename for caching).
@@ -36,8 +37,22 @@ let fuse;
 
 let stationsData;
 const exitsData = {};
+// Combined station_codes -> display name, for the departure direction labels
+// ("via Bishan", "ends at Prince Edward Road").
+const stationNames = new Map();
 
-const geojsonFetch = fetch(geojsonUrl);
+const geojsonFetch = fetch(geojsonUrl).then((res) => res.json());
+// Populate the direction-label names as soon as the geometry arrives, so a
+// station opened before the map finishes loading still resolves names.
+geojsonFetch
+  .then((data) => {
+    for (const feature of data.features) {
+      if (feature.properties.stop_type === 'station') {
+        stationNames.set(feature.properties.station_codes, feature.properties.name);
+      }
+    }
+  })
+  .catch(() => {});
 
 import stationsSprite from './stations.json';
 
@@ -166,13 +181,6 @@ const lineColorsExpression = [
   '#748477',
 ];
 
-function formatArriveTime(str) {
-  if (/\d/.test(str)) {
-    return str + ' min' + (str == '1' ? '' : 's');
-  }
-  return str;
-}
-
 const origTitle = document.title;
 let currentStation;
 const stationView = {
@@ -236,14 +244,14 @@ const stationView = {
         </h2>
       </header>
       <div class="scrollable">
-        ${/* <div class="arrivals"><h3>Arrival times</h3><p>Loading&hellip;</p></div> */ ''}
         <div class="exits"></div>
+        <div class="arrivals"></div>
         <div class="wikipedia"></div>
       </div>
       `;
     $station.classList.add('open');
-    // arrivalTimes.mount(name);
     stationsExits.mount(exitsData[station_codes], feature);
+    stationArrivals.mount(station_codes, stationNames);
     wikipedia.mount(wikipedia_slug);
   },
   unmount: () => {
@@ -251,6 +259,7 @@ const stationView = {
     currentStation = null;
     $station.classList.remove('open');
     $station.classList.remove('min');
+    stationArrivals.unmount();
 
     const zoom = map.getZoom();
     const isScreenLarge = window.innerWidth >= 800;
@@ -261,85 +270,6 @@ const stationView = {
       padding: isScreenLarge ? { left: 0 } : { bottom: 0 },
       duration: 500,
     });
-  },
-};
-
-let arrivalTimeout;
-const arrivalTimes = {
-  render: (name) => {
-    const $arrivals = $station.querySelector('.arrivals');
-    fetch(
-      `https://connectv3.smrt.wwprojects.com/smrt/api/train_arrival_time_by_id/?station=${encodeURIComponent(
-        name,
-      )}`,
-    )
-      .then((res) => res.json())
-      .then(({ results }) => {
-        if (!results.length) {
-          throw new Error('No results');
-        }
-        const html = results
-          .filter((result, pos, arr) => {
-            // Filter weird destination names
-            if (/do not board/i.test(result.next_train_destination)) return false;
-            return (
-              arr.findIndex((r) => r.next_train_destination == result.next_train_destination) == pos
-            );
-          })
-          .map((result) => {
-            let arrow = '⇢';
-            const isWeirdName = /do not board/i.test(result.next_train_destination);
-            if (result.next_train_destination == result.mrt) {
-              arrow = '⇠';
-            }
-            let dest = result.next_train_destination;
-            if (isWeirdName) {
-              if (/do not board/i.test(result.subseq_train_destination)) {
-                // Weird name again
-                dest = result.mrt;
-                arrow = '⇠';
-              } else {
-                dest = result.subseq_train_destination;
-              }
-            }
-            return `<tr>
-              <td>${arrow} ${dest}</td>
-              <td>${result.next_train_arr}</td>
-              <td>${formatArriveTime(result.subseq_train_arr)}</td>
-            </tr>`;
-          })
-          .join('');
-
-        $arrivals.innerHTML = `<h3>Arrival times</h3>
-        <table>
-          <tbody>
-            ${html}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3">
-                <small>Arrival times powered by <a href="https://www.smrttrains.com.sg/" target="_blank">SMRT Trains Ltd.</a></small>
-              </td>
-            </tr>
-          </tfoot>
-        </table>`;
-      })
-      .catch((e) => {
-        $arrivals.innerHTML = `<h3>Arrival times</h3>
-          <p>No arrival times available</p>`;
-      });
-  },
-  mount: (name) => {
-    clearTimeout(arrivalTimeout);
-    arrivalTimes.render(name);
-    arrivalTimeout = setTimeout(() => {
-      requestAnimationFrame(() => {
-        arrivalTimes.render(name);
-      });
-    }, 30 * 1000); // every 30 seconds
-  },
-  unmount: () => {
-    clearTimeout(arrivalTimeout);
   },
 };
 
@@ -503,7 +433,7 @@ const formatTime = (datetime, showAMPM = false) => {
 
   const labelLayerId = layers.find((l) => l.type === 'symbol' && l.layout['text-field']).id;
 
-  const data = await geojsonFetch.then((res) => res.json());
+  const data = await geojsonFetch;
   const exitsFeatures = data.features.filter((f) => {
     return f.properties.stop_type === 'entrance';
   });
@@ -1092,7 +1022,7 @@ class TrainsControl {
   onAdd(map) {
     this._map = map;
     const container = document.createElement('div');
-    container.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    container.className = 'maplibregl-ctrl maplibregl-ctrl-group maplibregl-ctrl-trains';
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'maplibregl-ctrl-emoji';

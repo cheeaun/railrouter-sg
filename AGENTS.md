@@ -30,10 +30,15 @@ before debugging your code.
 - `src/live-trains.js` — the scheduled-trains feature: service-day clock, playback/mode state, active-trip list, the trains panel UI, and wiring for the GPU overlay.
 - `src/gpu-trains.js` — the GPU renderer: 10 m path resampling, baked headings, the stop/profile textures, the active-instance builder, and the separate overlay canvas.
 - `src/gtfs-codec.mjs` — encode/decode for the packed timetable. **Shared by both the build script and the browser app.** Must stay `Buffer`-free (`btoa`/`atob` only) or Parcel's bundle breaks.
-- `src/service-day.mjs` — maps a service date to weekday/Saturday/Sunday-and-holiday timetable, shared by the browser app and its tests.
+- `src/service-day.mjs` — maps a service date to weekday/Saturday/Sunday-and-holiday timetable, and holds the shared service-day clock and `runningServices`. Imported by the browser app and its tests.
+- `src/timetable.mjs` — the one loader for `gtfs-trains.json` + `public-holidays.json`. Both the trains layer and the station sidebar call it, so the JSON is fetched and parsed once per session.
+- `src/timetable-data.mjs` — pure timetable queries (station → boarding points, next arrivals). No fetch or JSON imports, so Node tests import it directly.
+- `src/station-arrivals.js` — the station sidebar's Arrival times table, under Exits.
+- `src/line-color.mjs` — `contrastInk()`, the black-or-white ink for a line colour, shared by the trains panel and the arrival badges.
 - `scripts/download-gtfs.mjs` — downloads the feed and writes `src/gtfs-trains.json`.
 - `scripts/download-holidays.mjs` — downloads Singapore public holidays from data.gov.sg and writes `src/public-holidays.json`.
 - `scripts/gtfs-codec.test.mjs` — codec round-trip tests.
+- `scripts/timetable-data.test.mjs` — arrival-board query tests.
 - `src/gtfs-trains.json` — **generated, but committed.** Never hand-edit; rerun `npm run gtfs`.
 
 ## Data pipeline
@@ -45,6 +50,9 @@ before debugging your code.
 - `src/public-holidays.json` is also generated and committed. The browser overlays holiday dates on the GTFS calendar at runtime: a holiday service date uses the Sunday/PH timetable, including observed Monday holidays. The output has no timestamp so reruns stay byte-identical.
 - **Judge size by the compressed size, not the raw size.** The file is always served gzip/brotli: ~580 KB raw but ~119 KB gzipped. Optimisations that shrink raw JSON while adding many small unique strings (profile dedup, time quantisation) have previously made gzip *worse* — they were prototyped and reverted. Do not relitigate without measuring gzip.
 - Trip polylines are Douglas-Peucker simplified at 1 m with every stop vertex pinned, then stop distances are recomputed and delta-encoded. The drawn layer uses the unsimplified `src/sg-rail.geo.json` geometry, so simplification only affects train positions. At 3 m the corner-cutting was visible when zoomed in, so don't raise the tolerance back without checking that; the extra 1 m vertices cost ~14 KB gzipped.
+- **Station identity is a separate table.** A path's `s` is only stop *distances* along the track; it says nothing about which station a stop is. The builder therefore also emits a sorted `stations` array (combined `station_codes` keys) and a per-path `st` list of station indices, delta-coded like `s`. That is what the sidebar's arrival board reads. It costs ~3.4 KB gzipped; keep the table sorted so the output stays deterministic.
+- **A headsign is a terminus, not a direction.** The builder also emits a sorted `headsigns` table and a per-path `h` index (~0.8 KB gzipped). Do not group arrivals by headsign: southbound from Ang Mo Kio, trains terminate at Ang Mo Kio, Toa Payoh *and* Marina South Pier while all running the same way, which split one direction into three rows. Group by the **next station** along the path and use the headsign of the pattern with the most trips as the label.
+- **Loop direction copy follows LTA's CCL wayfinding** (`lta.gov.sg/cclwayfinding`). A loop line's direction is Clockwise/Anticlockwise, decided by the **signed area** of the path geometry — the GTFS headsign is unreliable there (sometimes the compass direction, sometimes the terminus). Under the direction, LTA shows `via <next interchange>` for a through (closed-path) service and `ends at <terminus>` for a terminating one. Both are derived, never hardcoded. The two trains shown per direction can carry different copy, so rows are keyed by direction *and* qualifier.
 
 ## live-trains.js gotchas
 
@@ -67,6 +75,7 @@ before debugging your code.
 - Inputs bounded by a control's min/max should clamp to the nearest bound rather than reject or error.
 - `hidden` is not reflected on SVG elements in Chrome — toggle a class (`is-hidden`) instead.
 - MapLibre's own `button:hover` (`rgba(0,0,0,0.05)`) can override a control's fill; the `.active` trains button needs higher specificity and the same colour on hover.
+- **The trains toggle stays usable while a station sheet is open.** The general `.sheet.open ~ #map` rule hides the map controls, and `.maplibregl-ctrl-trains` is exempted from it; the trains *panel* (`#bottom-left #trains-time`) is still hidden, since the sheet owns that corner. On narrow screens the sheet is a bottom sheet, so the bottom-right control stack is lifted above it (50vh, or 100px when the sheet is collapsed) or the toggle would sit underneath the sheet.
 
 ## Verify before finishing
 
