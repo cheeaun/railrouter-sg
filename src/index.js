@@ -208,14 +208,14 @@ const stationView = {
       map.jumpTo({
         center: geometry.coordinates,
         zoom: 16.5,
-        pitch: 70,
+        pitch: 60,
         padding,
       });
     } else {
       map.easeTo({
         center: geometry.coordinates,
         zoom: 16.5,
-        pitch: 70,
+        pitch: 60,
         padding,
         duration: 500,
       });
