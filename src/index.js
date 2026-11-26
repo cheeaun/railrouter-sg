@@ -32,6 +32,7 @@ $('logo').onclick = () => {
 
 import Fuse from 'fuse.js';
 import geojsonUrl from './sg-rail.geo.json' with {type: 'url'};
+import otherGeojsonUrl from './sg-rail-other.geo.json' with {type: 'url'};
 import walksGeojsonUrl from './sg-rail-walks.geo.json' with {type: 'url'};
 let fuse;
 
@@ -42,17 +43,25 @@ const exitsData = {};
 const stationNames = new Map();
 
 const geojsonFetch = fetch(geojsonUrl).then((res) => res.json());
+// Non-MRT/LRT networks (Changi Skytrain, Sentosa Express) live in their own
+// file. They keep the same shape but their station codes have no sprite, so
+// they are drawn with normal circle markers instead.
+const otherGeojsonFetch = fetch(otherGeojsonUrl)
+  .then((res) => res.json())
+  .catch(() => ({ type: 'FeatureCollection', features: [] }));
 // Populate the direction-label names as soon as the geometry arrives, so a
 // station opened before the map finishes loading still resolves names.
-geojsonFetch
-  .then((data) => {
-    for (const feature of data.features) {
-      if (feature.properties.stop_type === 'station') {
-        stationNames.set(feature.properties.station_codes, feature.properties.name);
+for (const fetchPromise of [geojsonFetch, otherGeojsonFetch]) {
+  fetchPromise
+    .then((data) => {
+      for (const feature of data.features) {
+        if (feature.properties.stop_type === 'station') {
+          stationNames.set(feature.properties.station_codes, feature.properties.name);
+        }
       }
-    }
-  })
-  .catch(() => {});
+    })
+    .catch(() => {});
+}
 
 import stationsSprite from './stations.json';
 import stationLinks from './station-links.json';
@@ -171,16 +180,48 @@ const lineColors = {
   saddlebrown: '#9D5B25',
   darkmagenta: '#9900aa',
   darkslateblue: '#005ec4',
+  deeppink: '#ff1493',
   gray: '#748477',
 };
-const lineColorsExpression = [
+const colorExpression = (property) => [
   'match',
-  ['get', 'line_color'],
+  ['get', property],
   ...Object.keys(lineColors)
     .map((c) => [c, lineColors[c]])
     .flat(),
   '#748477',
 ];
+const lineColorsExpression = colorExpression('line_color');
+const stationColorsExpression = colorExpression('station_colors');
+
+// Only the MRT/LRT networks have the per-line station-code pills and their
+// colours. The other networks (Changi Skytrain, Sentosa Express) use plain
+// circle markers, so their stations show the line name instead in the header
+// and search results.
+const stationLabel = (properties, mini = false) => {
+  const network = properties.network || '';
+  const size = mini ? ' mini' : '';
+  if (!network.startsWith('singapore-')) {
+    const name = network
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    return name ? `<span class="station-line${size}">${name}</span>` : '';
+  }
+  const { station_codes, station_colors = 'gray' } = properties;
+  return `<span class="pill${size}">
+          ${station_codes
+        .split('-')
+        .map(
+          (c, i) =>
+            `<span class="${station_colors.split('-')[i]}">${c.replace(
+              /^([a-z]+)/i,
+              '$1 ',
+            )}</span>`,
+        )
+        .join('')}
+        </span>`;
+};
 
 const origTitle = document.title;
 let currentStation;
@@ -191,13 +232,13 @@ const stationView = {
     const {
       name,
       'name_zh-Hans': name_zh_Hans,
-      name_ta,
+      name_ta = '',
       station_codes,
-      station_colors,
       wikipedia_slug,
     } = properties;
 
-    document.title = `${name} / ${name_zh_Hans} / ${name_ta} (${station_codes}) – RailRouter SG`;
+    const subtitle = [name_zh_Hans, name_ta].filter(Boolean).join(' / ');
+    document.title = `${subtitle ? `${name} / ${subtitle}` : name} (${station_codes}) – RailRouter SG`;
 
     $station.classList.remove('min');
 
@@ -226,35 +267,22 @@ const stationView = {
     currentStation = station_codes;
     $station.innerHTML = `
       <header>
-        <span class="pill">
-          ${station_codes
-        .split('-')
-        .map(
-          (c, i) =>
-            `<span class="${station_colors.split('-')[i]}">${c.replace(
-              /^([a-z]+)/i,
-              '$1 ',
-            )}</span>`,
-        )
-        .join('')}
-        </span>
+        ${stationLabel(properties)}
         <h2>
-          ${name}<br>
-          <span lang="zh" class="ib">${name_zh_Hans}</span>&nbsp;&nbsp;&nbsp;
-          <span lang="ta" class="ib">${name_ta}</span>
+          ${name}${subtitle ? `<br>${name_zh_Hans ? `<span lang="zh" class="ib">${name_zh_Hans}</span>` : ''}${name_zh_Hans && name_ta ? '&nbsp;&nbsp;&nbsp;' : ''}${name_ta ? `<span lang="ta" class="ib">${name_ta}</span>` : ''}` : ''}
         </h2>
       </header>
       <div class="scrollable">
         <div class="exits"></div>
         <div class="arrivals"></div>
-        <div class="wikipedia"></div>
+        <div class="station-info"></div>
         <div class="external-links"></div>
       </div>
       `;
     $station.classList.add('open');
     stationsExits.mount(exitsData[station_codes], feature);
     stationArrivals.mount(station_codes, stationNames);
-    wikipedia.mount(wikipedia_slug);
+    stationInfo.mount(wikipedia_slug, feature);
     externalLinks.mount(station_codes);
   },
   unmount: () => {
@@ -276,33 +304,84 @@ const stationView = {
   },
 };
 
-const wikipedia = {
-  mount: (slug) => {
-    const $wikipedia = $station.querySelector('.wikipedia');
-    fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`)
+const LTG_API = 'https://landtransportguru.net/wp-json/wp/v2';
+const ltgStationSlug = (name) =>
+  `${String(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')}-station`;
+const escapeHtml = (value) =>
+  String(value ?? '').replace(
+    /[&<>"']/g,
+    (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch],
+  );
+
+let stationInfoRequest = 0;
+
+const stationInfo = {
+  mount: (slug, feature) => {
+    const $info = $station.querySelector('.station-info');
+    if (!$info) return;
+
+    // Fetches can overlap when the user opens another station quickly; only the
+    // latest one is allowed to write into the panel.
+    const requestId = ++stationInfoRequest;
+    $info.hidden = true;
+    $info.innerHTML = '';
+    const show = (html) => {
+      if (requestId !== stationInfoRequest) return;
+      $info.innerHTML = html;
+      $info.hidden = false;
+    };
+
+    if (slug) {
+      fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`)
+        .then((res) => res.json())
+        .then((res) => {
+          const page = res.content_urls?.desktop?.page;
+          if (!page) return;
+          const imageSource = res.thumbnail?.source || res.originalimage?.source || '';
+          const imageWidth = res.thumbnail?.width || res.originalimage?.width || '';
+          const imageHeight = res.thumbnail?.height || res.originalimage?.height || '';
+          const imgHtml = imageSource
+            ? `<img src="${imageSource}" width="${imageWidth}" height="${imageHeight}" style="aspect-ratio: ${imageWidth} / ${imageHeight}" alt="">`
+            : '';
+          show(`<div>
+            ${imgHtml}
+            <div class="extract">${res.extract_html || ''}</div>
+            <div class="more"><a href="${page}" target="_blank">Read more on Wikipedia</a></div>
+          </div>`);
+        })
+        .catch(() => {});
+      return;
+    }
+
+    // No Wikipedia article for the other networks. Land Transport Guru has
+    // per-station WordPress pages, exposed through its REST API.
+    const name = feature?.properties?.name;
+    if (!name) return;
+    fetch(
+      `${LTG_API}/posts?slug=${encodeURIComponent(ltgStationSlug(name))}&_fields=title,excerpt,content,link`,
+    )
       .then((res) => res.json())
-      .then((res) => {
-        const {
-          content_urls: {
-            desktop: { page },
-          },
-          extract_html,
-          thumbnail,
-          originalimage,
-        } = res;
-        const imageSource = thumbnail?.source || originalimage?.source || '';
-        const imageWidth = thumbnail?.width || originalimage?.width || '';
-        const imageHeight = thumbnail?.height || originalimage?.height || '';
-        const imgHtml = imageSource
-          ? `<img src="${imageSource}" width="${imageWidth}" height="${imageHeight}" style="aspect-ratio: ${imageWidth} / ${imageHeight}" alt="">`
-          : '';
-        const html = `<div>
+      .then((posts) => {
+        if (!Array.isArray(posts) || !posts.length) return;
+        const post = posts[0];
+        const content = new DOMParser().parseFromString(post.content?.rendered || '', 'text/html');
+        const imageSource = content.querySelector('img')?.getAttribute('src') || '';
+        const excerpt = new DOMParser()
+          .parseFromString(post.excerpt?.rendered || '', 'text/html')
+          .body.textContent.replace(/\s+/g, ' ')
+          .trim();
+        if (!excerpt) return;
+        const imgHtml = imageSource ? `<img src="${escapeHtml(imageSource)}" alt="">` : '';
+        show(`<div>
           ${imgHtml}
-          <div class="extract">${extract_html}</div>
-          <div class="more"><a href="${page}" target="_blank">Read more on Wikipedia</a></div>
-        </div>`;
-        $wikipedia.innerHTML = html;
-      });
+          <div class="extract"><p>${escapeHtml(excerpt)}</p></div>
+          <div class="more"><a href="${escapeHtml(post.link)}" target="_blank" rel="noopener noreferrer">Read more on Land Transport Guru</a></div>
+        </div>`);
+      })
+      .catch(() => {});
   },
 };
 
@@ -319,6 +398,8 @@ const EXTERNAL_LINK_SOURCES = [
 const externalLinks = {
   mount: (stationCodes) => {
     const $links = $station.querySelector('.external-links');
+    $links.hidden = true;
+    $links.innerHTML = '';
     const links = stationLinks[stationCodes];
     if (!links) return;
     const items = EXTERNAL_LINK_SOURCES.filter(([key]) => links[key]).map(
@@ -327,6 +408,7 @@ const externalLinks = {
     );
     if (!items.length) return;
     $links.innerHTML = `<h3>External links</h3><ul>${items.join('')}</ul>`;
+    $links.hidden = false;
   },
 };
 
@@ -344,6 +426,13 @@ const stationsExits = {
   },
   mount: (exits, feature) => {
     const $exits = $station.querySelector('.exits');
+    if (!$exits) return;
+    if (!exits || !exits.length) {
+      $exits.innerHTML = '';
+      $exits.hidden = true;
+      return;
+    }
+    $exits.hidden = false;
     const sortedExits = exits.sort((a, b) => {
       if (isNaN(a.properties.name)) {
         if (a.properties.name < b.properties.name) return -1;
@@ -410,6 +499,16 @@ const formatTime = (datetime, showAMPM = false) => {
   return strTime;
 };
 
+// Only Changi needs a namespace: its station names are single letters (A–F).
+// Use station_codes there instead of the display name, since names can change.
+// Every other network keeps the existing name-based URL.
+const stationHash = (properties) => {
+  if (properties.network === 'changi-skytrain') {
+    return `stations/changi-skytrain/${encodeURIComponent(properties.station_codes)}`;
+  }
+  return `stations/${encodeURIComponent(properties.name)}`;
+};
+
 (async () => {
   await mapLoaded;
 
@@ -461,6 +560,8 @@ const formatTime = (datetime, showAMPM = false) => {
   const labelLayerId = layers.find((l) => l.type === 'symbol' && l.layout['text-field']).id;
 
   const data = await geojsonFetch;
+  const otherData = await otherGeojsonFetch;
+  const searchableFeatures = [...data.features, ...otherData.features];
   const exitsFeatures = data.features.filter((f) => {
     return f.properties.stop_type === 'entrance';
   });
@@ -570,6 +671,9 @@ const formatTime = (datetime, showAMPM = false) => {
     },
     paint: {
       'text-color': '#000',
+      'text-halo-color': '#ffe600',
+      'text-halo-width': 3,
+      'text-halo-blur': 1,
       'text-translate-anchor': 'viewport',
       'text-translate': [
         'interpolate',
@@ -716,6 +820,200 @@ const formatTime = (datetime, showAMPM = false) => {
     'building-3d',
   );
 
+  // OTHER RAIL (Changi Skytrain, Sentosa Express)
+  // A separate source keeps the MRT sprite icons and stop_type filters intact.
+  map.addSource('rail-other', {
+    type: 'geojson',
+    data: otherData,
+    buffer: 0,
+  });
+
+  map.addLayer(
+    {
+      id: 'other-lines-case',
+      source: 'rail-other',
+      filter: ['==', ['geometry-type'], 'LineString'],
+      type: 'line',
+      // Match the zoom where the MRT/LRT Chinese/Tamil station labels appear.
+      minzoom: 13,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 22, 30],
+        'line-color': lineColorsExpression,
+        'line-opacity': 0.25,
+        'line-blur': ['interpolate', ['linear'], ['zoom'], 10, 0, 22, 14],
+      },
+    },
+    'lines-case',
+  );
+  map.addLayer(
+    {
+      id: 'other-lines',
+      source: 'rail-other',
+      filter: ['==', ['geometry-type'], 'LineString'],
+      type: 'line',
+      minzoom: 13,
+      layout: {
+        'line-cap': 'round',
+        'line-join': 'round',
+      },
+      paint: {
+        'line-width': ['interpolate', ['linear'], ['zoom'], 0, 1, 22, 2],
+        'line-color': lineColorsExpression,
+      },
+    },
+    'lines-case',
+  );
+  map.addLayer(
+    {
+      id: 'other-lines-label',
+      source: 'rail-other',
+      filter: ['==', ['geometry-type'], 'LineString'],
+      type: 'symbol',
+      minzoom: 13,
+      layout: {
+        'symbol-placement': 'line',
+        'text-field': ['get', 'name'],
+        'text-font': ['Noto Sans Regular'],
+        'text-letter-spacing': 0.1,
+        'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 22, 16],
+        'text-pitch-alignment': 'viewport',
+        'text-rotation-alignment': 'map',
+        'text-max-angle': 30,
+        'text-padding': 1,
+      },
+      paint: {
+        'text-color': lineColorsExpression,
+        'text-halo-blur': 1,
+        'text-halo-color': '#fff',
+        'text-halo-width': 2,
+      },
+    },
+    'lines-label',
+  );
+
+  // The station codes (`A`, `A South`, `S1`…) have no entry in stations.png,
+  // so these are plain circle markers instead of the MRT station sprite. They
+  // sit below the MRT/LRT layers so those keep collision priority. A larger
+  // transparent circle makes the small marker easy to click. Like the line
+  // layers, they only appear once the MRT/LRT non-English labels do.
+  map.addLayer(
+    {
+      id: 'other-stations-hit',
+      source: 'rail-other',
+      filter: ['==', ['get', 'stop_type'], 'station'],
+      type: 'circle',
+      minzoom: 13,
+      paint: {
+        'circle-radius': 12,
+        'circle-color': '#000',
+        'circle-opacity': 0,
+      },
+    },
+    'exits',
+  );
+  map.addLayer(
+    {
+      id: 'other-stations-point',
+      source: 'rail-other',
+      filter: ['==', ['get', 'stop_type'], 'station'],
+      type: 'circle',
+      minzoom: 13,
+      paint: {
+        'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 1.25, 14, 2.75, 18, 5.5],
+        'circle-color': stationColorsExpression,
+        'circle-stroke-color': '#fff',
+        'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 10, 0.75, 16, 1.5],
+      },
+    },
+    'exits',
+  );
+  map.addLayer(
+    {
+      id: 'other-stations-label',
+      source: 'rail-other',
+      filter: ['==', ['get', 'stop_type'], 'station'],
+      type: 'symbol',
+      minzoom: 13,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
+        'text-font': ['Noto Sans Bold'],
+        'text-anchor': 'bottom',
+        'text-offset': [0, -0.45],
+        'text-max-width': 20,
+        'text-optional': true,
+      },
+      paint: {
+        'text-color': '#000',
+        'text-halo-color': '#fff',
+        'text-halo-width': 2,
+        'text-halo-blur': 1,
+      },
+    },
+    'exits',
+  );
+  map.addLayer(
+    {
+      id: 'other-stations-label-non-en',
+      source: 'rail-other',
+      filter: ['==', ['get', 'stop_type'], 'station'],
+      type: 'symbol',
+      minzoom: 13,
+      layout: {
+        'text-field': ['get', 'name_zh-Hans'],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 13, 12, 16, 16],
+        'text-font': ['Noto Sans Bold'],
+        'text-anchor': 'top',
+        'text-offset': [0, 0.45],
+        'text-max-width': 20,
+        'text-optional': true,
+      },
+      paint: {
+        'text-color': '#000',
+        'text-halo-color': '#fff',
+        'text-halo-width': 2,
+        'text-halo-blur': 1,
+      },
+    },
+    'exits',
+  );
+
+  // Monorail station footprints (`type: monorail`, not `subway`).
+  map.addLayer(
+    {
+      id: 'other-buildings-underground',
+      source: 'rail-other',
+      filter: ['all', ['==', ['get', 'type'], 'monorail'], ['==', ['get', 'underground'], true]],
+      type: 'fill',
+      minzoom: 13,
+      paint: {
+        'fill-antialias': false,
+        'fill-color': 'hsla(6, 63%, 60%, 0.3)',
+        'fill-outline-color': '#d96659',
+      },
+    },
+    'buildings-underground',
+  );
+  map.addLayer(
+    {
+      id: 'other-buildings-aboveground',
+      source: 'rail-other',
+      filter: ['all', ['==', ['get', 'type'], 'monorail'], ['==', ['get', 'underground'], false]],
+      type: 'fill-extrusion',
+      minzoom: 13,
+      paint: {
+        'fill-extrusion-color': '#d96659',
+        'fill-extrusion-height': 20,
+        'fill-extrusion-opacity': 0.3,
+      },
+    },
+    'buildings-underground',
+  );
+
   // const handleSource = (e) => {
   //   if (e.sourceId !== 'rail' || e.sourceDataType === 'metadata') return;
   //   map.off('sourcedata', handleSource);
@@ -740,24 +1038,54 @@ const formatTime = (datetime, showAMPM = false) => {
   // map.on('sourcedata', handleSource);
 
   map.on('click', 'stations-label', (e) => {
-    location.hash = `stations/${e.features[0].properties.name}`;
+    location.hash = stationHash(e.features[0].properties);
     // stationView.mount(e.features[0]);
   });
+  for (const layerId of [
+    'other-stations-hit',
+    'other-stations-point',
+    'other-stations-label',
+    'other-stations-label-non-en',
+  ]) {
+    map.on('click', layerId, (e) => {
+      location.hash = stationHash(e.features[0].properties);
+    });
+    map.on('mouseenter', layerId, () => {
+      mapCanvas.style.cursor = 'pointer';
+    });
+    map.on('mouseleave', layerId, () => {
+      mapCanvas.style.cursor = '';
+    });
+  }
 
   // Handle onhashchange
   const onHashChange = () => {
-    // hash looks like this "stations/[NAME]", get the NAME, find it in the geojson and show it
-    const name = decodeURIComponent(location.hash.split('/')[1] || '');
+    // #stations/<name-or-code>, or #stations/changi-skytrain/<station_codes>.
+    const hash = decodeURIComponent(location.hash.replace(/^#/, ''));
+    const parts = hash.split('/');
+    const isStation = parts[0] === 'stations';
+    const hasNamespace = isStation && parts.length >= 3;
+    const namespace = hasNamespace ? parts[1] : '';
+    const value = isStation ? (hasNamespace ? parts.slice(2).join('/') : parts[1] || '') : '';
     const stationData =
-      name &&
-      data.features.find((f) => {
+      value &&
+      searchableFeatures.find((f) => {
+        if (f.properties.stop_type !== 'station') return false;
+        const network = f.properties.network || '';
+        if (namespace) {
+          return (
+            network === namespace &&
+            f.properties.station_codes.toLowerCase() === value.toLowerCase()
+          );
+        }
+        // Changi always uses its namespace; #stations/C must not open it.
+        if (network === 'changi-skytrain') return false;
         const { name: fName, station_codes } = f.properties;
-        const hasName = (fName || '').toLowerCase() === name.toLowerCase();
-        if (hasName) return true;
-        // Also works if "stations/[CODE]" e.g. "stations/NS1"
-        const codes = station_codes.split('-');
-        // Array.includes but case-insensitive
-        return codes.some((c) => c.toLowerCase() === name.toLowerCase());
+        if ((fName || '').toLowerCase() === value.toLowerCase()) return true;
+        // #stations/NS1 still resolves an MRT/LRT station by code.
+        return station_codes
+          .split('-')
+          .some((code) => code.toLowerCase() === value.toLowerCase());
       });
     if (stationData) {
       stationView.mount(stationData);
@@ -799,7 +1127,7 @@ const formatTime = (datetime, showAMPM = false) => {
   });
 
   setTimeout(() => {
-    stationsData = data.features.filter((f) => {
+    stationsData = searchableFeatures.filter((f) => {
       return f.properties.stop_type === 'station';
     });
     fuse = new Fuse(stationsData, {
@@ -1088,7 +1416,7 @@ class TrainsControl {
 const isTrainsHash = () => location.hash.replace(/^#/, '') === 'trains';
 
 // Keep the URL in sync with the layer, without stepping on the station hash
-// (`#stations/NAME`), which shares the same slot. Only write `#trains` when
+// (`#stations/<code>`), which shares the same slot. Only write `#trains` when
 // the hash is free, and remember that we own it so turning the layer off
 // does not clear a hash another view has since taken over.
 let ownsTrainsHash = false;
@@ -1171,22 +1499,11 @@ $searchField.oninput = () => {
         matches,
       } = r;
       const firstNameMatch = matches.find((m) => /name/i.test(m.key));
-      const { name: stationName, station_codes, station_colors } = properties;
+      const { station_codes } = properties;
       const name = properties[firstNameMatch ? firstNameMatch.key.replace(/.+\./, '') : 'name'];
       const html = `<li data-codes="${station_codes}" tabindex="-1">
-      <a href="#stations/${stationName}">
-        <span class="pill mini">
-          ${station_codes
-          .split('-')
-          .map(
-            (c, i) =>
-              `<span class="${station_colors.split('-')[i]}">${c.replace(
-                /^([a-z]+)/i,
-                '$1 ',
-              )}</span>`,
-          )
-          .join('')}
-        </span>
+      <a href="#${stationHash(properties)}">
+        ${stationLabel(properties, true)}
         ${name}
       </a>
     </li>`;

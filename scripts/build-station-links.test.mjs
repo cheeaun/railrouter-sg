@@ -3,10 +3,13 @@ import { test } from 'node:test';
 
 import {
   buildLinks,
+  buildOtherLinks,
   extractLtgSlugs,
   extractSbsStations,
   extractSmrtStations,
+  normaliseSgtrainsName,
   sbsUrl,
+  sgtrainsTimingUrl,
   sgtrainsUrl,
   slugForName,
   smrtUrl,
@@ -27,6 +30,18 @@ test('sgtrainsUrl maps each line prefix to its line page and appends the code', 
   assert.equal(sgtrainsUrl('SE3'), 'https://www.sgtrains.com/network-sklrt.html#SE3');
   assert.equal(sgtrainsUrl('PE1'), 'https://www.sgtrains.com/network-pglrt.html#PE1');
   assert.equal(sgtrainsUrl('STC'), undefined);
+});
+
+test('normaliseSgtrainsName strips the SGTrains "Station" prefix', () => {
+  assert.equal(normaliseSgtrainsName('Station A South'), 'a south');
+  assert.equal(normaliseSgtrainsName('Beach'), 'beach');
+});
+
+test('sgtrainsTimingUrl builds the per-station timing URL', () => {
+  assert.equal(
+    sgtrainsTimingUrl('Resorts World'),
+    'https://www.sgtrains.com/guide-traintiming?station=Resorts+World',
+  );
 });
 
 test('sbsUrl encodes the line as a form value and the station code', () => {
@@ -78,6 +93,37 @@ test('extractSbsStations skips the placeholder and loop section rows', () => {
   assert.equal(stations.get('compassvale'), 'SE1');
   assert.equal(stations.get('sam kee'), 'PW1');
   assert.equal(stations.size, 2);
+});
+
+test('buildOtherLinks uses station pages for Sentosa and network pages for Changi', () => {
+  const stations = [
+    { name: 'Beach', station_codes: 'S4', network: 'sentosa-express' },
+    { name: 'A', station_codes: 'A', network: 'changi-skytrain' },
+    { name: 'A South', station_codes: 'A South', network: 'changi-skytrain' },
+  ];
+  const ltg = new Map([
+    ['S4', 'https://landtransportguru.net/beach-station/'],
+    ['A', 'https://landtransportguru.net/train/changi-airport-skytrain/'],
+    ['A South', 'https://landtransportguru.net/train/changi-airport-skytrain/'],
+  ]);
+  const sgtrains = new Map([
+    ['a', 'A'],
+    ['a south', 'A(South)'],
+  ]);
+  assert.deepEqual(buildOtherLinks(stations, ltg, sgtrains), {
+    S4: {
+      ltg: 'https://landtransportguru.net/beach-station/',
+      sgtrains: 'https://www.sgtrains.com/guide-traintiming?station=Beach',
+    },
+    A: {
+      ltg: 'https://landtransportguru.net/train/changi-airport-skytrain/',
+      sgtrains: 'https://www.sgtrains.com/network-cga.html#A',
+    },
+    'A South': {
+      ltg: 'https://landtransportguru.net/train/changi-airport-skytrain/',
+      sgtrains: 'https://www.sgtrains.com/network-cga.html#A(South)',
+    },
+  });
 });
 
 test('buildLinks picks the first line that has a page and omits missing sources', () => {

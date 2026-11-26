@@ -22,7 +22,7 @@ jobs:
           node-version: 22
 
       - name: Download and build the GTFS schedule
-        run: node scripts/download-gtfs.mjs
+        run: npm run gtfs
         env:
           LTA_ACCOUNT_KEY: ${{ secrets.LTA_ACCOUNT_KEY }}
 

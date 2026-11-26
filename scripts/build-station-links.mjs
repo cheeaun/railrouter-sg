@@ -2,7 +2,7 @@
 /**
  * Builds src/station-links.json: for every station in src/sg-rail.geo.json, the
  * deep link to its page on each reputable external source. The station sidebar
- * renders these under the Wikipedia section as "External links".
+ * renders these under the station info section as "External links".
  *
  * Sources:
  *   - Land Transport Guru: https://landtransportguru.net/<slug>-station/
@@ -31,6 +31,7 @@ import { pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const RAIL_FILE = path.join(ROOT, 'src', 'sg-rail.geo.json');
+const OTHER_RAIL_FILE = path.join(ROOT, 'src', 'sg-rail-other.geo.json');
 const OUT_FILE = path.join(ROOT, 'src', 'station-links.json');
 
 const USER_AGENT =
@@ -38,8 +39,24 @@ const USER_AGENT =
 
 const LTG_BASE = 'https://landtransportguru.net';
 const LTG_LINES = ['nsl', 'ewl', 'nel', 'ccl', 'dtl', 'tel', 'bplrt', 'sklrt', 'pglrt', 'jrl', 'crl'];
+const LTG_NETWORK_PAGE = {
+  'changi-skytrain': `${LTG_BASE}/train/changi-airport-skytrain/`,
+};
 
 const SGTRAINS_BASE = 'https://www.sgtrains.com';
+// SGTrains serves the station list as JSON next to each network page. The live
+// site sits behind Cloudflare in some environments, so keep a stable Wayback
+// snapshot as a fallback. The station code in that JSON is the URL hash
+// (e.g. "A(South)"), so it is read rather than derived by us.
+const SGTRAINS_OTHER = {
+  'changi-skytrain': {
+    page: `${SGTRAINS_BASE}/network-cga.html`,
+    stationData: [
+      `${SGTRAINS_BASE}/data/cga-stations.json`,
+      'https://web.archive.org/web/20160303101953id_/http://www.sgtrains.com/data/cga-stations.json',
+    ],
+  },
+};
 const SGTRAINS_LINE_BY_PREFIX = {
   NS: 'nsl',
   EW: 'ewl',
@@ -97,6 +114,11 @@ export function sbsLineForCode(code) {
 export function sgtrainsUrl(code) {
   const line = sgtrainsLineForCode(code);
   return line ? `${SGTRAINS_BASE}/network-${line}.html#${code}` : undefined;
+}
+
+export function sgtrainsTimingUrl(name) {
+  const query = new URLSearchParams({ station: String(name).trim() }).toString();
+  return `${SGTRAINS_BASE}/guide-traintiming?${query}`;
 }
 
 export function sbsUrl(line, code) {
@@ -180,6 +202,32 @@ export function buildLinks(stations, sources) {
   return links;
 }
 
+// Other rail networks are not in sg-rail.geo.json and do not share its source
+// coverage. Sentosa stations have per-station LTG and SGTrains timing pages;
+// Changi stations only have the network pages on both sites.
+export function normaliseSgtrainsName(name) {
+  return String(name).replace(/^Station\s+/i, '').trim().toLowerCase();
+}
+
+export function buildOtherLinks(stations, ltgLinks, sgtrainsStations) {
+  const links = {};
+  for (const properties of stations) {
+    const { station_codes: stationCodes, name, network } = properties;
+    const found = {};
+    if (ltgLinks.has(stationCodes)) found.ltg = ltgLinks.get(stationCodes);
+    if (network === 'sentosa-express') {
+      found.sgtrains = sgtrainsTimingUrl(name);
+    } else if (SGTRAINS_OTHER[network]) {
+      const code = sgtrainsStations.get(normaliseSgtrainsName(name));
+      if (code) {
+        found.sgtrains = `${SGTRAINS_OTHER[network].page}#${encodeURIComponent(code)}`;
+      }
+    }
+    if (Object.keys(found).length) links[stationCodes] = found;
+  }
+  return links;
+}
+
 export function serialise(links) {
   const ordered = {};
   for (const key of Object.keys(links).sort()) {
@@ -195,6 +243,66 @@ async function fetchText(url, options = {}) {
   });
   if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
   return response.text();
+}
+
+async function fetchSgtrainsStations(network) {
+  const config = SGTRAINS_OTHER[network];
+  if (!config) return new Map();
+  for (const url of config.stationData) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'user-agent': USER_AGENT,
+          accept: 'application/json, text/javascript, */*; q=0.01',
+          'x-requested-with': 'XMLHttpRequest',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-origin',
+        },
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const stations = new Map();
+      for (const station of data.stations || []) {
+        if (station.isSection) continue;
+        const code = String(station.code || '').split(' ')[0];
+        if (code) stations.set(normaliseSgtrainsName(station.name), code);
+      }
+      if (stations.size) return stations;
+    } catch (error) {
+      console.warn(`! SGTrains ${network} station data ${url}: ${error.message}`);
+    }
+  }
+  return new Map();
+}
+
+async function fetchOtherLtgLinks(stations) {
+  const links = new Map();
+  await Promise.all(
+    stations.map(async (properties) => {
+      const slug = slugForName(properties.name);
+      try {
+        const response = await fetch(
+          `${LTG_BASE}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_fields=link`,
+          { headers: { 'user-agent': USER_AGENT } },
+        );
+        const posts = response.ok ? await response.json() : [];
+        const link = Array.isArray(posts) ? posts[0]?.link : undefined;
+        if (link) {
+          links.set(properties.station_codes, link);
+        } else if (LTG_NETWORK_PAGE[properties.network]) {
+          links.set(properties.station_codes, LTG_NETWORK_PAGE[properties.network]);
+        }
+      } catch (error) {
+        if (LTG_NETWORK_PAGE[properties.network]) {
+          links.set(properties.station_codes, LTG_NETWORK_PAGE[properties.network]);
+        } else {
+          console.warn(`! Land Transport Guru ${properties.name}: ${error.message}`);
+        }
+      }
+    }),
+  );
+  return links;
 }
 
 async function fetchLtgSlugs() {
@@ -234,14 +342,24 @@ async function main() {
     .map((feature) => feature.properties)
     .filter((properties) => properties.stop_type === 'station');
 
-  const [ltg, smrtHtml, sbs] = await Promise.all([
+  const otherGeojson = JSON.parse(await fs.readFile(OTHER_RAIL_FILE, 'utf8'));
+  const otherStations = otherGeojson.features
+    .map((feature) => feature.properties)
+    .filter((properties) => properties.stop_type === 'station');
+
+  const [ltg, smrtHtml, sbs, ltgOther, sgtrainsOther] = await Promise.all([
     fetchLtgSlugs(),
     fetchText(SMRT_STATION_PAGE),
     fetchSbsStations(),
+    fetchOtherLtgLinks(otherStations),
+    fetchSgtrainsStations('changi-skytrain'),
   ]);
   const smrt = extractSmrtStations(smrtHtml);
 
-  const links = buildLinks(stations, { ltg, smrt, sbs });
+  const links = {
+    ...buildLinks(stations, { ltg, smrt, sbs }),
+    ...buildOtherLinks(otherStations, ltgOther, sgtrainsOther),
+  };
   await fs.writeFile(OUT_FILE, serialise(links));
 
   const counts = { ltg: 0, sgtrains: 0, sbs: 0, smrt: 0 };

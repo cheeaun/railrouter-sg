@@ -19,7 +19,7 @@ test('encodeInts handles long runs of small values', () => {
   assert.deepEqual(decodeInts(encodeInts(values)), values);
 });
 
-test('encodeCoords preserves coordinates to micro-degree precision', () => {
+test('encodeCoords preserves coordinates to 1e-5 degree precision', () => {
   const coords = Array.from({ length: 400 }, (_, i) => [
     103.8 + i * 0.0007,
     1.3 + Math.sin(i / 5) * 0.01,
@@ -27,8 +27,8 @@ test('encodeCoords preserves coordinates to micro-degree precision', () => {
   const decoded = decodeCoords(encodeCoords(coords));
   assert.equal(decoded.length, coords.length);
   for (let i = 0; i < coords.length; i++) {
-    assert.ok(Math.abs(decoded[i][0] - Math.round(coords[i][0] * 1e6) / 1e6) < 1e-9);
-    assert.ok(Math.abs(decoded[i][1] - Math.round(coords[i][1] * 1e6) / 1e6) < 1e-9);
+    assert.ok(Math.abs(decoded[i][0] - Math.round(coords[i][0] * 1e5) / 1e5) < 1e-9);
+    assert.ok(Math.abs(decoded[i][1] - Math.round(coords[i][1] * 1e5) / 1e5) < 1e-9);
   }
 });
 

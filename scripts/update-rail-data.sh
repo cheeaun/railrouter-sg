@@ -11,4 +11,7 @@ curl -sL "$BASE_URL/sg-rail.geojson" -o src/sg-rail.geo.json
 echo "Downloading sg-rail-walks.geojson..."
 curl -sL "$BASE_URL/sg-rail-walks.geojson" -o src/sg-rail-walks.geo.json
 
+echo "Downloading sg-rail-other.geojson..."
+curl -sL "$BASE_URL/sg-rail-other.geojson" -o src/sg-rail-other.geo.json
+
 echo "Done!"

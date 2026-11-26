@@ -261,13 +261,13 @@ function shortestPathsFromSeeds(graph, seeds) {
   return { dist, prev, root };
 }
 
-const round = (value) => Math.round(value * 1e6) / 1e6;
+const round = (value) => Math.round(value * 1e5) / 1e5;
 
 // Train polylines are simplified to this perpendicular tolerance before
 // encoding. The drawn track is the curated sg-rail.geo.json geometry, so this
 // only affects train positions. 1m keeps trains within a pixel or two of the
-// drawn line even at deep zoom (3m was visibly off at max zoom) for ~14KB more
-// gzipped, since the added vertices compress well.
+// drawn line even at deep zoom (3m was visibly off at max zoom) for only ~2.5 KB
+// more gzipped, since the added vertices compress well.
 const SIMPLIFY_TOLERANCE = 1;
 
 // The encoders live in src/gtfs-codec.mjs, shared with the runtime decoders.
@@ -650,7 +650,7 @@ const headsignIndex = new Map(headsignKeys.map((key, index) => [key, index]));
 const output = {
   // Deliberately no build timestamp: it changed on every run, so the CI job's
   // "commit only if something changed" guard never fired and each refresh
-  // rewrote the whole 530 KB blob for a 24-character diff. Provenance lives in
+  // rewrote the whole 590 KB blob for a 24-character diff. Provenance lives in
   // data/gtfs-meta.json instead (git-ignored), and the commit date records when
   // the timetable last actually changed.
   agency: agencyRows.map((row) => row.agency_name).join(' / '),
@@ -789,7 +789,7 @@ output.lines = Object.fromEntries(
   Object.entries(output.lines).sort((a, b) => a[1].order - b[1].order),
 );
 
-const json = JSON.stringify(output);
+const json = JSON.stringify(output, null, 2) + '\n';
 await fs.writeFile(OUT_FILE, json);
 await fs.writeFile(
   META_FILE,
