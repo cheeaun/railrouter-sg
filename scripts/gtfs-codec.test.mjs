@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import {
   decodeCoords,
+  decodeDeltas,
   decodeInts,
   decodeProfile,
   encodeCoords,
+  encodeDeltas,
   encodeInts,
   encodeProfile,
 } from '../src/gtfs-codec.mjs';
@@ -17,6 +19,15 @@ test('encodeInts round-trips signed values, including zero and run lengths', () 
 test('encodeInts handles long runs of small values', () => {
   const values = Array.from({ length: 5000 }, (_, i) => (i % 7) - 3);
   assert.deepEqual(decodeInts(encodeInts(values)), values);
+});
+
+test('encodeDeltas round-trips index runs that go backwards or jump', () => {
+  const values = [0, 1, 2, 3, 2, 1, 0, 40, 41, 42, 7, 8];
+  assert.deepEqual(decodeDeltas(encodeDeltas(values)), values);
+});
+
+test('encodeDeltas handles an empty run', () => {
+  assert.deepEqual(decodeDeltas(encodeDeltas([])), []);
 });
 
 test('encodeCoords preserves coordinates to 1e-5 degree precision', () => {

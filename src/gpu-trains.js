@@ -16,7 +16,7 @@
 // existing polyline exactly (no invented curvature); headings are smoothed
 // over a short arc-length window so corners rotate gradually.
 
-import { decodeCoords, decodeInts, decodeProfile } from './gtfs-codec.mjs';
+import { decodeCoords, decodeDeltas, decodeInts, decodeProfile } from './gtfs-codec.mjs';
 
 const EARTH_RADIUS = 6371000;
 const RAD = Math.PI / 180;
@@ -173,7 +173,12 @@ export function prepare(data) {
   for (const key of lineKeys) {
     const line = data.lines[key];
     const rgb = toRgb(line.color);
+    // Paths carry index runs into this one vertex table instead of repeating
+    // the coordinates. Decode it once per line; the pools below are still
+    // per-path because their stop distances and geometry can differ.
+    const verts = decodeCoords(line.verts);
     const poolBase = pools.length / 4;
+    const poolsByRun = new Map();
     lines[key] = {
       name: line.name,
       code: line.code || key,
@@ -182,19 +187,22 @@ export function prepare(data) {
       minzoom: line.minzoom ?? 0,
     };
 
-    for (const encoded of line.coords) {
-      const coords = decodeCoords(encoded);
-      const pool = resample(coords);
-      const offset = vertexCount;
-      for (let i = 0; i < pool.count; i++) {
-        atlas.push(pool.x[i], pool.y[i], pool.cx[i], pool.cy[i]);
-      }
-      vertexCount += pool.count;
-      pools.push(offset, pool.count, pool.length, 0);
-      poolEnds.push(coords[0], coords[coords.length - 1]);
-    }
-
     for (const path of line.paths) {
+      let poolIndex = poolsByRun.get(path.ci);
+      if (poolIndex === undefined) {
+        const coords = decodeDeltas(path.ci).map((index) => verts[index]);
+        const pool = resample(coords);
+        const offset = vertexCount;
+        for (let i = 0; i < pool.count; i++) {
+          atlas.push(pool.x[i], pool.y[i], pool.cx[i], pool.cy[i]);
+        }
+        vertexCount += pool.count;
+        pools.push(offset, pool.count, pool.length, 0);
+        poolIndex = poolsByRun.size;
+        poolsByRun.set(path.ci, poolIndex);
+        poolEnds.push(coords[0], coords[coords.length - 1]);
+      }
+
       const stopDeltas = decodeInts(path.s);
       const stopCount = stopDeltas.length;
       const stopDistances = new Float64Array(stopCount);
@@ -256,15 +264,15 @@ export function prepare(data) {
       paths.push({
         key,
         carWidth: CAR_WIDTHS[line.name] ?? (/LRT/i.test(line.name) ? LRT_CAR_WIDTH : MRT_CAR_WIDTH),
-        poolId: poolBase + path.c,
+        poolId: poolBase + poolIndex,
         stopCount,
         starts,
         trips,
         maxDuration,
         rgb,
         minZoom: line.minzoom ?? 0,
-        first: poolEnds[(poolBase + path.c) * 2],
-        last: poolEnds[(poolBase + path.c) * 2 + 1],
+        first: poolEnds[(poolBase + poolIndex) * 2],
+        last: poolEnds[(poolBase + poolIndex) * 2 + 1],
       });
     }
   }

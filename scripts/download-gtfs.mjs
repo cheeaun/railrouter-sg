@@ -14,7 +14,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { encodeCoords, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
+import { encodeCoords, encodeDeltas, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const RAW_DIR = path.join(ROOT, 'data');
@@ -663,7 +663,10 @@ const output = {
 
 let pathCount = 0;
 let tripCount = 0;
-const coordIndicesByLine = {};
+// Per line, the distinct vertices every path on that line is built from. Paths
+// store index runs into this table instead of repeating the coordinates, so the
+// many Circle Line patterns (and both directions of every line) share one copy.
+const vertexTablesByLine = {};
 const serviceCount = serviceIndex.size;
 for (const pattern of patterns.values()) {
   const route = routeById[pattern.routeId];
@@ -679,12 +682,12 @@ for (const pattern of patterns.values()) {
     code: meta.code,
     order: meta.order,
     color: lineColors[lineFeatures[lineName].properties.line_color] || lineColors.gray,
-    // Distinct track geometries, shared by every path on this line that runs
-    // over them (e.g. the many Circle Line service patterns).
-    coords: [],
+    // Filled after every path on the line has been walked, so the table is
+    // deterministic and contains each vertex once.
+    verts: '',
     paths: [],
   });
-  const coordIndices = (coordIndicesByLine[lineName] ??= new Map());
+  const vertices = (vertexTablesByLine[lineName] ??= { coords: [], indices: new Map() });
 
   const graph = graphFor(lineName);
   const stationPoints = [];
@@ -746,13 +749,16 @@ for (const pattern of patterns.values()) {
     starts.push(start - previousStart);
     previousStart = start;
   }
-  const encodedCoords = encodeCoords(coords);
-  let coordIndex = coordIndices.get(encodedCoords);
-  if (coordIndex === undefined) {
-    coordIndex = line.coords.length;
-    coordIndices.set(encodedCoords, coordIndex);
-    line.coords.push(encodedCoords);
-  }
+  const coordIndices = coords.map(([lng, lat]) => {
+    const key = `${lng},${lat}`;
+    let index = vertices.indices.get(key);
+    if (index === undefined) {
+      index = vertices.coords.length;
+      vertices.indices.set(key, index);
+      vertices.coords.push([lng, lat]);
+    }
+    return index;
+  });
 
   // Profile and service index share one varint: profile * serviceCount + service.
   const tripCodes = trips.map((trip) => trip[1] * serviceCount + trip[2]);
@@ -761,7 +767,8 @@ for (const pattern of patterns.values()) {
   const stopDeltas = stops.map((stop, i) => (i ? stop - stops[i - 1] : stop));
 
   line.paths.push({
-    c: coordIndex,
+    // Index run into the line's shared vertex table.
+    ci: encodeDeltas(coordIndices),
     s: encodeInts(stopDeltas),
     // Station index per stop, for the sidebar's departure board. Delta-coded
     // like the stop distances: adjacent stops are often neighbours in the
@@ -781,6 +788,11 @@ const feedEnd = output.feed.end;
 const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 if (feedEnd && feedEnd < today) {
   console.warn(`Feed expired on ${feedEnd}; the timetable no longer covers today (${today}).`);
+}
+
+// Encode each line's shared vertex table once every path has contributed to it.
+for (const [lineName, line] of Object.entries(output.lines)) {
+  line.verts = encodeCoords(vertexTablesByLine[lineName].coords);
 }
 
 // Emit lines in their display order so both the JSON and the pill row are

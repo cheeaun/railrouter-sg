@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { encodeCoords, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
+import { encodeCoords, encodeDeltas, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
 import { arrivalsAt, timetableFor } from '../src/timetable-data.mjs';
 
 const NAMES = new Map([
@@ -40,7 +40,7 @@ function lineFixture() {
     [150, 150],
   ]);
   const forward = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000]),
     // Station indices A, B, C as deltas.
     st: encodeInts([0, 1, 1]),
@@ -50,7 +50,7 @@ function lineFixture() {
     tp: encodeInts([0, 0, 0]),
   };
   const backward = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000]),
     // C, B, A as deltas.
     st: encodeInts([2, -1, -1]),
@@ -69,7 +69,7 @@ function lineFixture() {
         code: 'TL',
         order: 1,
         color: '#123456',
-        coords: [],
+        verts: '',
         paths: [forward, backward],
       },
     },
@@ -158,7 +158,7 @@ test('a zero-dwell stop still shows on the tick it arrives', () => {
     [150, 150],
   ]);
   const path = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000]),
     st: encodeInts([0, 1, 1]),
     h: 0,
@@ -170,7 +170,7 @@ test('a zero-dwell stop still shows on the tick it arrives', () => {
     stations: ['A', 'B', 'C'],
     headsigns: ['Charlie'],
     services: weekday,
-    lines: { L: { name: 'L', code: 'TL', order: 1, color: '#123456', coords: [], paths: [path] } },
+    lines: { L: { name: 'L', code: 'TL', order: 1, color: '#123456', verts: '', paths: [path] } },
   };
   const timetable = timetableFor(data, NAMES_ZERO);
   // 08:01:00 is exactly when the train reaches B and leaves it.
@@ -217,7 +217,7 @@ function loopFixture({ clockwise = false } = {}) {
   // rows stay on the board as time advances. The two paths are staggered so
   // their soonest arrivals keep crossing — the case that used to reorder rows.
   const closed = {
-    c: 0,
+    ci: encodeDeltas([0, 1, 2, 3, 4]),
     s: encodeInts([0, 1000, 2000, 3000, 4000]),
     st: encodeInts([3, -2, 1, 2, -1]),
     // The feed headsign for a loop trip; the direction comes from geometry.
@@ -231,7 +231,7 @@ function loopFixture({ clockwise = false } = {}) {
   // A terminating service: Hub(3) -> Bravo(1), ending at Bravo, every 4 minutes
   // but offset by 2 minutes so its arrivals interleave with the loop's.
   const terminating = {
-    c: 0,
+    ci: encodeDeltas([0, 1, 2, 3, 4]),
     s: encodeInts([0, 1000]),
     st: encodeInts([3, -2]),
     h: 1,
@@ -249,7 +249,7 @@ function loopFixture({ clockwise = false } = {}) {
         code: 'LP',
         order: 1,
         color: '#123456',
-        coords: [encodeCoords(loop)],
+        verts: encodeCoords(loop),
         paths: [closed, terminating],
       },
     },
@@ -336,7 +336,7 @@ test('a row never shows more times than the limit, and they stay in order', () =
     [60, 90],
   ]);
   const short = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000]),
     st: encodeInts([0, 1, 1]),
     h: 0,
@@ -345,7 +345,7 @@ test('a row never shows more times than the limit, and they stay in order', () =
     tp: encodeInts([0, 0]),
   };
   const long = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000, 3000]),
     st: encodeInts([0, 1, 1, 1]),
     h: 0,
@@ -358,7 +358,7 @@ test('a row never shows more times than the limit, and they stay in order', () =
     headsigns: ['Delta'],
     services: weekday,
     lines: {
-      L: { name: 'L', code: 'TL', order: 1, color: '#123456', coords: [], paths: [short, long] },
+      L: { name: 'L', code: 'TL', order: 1, color: '#123456', verts: '', paths: [short, long] },
     },
   };
   const rows = arrivalsAt(timetableFor(data, NAMES), 'B', {
@@ -430,7 +430,7 @@ test('short-turn paths on a plain line share one row', () => {
     [150, 150],
   ]);
   const full = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000, 2000]),
     st: encodeInts([0, 1, 1]),
     h: 0,
@@ -439,7 +439,7 @@ test('short-turn paths on a plain line share one row', () => {
     tp: encodeInts([0, 0]),
   };
   const short = {
-    c: 0,
+    ci: '',
     s: encodeInts([0, 1000]),
     st: encodeInts([0, 1]),
     h: 1,
@@ -452,7 +452,7 @@ test('short-turn paths on a plain line share one row', () => {
     headsigns: ['Charlie', 'Bravo'],
     services: weekday,
     lines: {
-      L: { name: 'L', code: 'TL', order: 1, color: '#123456', coords: [], paths: [full, short] },
+      L: { name: 'L', code: 'TL', order: 1, color: '#123456', verts: '', paths: [full, short] },
     },
   };
   // Both paths run A -> B first, so they are the same direction. One row.

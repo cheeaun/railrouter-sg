@@ -15,11 +15,27 @@
 // can tell: a loop trip's GTFS headsign is sometimes the compass direction and
 // sometimes the terminus it happens to end at.
 
-import { decodeInts, decodeProfile, decodeCoords } from './gtfs-codec.mjs';
+import { decodeInts, decodeProfile, decodeCoords, decodeDeltas } from './gtfs-codec.mjs';
 
 // Decoded per-path data, cached so repeated station lookups do not re-run the
 // varint and profile decoders.
 const decodedPaths = new WeakMap();
+const decodedVerts = new WeakMap();
+const decodedPathCoords = new WeakMap();
+
+function pathCoords(line, path) {
+  let coords = decodedPathCoords.get(path);
+  if (!coords) {
+    let verts = decodedVerts.get(line);
+    if (!verts) {
+      verts = decodeCoords(line.verts);
+      decodedVerts.set(line, verts);
+    }
+    coords = decodeDeltas(path.ci).map((index) => verts[index]);
+    decodedPathCoords.set(path, coords);
+  }
+  return coords;
+}
 
 function decodePath(path) {
   let decoded = decodedPaths.get(path);
@@ -107,7 +123,7 @@ function loopOrderFor(line) {
   // Which way the closed path itself runs. Its area *is* meaningful: a full lap
   // encloses the whole loop, so the sign is reliable. Everything else is then
   // measured against this ring.
-  const ringSign = signedArea(decodeCoords(line.coords[line.paths[closedIndex].c])) > 0 ? 1 : -1;
+  const ringSign = signedArea(pathCoords(line, line.paths[closedIndex])) > 0 ? 1 : -1;
 
   const step = (a, b) => {
     const from = order.get(a);

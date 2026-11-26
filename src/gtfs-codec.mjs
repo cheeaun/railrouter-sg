@@ -45,6 +45,28 @@ export function decodeInts(encoded) {
   return values;
 }
 
+// Encode a sequence as differences from its predecessor. Used for vertex
+// indices into a line's shared coordinate table: a path mostly walks adjacent
+// vertices, so almost every value is +1 or -1.
+export function encodeDeltas(values) {
+  let previous = 0;
+  return encodeInts(
+    values.map((value) => {
+      const delta = value - previous;
+      previous = value;
+      return delta;
+    }),
+  );
+}
+
+export function decodeDeltas(encoded) {
+  let value = 0;
+  return decodeInts(encoded).map((delta) => {
+    value += delta;
+    return value;
+  });
+}
+
 // Coordinates are stored as a delta-of-delta chain in units of 1e-5 degrees
 // (~1.1 m grid): track vertices are evenly spaced, so the change between
 // consecutive deltas is usually a handful of units and fits in a single

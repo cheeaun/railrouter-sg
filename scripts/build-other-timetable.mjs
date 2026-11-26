@@ -13,7 +13,13 @@
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { decodeInts, encodeCoords, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
+import {
+  decodeInts,
+  encodeCoords,
+  encodeDeltas,
+  encodeInts,
+  encodeProfile,
+} from '../src/gtfs-codec.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const TIMETABLE_FILE = path.join(ROOT, 'src', 'gtfs-trains.json');
@@ -368,7 +374,7 @@ for (const network of networkNames) {
 
     prepared.push({
       network,
-      coords: encodeCoords(entry.coords),
+      coords: entry.coords,
       path: {
         s: encodeInts(stopDeltas),
         st: encodeInts(
@@ -407,28 +413,37 @@ for (const network of networkNames) {
     // these trips are generated from hours and frequency, not a GTFS feed.
     simulated: true,
     note: scheduleNote(SCHEDULES[network]),
-    coords: [],
+    verts: '',
     paths: [],
   };
   timetable.lines[name] = line;
   lines.set(network, line);
 }
 
-const coordIndices = new Map();
+const vertexTables = new Map(
+  networkNames.map((network) => [network, { coords: [], indices: new Map() }]),
+);
 for (const entry of prepared) {
   const line = lines.get(entry.network);
-  const key = `${entry.network}\n${entry.coords}`;
-  let index = coordIndices.get(key);
-  if (index === undefined) {
-    index = line.coords.length;
-    coordIndices.set(key, index);
-    line.coords.push(entry.coords);
-  }
+  const vertices = vertexTables.get(entry.network);
+  const coordIndices = entry.coords.map(([lng, lat]) => {
+    const key = `${lng},${lat}`;
+    let index = vertices.indices.get(key);
+    if (index === undefined) {
+      index = vertices.coords.length;
+      vertices.indices.set(key, index);
+      vertices.coords.push([lng, lat]);
+    }
+    return index;
+  });
   line.paths.push({
-    c: index,
+    ci: encodeDeltas(coordIndices),
     ...entry.path,
     h: headsignIndex.get(entry.path.h),
   });
+}
+for (const [network, vertices] of vertexTables) {
+  lines.get(network).verts = encodeCoords(vertices.coords);
 }
 
 // Keep the emitted line order stable.
