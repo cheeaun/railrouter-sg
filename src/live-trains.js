@@ -137,6 +137,8 @@ export function createLiveTrains(map) {
     window: { start: 0, end: 86400 },
     // Minutes of the first departure and last arrival, for the scale labels.
     endMarks: null,
+    // The same, restricted to MRT/LRT services, for the secondary scale marks.
+    mrtEndMarks: null,
     // Simulated seconds per real second; 30x is the default pace.
     speed: PLAY_SPEED_SLOW,
     // True while not following the real clock; drives hiding of crowd markers.
@@ -284,6 +286,10 @@ export function createLiveTrains(map) {
     chart.replaceChildren(fragment);
   };
 
+  // The two attractions' people movers run longer than the rail network and
+  // would stretch the MRT/LRT service window to theirs.
+  const isNonRailLine = (name) => /Skytrain|Sentosa/i.test(name);
+
   // A clock-time label for the scale, e.g. "5am", "12pm" or "6:30pm".
   const formatMark = (minutes) => {
     const total = minutes % (24 * 60);
@@ -307,15 +313,28 @@ export function createLiveTrains(map) {
     const span = bounds.max - bounds.min;
     const ends = state.endMarks || { start: bounds.min, end: bounds.max };
     const marks = [];
-    const add = (minute, edge) => {
+    const add = (minute, edge, secondary = false) => {
       if (minute < bounds.min || minute > bounds.max) return;
       const percent = ((minute - bounds.min) / span) * 100;
-      // Skip a label that would collide with one already placed.
-      if (marks.some((mark) => Math.abs(mark.percent - percent) < 3)) return;
-      marks.push({ percent, label: formatMark(minute), edge });
+      // Skip a label that would collide with one already placed. Primary and
+      // secondary labels sit on opposite edges of the bar, so they only compete
+      // within their own row.
+      if (
+        marks.some(
+          (mark) =>
+            mark.secondary === secondary && Math.abs(mark.percent - percent) < 3,
+        )
+      ) {
+        return;
+      }
+      marks.push({ percent, label: formatMark(minute), edge, secondary });
     };
     add(ends.start, 'start');
     add(ends.end, 'end');
+    if (state.mrtEndMarks) {
+      add(state.mrtEndMarks.start, 'start', true);
+      add(state.mrtEndMarks.end, 'end', true);
+    }
     add(12 * 60);
     add(18 * 60);
     add(24 * 60);
@@ -324,6 +343,7 @@ export function createLiveTrains(map) {
     for (const mark of marks) {
       const el = document.createElement('span');
       el.className = 'trains-slider-mark';
+      if (mark.secondary) el.classList.add('is-secondary');
       el.style.left = `${mark.percent}%`;
       if (mark.edge) el.classList.add(`is-${mark.edge}`);
       const tick = document.createElement('i');
@@ -356,6 +376,25 @@ export function createLiveTrains(map) {
     return { first, last };
   };
 
+  // First departure and last arrival across only the MRT/LRT lines, so the
+  // secondary scale marks describe the rail network rather than the attractions.
+  const railExtentsFor = (services) => {
+    let first = Infinity;
+    let last = -Infinity;
+    for (const path of state.prepared.paths) {
+      const line = state.prepared.lines[path.key];
+      if (!line || isNonRailLine(line.name)) continue;
+      for (const trip of path.trips) {
+        if (!services.has(trip.service)) continue;
+        if (trip.start < first) first = trip.start;
+        const end = trip.start + trip.duration;
+        if (end > last) last = end;
+      }
+    }
+    if (!Number.isFinite(first) || !Number.isFinite(last)) return null;
+    return { first, last };
+  };
+
   // Point the scrubber at the selected timetable's window and pull the picked
   // time inside it. The window sits a minute either side of the real service
   // ends so both ends start and finish with nothing running; the scale is
@@ -370,6 +409,10 @@ export function createLiveTrains(map) {
     // The scale marks the first departure and last arrival minutes, one minute
     // inside the bleed the bar gives them.
     state.endMarks = { start: Math.ceil(first / 60), end: Math.floor(last / 60) };
+    const rail = railExtentsFor(state.services);
+    state.mrtEndMarks = rail
+      ? { start: Math.ceil(rail.first / 60), end: Math.floor(rail.last / 60) }
+      : null;
     if (ui.slider) {
       ui.slider.min = String(Math.floor(state.window.start / 60));
       ui.slider.max = String(Math.ceil(state.window.end / 60));
@@ -393,19 +436,22 @@ export function createLiveTrains(map) {
   const cullOverlappingMarks = () => {
     const container = ui.sliderLabels;
     if (!container || !container.getBoundingClientRect().width) return;
-    const kept = [];
+    // Primary labels sit at the bottom and secondary ones at the top, so they
+    // only overlap with their own row.
+    const kept = { primary: [], secondary: [] };
     for (const el of [...container.children]) {
       // Marks are zero-width anchors; the label holds the visible width.
       const label = el.querySelector('.trains-slider-label') || el;
       const rect = label.getBoundingClientRect();
-      while (kept.length && rect.left < kept[kept.length - 1].rect.right + 4) {
-        if (el.classList.contains('is-end')) kept.pop().el.remove();
+      const row = kept[el.classList.contains('is-secondary') ? 'secondary' : 'primary'];
+      while (row.length && rect.left < row[row.length - 1].rect.right + 4) {
+        if (el.classList.contains('is-end')) row.pop().el.remove();
         else {
           el.remove();
           break;
         }
       }
-      if (el.isConnected) kept.push({ el, rect });
+      if (el.isConnected) row.push({ el, rect });
     }
   };
 

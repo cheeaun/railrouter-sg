@@ -999,11 +999,9 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   bottom: 0;
   left: 0;
   width: 1px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 69, 77, 0.5) 0 2px,
-    transparent 2px 4px
-  );
+  background-image: radial-gradient(circle, rgba(0, 69, 77, 0.55) 0.5px, transparent 0.6px);
+  background-size: 1px 3px;
+  background-repeat: repeat-y;
 }
 /* Edge ticks sit on the box's edges and act as its side borders. */
 .trains-slider-mark.is-start .trains-slider-tick {
@@ -1027,6 +1025,35 @@ body.trains-busy .maplibregl-marker.crowd-marker {
   transform: none;
 }
 .trains-slider-mark.is-end .trains-slider-label {
+  right: 4px;
+  left: auto;
+  transform: none;
+}
+/* Secondary marks: the MRT/LRT service window, a shade darker than the scale
+   and labelled along the top edge so it cannot collide with the bottom row. */
+.trains-slider-mark.is-secondary .trains-slider-tick {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 128, 128, 0.8) 0 3px,
+    transparent 3px 6px
+  );
+  background-size: 100% 100%;
+  background-repeat: repeat;
+}
+.trains-slider-mark.is-secondary .trains-slider-label {
+  top: 3px;
+  bottom: auto;
+  color: teal;
+  font-weight: 600;
+}
+/* The rail window's labels start at the tick line and end at it, so neither
+   can overhang the bar. */
+.trains-slider-mark.is-secondary.is-start .trains-slider-label {
+  left: 4px;
+  right: auto;
+  transform: none;
+}
+.trains-slider-mark.is-secondary.is-end .trains-slider-label {
   right: 4px;
   left: auto;
   transform: none;
