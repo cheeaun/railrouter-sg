@@ -449,6 +449,10 @@ const CAR_RADIUS = 4.5;
 const CAR_ARC_STEPS = 6;
 // Screen thickness of the black rim, in icon pixels.
 const CAR_OUTLINE = 2.0;
+// Gap between the bodies of trains running in opposite directions, in icon
+// pixels. Each car sits CAR_GAP / 2 left of the centreline. It must exceed
+// 2 * CAR_OUTLINE or the rims touch; at true MRT scale 6 px is 1.2 m.
+const CAR_GAP = 6.0;
 // Approximate real car widths in metres, used for the true physical scale.
 const MRT_CAR_WIDTH = 3.2;
 const LRT_CAR_WIDTH = 2.7;
@@ -575,6 +579,8 @@ out vec3 vNormal;
 out vec3 vColor;
 out float vAlpha;
 const float OUTLINE = ${CAR_OUTLINE.toFixed(1)};
+const float CAR_WIDTH = ${CAR_WIDTH.toFixed(1)};
+const float CAR_GAP = ${CAR_GAP.toFixed(1)};
 
 const float SPACING = ${SPACING.toFixed(1)};
 const int MAX_STOPS = ${maxStops};
@@ -727,6 +733,8 @@ void main() {
   // that lift with distance the same way the ground is graded.
   vec3 local = aPosition + aHullNormal * (uHull * OUTLINE);
   float scale = aIsLrt > 0.5 ? uScaleLrt : uScaleMrt;
+  // Shift the train to the left of the track centerline, so that trains running in opposite direction do not overlap.
+  local.y -= (CAR_WIDTH + CAR_GAP) * 0.5;
   vec2 planar = local.xy * scale * grow;
   vec2 rotated = vec2(planar.x * dir.x - planar.y * dir.y, planar.x * dir.y + planar.y * dir.x);
   vec2 world = pos + rotated * uUnitsPerPixel;
