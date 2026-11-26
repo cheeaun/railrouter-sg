@@ -39,8 +39,8 @@ const ATLAS_WIDTH = 4096;
 // under even the smallest MAX_TEXTURE_SIZE.
 const PROFILE_WIDTH = 1024;
 // floats per active trip: poolId, start, duration, profileRow,
-// stopCount, r, g, b, handover, isLrt
-export const INSTANCE_STRIDE = 10;
+// stopCount, r, g, b, handover, carWidth, minzoom
+export const INSTANCE_STRIDE = 11;
 // Active list look-ahead, in simulated seconds, used when the caller does not
 // supply one. It must exceed the rebuild interval plus FADE so a trip is
 // already resident while its alpha is still zero instead of popping in.
@@ -179,6 +179,7 @@ export function prepare(data) {
       code: line.code || key,
       order: line.order ?? 99,
       color: line.color,
+      minzoom: line.minzoom ?? 0,
     };
 
     for (const encoded of line.coords) {
@@ -254,13 +255,14 @@ export function prepare(data) {
 
       paths.push({
         key,
-        isLrt: /LRT/i.test(line.name),
+        carWidth: CAR_WIDTHS[line.name] ?? (/LRT/i.test(line.name) ? LRT_CAR_WIDTH : MRT_CAR_WIDTH),
         poolId: poolBase + path.c,
         stopCount,
         starts,
         trips,
         maxDuration,
         rgb,
+        minZoom: line.minzoom ?? 0,
         first: poolEnds[(poolBase + path.c) * 2],
         last: poolEnds[(poolBase + path.c) * 2 + 1],
       });
@@ -429,7 +431,8 @@ export function buildInstances(
       out[o + 6] = path.rgb[1];
       out[o + 7] = path.rgb[2];
       out[o + 8] = (trip.prev ? 1 : 0) | (trip.next ? 2 : 0);
-      out[o + 9] = path.isLrt ? 1 : 0;
+      out[o + 9] = path.carWidth;
+      out[o + 10] = path.minZoom || 0;
       count++;
       if (counts && elapsed >= 0 && elapsed <= trip.duration) {
         counts[path.key] = (counts[path.key] || 0) + 1;
@@ -452,6 +455,12 @@ const CAR_OUTLINE = 2.0;
 // Approximate real car widths in metres, used for the true physical scale.
 const MRT_CAR_WIDTH = 3.2;
 const LRT_CAR_WIDTH = 2.7;
+// The other networks are neither MRT nor LRT; their cars are narrower still.
+const CAR_WIDTHS = {
+  'Changi Skytrain': 2.69,
+  'Sentosa Express': 2.5,
+};
+const MIN_CAR_WIDTH = Math.min(MRT_CAR_WIDTH, LRT_CAR_WIDTH, ...Object.values(CAR_WIDTHS));
 
 function buildCarMesh() {
   const arcX = CAR_LENGTH / 2 - CAR_RADIUS;
@@ -546,14 +555,15 @@ layout(location = 2) in vec3 aHullNormal;
 layout(location = 3) in vec4 aTrip;  // poolId, start, duration, profileRow
 layout(location = 4) in vec4 aTrip2; // stopCount, r, g, b
 layout(location = 5) in float aHandover; // 1 continues from, 2 continues into
-layout(location = 6) in float aIsLrt; // 0 MRT, 1 LRT, for the physical scale
+layout(location = 6) in float aCarWidth; // metres, for the physical scale
+layout(location = 7) in float aMinZoom; // hide this line below this zoom
 
 uniform mat3 uProjection;
 uniform vec2 uCenter;
 uniform vec2 uViewport;
 uniform float uUnitsPerPixel;
-uniform float uScaleMrt;
-uniform float uScaleLrt;
+uniform float uZoomScale;
+uniform float uScalePerMetre;
 uniform float uSinPitch;
 uniform float uHull;
 uniform float uTime;
@@ -566,6 +576,7 @@ uniform float uRampSwitchAt;
 uniform float uAtlasWidth;
 uniform float uSolid;
 uniform float uReveal;
+uniform float uZoom;
 uniform sampler2D uAtlas;
 uniform sampler2D uPathMeta;
 uniform sampler2D uProfiles;
@@ -637,6 +648,10 @@ void main() {
   vNormal = aNormal;
   vColor = aTrip2.yzw;
   vAlpha = 0.0;
+  if (uZoom < aMinZoom) {
+    gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
+    return;
+  }
   if (uSolid > 0.5) {
     alpha = 1.0;
   }
@@ -726,7 +741,7 @@ void main() {
   // where the car's roof is all you see. Dividing by the homography's w grades
   // that lift with distance the same way the ground is graded.
   vec3 local = aPosition + aHullNormal * (uHull * OUTLINE);
-  float scale = aIsLrt > 0.5 ? uScaleLrt : uScaleMrt;
+  float scale = max(uZoomScale, aCarWidth * uScalePerMetre);
   vec2 planar = local.xy * scale * grow;
   vec2 rotated = vec2(planar.x * dir.x - planar.y * dir.y, planar.x * dir.y + planar.y * dir.x);
   vec2 world = pos + rotated * uUnitsPerPixel;
@@ -985,8 +1000,8 @@ export function createTrainOverlay(map, prepared) {
   let camCssHeight = 0;
   // Derived from the camera once per change rather than once per frame.
   let unitsPerPixel = 1 / (512 * Math.pow(2, 10));
-  let scaleMrt = 0.34;
-  let scaleLrt = 0.34;
+  let zoomScaleNow = 0.34;
+  let scalePerMetre = 0;
   let sinPitchNow = 0;
 
   const compile = (type, source) => {
@@ -1037,8 +1052,8 @@ export function createTrainOverlay(map, prepared) {
       center: gl.getUniformLocation(program, 'uCenter'),
       viewport: gl.getUniformLocation(program, 'uViewport'),
       unitsPerPixel: gl.getUniformLocation(program, 'uUnitsPerPixel'),
-      scaleMrt: gl.getUniformLocation(program, 'uScaleMrt'),
-      scaleLrt: gl.getUniformLocation(program, 'uScaleLrt'),
+      zoomScale: gl.getUniformLocation(program, 'uZoomScale'),
+      scalePerMetre: gl.getUniformLocation(program, 'uScalePerMetre'),
       sinPitch: gl.getUniformLocation(program, 'uSinPitch'),
       hull: gl.getUniformLocation(program, 'uHull'),
       flat: gl.getUniformLocation(program, 'uFlat'),
@@ -1051,6 +1066,7 @@ export function createTrainOverlay(map, prepared) {
       rampSwitchAt: gl.getUniformLocation(program, 'uRampSwitchAt'),
       solid: gl.getUniformLocation(program, 'uSolid'),
       reveal: gl.getUniformLocation(program, 'uReveal'),
+      zoom: gl.getUniformLocation(program, 'uZoom'),
       atlasWidth: gl.getUniformLocation(program, 'uAtlasWidth'),
       atlas: gl.getUniformLocation(program, 'uAtlas'),
       pathMeta: gl.getUniformLocation(program, 'uPathMeta'),
@@ -1103,6 +1119,9 @@ export function createTrainOverlay(map, prepared) {
     gl.enableVertexAttribArray(6);
     gl.vertexAttribPointer(6, 1, gl.FLOAT, false, stride, 36);
     gl.vertexAttribDivisor(6, 1);
+    gl.enableVertexAttribArray(7);
+    gl.vertexAttribPointer(7, 1, gl.FLOAT, false, stride, 40);
+    gl.vertexAttribDivisor(7, 1);
 
     gl.bindVertexArray(null);
 
@@ -1178,12 +1197,13 @@ export function createTrainOverlay(map, prepared) {
     // of the two hands off there with no size jump to tune or smooth.
     // metresPerPixel is the ground size of one CSS pixel at the view centre, so
     // a width of w metres is w / metresPerPixel pixels; the icon's width is
-    // CAR_WIDTH, so the scale is that divided by CAR_WIDTH.
+    // CAR_WIDTH, so the scale is w / (metresPerPixel * CAR_WIDTH). Folding the
+    // per-frame divisor into uScalePerMetre lets the shader apply each car's
+    // own width to the same formula.
     const metresPerPixel =
       unitsPerPixel * 2 * Math.PI * EARTH_RADIUS * Math.cos(center.lat * RAD);
-    const physicalScale = (width) => width / (metresPerPixel * CAR_WIDTH);
-    scaleMrt = Math.max(zoomScale, physicalScale(MRT_CAR_WIDTH));
-    scaleLrt = Math.max(zoomScale, physicalScale(LRT_CAR_WIDTH));
+    scalePerMetre = 1 / (metresPerPixel * CAR_WIDTH);
+    zoomScaleNow = zoomScale;
     sinPitchNow = Math.sin((pitch * Math.PI) / 180);
 
     centerX = (center.lng + 180) / 360 - ORIGIN_X;
@@ -1225,8 +1245,8 @@ export function createTrainOverlay(map, prepared) {
     gl.uniformMatrix3fv(uniforms.projection, false, homography);
     gl.uniform2f(uniforms.center, centerX, centerY);
     gl.uniform2f(uniforms.viewport, cssWidth, cssHeight);
-    gl.uniform1f(uniforms.scaleMrt, scaleMrt);
-    gl.uniform1f(uniforms.scaleLrt, scaleLrt);
+    gl.uniform1f(uniforms.zoomScale, zoomScaleNow);
+    gl.uniform1f(uniforms.scalePerMetre, scalePerMetre);
     gl.uniform1f(uniforms.unitsPerPixel, unitsPerPixel);
     gl.uniform1f(uniforms.sinPitch, sinPitchNow);
     gl.uniform1f(uniforms.time, seconds);
@@ -1237,6 +1257,7 @@ export function createTrainOverlay(map, prepared) {
     gl.uniform1f(uniforms.rampShareFrom, rampShareFrom);
     gl.uniform1f(uniforms.rampSwitchAt, rampSwitchAt);
     gl.uniform1f(uniforms.reveal, reveal);
+    gl.uniform1f(uniforms.zoom, camZoom);
 
     // The outline shell is drawn against the body's depth: only the rim that
     // the body did not cover survives.
@@ -1260,7 +1281,7 @@ export function createTrainOverlay(map, prepared) {
       // shell except its thin rim, and depth settles which of the car's own
       // faces are visible. Below roughly zoom 11.5 that rim is thinner than a
       // pixel, so the whole second pass would draw nothing new.
-      if (Math.min(scaleMrt, scaleLrt) * CAR_OUTLINE >= 0.9) {
+      if (Math.max(zoomScaleNow, MIN_CAR_WIDTH * scalePerMetre) * CAR_OUTLINE >= 0.9) {
         gl.uniform1f(uniforms.flat, 0);
         gl.uniform1f(uniforms.hull, 1);
         gl.drawElementsInstanced(

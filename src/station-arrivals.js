@@ -69,8 +69,10 @@ function draw(el, rows, now) {
       return `<tr>
         <th scope="row" class="arrival-line" style="--line-color:${line.color};--line-fg:${contrastInk(
           line.color,
-        )}"><span>${line.code}</span></th>
-        <td class="arrival-direction">${directionHtml}</td>
+        )}">
+          <span class="arrival-line-badge">${line.code || line.name}</span>
+          <span class="arrival-direction">${directionHtml}</span>
+        </th>
         ${cells}
       </tr>`;
     })
@@ -84,9 +86,19 @@ function draw(el, rows, now) {
     headings += `<th scope="col"><span class="visually-hidden">${which}</span></th>`;
   }
   $list.innerHTML = `<table class="arrivals-table">
-    <thead><tr><td></td><td></td>${headings}</tr></thead>
+    <thead><tr><td></td>${headings}</tr></thead>
     <tbody>${body}</tbody>
   </table>`;
+}
+
+function simulatedNote(timetable, stationKey) {
+  const entries = timetable.index.byStation.get(stationKey);
+  if (!entries || !entries.length) return null;
+  const lines = [...new Set(entries.map((entry) => entry.lineKey))]
+    .map((key) => timetable.data.lines[key])
+    .filter(Boolean);
+  if (!lines.length || !lines.every((line) => line.simulated)) return null;
+  return lines[0].note || '* Simulated timetable based on operating hours and frequency.';
 }
 
 function refresh(el, stationKey, timetable) {
@@ -101,6 +113,10 @@ function refresh(el, stationKey, timetable) {
     seconds: time.seconds,
     limit: LIMIT,
   });
+  const note =
+    simulatedNote(timetable, stationKey) || '* Based on timetable, not 100% live';
+  const $note = el.querySelector('.arrivals-note small');
+  if ($note && $note.textContent !== note) $note.textContent = note;
   draw(el, rows, time.seconds);
 }
 

@@ -588,9 +588,10 @@ export function createLiveTrains(map) {
       countPills.keys.every((key, i) => key === keys[i]);
     if (!sameSet) buildCounts(keys);
 
+    const zoom = map.getZoom();
     let total = 0;
     for (const key of keys) {
-      const count = counts[key] || 0;
+      const count = (lines[key].minzoom ?? 0) > zoom ? 0 : counts[key] || 0;
       total += count;
       const entry = countPills.pills.get(key);
       // Writing textContent is the expensive part, so only do it when the
@@ -968,6 +969,21 @@ export function createLiveTrains(map) {
     if (ui.panel) ui.panel.hidden = true;
     return false;
   };
+
+  // The GPU hides a line's trains below its minzoom every frame, but the count
+  // pills are DOM and need a nudge when that threshold is crossed.
+  let zoomMask = '';
+  const syncZoomCounts = () => {
+    if (!state.visible || !state.prepared) return;
+    const zoom = map.getZoom();
+    const mask = state.prepared.lineKeys
+      .map((key) => (zoom >= (state.prepared.lines[key].minzoom ?? 0) ? '1' : '0'))
+      .join('');
+    if (mask === zoomMask) return;
+    zoomMask = mask;
+    renderCounts(counts);
+  };
+  map.on('zoom', syncZoomCounts);
 
   return {
     enable,

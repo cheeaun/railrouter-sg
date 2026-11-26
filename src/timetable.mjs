@@ -10,7 +10,7 @@ export { arrivalsAt, timetableFor } from './timetable-data.mjs';
 let loading = null;
 
 // Fetch and parse the timetable and public holidays once. The sidebar and the
-// trains layer both call this, so the ~580 KB JSON is only downloaded and
+// trains layer both call this, so the ~590 KB JSON is only downloaded and
 // parsed a single time per session.
 export function loadTimetable() {
   if (!loading) {

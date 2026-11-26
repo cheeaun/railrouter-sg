@@ -364,6 +364,19 @@ abbr {
   background-color: #005ec4;
 }
 
+/* The non-MRT/LRT networks have no per-line station pill; show their line
+   name as a plain, unbolded label instead. */
+.station-line {
+  display: inline-block;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+.station-line.mini {
+  font-size: 11px;
+}
+
 .exits {
   margin-top: 12px;
   border-radius: 3px;
@@ -412,7 +425,7 @@ abbr {
   padding: 0;
 }
 
-.wikipedia {
+.station-info {
   margin-top: 12px;
   border-radius: 12px;
   overflow: hidden;
@@ -466,18 +479,20 @@ abbr {
 .arrivals-table thead th {
   padding-bottom: 2px;
 }
-/* The line-code cell is sized to its badge; the badge carries the line colour,
-   like the station header's pills. --line-fg is black or white depending on
-   that colour's luminance, set by the runtime, so a pale line like the Circle
-   Line's orange gets dark text.
+/* The line cell keeps the remaining width so the direction text has room to
+   wrap, while the time cells below stay content-sized. The badge carries the
+   line colour, like the station header's pills. --line-fg is black or white
+   depending on that colour's luminance, set by the runtime, so a pale line
+   like the Circle Line's orange gets dark text.
    Scoped to .arrivals-table so it outranks the shared cell padding rule. */
 .arrivals-table .arrival-line {
-  width: 1%;
-  white-space: nowrap;
+  width: min-content;
+  white-space: normal;
   padding-right: 8px;
 }
-.arrival-line span {
+.arrival-line-badge {
   display: inline-block;
+  vertical-align: middle;
   min-width: 3ch;
   padding: 1px 5px;
   border-radius: 4px;
@@ -486,8 +501,12 @@ abbr {
   font-size: 11px;
   font-weight: bold;
   text-align: center;
+  white-space: nowrap;
 }
 .arrival-direction {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 2px;
   line-height: 1.25;
 }
 /* LTA's platform display sets the direction (Clockwise / Anticlockwise) small
@@ -506,7 +525,7 @@ abbr {
    gap to the neighbouring cell, so "Arrived" and the next time never touch.
    Scoped to .arrivals-table so it outranks the shared cell padding rule. */
 .arrivals-table .arrival-time {
-  width: 1%;
+  width: min-content;
   padding-left: 14px;
   text-align: right;
   white-space: nowrap;
@@ -531,30 +550,30 @@ abbr {
   color: #666;
 }
 
-.wikipedia img {
+.station-info img {
   width: 100%;
   height: auto;
 }
-.wikipedia .extract {
+.station-info .extract {
   padding: 12px;
   line-height: 1.5em;
 }
 
-.wikipedia .extract p {
+.station-info .extract p {
   margin-top: 0;
   padding-top: 0;
 }
-.wikipedia .extract p:last-child {
+.station-info .extract p:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.wikipedia .more {
+.station-info .more {
   padding: 0 16px 16px;
   text-align: right;
 }
 
-/* Deep links to the station on other sources, under the Wikipedia card. The
+/* Deep links to the station on other sources, under the station info card. The
    card only takes space when the station has at least one link. */
 .external-links:not(:empty) {
   margin-top: 12px;
@@ -578,7 +597,7 @@ abbr {
 /* A small up-right arrow hints that a link leaves the app. Masked so it takes
    the link's colour (teal) like the text. */
 .external-links a::after,
-.wikipedia .more a::after {
+.station-info .more a::after {
   content: '';
   display: inline-block;
   width: 0.7em;
@@ -701,9 +720,16 @@ abbr {
   margin-left: 0.5em;
   margin-right: -1px;
 }
+#search-results .station-line {
+  float: right;
+  margin-top: -1px;
+  margin-bottom: 0;
+  margin-left: 0.5em;
+  margin-right: 0;
+}
 
 /* @media (min-width: 600px) and (max-width: 799px) {
-  .wikipedia img {
+  .station-info img {
     float: right;
     width: 50%;
     border-radius: 12px;

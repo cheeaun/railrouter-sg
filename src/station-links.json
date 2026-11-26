@@ -1,4 +1,16 @@
 {
+  "A": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#A"
+  },
+  "A South": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#A(South)"
+  },
+  "B": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#B"
+  },
   "BP10": {
     "ltg": "https://landtransportguru.net/fajar-station/",
     "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP10",
@@ -53,6 +65,10 @@
     "ltg": "https://landtransportguru.net/bangkit-station/",
     "sgtrains": "https://www.sgtrains.com/network-bplrt.html#BP9",
     "smrt": "https://journey.smrt.com.sg/journey/station_info/bangkit/map/"
+  },
+  "C": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#C"
   },
   "CC10-DT26": {
     "ltg": "https://landtransportguru.net/macpherson-station/",
@@ -193,6 +209,10 @@
     "sgtrains": "https://www.sgtrains.com/network-ewl.html#CG2",
     "smrt": "https://journey.smrt.com.sg/journey/station_info/changi%20airport/map/"
   },
+  "D": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#D"
+  },
   "DT1-BP6": {
     "ltg": "https://landtransportguru.net/bukit-panjang-station/",
     "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT1",
@@ -325,6 +345,10 @@
     "ltg": "https://landtransportguru.net/tan-kah-kee-station/",
     "sgtrains": "https://www.sgtrains.com/network-dtl.html#DT8",
     "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=DTL&Station=TKK"
+  },
+  "E": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#E"
   },
   "EW1": {
     "ltg": "https://landtransportguru.net/pasir-ris-station/",
@@ -478,6 +502,10 @@
     "ltg": "https://landtransportguru.net/aljunied-station/",
     "sgtrains": "https://www.sgtrains.com/network-ewl.html#EW9",
     "smrt": "https://journey.smrt.com.sg/journey/station_info/aljunied/map/"
+  },
+  "F": {
+    "ltg": "https://landtransportguru.net/train/changi-airport-skytrain/",
+    "sgtrains": "https://www.sgtrains.com/network-cga.html#F"
   },
   "NE1-CC29": {
     "ltg": "https://landtransportguru.net/harbourfront-station/",
@@ -762,6 +790,22 @@
     "ltg": "https://landtransportguru.net/soo-teck-station/",
     "sgtrains": "https://www.sgtrains.com/network-pglrt.html#PW7",
     "sbs": "https://www.sbstransit.com.sg/Service/TrainInformation?TrainLine=PGL+LRT&Station=PW7"
+  },
+  "S1": {
+    "ltg": "https://landtransportguru.net/vivocity-station/",
+    "sgtrains": "https://www.sgtrains.com/guide-traintiming?station=VivoCity"
+  },
+  "S2": {
+    "ltg": "https://landtransportguru.net/resorts-world-station/",
+    "sgtrains": "https://www.sgtrains.com/guide-traintiming?station=Resorts+World"
+  },
+  "S3": {
+    "ltg": "https://landtransportguru.net/imbiah-station/",
+    "sgtrains": "https://www.sgtrains.com/guide-traintiming?station=Imbiah"
+  },
+  "S4": {
+    "ltg": "https://landtransportguru.net/beach-station/",
+    "sgtrains": "https://www.sgtrains.com/guide-traintiming?station=Beach"
   },
   "SE1": {
     "ltg": "https://landtransportguru.net/compassvale-station/",
