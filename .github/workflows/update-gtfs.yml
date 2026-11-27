@@ -26,6 +26,9 @@ jobs:
         env:
           LTA_ACCOUNT_KEY: ${{ secrets.LTA_ACCOUNT_KEY }}
 
+      - name: Test the generated timetable
+        run: npm test
+
       - name: Update public holidays
         run: node scripts/download-holidays.mjs
 

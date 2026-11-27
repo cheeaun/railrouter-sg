@@ -15,6 +15,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { encodeCoords, encodeDeltas, encodeInts, encodeProfile } from '../src/gtfs-codec.mjs';
+import { buildGraph, distance, implausibleLeg } from './rail-graph.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const RAW_DIR = path.join(ROOT, 'data');
@@ -121,13 +122,6 @@ function parseCsv(buffer) {
 }
 
 // ------------------------------------------------------------------ geometry
-const toRad = Math.PI / 180;
-function distance(a, b) {
-  const dLat = (b[1] - a[1]) * toRad;
-  const dLon = (b[0] - a[0]) * toRad;
-  const lat = ((a[1] + b[1]) / 2) * toRad;
-  return Math.hypot(dLat, dLon * Math.cos(lat)) * 6371000;
-}
 
 // A station can sit next to more than one arm of the track (loop junctions,
 // parallel tracks). Consider every projection this far past the nearest one as
@@ -140,45 +134,6 @@ const TARGET_MARGIN = 150;
 // undershooting it. Must stay below the distance between separate arms of a
 // loop.
 const STOP_SLACK = 300;
-
-function buildGraph(feature) {
-  const parts =
-    feature.geometry.type === 'MultiLineString'
-      ? feature.geometry.coordinates
-      : [feature.geometry.coordinates];
-  const ids = new Map();
-  const coords = [];
-  const adjacency = [];
-  const nodeId = (coord) => {
-    const key = `${coord[0].toFixed(7)},${coord[1].toFixed(7)}`;
-    if (!ids.has(key)) {
-      ids.set(key, coords.length);
-      coords.push(coord);
-      adjacency.push([]);
-    }
-    return ids.get(key);
-  };
-  const connect = (a, b) => {
-    if (a === b || adjacency[a].some(([other]) => other === b)) return;
-    const weight = distance(coords[a], coords[b]);
-    adjacency[a].push([b, weight]);
-    adjacency[b].push([a, weight]);
-  };
-  for (const part of parts) {
-    for (let i = 1; i < part.length; i++) connect(nodeId(part[i - 1]), nodeId(part[i]));
-  }
-
-  // Loop lines are drawn as open polylines whose ends meet on the ground
-  // (and separate loops are drawn as disconnected parts). Join loose ends that
-  // sit on top of each other so routing can go right round the loop.
-  const loose = adjacency.flatMap((edges, id) => (edges.length <= 1 ? [id] : []));
-  for (let i = 0; i < loose.length; i++) {
-    for (let j = i + 1; j < loose.length; j++) {
-      if (distance(coords[loose[i]], coords[loose[j]]) < 40) connect(loose[i], loose[j]);
-    }
-  }
-  return { coords, adjacency };
-}
 
 // Project a point onto a single graph edge. Stations rarely sit exactly on a
 // track vertex, so every station is represented by its projection onto an edge.
@@ -732,6 +687,20 @@ for (const pattern of patterns.values()) {
     stopDistances[i] = length;
   }
   const stops = stopIndices.map((original) => Math.round(stopDistances[keptIndexAt.get(original)]));
+
+  // A leg that wanders far beyond the straight line between its two stations
+  // means the router took a detour: most often a loop whose geometry was not
+  // joined, so it went the long way round. Fail instead of committing trains
+  // that visibly run the wrong direction.
+  for (let i = 1; i < stops.length; i++) {
+    const leg = stops[i] - stops[i - 1];
+    const straight = distance(stationPoints[i - 1], stationPoints[i]);
+    if (implausibleLeg(leg, straight)) {
+      throw new Error(
+        `${lineName} ${pattern.stopIds[i - 1]}>${pattern.stopIds[i]} routed ${(leg / 1000).toFixed(1)}km for ${(straight / 1000).toFixed(1)}km between stops; check the line geometry closes its loop in sg-rail.geo.json`,
+      );
+    }
+  }
 
   if (length > 2.5 * shortest) {
     console.warn(
