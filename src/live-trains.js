@@ -189,6 +189,11 @@ export function createLiveTrains(map) {
     return max > min ? { min, max } : null;
   };
 
+  // The two attractions' people movers run longer than the rail network and
+  // would stretch the MRT/LRT service window to theirs. Their schedules are
+  // simulated, so the chart and counts leave them out.
+  const isNonRailLine = (name) => /Skytrain|Sentosa/i.test(name);
+
   // Draw the day's running-train profile behind the scale. Trips are bucketed
   // per minute into a difference array, then accumulated into stacked bands
   // (one per line, with the gray LRT loops merged) so the chart's top edge is
@@ -202,6 +207,7 @@ export function createLiveTrains(map) {
     const groups = new Map();
     for (const key of state.prepared.lineKeys) {
       const line = state.prepared.lines[key];
+      if (isNonRailLine(line.name)) continue;
       const groupKey = isGrayColor(line.color) ? 'gray' : key;
       const group = groups.get(groupKey);
       if (group) {
@@ -218,7 +224,7 @@ export function createLiveTrains(map) {
     const offsetMinutes = start / 60;
     for (const path of state.prepared.paths) {
       const line = state.prepared.lines[path.key];
-      if (!line) continue;
+      if (!line || isNonRailLine(line.name)) continue;
       const group = groups.get(isGrayColor(line.color) ? 'gray' : path.key);
       if (!group) continue;
       for (const trip of path.trips) {
@@ -285,10 +291,6 @@ export function createLiveTrains(map) {
     chart.setAttribute('viewBox', `0 0 ${minutes} ${height}`);
     chart.replaceChildren(fragment);
   };
-
-  // The two attractions' people movers run longer than the rail network and
-  // would stretch the MRT/LRT service window to theirs.
-  const isNonRailLine = (name) => /Skytrain|Sentosa/i.test(name);
 
   // A clock-time label for the scale, e.g. "5am", "12pm" or "6:30pm".
   const formatMark = (minutes) => {
@@ -627,7 +629,9 @@ export function createLiveTrains(map) {
   const renderCounts = (counts) => {
     if (!ui.pills || !ui.total) return;
     const lines = state.prepared.lines;
-    const keys = Object.keys(lines).sort((a, b) => lines[a].order - lines[b].order);
+    const keys = Object.keys(lines)
+      .filter((key) => !isNonRailLine(lines[key].name))
+      .sort((a, b) => lines[a].order - lines[b].order);
     const sameSet =
       countPills &&
       countPills.keys.length === keys.length &&
