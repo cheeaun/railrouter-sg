@@ -1,242 +1,231 @@
 {
-	"type": "FeatureCollection",
 	"features": [
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.985458,
+					1.35392
+				],
+				"type": "Point"
+			},
 			"id": 3832519832,
 			"properties": {
+				"mode": "monorail",
 				"name": "A",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "A",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.985458,
-					1.35392
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.98383,
+					1.350108
+				],
+				"type": "Point"
+			},
 			"id": 1132053517,
 			"properties": {
+				"mode": "monorail",
 				"name": "A South",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "A South",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.98383,
-					1.350108
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.987376,
+					1.358383
+				],
+				"type": "Point"
+			},
 			"id": 2522623323,
 			"properties": {
+				"mode": "monorail",
 				"name": "B",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "B",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.987376,
-					1.358383
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.988962,
+					1.361981
+				],
+				"type": "Point"
+			},
 			"id": 1991028122,
 			"properties": {
+				"mode": "monorail",
 				"name": "C",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "C",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.988962,
-					1.361981
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.991818,
+					1.361021
+				],
+				"type": "Point"
+			},
 			"id": 733537373,
 			"properties": {
+				"mode": "monorail",
 				"name": "D",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "D",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.991818,
-					1.361021
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.990038,
+					1.357005
+				],
+				"type": "Point"
+			},
 			"id": 3231260316,
 			"properties": {
+				"mode": "monorail",
 				"name": "E",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "E",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.990038,
-					1.357005
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.988598,
+					1.353361
+				],
+				"type": "Point"
+			},
 			"id": 1921363807,
 			"properties": {
+				"mode": "monorail",
 				"name": "F",
 				"network": "changi-skytrain",
 				"network_count": 1,
 				"station_codes": "F",
 				"station_colors": "gray",
-				"stop_type": "station",
-				"mode": "monorail"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.988598,
-					1.353361
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.817766,
+					1.251294
+				],
+				"type": "Point"
+			},
 			"id": 877579358,
 			"properties": {
+				"mode": "monorail",
 				"name": "Beach",
+				"name_zh-Hans": "海滩",
 				"network": "sentosa-express",
 				"network_count": 1,
 				"station_codes": "S4",
 				"station_colors": "deeppink",
-				"stop_type": "station",
-				"mode": "monorail",
-				"name_zh-Hans": "海滩"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.817766,
-					1.251294
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.819452,
+					1.253915
+				],
+				"type": "Point"
+			},
 			"id": 787819449,
 			"properties": {
+				"mode": "monorail",
 				"name": "Imbiah",
+				"name_zh-Hans": "英比奥",
 				"network": "sentosa-express",
 				"network_count": 1,
 				"station_codes": "S3",
 				"station_colors": "deeppink",
-				"stop_type": "station",
-				"mode": "monorail",
-				"name_zh-Hans": "英比奥"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.819452,
-					1.253915
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.820963,
+					1.255542
+				],
+				"type": "Point"
+			},
 			"id": 4056017304,
 			"properties": {
+				"mode": "monorail",
 				"name": "Resorts World",
+				"name_zh-Hans": "名胜世界",
 				"network": "sentosa-express",
 				"network_count": 1,
 				"station_codes": "S2",
 				"station_colors": "deeppink",
-				"stop_type": "station",
-				"mode": "monorail",
-				"name_zh-Hans": "名胜世界"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.820963,
-					1.255542
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
+			"geometry": {
+				"coordinates": [
+					103.822332,
+					1.265099
+				],
+				"type": "Point"
+			},
 			"id": 770075899,
 			"properties": {
+				"mode": "monorail",
 				"name": "VivoCity",
+				"name_zh-Hans": "怡丰城",
 				"network": "sentosa-express",
 				"network_count": 1,
 				"station_codes": "S1",
 				"station_colors": "deeppink",
-				"stop_type": "station",
-				"mode": "monorail",
-				"name_zh-Hans": "怡丰城"
+				"stop_type": "station"
 			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [
-					103.822332,
-					1.265099
-				]
-			}
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 3832276367,
-			"properties": {
-				"name": "Skytrain A–A South",
-				"network": "changi-skytrain",
-				"line_color": "gray",
-				"mode": "monorail",
-				"service_pattern": "single_lane_shuttle"
-			},
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.985457,
@@ -246,21 +235,21 @@
 						103.983847,
 						1.350099
 					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 2757729328,
+				],
+				"type": "LineString"
+			},
+			"id": 3832276367,
 			"properties": {
-				"name": "Skytrain A–F",
-				"network": "changi-skytrain",
 				"line_color": "gray",
 				"mode": "monorail",
+				"name": "Skytrain A–A South",
+				"network": "changi-skytrain",
 				"service_pattern": "single_lane_shuttle"
 			},
+			"type": "Feature"
+		},
+		{
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.985517,
@@ -302,21 +291,21 @@
 						103.988589,
 						1.353411
 					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 3469034934,
+				],
+				"type": "LineString"
+			},
+			"id": 2757729328,
 			"properties": {
-				"name": "Skytrain B–C",
-				"network": "changi-skytrain",
 				"line_color": "gray",
 				"mode": "monorail",
+				"name": "Skytrain A–F",
+				"network": "changi-skytrain",
 				"service_pattern": "single_lane_shuttle"
 			},
+			"type": "Feature"
+		},
+		{
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.987449,
@@ -326,21 +315,21 @@
 						103.98901,
 						1.361979
 					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 2833798000,
+				],
+				"type": "LineString"
+			},
+			"id": 3469034934,
 			"properties": {
-				"name": "Skytrain B–E",
-				"network": "changi-skytrain",
 				"line_color": "gray",
 				"mode": "monorail",
-				"service_pattern": "bypass_shuttle"
+				"name": "Skytrain B–C",
+				"network": "changi-skytrain",
+				"service_pattern": "single_lane_shuttle"
 			},
+			"type": "Feature"
+		},
+		{
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.987341,
@@ -386,21 +375,21 @@
 						103.990018,
 						1.357008
 					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1369496886,
+				],
+				"type": "LineString"
+			},
+			"id": 2833798000,
 			"properties": {
-				"name": "Skytrain D–E",
-				"network": "changi-skytrain",
 				"line_color": "gray",
 				"mode": "monorail",
-				"service_pattern": "single_lane_shuttle"
+				"name": "Skytrain B–E",
+				"network": "changi-skytrain",
+				"service_pattern": "bypass_shuttle"
 			},
+			"type": "Feature"
+		},
+		{
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.991749,
@@ -418,20 +407,21 @@
 						103.990094,
 						1.356937
 					]
-				]
-			}
+				],
+				"type": "LineString"
+			},
+			"id": 1369496886,
+			"properties": {
+				"line_color": "gray",
+				"mode": "monorail",
+				"name": "Skytrain D–E",
+				"network": "changi-skytrain",
+				"service_pattern": "single_lane_shuttle"
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 2671672791,
-			"properties": {
-				"name": "Sentosa Express",
-				"network": "sentosa-express",
-				"line_color": "deeppink",
-				"mode": "monorail"
-			},
 			"geometry": {
-				"type": "LineString",
 				"coordinates": [
 					[
 						103.822304,
@@ -613,59 +603,516 @@
 						103.817816,
 						1.251275
 					]
-				]
-			}
+				],
+				"type": "LineString"
+			},
+			"id": 2671672791,
+			"properties": {
+				"line_color": "deeppink",
+				"mode": "monorail",
+				"name": "Sentosa Express",
+				"network": "sentosa-express"
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 1133976547,
-			"properties": {
-				"station_codes": "S1",
-				"underground": false,
-				"type": "monorail"
-			},
 			"geometry": {
-				"type": "Polygon",
 				"coordinates": [
 					[
 						[
-							103.8203742,
-							1.2660766
+							103.9853994,
+							1.354122
 						],
 						[
-							103.8203701,
-							1.2660213
+							103.9856427,
+							1.3540202
 						],
 						[
-							103.8203653,
-							1.265957
+							103.9855161,
+							1.3537176
 						],
 						[
-							103.8205741,
-							1.2659414
+							103.9854493,
+							1.3537455
 						],
 						[
-							103.8205831,
-							1.266061
+							103.9853917,
+							1.3537696
 						],
 						[
-							103.8203742,
-							1.2660766
+							103.9852907,
+							1.3538115
+						],
+						[
+							103.9852727,
+							1.3538194
+						],
+						[
+							103.9853994,
+							1.354122
 						]
 					]
-				]
-			}
+				],
+				"type": "Polygon"
+			},
+			"id": 1678346752,
+			"properties": {
+				"station_codes": "A",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 262488128,
-			"properties": {
-				"station_codes": "S1",
-				"underground": false,
-				"type": "monorail"
-			},
 			"geometry": {
-				"type": "Polygon",
+				"coordinates": [
+					[
+						[
+							103.9838055,
+							1.3504552
+						],
+						[
+							103.9838457,
+							1.3504387
+						],
+						[
+							103.9838704,
+							1.3504285
+						],
+						[
+							103.9839658,
+							1.3503893
+						],
+						[
+							103.9840137,
+							1.3503696
+						],
+						[
+							103.9840643,
+							1.3503488
+						],
+						[
+							103.9841105,
+							1.3503298
+						],
+						[
+							103.9840637,
+							1.3502162
+						],
+						[
+							103.9839445,
+							1.3499267
+						],
+						[
+							103.9839125,
+							1.3499398
+						],
+						[
+							103.9838716,
+							1.3498406
+						],
+						[
+							103.9837551,
+							1.3498886
+						],
+						[
+							103.9837601,
+							1.3499009
+						],
+						[
+							103.9836038,
+							1.3499652
+						],
+						[
+							103.9838055,
+							1.3504552
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 1045876488,
+			"properties": {
+				"station_codes": "A South",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.9873001,
+							1.3586302
+						],
+						[
+							103.9873056,
+							1.3586279
+						],
+						[
+							103.9873171,
+							1.358623
+						],
+						[
+							103.9873393,
+							1.3586138
+						],
+						[
+							103.9873803,
+							1.3587115
+						],
+						[
+							103.9874578,
+							1.358679
+						],
+						[
+							103.987489,
+							1.358666
+						],
+						[
+							103.9874475,
+							1.358567
+						],
+						[
+							103.9875181,
+							1.3585383
+						],
+						[
+							103.9875382,
+							1.3585295
+						],
+						[
+							103.987562,
+							1.358519
+						],
+						[
+							103.9874362,
+							1.3582189
+						],
+						[
+							103.9872586,
+							1.3582933
+						],
+						[
+							103.9871738,
+							1.3583289
+						],
+						[
+							103.9873001,
+							1.3586302
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 3601299650,
+			"properties": {
+				"station_codes": "B",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.989079,
+							1.3621988
+						],
+						[
+							103.9889451,
+							1.3622565
+						],
+						[
+							103.9889221,
+							1.3622031
+						],
+						[
+							103.9888076,
+							1.3619372
+						],
+						[
+							103.9887609,
+							1.3618282
+						],
+						[
+							103.9887867,
+							1.3618173
+						],
+						[
+							103.9887993,
+							1.3618122
+						],
+						[
+							103.9888107,
+							1.3618073
+						],
+						[
+							103.9888534,
+							1.3617889
+						],
+						[
+							103.9888685,
+							1.3617824
+						],
+						[
+							103.9888945,
+							1.3617712
+						],
+						[
+							103.9889172,
+							1.3618238
+						],
+						[
+							103.989079,
+							1.3621988
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 513759486,
+			"properties": {
+				"station_codes": "C",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.9888948,
+							1.3624458
+						],
+						[
+							103.9887222,
+							1.3620486
+						],
+						[
+							103.9886937,
+							1.3619833
+						],
+						[
+							103.9887702,
+							1.3619523
+						],
+						[
+							103.988788,
+							1.3619452
+						],
+						[
+							103.9888076,
+							1.3619372
+						],
+						[
+							103.9889221,
+							1.3622031
+						],
+						[
+							103.9889451,
+							1.3622565
+						],
+						[
+							103.9889307,
+							1.3622638
+						],
+						[
+							103.98899,
+							1.3624043
+						],
+						[
+							103.9888948,
+							1.3624458
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 3279312293,
+			"properties": {
+				"station_codes": "C",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.9918119,
+							1.3612118
+						],
+						[
+							103.9918505,
+							1.3611953
+						],
+						[
+							103.9919308,
+							1.3611609
+						],
+						[
+							103.9919734,
+							1.3611426
+						],
+						[
+							103.9919319,
+							1.3610457
+						],
+						[
+							103.991835,
+							1.3608195
+						],
+						[
+							103.9917923,
+							1.3608378
+						],
+						[
+							103.9917121,
+							1.3608722
+						],
+						[
+							103.9916722,
+							1.3608892
+						],
+						[
+							103.9918119,
+							1.3612118
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 19424388,
+			"properties": {
+				"station_codes": "D",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.9898234,
+							1.3568582
+						],
+						[
+							103.9898798,
+							1.3569899
+						],
+						[
+							103.9899996,
+							1.3572618
+						],
+						[
+							103.9900853,
+							1.3572244
+						],
+						[
+							103.9901058,
+							1.3572154
+						],
+						[
+							103.9901515,
+							1.3571955
+						],
+						[
+							103.9901896,
+							1.3571788
+						],
+						[
+							103.9902511,
+							1.357152
+						],
+						[
+							103.9900749,
+							1.3567485
+						],
+						[
+							103.989854,
+							1.3568448
+						],
+						[
+							103.9898234,
+							1.3568582
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 1942377286,
+			"properties": {
+				"station_codes": "E",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[
+							103.9886159,
+							1.35354
+						],
+						[
+							103.9886342,
+							1.3535323
+						],
+						[
+							103.9887146,
+							1.3534983
+						],
+						[
+							103.988581,
+							1.3531821
+						],
+						[
+							103.9885571,
+							1.3531922
+						],
+						[
+							103.9885437,
+							1.3531979
+						],
+						[
+							103.988522,
+							1.353207
+						],
+						[
+							103.9884824,
+							1.3532237
+						],
+						[
+							103.9886159,
+							1.35354
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 10797097,
+			"properties": {
+				"station_codes": "F",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
 				"coordinates": [
 					[
 						[
@@ -705,19 +1152,59 @@
 							1.2660105
 						]
 					]
-				]
-			}
+				],
+				"type": "Polygon"
+			},
+			"id": 262488128,
+			"properties": {
+				"station_codes": "S1",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 2686558752,
-			"properties": {
-				"station_codes": "S2",
-				"underground": false,
-				"type": "monorail"
-			},
 			"geometry": {
-				"type": "Polygon",
+				"coordinates": [
+					[
+						[
+							103.8203742,
+							1.2660766
+						],
+						[
+							103.8203701,
+							1.2660213
+						],
+						[
+							103.8203653,
+							1.265957
+						],
+						[
+							103.8205741,
+							1.2659414
+						],
+						[
+							103.8205831,
+							1.266061
+						],
+						[
+							103.8203742,
+							1.2660766
+						]
+					]
+				],
+				"type": "Polygon"
+			},
+			"id": 1133976547,
+			"properties": {
+				"station_codes": "S1",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": {
 				"coordinates": [
 					[
 						[
@@ -789,19 +1276,19 @@
 							1.2557907
 						]
 					]
-				]
-			}
+				],
+				"type": "Polygon"
+			},
+			"id": 2686558752,
+			"properties": {
+				"station_codes": "S2",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 1762077798,
-			"properties": {
-				"station_codes": "S3",
-				"underground": false,
-				"type": "monorail"
-			},
 			"geometry": {
-				"type": "Polygon",
 				"coordinates": [
 					[
 						[
@@ -889,19 +1376,19 @@
 							1.2540821
 						]
 					]
-				]
-			}
+				],
+				"type": "Polygon"
+			},
+			"id": 1762077798,
+			"properties": {
+				"station_codes": "S3",
+				"type": "monorail",
+				"underground": false
+			},
+			"type": "Feature"
 		},
 		{
-			"type": "Feature",
-			"id": 2986044226,
-			"properties": {
-				"station_codes": "S4",
-				"underground": false,
-				"type": "monorail"
-			},
 			"geometry": {
-				"type": "Polygon",
 				"coordinates": [
 					[
 						[
@@ -949,504 +1436,17 @@
 							1.251147
 						]
 					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1678346752,
-			"properties": {
-				"station_codes": "A",
-				"underground": false,
-				"type": "monorail"
+				],
+				"type": "Polygon"
 			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9853994,
-							1.354122
-						],
-						[
-							103.9856427,
-							1.3540202
-						],
-						[
-							103.9855161,
-							1.3537176
-						],
-						[
-							103.9854493,
-							1.3537455
-						],
-						[
-							103.9853917,
-							1.3537696
-						],
-						[
-							103.9852907,
-							1.3538115
-						],
-						[
-							103.9852727,
-							1.3538194
-						],
-						[
-							103.9853994,
-							1.354122
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1045876488,
+			"id": 2986044226,
 			"properties": {
-				"station_codes": "A South",
-				"underground": false,
-				"type": "monorail"
+				"station_codes": "S4",
+				"type": "monorail",
+				"underground": false
 			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9838055,
-							1.3504552
-						],
-						[
-							103.9838457,
-							1.3504387
-						],
-						[
-							103.9838704,
-							1.3504285
-						],
-						[
-							103.9839658,
-							1.3503893
-						],
-						[
-							103.9840137,
-							1.3503696
-						],
-						[
-							103.9840643,
-							1.3503488
-						],
-						[
-							103.9841105,
-							1.3503298
-						],
-						[
-							103.9840637,
-							1.3502162
-						],
-						[
-							103.9839445,
-							1.3499267
-						],
-						[
-							103.9839125,
-							1.3499398
-						],
-						[
-							103.9838716,
-							1.3498406
-						],
-						[
-							103.9837551,
-							1.3498886
-						],
-						[
-							103.9837601,
-							1.3499009
-						],
-						[
-							103.9836038,
-							1.3499652
-						],
-						[
-							103.9838055,
-							1.3504552
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 3601299650,
-			"properties": {
-				"station_codes": "B",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9873001,
-							1.3586302
-						],
-						[
-							103.9873056,
-							1.3586279
-						],
-						[
-							103.9873171,
-							1.358623
-						],
-						[
-							103.9873393,
-							1.3586138
-						],
-						[
-							103.9873803,
-							1.3587115
-						],
-						[
-							103.9874578,
-							1.358679
-						],
-						[
-							103.987489,
-							1.358666
-						],
-						[
-							103.9874475,
-							1.358567
-						],
-						[
-							103.9875181,
-							1.3585383
-						],
-						[
-							103.9875382,
-							1.3585295
-						],
-						[
-							103.987562,
-							1.358519
-						],
-						[
-							103.9874362,
-							1.3582189
-						],
-						[
-							103.9872586,
-							1.3582933
-						],
-						[
-							103.9871738,
-							1.3583289
-						],
-						[
-							103.9873001,
-							1.3586302
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 3279312293,
-			"properties": {
-				"station_codes": "C",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9888948,
-							1.3624458
-						],
-						[
-							103.9887222,
-							1.3620486
-						],
-						[
-							103.9886937,
-							1.3619833
-						],
-						[
-							103.9887702,
-							1.3619523
-						],
-						[
-							103.988788,
-							1.3619452
-						],
-						[
-							103.9888076,
-							1.3619372
-						],
-						[
-							103.9889221,
-							1.3622031
-						],
-						[
-							103.9889451,
-							1.3622565
-						],
-						[
-							103.9889307,
-							1.3622638
-						],
-						[
-							103.98899,
-							1.3624043
-						],
-						[
-							103.9888948,
-							1.3624458
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 513759486,
-			"properties": {
-				"station_codes": "C",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.989079,
-							1.3621988
-						],
-						[
-							103.9889451,
-							1.3622565
-						],
-						[
-							103.9889221,
-							1.3622031
-						],
-						[
-							103.9888076,
-							1.3619372
-						],
-						[
-							103.9887609,
-							1.3618282
-						],
-						[
-							103.9887867,
-							1.3618173
-						],
-						[
-							103.9887993,
-							1.3618122
-						],
-						[
-							103.9888107,
-							1.3618073
-						],
-						[
-							103.9888534,
-							1.3617889
-						],
-						[
-							103.9888685,
-							1.3617824
-						],
-						[
-							103.9888945,
-							1.3617712
-						],
-						[
-							103.9889172,
-							1.3618238
-						],
-						[
-							103.989079,
-							1.3621988
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 19424388,
-			"properties": {
-				"station_codes": "D",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9918119,
-							1.3612118
-						],
-						[
-							103.9918505,
-							1.3611953
-						],
-						[
-							103.9919308,
-							1.3611609
-						],
-						[
-							103.9919734,
-							1.3611426
-						],
-						[
-							103.9919319,
-							1.3610457
-						],
-						[
-							103.991835,
-							1.3608195
-						],
-						[
-							103.9917923,
-							1.3608378
-						],
-						[
-							103.9917121,
-							1.3608722
-						],
-						[
-							103.9916722,
-							1.3608892
-						],
-						[
-							103.9918119,
-							1.3612118
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 1942377286,
-			"properties": {
-				"station_codes": "E",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9898234,
-							1.3568582
-						],
-						[
-							103.9898798,
-							1.3569899
-						],
-						[
-							103.9899996,
-							1.3572618
-						],
-						[
-							103.9900853,
-							1.3572244
-						],
-						[
-							103.9901058,
-							1.3572154
-						],
-						[
-							103.9901515,
-							1.3571955
-						],
-						[
-							103.9901896,
-							1.3571788
-						],
-						[
-							103.9902511,
-							1.357152
-						],
-						[
-							103.9900749,
-							1.3567485
-						],
-						[
-							103.989854,
-							1.3568448
-						],
-						[
-							103.9898234,
-							1.3568582
-						]
-					]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"id": 10797097,
-			"properties": {
-				"station_codes": "F",
-				"underground": false,
-				"type": "monorail"
-			},
-			"geometry": {
-				"type": "Polygon",
-				"coordinates": [
-					[
-						[
-							103.9886159,
-							1.35354
-						],
-						[
-							103.9886342,
-							1.3535323
-						],
-						[
-							103.9887146,
-							1.3534983
-						],
-						[
-							103.988581,
-							1.3531821
-						],
-						[
-							103.9885571,
-							1.3531922
-						],
-						[
-							103.9885437,
-							1.3531979
-						],
-						[
-							103.988522,
-							1.353207
-						],
-						[
-							103.9884824,
-							1.3532237
-						],
-						[
-							103.9886159,
-							1.35354
-						]
-					]
-				]
-			}
+			"type": "Feature"
 		}
-	]
+	],
+	"type": "FeatureCollection"
 }
