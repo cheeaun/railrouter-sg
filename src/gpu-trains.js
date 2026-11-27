@@ -771,7 +771,9 @@ void main() {
   float w = screen.z - height * gradW * sinPitch / cosPitch;
   // Map w monotonically into clip depth without the plateau a hard clamp gives:
   // smaller w (nearer) maps smaller and so wins the LESS test.
-  float depth = clamp(1.0 - 2.0 / (max(w, 0.0) + 1.0), -1.0, 1.0);
+  // To eliminate flickering due to z-fighting, a tiny stable per-trip bias breaks ties between overlapping trains. 0.618034 is the golden ratio conjugate, 1/φ = φ - 1. So fract(n * 0.618034) is a cheap hash that spreads integer keys evenly over [0, 1).
+  float bias = fract((aTrip.x + aTrip.y) * 0.618034) * 1e-4;
+  float depth = clamp(1.0 - 2.0 / (max(w, 0.0) + 1.0) - bias, -1.0, 1.0);
   gl_Position = vec4(
     css.x / uViewport.x * 2.0 - 1.0,
     1.0 - css.y / uViewport.y * 2.0,
