@@ -1133,10 +1133,28 @@ const stationHash = (properties) => {
     fuse = new Fuse(stationsData, {
       distance: 5,
       includeMatches: true,
+      includeScore: true,
       keys: [
         'properties.name',
         'properties.name_zh-Hans',
         'properties.name_ta',
+        {
+          name: 'properties.network',
+          getFn: (obj) => {
+            const network = obj.properties.network || '';
+            // Only other networks: "changi" / "sentosa" should find them.
+            if (network.startsWith('singapore-')) return [];
+            // Index the words and the display name.
+            return [
+              ...network.split('-'),
+              network
+                .split('-')
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' '),
+            ];
+          },
+          weight: 0.05,
+        },
         {
           name: 'station_codes',
           getFn: (obj) => {
@@ -1491,7 +1509,17 @@ $searchField.oninput = () => {
   if (!fuse) return;
   const value = $searchField.value.trim();
   const results = fuse.search(value);
-  $searchResults.innerHTML = results
+  // Prioritise MRT/LRT among relevant matches. Weak fuzzy matches stay last,
+  // so "sentosa" / "skytrain" still surface their own stations first.
+  const strong = results.filter((r) => r.score < 0.6);
+  const weak = results.filter((r) => r.score >= 0.6);
+  const isMRTOrLRT = (r) => (r.item.properties.network || '').startsWith('singapore-');
+  const ordered = [
+    ...strong.filter(isMRTOrLRT),
+    ...strong.filter((r) => !isMRTOrLRT(r)),
+    ...weak,
+  ];
+  $searchResults.innerHTML = ordered
     .slice(0, 10)
     .map((r) => {
       const {
