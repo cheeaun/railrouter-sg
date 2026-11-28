@@ -509,8 +509,8 @@ abbr {
   margin-top: 2px;
   line-height: 1.25;
 }
-/* LTA's platform display sets the direction (Clockwise / Anticlockwise) small
-   and light, with the directional cue — "via Serangoon", "ends at Dhoby Ghaut"
+/* LTA's platform display sets the direction ("Clockwise", "towards Sengkang")
+   small and light, with the directional cue — "via Serangoon", "via Kangkar"
    — at normal size underneath it. */
 .arrival-heading {
   display: block;

@@ -60,9 +60,9 @@ function draw(el, rows, now) {
           : `${minutes}<small> min${minutes === 1 ? '' : 's'}</small>`;
         cells += `<td class="arrival-time" title="${clockTime(time.at)}">${content}</td>`;
       }
-      // LTA's display sets the direction (Clockwise / Anticlockwise) small and
-      // light, then the qualifier — "via Serangoon" or "ends at Dhoby Ghaut" —
-      // at normal size underneath it.
+      // LTA's display sets the direction ("Clockwise", "towards Sengkang")
+      // small and light, then the qualifier — "via Serangoon" or "via Kangkar"
+      // — at normal size underneath it.
       const directionHtml = qualifier
         ? `<span class="arrival-heading">${direction}</span><span class="arrival-qualifier">${qualifier}</span>`
         : direction;

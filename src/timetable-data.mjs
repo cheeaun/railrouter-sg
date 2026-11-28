@@ -7,13 +7,17 @@
 // station indices, which is all this module needs to answer "what leaves this
 // station next?".
 //
-// Direction copy follows LTA's Circle Line wayfinding, the only full-loop line
-// in Singapore. Its platform display names a direction one of two ways:
+// Direction copy follows LTA's platform wording. The Circle Line, the only
+// full-loop MRT line in Singapore, names a direction one of two ways:
 //   "via <next interchange>"  for a through (loop) service, and
 //   "ends at <terminus>"      for a service that terminates.
 // The direction itself is Clockwise / Anticlockwise, which only the geometry
 // can tell: a loop trip's GTFS headsign is sometimes the compass direction and
 // sometimes the terminus it happens to end at.
+//
+// The LRT loops (Bukit Panjang, Sengkang, Punggol) use LTA's localised copy
+// instead: "towards <hub> via <next station>" at intermediate stops, and
+// "via <first station>" at the hub. Both parts are derived from the stop order.
 
 import { decodeInts, decodeProfile, decodeCoords, decodeDeltas } from './gtfs-codec.mjs';
 
@@ -181,6 +185,11 @@ export function timetableFor(data, stationNames = new Map()) {
     // Only a loop line gets LTA's Clockwise/Anticlockwise copy. Every other
     // line just names the terminus it is heading for.
     const loop = loopOrderFor(line);
+    // The LRT networks are loops too, but LTA does not use Clockwise /
+    // Anticlockwise there. Its station copy is localised to the loop hub and
+    // the next stop, e.g. "towards Sengkang via Kangkar". Both are derived from
+    // the stop order, so no wording is hardcoded.
+    const isLrt = /LRT/i.test(line.name || '');
 
     for (const path of line.paths) {
       if (!path.st) continue;
@@ -196,6 +205,9 @@ export function timetableFor(data, stationNames = new Map()) {
       // nearly straight, so the area it encloses is a sliver whose sign says
       // nothing about which way round the train is going.
       const direction = loop ? loop.directionOf(stops) : headsign;
+      // The LRT loop's hub: the station it starts and ends at. Every LRT path is
+      // a closed loop around this hub.
+      const lrtHub = isLrt ? stationCodes[stops[0]] : null;
 
       // The final stop is excluded: a train that ends its run here has no
       // onward direction to label it with, and a rider at a terminus wants the
@@ -204,9 +216,20 @@ export function timetableFor(data, stationNames = new Map()) {
         const key = stationCodes[stops[stopIndex]];
         if (!key) continue;
 
+        const nextStation = stationCodes[stops[stopIndex + 1]];
+
         let qualifier = null;
         let qualifierStation = null;
-        if (loop) {
+        if (isLrt) {
+          // At the hub, the direction is the first stop out ("via Compassvale"),
+          // matching LTA's platform copy. Elsewhere the loop returns to the hub,
+          // so the direction is "towards <hub>" and the next stop is the via.
+          // The via is dropped when the next stop is the hub itself.
+          if (stopIndex !== 0 && nextStation !== lrtHub) {
+            qualifier = 'via';
+            qualifierStation = nextStation;
+          }
+        } else if (loop) {
           if (closed) {
             // A closed loop has no terminus, so it is always "via" the next
             // interchange ahead. The search wraps past the end of the path,
@@ -235,12 +258,21 @@ export function timetableFor(data, stationNames = new Map()) {
           lineKey,
           path,
           stopIndex,
-          direction,
+          // On LRT the direction is a keyword plus a station code, resolved when
+          // the rows are built so names can arrive later.
+          direction: isLrt ? (stopIndex === 0 ? 'via' : 'towards') : direction,
+          directionStation: isLrt
+            ? stationCodes[stopIndex === 0 ? stops[1] : stops[0]]
+            : null,
           // Whether this entry is a loop line's, which decides how rows are
           // grouped and labelled. Keyed on the line rather than on the qualifier
           // being present: a loop stop with no interchange ahead still belongs
           // to the loop and must not fall back to plain-line labelling.
           isLoop: Boolean(loop),
+          // LRT loops group by the next stop, not by the direction: both ways
+          // round share one "towards <hub>" label, so the next stop is what
+          // separates them.
+          isLrt,
           // The copy is stored as a keyword plus the station *code*; the name
           // is resolved when the rows are built. Names come from a separate
           // fetch that may not have landed when this index is first built, and
@@ -251,7 +283,7 @@ export function timetableFor(data, stationNames = new Map()) {
           // On a plain line the direction is the next station (several trains
           // can run the same way yet terminate at different stations), and the
           // terminus of the dominant pattern is only the label.
-          nextStation: stationCodes[stops[stopIndex + 1]],
+          nextStation,
           labelStation: terminus,
           trips,
         });
@@ -282,15 +314,20 @@ export function arrivalsAt(timetable, stationKey, { services, seconds, limit = 2
   // Collect the next arrivals per line+direction. Each carries its own copy.
   const directions = new Map();
   for (const entry of entries) {
-    const { path, stopIndex, lineKey, direction, isLoop, qualifier, qualifierStation, nextStation, labelStation, trips } = entry;
+    const { path, stopIndex, lineKey, direction: rawDirection, directionStation, isLoop, isLrt, qualifier, qualifierStation, nextStation, labelStation, trips } = entry;
     const { starts, codes, profiles } = decodePath(path);
     const label = nameOf(labelStation);
+    // An LRT direction is stored as a keyword ("towards"/"via") plus a station
+    // code; the Circle Line's is already a finished word.
+    const direction = directionStation ? `${rawDirection} ${nameOf(directionStation)}` : rawDirection;
 
     // On a plain line the direction is the next station: several trains can run
     // the same way yet terminate at different stations, and grouping by
-    // terminus would split one direction into a row per terminus. On a loop the
-    // direction is Clockwise/Anticlockwise.
-    const dirKey = isLoop ? `${lineKey}|${direction}` : `${lineKey}|next|${nextStation}`;
+    // terminus would split one direction into a row per terminus. On the Circle
+    // Line the two ways round are already distinct. LRT loop rows share a
+    // "towards <hub>" direction, so they group by the next stop instead.
+    const dirKey =
+      isLoop && !isLrt ? `${lineKey}|${direction}` : `${lineKey}|next|${nextStation}`;
     let group = directions.get(dirKey);
     if (!group) {
       directions.set(

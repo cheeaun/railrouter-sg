@@ -463,3 +463,110 @@ test('short-turn paths on a plain line share one row', () => {
   assert.equal(rows.length, 1);
   assert.deepEqual(arrivalSeconds(rows[0]), [28800, 29000]);
 });
+
+// The LRT networks are loops, but LTA does not use Clockwise/Anticlockwise
+// there. Its station copy is "towards <hub> via <next stop>" at intermediate
+// stops and "via <first stop>" at the hub. Everything is derived from the stop
+// order, so no wording is hardcoded.
+const LRT_NAMES = new Map([
+  ['H', 'HubTown'],
+  ['P', 'Pine'],
+  ['Q', 'Quartz'],
+  ['R', 'Rose'],
+]);
+
+function lrtFixture() {
+  const ring = [
+    [103.8, 1.3],
+    [103.81, 1.3],
+    [103.81, 1.31],
+    [103.8, 1.31],
+    [103.8, 1.3],
+  ];
+  const profile = encodeProfile([
+    [0, 0],
+    [60, 90],
+    [120, 150],
+    [180, 210],
+    [240, 240],
+  ]);
+  // Ring H -> P -> Q -> R -> H.
+  const outer = {
+    ci: encodeDeltas([0, 1, 2, 3, 4]),
+    s: encodeInts([0, 1000, 2000, 3000, 4000]),
+    st: encodeInts([0, 1, 1, 1, -3]),
+    h: 0,
+    p: [profile],
+    t: encodeInts([28800, ...Array(20).fill(240)]),
+    tp: encodeInts(Array(21).fill(0)),
+  };
+  // The same ring the other way round: H -> R -> Q -> P -> H.
+  const inner = {
+    ci: encodeDeltas([0, 3, 2, 1, 0]),
+    s: encodeInts([0, 1000, 2000, 3000, 4000]),
+    st: encodeInts([0, 3, -1, -1, -1]),
+    h: 1,
+    p: [profile],
+    t: encodeInts([28920, ...Array(20).fill(240)]),
+    tp: encodeInts(Array(21).fill(0)),
+  };
+  return {
+    stations: ['H', 'P', 'Q', 'R'],
+    headsigns: ['Outer Loop', 'Inner Loop'],
+    services: weekday,
+    lines: {
+      'Test LRT': {
+        name: 'Test LRT (Loop)',
+        code: 'TL',
+        order: 1,
+        color: '#123456',
+        verts: encodeCoords(ring),
+        paths: [outer, inner],
+      },
+    },
+  };
+}
+
+test('an LRT loop uses "towards <hub> via <next stop>", not clockwise copy', () => {
+  const rows = arrivalsAt(timetableFor(lrtFixture(), LRT_NAMES), 'P', {
+    services: weekdayServices,
+    seconds: 8 * 3600,
+  });
+  // P is an intermediate stop: both ways round head back to the hub, but via
+  // different next stops, so the via tells them apart.
+  assert.equal(rows.length, 2);
+  for (const row of rows) {
+    assert.equal(row.direction, 'towards HubTown');
+    assert.ok(!/clockwise/i.test(row.direction));
+  }
+  assert.deepEqual(
+    rows.map((row) => row.qualifier).sort(),
+    [null, 'via Quartz'].sort(),
+  );
+});
+
+test('an LRT at the hub names the first stop out', () => {
+  const rows = arrivalsAt(timetableFor(lrtFixture(), LRT_NAMES), 'H', {
+    services: weekdayServices,
+    seconds: 8 * 3600,
+  });
+  assert.equal(rows.length, 2);
+  assert.deepEqual(
+    rows.map((row) => row.direction).sort(),
+    ['via Pine', 'via Rose'],
+  );
+  for (const row of rows) assert.equal(row.qualifier, null);
+});
+
+test('an LRT does not repeat the hub as its own via', () => {
+  const rows = arrivalsAt(timetableFor(lrtFixture(), LRT_NAMES), 'R', {
+    services: weekdayServices,
+    seconds: 8 * 3600,
+  });
+  // R is the stop just before the hub on the outer ring: "towards HubTown",
+  // with no redundant "via HubTown".
+  assert.ok(
+    rows.some((row) => row.direction === 'towards HubTown' && row.qualifier === null),
+    'expected a towards-hub row with no qualifier',
+  );
+});
