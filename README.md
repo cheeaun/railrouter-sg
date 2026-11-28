@@ -1,8 +1,10 @@
 # RailRouter SG
 
-![Screenshot of RailRouter SG](screenshots/screenshot-10.png)
+![Screenshot of RailRouter SG](screenshots/screenshot-12.jpg)
 
-![Screenshot of RailRouter SG](screenshots/screenshot-11.png)
+![Screenshot of RailRouter SG](screenshots/screenshot-13.jpg)
+
+![Screenshot of scheduled trains in 3D on RailRouter SG](screenshots/screenshot-14.jpg)
 
 **RailRouter SG** is a **progressive web app** that lets you explore MRT and LRT rail routes in Singapore.
 
